@@ -62,9 +62,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-new-article" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-angular新建组件方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/06/new-article/" class="article-date">
+    <a href="/2019/03/06/angular新建组件方法/" class="article-date">
   <time datetime="2019-03-06T11:16:06.000Z" itemprop="datePublished">2019-03-06</time>
 </a>
     
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/06/new-article/">angular新建组件方法</a>
+      <a class="article-title" href="/2019/03/06/angular新建组件方法/">angular新建组件方法</a>
     </h1>
   
 
@@ -103,52 +103,51 @@
 </ul>
 <ul>
 <li><p>在name.component.ts文件中数据以下内容</p>
-<blockquote>
 <p>import { Component } from “@angular/core”;</p>
 <p>import { Template } from ‘@angular/compiler/src/render3/r3_ast’;</p>
-<p>@Component({</p>
-<p>​    selector:’app-name’,(name为你的组件名称)</p>
-<p>​    templateUrl:’./name.component.html’<code>此处为你的组建中新建的html文件的路径</code></p>
-<p>})</p>
-<p>export class HeaderComponent{</p>
-<p>​    </p>
-<p>}</p>
-</blockquote>
-<p>示例代码</p>
-<blockquote>
-<p>import { Component } from “@angular/core”;</p>
-<p>import { Template } from ‘@angular/compiler/src/render3/r3_ast’;</p>
-<p>@Component({</p>
-<p>​    selector:’app-header’,</p>
-<p>​    templateUrl:’./header.component.html’</p>
-<p>})</p>
-<p>export class HeaderComponent{</p>
-<p>​    </p>
-<p>}</p>
-</blockquote>
-</li>
-<li><p>找到app.module.ts文件，将nameCompontent添加到@NgModule中，同时在文件头部添加import { NameComponent } from ‘./header/header.compoment’; <code>此处是你组件的路径</code></p>
-<p>示例代码</p>
-<blockquote>
-<p>import { BrowserModule } from ‘@angular/platform-browser’;</p>
-<p>import { NgModule } from ‘@angular/core’;</p>
-<p>import { AppComponent } from ‘./app.component’;</p>
-<p>import { HeaderComponent } from ‘./header/header.compoment’;</p>
-<p>@NgModule({</p>
-<p>  declarations: [</p>
-<p>​    AppComponent,</p>
-<p>​    HeaderComponent,</p>
-<p>  ],</p>
-<p>  imports: [</p>
-<p>​    BrowserModule</p>
-<p>  ],</p>
-<p>  providers: [],</p>
-<p>  bootstrap: [AppComponent]</p>
-<p>})</p>
-<p>export class AppModule { }</p>
-</blockquote>
 </li>
 </ul>
+<p>  @Component({</p>
+<p>  ​    selector:’app-name’,(name为你的组件名称)</p>
+<p>  ​    templateUrl:’./name.component.html’<code>此处为你的组建中新建的html文件的路径</code></p>
+<p>  })</p>
+<p>  export class HeaderComponent{</p>
+<p>  ​    </p>
+<p>  }</p>
+<p>  示例代码</p>
+<p>  import { Component } from “@angular/core”;</p>
+<p>  import { Template } from ‘@angular/compiler/src/render3/r3_ast’;</p>
+<p>  @Component({</p>
+<p>  ​    selector:’app-header’,</p>
+<p>  ​    templateUrl:’./header.component.html’</p>
+<p>  })</p>
+<p>  export class HeaderComponent{</p>
+<p>  ​    </p>
+<p>  }</p>
+<ul>
+<li><p>找到app.module.ts文件，将nameCompontent添加到@NgModule中，同时在文件头部添加import { NameComponent } from ‘./header/header.compoment’; <code>此处是你组件的路径</code></p>
+<p>示例代码</p>
+<p>import { BrowserModule } from ‘@angular/platform-browser’;</p>
+<p>import { NgModule } from ‘@angular/core’;</p>
+</li>
+</ul>
+<p>  import { AppComponent } from ‘./app.component’;</p>
+<p>  import { HeaderComponent } from ‘./header/header.compoment’;</p>
+<p>  @NgModule({</p>
+<pre><code>declarations: [
+</code></pre><p>  ​    AppComponent,</p>
+<p>  ​    HeaderComponent,</p>
+<pre><code>],
+
+imports: [
+</code></pre><p>  ​    BrowserModule</p>
+<pre><code>],
+
+providers: [],
+
+bootstrap: [AppComponent]
+</code></pre><p>  })</p>
+<p>  export class AppModule { }</p>
 <h3 id="组件新建成功，可以开始在组件中添加内容了"><a href="#组件新建成功，可以开始在组件中添加内容了" class="headerlink" title="组件新建成功，可以开始在组件中添加内容了"></a>组件新建成功，可以开始在组件中添加内容了</h3><h2 id="方法二：命令行方式"><a href="#方法二：命令行方式" class="headerlink" title="方法二：命令行方式"></a>方法二：命令行方式</h2><ul>
 <li>在cmd中cd到project-app文件夹</li>
 <li>输入ng g c header即可创建组件，自动完成了以上步骤</li>
@@ -157,102 +156,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/06/new-article/" data-id="cjsx401y40001iowunxivixgf" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-angular新建组件方法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/06/angular新建组件方法/" class="article-date">
-  <time datetime="2019-03-06T10:58:05.998Z" itemprop="datePublished">2019-03-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="angular新建组件方法"><a href="#angular新建组件方法" class="headerlink" title="angular新建组件方法"></a>angular新建组件方法</h1><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p><strong>工具</strong>：vs code</p>
-<p><strong>项目名</strong>：project-app</p>
-<p><strong>步骤</strong>：</p>
-<ul>
-<li><p>vs code打开project-app项目</p>
-</li>
-<li><p>打开src文件夹</p>
-</li>
-<li><p>进入app文件夹</p>
-</li>
-<li><p>在app文件夹中新建一个文件夹作为组件文件夹</p>
-</li>
-<li><p>在文件夹中创建两个文件命名为 name.component.ts(name为你的组件名称)、name.component.html</p>
-<p><code>示例组件如下</code></p>
-<p><img src="C:\Users\28715\AppData\Local\Temp\1551869449908.png" alt="1551869449908"></p>
-</li>
-</ul>
-<ul>
-<li><p>在name.component.ts文件中数据以下内容</p>
-<blockquote>
-<p>import { Component } from “@angular/core”;</p>
-<p>import { Template } from ‘@angular/compiler/src/render3/r3_ast’;</p>
-<p>@Component({</p>
-<p>​    selector:’app-name’,(name为你的组件名称)</p>
-<p>​    templateUrl:’./name.component.html’<code>此处为你的组建中新建的html文件的路径</code></p>
-<p>})</p>
-<p>export class HeaderComponent{</p>
-<p>​    </p>
-<p>}</p>
-</blockquote>
-<p>示例代码</p>
-<blockquote>
-<p>import { Component } from “@angular/core”;</p>
-<p>import { Template } from ‘@angular/compiler/src/render3/r3_ast’;</p>
-<p>@Component({</p>
-<p>​    selector:’app-header’,</p>
-<p>​    templateUrl:’./header.component.html’</p>
-<p>})</p>
-<p>export class HeaderComponent{</p>
-<p>​    </p>
-<p>}</p>
-</blockquote>
-</li>
-<li><p>找到app.module.ts文件，将nameCompontent添加到@NgModule中，同时在文件头部添加import { NameComponent } from ‘./header/header.compoment’; <code>此处是你组件的路径</code></p>
-<p>示例代码</p>
-<blockquote>
-<p>import { BrowserModule } from ‘@angular/platform-browser’;</p>
-<p>import { NgModule } from ‘@angular/core’;</p>
-<p>import { AppComponent } from ‘./app.component’;</p>
-<p>import { HeaderComponent } from ‘./header/header.compoment’;</p>
-<p>@NgModule({</p>
-<p>  declarations: [</p>
-<p>​    AppComponent,</p>
-<p>​    HeaderComponent,</p>
-<p>  ],</p>
-<p>  imports: [</p>
-<p>​    BrowserModule</p>
-<p>  ],</p>
-<p>  providers: [],</p>
-<p>  bootstrap: [AppComponent]</p>
-<p>})</p>
-<p>export class AppModule { }</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="组件新建成功，可以开始在组件中添加内容了"><a href="#组件新建成功，可以开始在组件中添加内容了" class="headerlink" title="组件新建成功，可以开始在组件中添加内容了"></a>组件新建成功，可以开始在组件中添加内容了</h3><h2 id="方法二：命令行方式"><a href="#方法二：命令行方式" class="headerlink" title="方法二：命令行方式"></a>方法二：命令行方式</h2><ul>
-<li>在cmd中cd到project-app文件夹</li>
-<li>输入ng g c header即可创建组件，自动完成了以上步骤</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/06/angular新建组件方法/" data-id="cjsx401xy0000iowuynm5dcyx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/06/angular新建组件方法/" data-id="cjsx438nh0000rswu4zgc38lf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -297,7 +201,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/06/hello-world/" data-id="cjsx401zj0002iowudkt713an" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/06/hello-world/" data-id="cjsx438nx0001rswu9p341d0s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -338,11 +242,7 @@
       <ul>
         
           <li>
-            <a href="/2019/03/06/new-article/">angular新建组件方法</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/06/angular新建组件方法/">(no title)</a>
+            <a href="/2019/03/06/angular新建组件方法/">angular新建组件方法</a>
           </li>
         
           <li>
