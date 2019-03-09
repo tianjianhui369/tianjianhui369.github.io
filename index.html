@@ -183,7 +183,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/survey-js介绍/">survey.js介绍</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular-Components-Databinding/">Angular Components&Databinding</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/survey-js介绍/">survey.js介绍</a></li></ul>
                     </div>
                 </section>
                 
@@ -259,6 +259,106 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Angular-Component-databinding" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/09/Angular-Component-databinding/" class="article-date">
+      <time datetime="2019-03-09T14:43:53.000Z" itemprop="datePublished">2019-03-09</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/09/Angular-Component-databinding/">Angular Component$databinding</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Components-amp-Databinding详解"><a href="#Components-amp-Databinding详解" class="headerlink" title="Components&amp;Databinding详解"></a>Components&amp;Databinding详解</h1><h3 id="组件划分"><a href="#组件划分" class="headerlink" title="组件划分"></a>组件划分</h3><p>​    可以将一个大的组件划分成多个小的组件，直接将大组件中的代码剪切到小组件中</p>
+<p>​    然后将大组件的ts文件中为这段代码所定义的模块剪切到小组件的ts文件中。</p>
+<h3 id="父组件引用子组件中的内容（属性）"><a href="#父组件引用子组件中的内容（属性）" class="headerlink" title="父组件引用子组件中的内容（属性）"></a>父组件引用子组件中的内容（属性）</h3><p>需要在子组件的OnInit的定义使用@Input()，例如</p>
+<blockquote>
+<p>@Input() element:{name:string};</p>
+<p>可以坐在Input（）加入’name’，定义外部组件访问此组件时的名称</p>
+<p>然后将Input添加到子组件头部的import当中</p>
+</blockquote>
+<h3 id="如何通知父组件子组件有更新（比如新创建了按钮）（事件）"><a href="#如何通知父组件子组件有更新（比如新创建了按钮）（事件）" class="headerlink" title="如何通知父组件子组件有更新（比如新创建了按钮）（事件）"></a>如何通知父组件子组件有更新（比如新创建了按钮）（事件）</h3><ol>
+<li><p>将子组件调用的方法放置到父组件当中如onServerAdded(serverData:{name:string}){<br>}</p>
+</li>
+<li><p>在父组件的html文件中引入子组件，例如在app中放入<app-cockpiy (servercreated)="onServerAdded($event)"></app-cockpiy></p>
+</li>
+<li><p>将</p>
+<blockquote>
+<p>@Output（） serverCreated = new EventEmitter\&lt;{name:string}>()定义到子组件的OnInit中</p>
+<p>同时将output放置到头部的import中，括号内也可以分配别名</p>
+</blockquote>
+</li>
+<li><p>将onServerAdded方法在子组件中定义，如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onAddServer()&#123;</span><br><span class="line">	this.serverCreated.emit(&#123;name:this.newServerName&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="Encapsulation"><a href="#Encapsulation" class="headerlink" title="Encapsulation"></a>Encapsulation</h3><p>angular默认将css封装在其自身组件之中，但是外部组件却不能用。这是angular提供的，不是浏览器提供的。</p>
+<p>在某一组件的name.component.ts文件中的@Component模块中，可以添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">encapsulation:ViewEncapsulation.Native或者None或者Emulated(默认的)</span><br></pre></td></tr></table></figure>
+<p>None:样式为全局</p>
+<p>Native：类似于Emulated</p>
+<h3 id="在模板中使用本地参数-代替ngmodel"><a href="#在模板中使用本地参数-代替ngmodel" class="headerlink" title="在模板中使用本地参数(代替ngmodel)"></a>在模板中使用本地参数(代替ngmodel)</h3><p>eg:在input中添加#serverNameInput,然后在所调用的函数之中传入serverNameInput参数，console.log可以打印输入的内容再做调整</p>
+<h3 id="ViewChild-代替ngmodel"><a href="#ViewChild-代替ngmodel" class="headerlink" title="ViewChild(代替ngmodel)"></a>ViewChild(代替ngmodel)</h3><p>eg:在input中添加#serverContentInput,在ts文件中添加@ViewChild(‘serverContentInput’) serverContentInput:ElementtRef;然后在头部文件添加ViewChild</p>
+<p>console.log(this.serverContentInput.nativeElement.value)</p>
+<p>可以直接给this.serverContentInput.nativeElement.value赋值，（是一个点击事件）那么点击按钮之后值就会直接显示在输入框。&lt;不推荐&gt;</p>
+<h3 id="constructor和ngOnInit"><a href="#constructor和ngOnInit" class="headerlink" title="constructor和ngOnInit"></a>constructor和ngOnInit</h3><p>eg:每次创建都会执行这两个代码</p>
+<p>在constructor代码块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&apos;constructor&apos;);</span><br></pre></td></tr></table></figure>
+<p>在ngOnInit代码块输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&apos;ngOninit&apos;);</span><br></pre></td></tr></table></figure>
+<p>在OnInit中创建代码，同时将onChanges添加到OnInit后面,将SimpleChanges添加到头部文件中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ngOnChanges(changes:SimpleChanges)&#123;</span><br><span class="line">	console.log(&apos;ngOnChanges&apos;);</span><br><span class="line">	console.log(changes);//打印一个改变的状态</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在OnInit中创建代码，同时将doCheck添加到OnInit后面,将doCheck添加到头部文件中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ngDoCheck()&#123;</span><br><span class="line">	console.log(&quot;Check&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular-Components-Databinding/">Angular Components&Databinding</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-survey-js" class="article article-type-post" itemscope itemprop="blogPost">
   
