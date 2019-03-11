@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="Components&amp;amp;Databinding详解组件划分​    可以将一个大的组件划分成多个小的组件，直接将大组件中的代码剪切到小组件中 ​    然后将大组件的ts文件中为这段代码所定义的模块剪切到小组件的ts文件中。 父组件引用子组件中的内容（属性）需要在子组件的OnInit的定义使用@Input()，例如  @Input() element:{name:string}; 可以坐在I">
+<meta name="description" content="服务和依赖注入服务 建立一个服务能够让多个组件同时使用，相当于封装外部函数，别的html文件可以引用这个函数，提高代码复用性。‘  服务是用来替代@Output和@Input的  情景：在一个APP中包含两个组件，要让这两个组件都能使用这个服务  首先在APP建立一个组件命名为logging.service.ts  文件中代码如下 12345export class LoggingService&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Angular Component$databinding">
-<meta property="og:url" content="http://yoursite.com/2019/03/09/Angular-Component-databinding/index.html">
+<meta property="og:title" content="angular服务的依赖注入">
+<meta property="og:url" content="http://yoursite.com/2019/03/11/angular服务的依赖注入/index.html">
 <meta property="og:site_name" content="yuaoblog">
-<meta property="og:description" content="Components&amp;amp;Databinding详解组件划分​    可以将一个大的组件划分成多个小的组件，直接将大组件中的代码剪切到小组件中 ​    然后将大组件的ts文件中为这段代码所定义的模块剪切到小组件的ts文件中。 父组件引用子组件中的内容（属性）需要在子组件的OnInit的定义使用@Input()，例如  @Input() element:{name:string}; 可以坐在I">
+<meta property="og:description" content="服务和依赖注入服务 建立一个服务能够让多个组件同时使用，相当于封装外部函数，别的html文件可以引用这个函数，提高代码复用性。‘  服务是用来替代@Output和@Input的  情景：在一个APP中包含两个组件，要让这两个组件都能使用这个服务  首先在APP建立一个组件命名为logging.service.ts  文件中代码如下 12345export class LoggingService&amp;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-10T08:26:00.841Z">
+<meta property="og:updated_time" content="2019-03-11T11:45:12.367Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Angular Component$databinding">
-<meta name="twitter:description" content="Components&amp;amp;Databinding详解组件划分​    可以将一个大的组件划分成多个小的组件，直接将大组件中的代码剪切到小组件中 ​    然后将大组件的ts文件中为这段代码所定义的模块剪切到小组件的ts文件中。 父组件引用子组件中的内容（属性）需要在子组件的OnInit的定义使用@Input()，例如  @Input() element:{name:string}; 可以坐在I">
+<meta name="twitter:title" content="angular服务的依赖注入">
+<meta name="twitter:description" content="服务和依赖注入服务 建立一个服务能够让多个组件同时使用，相当于封装外部函数，别的html文件可以引用这个函数，提高代码复用性。‘  服务是用来替代@Output和@Input的  情景：在一个APP中包含两个组件，要让这两个组件都能使用这个服务  首先在APP建立一个组件命名为logging.service.ts  文件中代码如下 12345export class LoggingService&amp;">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -57,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Angular Component$databinding | yuaoblog</title>
+<title>angular服务的依赖注入 | yuaoblog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -257,11 +257,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-Angular-Component-databinding" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-angular服务的依赖注入" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/09/Angular-Component-databinding/" class="article-date">
-      <time datetime="2019-03-09T14:43:53.000Z" itemprop="datePublished">2019-03-09</time>
+      <a href="/2019/03/11/angular服务的依赖注入/" class="article-date">
+      <time datetime="2019-03-11T11:44:44.000Z" itemprop="datePublished">2019-03-11</time>
 </a>
 
 
@@ -276,7 +276,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Angular Component$databinding
+      angular服务的依赖注入
     </h1>
   
 
@@ -293,47 +293,70 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Components-amp-Databinding详解"><a href="#Components-amp-Databinding详解" class="headerlink" title="Components&amp;Databinding详解"></a>Components&amp;Databinding详解</h1><h3 id="组件划分"><a href="#组件划分" class="headerlink" title="组件划分"></a>组件划分</h3><p>​    可以将一个大的组件划分成多个小的组件，直接将大组件中的代码剪切到小组件中</p>
-<p>​    然后将大组件的ts文件中为这段代码所定义的模块剪切到小组件的ts文件中。</p>
-<h3 id="父组件引用子组件中的内容（属性）"><a href="#父组件引用子组件中的内容（属性）" class="headerlink" title="父组件引用子组件中的内容（属性）"></a>父组件引用子组件中的内容（属性）</h3><p>需要在子组件的OnInit的定义使用@Input()，例如</p>
-<blockquote>
-<p>@Input() element:{name:string};</p>
-<p>可以坐在Input（）加入’name’，定义外部组件访问此组件时的名称</p>
-<p>然后将Input添加到子组件头部的import当中</p>
-</blockquote>
-<h3 id="如何通知父组件子组件有更新（比如新创建了按钮）（事件）"><a href="#如何通知父组件子组件有更新（比如新创建了按钮）（事件）" class="headerlink" title="如何通知父组件子组件有更新（比如新创建了按钮）（事件）"></a>如何通知父组件子组件有更新（比如新创建了按钮）（事件）</h3><ol>
-<li><p>将子组件调用的方法放置到父组件当中如onServerAdded(serverData:{name:string}){<br>}</p>
+        <h1 id="服务和依赖注入"><a href="#服务和依赖注入" class="headerlink" title="服务和依赖注入"></a>服务和依赖注入</h1><h2 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h2><ol>
+<li><p>建立一个服务能够让多个组件同时使用，相当于封装外部函数，别的html文件可以引用这个函数，提高代码复用性。‘</p>
 </li>
-<li><p>在父组件的html文件中引入子组件，例如在app中放入<app-cockpiy (servercreated)="onServerAdded($event)"></app-cockpiy></p>
+<li><p>服务是用来替代@Output和@Input的</p>
 </li>
-<li><p>将</p>
-<blockquote>
-<p>@Output（） serverCreated = new EventEmitter\&lt;{name:string}>()定义到子组件的OnInit中</p>
-<p>同时将output放置到头部的import中，括号内也可以分配别名</p>
-</blockquote>
+<li><p>情景：在一个APP中包含两个组件，要让这两个组件都能使用这个服务</p>
 </li>
-<li><p>将onServerAdded方法在子组件中定义，如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onAddServer()&#123;</span><br><span class="line">	this.serverCreated.emit(&#123;name:this.newServerName&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>首先在APP建立一个组件命名为logging.service.ts</p>
+</li>
+<li><p>文件中代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export class LoggingService&#123;</span><br><span class="line">	logStatusChange(status:string)&#123;</span><br><span class="line">		console.log(&apos;A server status changed,new status:&apos;+status);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在组件使用</p>
+<ul>
+<li>方法一(不推荐)</li>
+</ul>
+<p>在相应组件ts文件中写以下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123;LoggingService&#125; from &apos;../logging.service&apos;;</span><br></pre></td></tr></table></figure>
+<p>在需要执行服务的地方输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const service = new LoggingService();</span><br><span class="line">service.logStatusChange(accountStatus);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>方法二（angular提供）——依赖注入</p>
+<ul>
+<li><p>在需要使用服务的组件ts文件的class模块写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">constructor（private loggingService:LoggingService)&#123;//服务的名称</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在头部引入LoggingService</p>
+</li>
+<li><p>在@component添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">provider：[LoggingService]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在需要执行服务的地方执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.loggingService.logStatusChange(accountStatus)//传入的参数，本次执行是在一个事件之后执行的，所以添加this</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>管理和存储数据的服务</p>
+<p>新建服务命名为：accounts.service.ts</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">export class AccountsService&#123;</span><br><span class="line">	accounts=[</span><br><span class="line">	&#123;</span><br><span class="line">		name:&apos;master&apos;,</span><br><span class="line">		status:&apos;active&apos;</span><br><span class="line">	&#125;</span><br><span class="line">	accounts=[</span><br><span class="line">	&#123;</span><br><span class="line">		name:&apos;master&apos;,</span><br><span class="line">		status:&apos;active&apos;</span><br><span class="line">	&#125;</span><br><span class="line">	accounts=[</span><br><span class="line">	&#123;</span><br><span class="line">		name:&apos;master&apos;,</span><br><span class="line">		status:&apos;active&apos;</span><br><span class="line">	&#125;</span><br><span class="line">	addAccount(name:string,status:string)&#123;//不同函数传参不同</span><br><span class="line">		this.accounts.push(&#123;name:name,status:status&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	updataStatus(id:number,status:string)&#123;</span><br><span class="line">		this.accounts[id].status = status;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//这样的结构</span><br></pre></td></tr></table></figure>
+<p>在app的ts文件写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">accounts:&#123;name:string,status:string&#125;[]=[];</span><br><span class="line">//剩下的代码和上面的代码一样</span><br></pre></td></tr></table></figure>
+<p>可以在export后添加implements OnInit</p>
+<p>然后在模块中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ngOnInit()&#123;</span><br><span class="line">	this.accounts = this.accountsService.accounts;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="服务分类"><a href="#服务分类" class="headerlink" title="服务分类"></a>服务分类</h3><ol>
+<li><p>放在app.moudule.ts的，全局都可以使用的服务</p>
+</li>
+<li><p>放在别的地方的，只能其子组件才能使用这个服务</p>
+</li>
+<li><p>放在最底层的，只有自己才能访问</p>
+<ul>
+<li>对于子组件来说，如果父级服务添加到了子组件，那么子组件就不能再添加服务了，不然就会覆盖掉，这个时候只需要将provider的服务名称保留一个即可。</li>
+</ul>
+</li>
+<li><p>也可将子组件中provider的服务删掉，将服务添加到app.module.ts的@NgModule{}模块，添加provider:[],将服务添加。</p>
+<p>如果要把服务引到同级的服务(注意是服务)，那要在服务中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123;Injectable&#125; from &apos;@angular/core&apos;</span><br></pre></td></tr></table></figure>
+<p>其他代码相同</p>
 </li>
 </ol>
-<h3 id="Encapsulation"><a href="#Encapsulation" class="headerlink" title="Encapsulation"></a>Encapsulation</h3><p>angular默认将css封装在其自身组件之中，但是外部组件却不能用。这是angular提供的，不是浏览器提供的。</p>
-<p>在某一组件的name.component.ts文件中的@Component模块中，可以添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">encapsulation:ViewEncapsulation.Native或者None或者Emulated(默认的)</span><br></pre></td></tr></table></figure>
-<p>None:样式为全局</p>
-<p>Native：类似于Emulated</p>
-<h3 id="在模板中使用本地参数-代替ngmodel"><a href="#在模板中使用本地参数-代替ngmodel" class="headerlink" title="在模板中使用本地参数(代替ngmodel)"></a>在模板中使用本地参数(代替ngmodel)</h3><p>eg:在input中添加#serverNameInput,然后在所调用的函数之中传入serverNameInput参数，console.log可以打印输入的内容再做调整</p>
-<h3 id="ViewChild-代替ngmodel"><a href="#ViewChild-代替ngmodel" class="headerlink" title="ViewChild(代替ngmodel)"></a>ViewChild(代替ngmodel)</h3><p>eg:在input中添加#serverContentInput,在ts文件中添加@ViewChild(‘serverContentInput’) serverContentInput:ElementtRef;然后在头部文件添加ViewChild</p>
-<p>console.log(this.serverContentInput.nativeElement.value)</p>
-<p>可以直接给this.serverContentInput.nativeElement.value赋值，（是一个点击事件）那么点击按钮之后值就会直接显示在输入框。&lt;不推荐&gt;</p>
-<h3 id="constructor和ngOnInit"><a href="#constructor和ngOnInit" class="headerlink" title="constructor和ngOnInit"></a>constructor和ngOnInit</h3><p>eg:每次创建都会执行这两个代码</p>
-<p>在constructor代码块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&apos;constructor&apos;);</span><br></pre></td></tr></table></figure>
-<p>在ngOnInit代码块输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&apos;ngOninit&apos;);</span><br></pre></td></tr></table></figure>
-<p>在OnInit中创建代码，同时将onChanges添加到OnInit后面,将SimpleChanges添加到头部文件中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ngOnChanges(changes:SimpleChanges)&#123;</span><br><span class="line">	console.log(&apos;ngOnChanges&apos;);</span><br><span class="line">	console.log(changes);//打印一个改变的状态</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在OnInit中创建代码，同时将doCheck添加到OnInit后面,将doCheck添加到头部文件中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ngDoCheck()&#123;</span><br><span class="line">	console.log(&quot;Check&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
     </div>
@@ -342,13 +365,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/09/Angular-Component-databinding/">Angular Component$databinding</a></p>
+        <p><span>本文标题:</span><a href="/2019/03/11/angular服务的依赖注入/">angular服务的依赖注入</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
-        <p><span>发布时间:</span>2019-03-09, 22:43:53</p>
-        <p><span>最后更新:</span>2019-03-10, 16:26:00</p>
+        <p><span>发布时间:</span>2019-03-11, 19:44:44</p>
+        <p><span>最后更新:</span>2019-03-11, 19:45:12</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/09/Angular-Component-databinding/" title="Angular Component$databinding">http://yoursite.com/2019/03/09/Angular-Component-databinding/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/09/Angular-Component-databinding/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/03/11/angular服务的依赖注入/" title="angular服务的依赖注入">http://yoursite.com/2019/03/11/angular服务的依赖注入/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/11/angular服务的依赖注入/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -360,16 +383,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/03/10/angular-指令/">
-                    angular 指令
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/03/08/survey-js/">
-                    survey.js
+                <a href="/2019/03/10/angular-指令/">
+                    angular 指令
                 </a>
             </div>
         
@@ -381,7 +398,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Components-amp-Databinding详解"><span class="toc-number">1.</span> <span class="toc-text">Components&amp;Databinding详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#组件划分"><span class="toc-number">1.0.1.</span> <span class="toc-text">组件划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#父组件引用子组件中的内容（属性）"><span class="toc-number">1.0.2.</span> <span class="toc-text">父组件引用子组件中的内容（属性）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何通知父组件子组件有更新（比如新创建了按钮）（事件）"><span class="toc-number">1.0.3.</span> <span class="toc-text">如何通知父组件子组件有更新（比如新创建了按钮）（事件）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Encapsulation"><span class="toc-number">1.0.4.</span> <span class="toc-text">Encapsulation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在模板中使用本地参数-代替ngmodel"><span class="toc-number">1.0.5.</span> <span class="toc-text">在模板中使用本地参数(代替ngmodel)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ViewChild-代替ngmodel"><span class="toc-number">1.0.6.</span> <span class="toc-text">ViewChild(代替ngmodel)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#constructor和ngOnInit"><span class="toc-number">1.0.7.</span> <span class="toc-text">constructor和ngOnInit</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#服务和依赖注入"><span class="toc-number">1.</span> <span class="toc-text">服务和依赖注入</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#服务"><span class="toc-number">1.1.</span> <span class="toc-text">服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#服务分类"><span class="toc-number">1.1.1.</span> <span class="toc-text">服务分类</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -417,7 +434,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Angular Component$databinding　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"angular服务的依赖注入　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -437,15 +454,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/03/10/angular-指令/" title="上一篇: angular 指令">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/03/08/survey-js/" title="下一篇: survey.js">
+            <a href="/2019/03/10/angular-指令/" title="下一篇: angular 指令">
                 <i class="fa fa-angle-right"></i>
             </a>
         
