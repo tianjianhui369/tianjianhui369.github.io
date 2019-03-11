@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="angular新建组件方法方法一工具：vs code 项目名：project-app 我的组件名为header步骤：  vs code打开project-app项目  打开src文件夹  进入app文件夹  在app文件夹中新建一个文件夹作为组件文件夹  在文件夹中创建两个文件命名为 name.component.ts(name为你的组件名称)、name.component.html    在na">
+<meta name="description" content="服务和依赖注入服务 建立一个服务能够让多个组件同时使用，相当于封装外部函数，别的html文件可以引用这个函数，提高代码复用性。‘  服务是用来替代@Output和@Input的  情景：在一个APP中包含两个组件，要让这两个组件都能使用这个服务  首先在APP建立一个组件命名为logging.service.ts  文件中代码如下 12345export class LoggingService&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="angular新建组件方法">
-<meta property="og:url" content="http://yoursite.com/2019/03/06/angular新建组件方法/index.html">
+<meta property="og:title" content="angular服务的依赖注入">
+<meta property="og:url" content="http://yoursite.com/2019/03/11/服务的依赖注入/index.html">
 <meta property="og:site_name" content="yuaoblog">
-<meta property="og:description" content="angular新建组件方法方法一工具：vs code 项目名：project-app 我的组件名为header步骤：  vs code打开project-app项目  打开src文件夹  进入app文件夹  在app文件夹中新建一个文件夹作为组件文件夹  在文件夹中创建两个文件命名为 name.component.ts(name为你的组件名称)、name.component.html    在na">
+<meta property="og:description" content="服务和依赖注入服务 建立一个服务能够让多个组件同时使用，相当于封装外部函数，别的html文件可以引用这个函数，提高代码复用性。‘  服务是用来替代@Output和@Input的  情景：在一个APP中包含两个组件，要让这两个组件都能使用这个服务  首先在APP建立一个组件命名为logging.service.ts  文件中代码如下 12345export class LoggingService&amp;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-06T14:29:18.537Z">
+<meta property="og:updated_time" content="2019-03-11T11:45:12.367Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="angular新建组件方法">
-<meta name="twitter:description" content="angular新建组件方法方法一工具：vs code 项目名：project-app 我的组件名为header步骤：  vs code打开project-app项目  打开src文件夹  进入app文件夹  在app文件夹中新建一个文件夹作为组件文件夹  在文件夹中创建两个文件命名为 name.component.ts(name为你的组件名称)、name.component.html    在na">
+<meta name="twitter:title" content="angular服务的依赖注入">
+<meta name="twitter:description" content="服务和依赖注入服务 建立一个服务能够让多个组件同时使用，相当于封装外部函数，别的html文件可以引用这个函数，提高代码复用性。‘  服务是用来替代@Output和@Input的  情景：在一个APP中包含两个组件，要让这两个组件都能使用这个服务  首先在APP建立一个组件命名为logging.service.ts  文件中代码如下 12345export class LoggingService&amp;">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -57,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>angular新建组件方法 | yuaoblog</title>
+<title>angular服务的依赖注入 | yuaoblog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -257,11 +257,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-angular新建组件方法" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-服务的依赖注入" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/06/angular新建组件方法/" class="article-date">
-      <time datetime="2019-03-06T11:16:06.000Z" itemprop="datePublished">2019-03-06</time>
+      <a href="/2019/03/11/服务的依赖注入/" class="article-date">
+      <time datetime="2019-03-11T11:44:44.000Z" itemprop="datePublished">2019-03-11</time>
 </a>
 
 
@@ -276,7 +276,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      angular新建组件方法
+      angular服务的依赖注入
     </h1>
   
 
@@ -293,38 +293,70 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="angular新建组件方法"><a href="#angular新建组件方法" class="headerlink" title="angular新建组件方法"></a>angular新建组件方法</h1><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p><strong>工具</strong>：vs code</p>
-<p><strong>项目名</strong>：project-app</p>
-<h6 id="我的组件名为header"><a href="#我的组件名为header" class="headerlink" title="我的组件名为header"></a>我的组件名为header</h6><p><strong>步骤</strong>：</p>
+        <h1 id="服务和依赖注入"><a href="#服务和依赖注入" class="headerlink" title="服务和依赖注入"></a>服务和依赖注入</h1><h2 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h2><ol>
+<li><p>建立一个服务能够让多个组件同时使用，相当于封装外部函数，别的html文件可以引用这个函数，提高代码复用性。‘</p>
+</li>
+<li><p>服务是用来替代@Output和@Input的</p>
+</li>
+<li><p>情景：在一个APP中包含两个组件，要让这两个组件都能使用这个服务</p>
+</li>
+<li><p>首先在APP建立一个组件命名为logging.service.ts</p>
+</li>
+<li><p>文件中代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export class LoggingService&#123;</span><br><span class="line">	logStatusChange(status:string)&#123;</span><br><span class="line">		console.log(&apos;A server status changed,new status:&apos;+status);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在组件使用</p>
 <ul>
-<li><p>vs code打开project-app项目</p>
-</li>
-<li><p>打开src文件夹</p>
-</li>
-<li><p>进入app文件夹</p>
-</li>
-<li><p>在app文件夹中新建一个文件夹作为组件文件夹</p>
-</li>
-<li><p>在文件夹中创建两个文件命名为 name.component.ts(name为你的组件名称)、name.component.html</p>
-</li>
+<li>方法一(不推荐)</li>
 </ul>
+<p>在相应组件ts文件中写以下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123;LoggingService&#125; from &apos;../logging.service&apos;;</span><br></pre></td></tr></table></figure>
+<p>在需要执行服务的地方输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const service = new LoggingService();</span><br><span class="line">service.logStatusChange(accountStatus);</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>在name.component.ts文件中数据以下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Component &#125; from &quot;@angular/core&quot;;</span><br><span class="line"></span><br><span class="line">import &#123; Template &#125; from &apos;@angular/compiler/src/render3/r3_ast&apos;;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line"></span><br><span class="line">    selector:&apos;app-name&apos;,(name为你的组件名称)</span><br><span class="line"></span><br><span class="line">    templateUrl:&apos;./name.component.html&apos;此处为你的组建中新建的html文件的路径</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export class HeaderComponent&#123;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>  示例代码</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Component &#125; from &quot;@angular/core&quot;;</span><br><span class="line"></span><br><span class="line">import &#123; Template &#125; from &apos;@angular/compiler/src/render3/r3_ast&apos;;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line"></span><br><span class="line">    selector:&apos;app-header&apos;,</span><br><span class="line"></span><br><span class="line">    templateUrl:&apos;./header.component.html&apos;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export class HeaderComponent&#123;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>方法二（angular提供）——依赖注入</p>
 <ul>
-<li><p>找到app.module.ts文件，将nameCompontent添加到@NgModule中，同时在文件头部添加import { NameComponent } from ‘./header/header.compoment’; <code>此处是你组件的路径</code></p>
-<p>示例代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">import &#123; BrowserModule &#125; from &apos;@angular/platform-browser&apos;;</span><br><span class="line"></span><br><span class="line">import &#123; NgModule &#125; from &apos;@angular/core&apos;;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">import &#123; AppComponent &#125; from &apos;./app.component&apos;;</span><br><span class="line"></span><br><span class="line">import &#123; HeaderComponent &#125; from &apos;./header/header.compoment&apos;;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">@NgModule(&#123;</span><br><span class="line"></span><br><span class="line">  declarations: [</span><br><span class="line"></span><br><span class="line">    AppComponent,</span><br><span class="line"></span><br><span class="line">    HeaderComponent,</span><br><span class="line"></span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">  imports: [</span><br><span class="line"></span><br><span class="line">    BrowserModule</span><br><span class="line"></span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">  providers: [],</span><br><span class="line"></span><br><span class="line">  bootstrap: [AppComponent]</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export class AppModule &#123; &#125;</span><br></pre></td></tr></table></figure>
+<li><p>在需要使用服务的组件ts文件的class模块写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">constructor（private loggingService:LoggingService)&#123;//服务的名称</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在头部引入LoggingService</p>
+</li>
+<li><p>在@component添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">provider：[LoggingService]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在需要执行服务的地方执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.loggingService.logStatusChange(accountStatus)//传入的参数，本次执行是在一个事件之后执行的，所以添加this</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="组件新建成功，可以开始在组件中添加内容了"><a href="#组件新建成功，可以开始在组件中添加内容了" class="headerlink" title="组件新建成功，可以开始在组件中添加内容了"></a>组件新建成功，可以开始在组件中添加内容了</h3><h2 id="方法二：命令行方式"><a href="#方法二：命令行方式" class="headerlink" title="方法二：命令行方式"></a>方法二：命令行方式</h2><ul>
-<li>在cmd中cd到project-app文件夹</li>
-<li>输入ng g c header即可创建组件，自动完成了以上步骤</li>
+</li>
 </ul>
+</li>
+<li><p>管理和存储数据的服务</p>
+<p>新建服务命名为：accounts.service.ts</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">export class AccountsService&#123;</span><br><span class="line">	accounts=[</span><br><span class="line">	&#123;</span><br><span class="line">		name:&apos;master&apos;,</span><br><span class="line">		status:&apos;active&apos;</span><br><span class="line">	&#125;</span><br><span class="line">	accounts=[</span><br><span class="line">	&#123;</span><br><span class="line">		name:&apos;master&apos;,</span><br><span class="line">		status:&apos;active&apos;</span><br><span class="line">	&#125;</span><br><span class="line">	accounts=[</span><br><span class="line">	&#123;</span><br><span class="line">		name:&apos;master&apos;,</span><br><span class="line">		status:&apos;active&apos;</span><br><span class="line">	&#125;</span><br><span class="line">	addAccount(name:string,status:string)&#123;//不同函数传参不同</span><br><span class="line">		this.accounts.push(&#123;name:name,status:status&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	updataStatus(id:number,status:string)&#123;</span><br><span class="line">		this.accounts[id].status = status;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//这样的结构</span><br></pre></td></tr></table></figure>
+<p>在app的ts文件写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">accounts:&#123;name:string,status:string&#125;[]=[];</span><br><span class="line">//剩下的代码和上面的代码一样</span><br></pre></td></tr></table></figure>
+<p>可以在export后添加implements OnInit</p>
+<p>然后在模块中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ngOnInit()&#123;</span><br><span class="line">	this.accounts = this.accountsService.accounts;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="服务分类"><a href="#服务分类" class="headerlink" title="服务分类"></a>服务分类</h3><ol>
+<li><p>放在app.moudule.ts的，全局都可以使用的服务</p>
+</li>
+<li><p>放在别的地方的，只能其子组件才能使用这个服务</p>
+</li>
+<li><p>放在最底层的，只有自己才能访问</p>
+<ul>
+<li>对于子组件来说，如果父级服务添加到了子组件，那么子组件就不能再添加服务了，不然就会覆盖掉，这个时候只需要将provider的服务名称保留一个即可。</li>
+</ul>
+</li>
+<li><p>也可将子组件中provider的服务删掉，将服务添加到app.module.ts的@NgModule{}模块，添加provider:[],将服务添加。</p>
+<p>如果要把服务引到同级的服务(注意是服务)，那要在服务中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123;Injectable&#125; from &apos;@angular/core&apos;</span><br></pre></td></tr></table></figure>
+<p>其他代码相同</p>
+</li>
+</ol>
+</li>
+</ol>
 
       
     </div>
@@ -333,13 +365,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/06/angular新建组件方法/">angular新建组件方法</a></p>
+        <p><span>本文标题:</span><a href="/2019/03/11/服务的依赖注入/">angular服务的依赖注入</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
-        <p><span>发布时间:</span>2019-03-06, 19:16:06</p>
-        <p><span>最后更新:</span>2019-03-06, 22:29:18</p>
+        <p><span>发布时间:</span>2019-03-11, 19:44:44</p>
+        <p><span>最后更新:</span>2019-03-11, 19:45:12</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/06/angular新建组件方法/" title="angular新建组件方法">http://yoursite.com/2019/03/06/angular新建组件方法/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/06/angular新建组件方法/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/03/11/服务的依赖注入/" title="angular服务的依赖注入">http://yoursite.com/2019/03/11/服务的依赖注入/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/11/服务的依赖注入/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -351,16 +383,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/03/08/survey-js/">
-                    survey.js
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/03/06/hello-world/">
-                    Hello World
+                <a href="/2019/03/10/angular-指令/">
+                    angular 指令
                 </a>
             </div>
         
@@ -372,7 +398,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#angular新建组件方法"><span class="toc-number">1.</span> <span class="toc-text">angular新建组件方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方法一"><span class="toc-number">1.1.</span> <span class="toc-text">方法一</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#我的组件名为header"><span class="toc-number">1.1.0.0.0.1.</span> <span class="toc-text">我的组件名为header</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#组件新建成功，可以开始在组件中添加内容了"><span class="toc-number">1.1.1.</span> <span class="toc-text">组件新建成功，可以开始在组件中添加内容了</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法二：命令行方式"><span class="toc-number">1.2.</span> <span class="toc-text">方法二：命令行方式</span></a></li>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#服务和依赖注入"><span class="toc-number">1.</span> <span class="toc-text">服务和依赖注入</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#服务"><span class="toc-number">1.1.</span> <span class="toc-text">服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#服务分类"><span class="toc-number">1.1.1.</span> <span class="toc-text">服务分类</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -408,7 +434,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"angular新建组件方法　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"angular服务的依赖注入　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -428,15 +454,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/03/08/survey-js/" title="上一篇: survey.js">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/03/06/hello-world/" title="下一篇: Hello World">
+            <a href="/2019/03/10/angular-指令/" title="下一篇: angular 指令">
                 <i class="fa fa-angle-right"></i>
             </a>
         
