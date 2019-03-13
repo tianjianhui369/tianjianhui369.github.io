@@ -260,6 +260,105 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-angular路由" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/13/angular路由/" class="article-date">
+      <time datetime="2019-03-13T15:42:01.000Z" itemprop="datePublished">2019-03-13</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/13/angular路由/">angular路由</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="angular路由"><a href="#angular路由" class="headerlink" title="angular路由"></a>angular路由</h2><ol>
+<li>我有三个组件需要作为页面显示，设置路由</li>
+<li>使用路由，需要在app.module.ts文件的import下面添加然后将Routes引入到头部</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const appRoutes:Routes=[</span><br><span class="line">    &#123;path:&apos;&apos;,component:HomeComponent&#125;//建立第一个路由</span><br><span class="line">    &#123;path:&apos;users&apos;,component:UsersComponent&#125;//建立第一个路由</span><br><span class="line">    &#123;path:&apos;servers&apos;,component:ServersComponent&#125;//建立第一个路由</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>在app.module.ts文件的@NgModule模块的imports数组添加RouterModule，然后将RouterModule添加到头部Routes的引入模块，如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RouterModule。forRoot(appRoutes);//注册路由</span><br><span class="line">import &#123;Routes,RouterModule&#125; from &apos;@angular/router&apos;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="2">
+<li><p>至此，算是添加了路由功能了，基本模块结束了。angular知道了这个路由</p>
+</li>
+<li><p>在app.component.html模板中，你需要知道要把路由带来的页面添加到哪里，类似于模板引擎的原理。保留一个模板。在加载页面的html位置，添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-outlet&gt;&lt;/router-outlet&gt;//这是一个指令</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>若使用某个a标签使得页面刷新到另外的页面，则删掉a标签的href属性添加routerLink属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;li role=&quot;presentation&quot; class=&quot;active&quot;&gt;&lt;a routerLink=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li role=&quot;presentation&quot;&gt;&lt;a routerLink=&quot;/servers&quot;&gt;Servers&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li role=&quot;presentation&quot;&gt;&lt;a [routerLink]=&quot;[&apos;/users&apos;]&quot;&gt;Users&lt;/a&gt;&lt;/li&gt;//添加多个页面或参数时使用</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意上面的class=”active”是引用的css样式当点击时是选中的样式，在路由修改成如下,添加指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li role=&quot;presentation&quot; routerLinkActive=&quot;active&quot;&gt;&lt;a routerLink=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</span><br></pre></td></tr></table></figure>
+<p>也可以将这个指令添加到a标签,bootstrap还是放到li标签好点</p>
+<p>将这个属性添加到6的每个li标签就可以实现点击样式，但是起初的默认选中样式却没有删掉。此时可以如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li role=&quot;presentation&quot; routerLinkActive=&quot;active&quot; [routeLinkActionOptions]=&quot;&#123;exact:true&#125;&quot;&gt;&lt;a routerLink=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="6">
+<li><p>在某个组件，若想要当点击某个按钮时使用router则如下</p>
+<ul>
+<li><p>在组件的ts文件的constructor括号里写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">private router:Router//头部文件引用</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>当点击按钮后执行函数事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.router.navigate([&apos;/servers&apos;]);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="7">
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;path:&apos;users/:id&apos;,component:UsersComponent&#125;//传值选择某个数据</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-javascript基础01-01" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
