@@ -260,6 +260,148 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-javascript基础-02" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/15/javascript基础-02/" class="article-date">
+      <time datetime="2019-03-15T14:30:54.000Z" itemprop="datePublished">2019-03-15</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/15/javascript基础-02/">javascript基础_02</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="javascript基础01-02"><a href="#javascript基础01-02" class="headerlink" title="javascript基础01_02"></a>javascript基础01_02</h3><h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><h5 id="number类型"><a href="#number类型" class="headerlink" title="number类型"></a>number类型</h5><ol>
+<li><p>JavaScript，number数值类型最值的表示</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.MAX_VALUE);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.MIN_VALUE);</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0.1+0.2!=0.3//不要用小数去验证小数</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证结果是不是NaN，使用方法isNaN();//不是一个数字吗？若要验证num,num=10;则返回结果为false；</p>
+</li>
+</ol>
+<h5 id="String类型"><a href="#String类型" class="headerlink" title="String类型"></a>String类型</h5><ol>
+<li><p>字符串可以使用单引号也可以使用双引号。</p>
+</li>
+<li><p>求字符串的个数 ，即求字符串的长度为多少。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.length</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>相关转义符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">html的转义符</span><br><span class="line">&lt;   &amp;lt</span><br><span class="line">&gt;   &amp;gt</span><br><span class="line">空格   &amp;nbsp</span><br><span class="line">js的转义符</span><br><span class="line">table键   \t</span><br><span class="line">退格键   \b</span><br><span class="line">\   \\</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="4">
+<li><p>字符串的拼接</p>
+<ul>
+<li>用+号即可</li>
+<li>只要有一个是字符串，其它是数字，那么也是拼接</li>
+<li>如果有一个是字符串，另一个不是，使用-、*、/号，那么此时会发生计算”10”-5=5</li>
+</ul>
+</li>
+</ol>
+<h5 id="Boolean类型"><a href="#Boolean类型" class="headerlink" title="Boolean类型"></a>Boolean类型</h5><h5 id="undefined和null"><a href="#undefined和null" class="headerlink" title="undefined和null"></a>undefined和null</h5><ol>
+<li><p>变量声明未赋值是undefined</p>
+</li>
+<li><p>变量如果是null，只能自己赋值，要喝NaN区分开</p>
+</li>
+</ol>
+<h5 id="类型转化"><a href="#类型转化" class="headerlink" title="类型转化"></a>类型转化</h5><ol>
+<li><p>其它类型转数字类型</p>
+<ul>
+<li>parseInt()//转整数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">"10"</span>));<span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">"10a"</span>));<span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">"g10"</span>));<span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">"1fds0"</span>));<span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">"10.98"</span>));<span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">"10.98dasda"</span>));<span class="comment">//10</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>parseFloat()//转小数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">"10"</span>));<span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">"10a"</span>));<span class="comment">//10//别的语言无法转化</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">"g10"</span>));<span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">"1fds0"</span>));<span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">"10.98"</span>));<span class="comment">//10.98</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">"10.98dasda"</span>));<span class="comment">//10.98</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Number()//转数字——更加严格</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">"10"</span>));<span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">"10a"</span>));<span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">"g10"</span>));<span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">"1fds0"</span>));<span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">"10.98"</span>));<span class="comment">//10.98</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">"10.98dasda"</span>));<span class="comment">//NaN</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其它类型转字符串类型</p>
+<ul>
+<li>toString</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">num=<span class="number">10</span>;</span><br><span class="line"><span class="built_in">console</span>.log(num.toString());</span><br></pre></td></tr></table></figure>
+<ul>
+<li>String()</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">num=<span class="number">10</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(num));</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="3">
+<li><p>其它类型转布尔类型</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">"1"</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">"0"</span>));<span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">"11"</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">"-10"</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">"嘎嘎"</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">""</span>));<span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">"null"</span>));<span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">"undefined"</span>));<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="通过构造函数创建数组"><a href="#通过构造函数创建数组" class="headerlink" title="通过构造函数创建数组"></a>通过构造函数创建数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var 数组名=new Array();</span><br><span class="line"></span><br><span class="line">var array=new Array();</span><br><span class="line">//数组的名字如果直接输出，那么直接就可以把数组中的数据显示出来，如果没有数据，就看不到数据。</span><br><span class="line">var array=new Array(5);//规定数组大小,此时数组的每个值就是undefined</span><br></pre></td></tr></table></figure>
+<h3 id="通过字面量的方式创建数组"><a href="#通过字面量的方式创建数组" class="headerlink" title="通过字面量的方式创建数组"></a>通过字面量的方式创建数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var 数组名=[];</span><br><span class="line">var arr=[];</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>不管是构造函数的方式还是字面量的方式，如果定义了大小，那么数据默认为undefined</p>
+</li>
+<li><p>构造函数的方式创建数组的时候，如果在Array()写一个数字，则表示数组的长度，若在括号写多个值，那么数组就有数据了，数组的长度就是这些值的个数。</p>
+</li>
+<li><p>设置数组某个位置的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数组名 [下标]=值；</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>数组的长度-1就是最大的索引值</p>
+</li>
+<li><p>字面量创建的方式更简单</p>
+</li>
+<li><p>arr.length数组大小</p>
+</li>
+</ul>
+<h3 id="数组的注意问题"><a href="#数组的注意问题" class="headerlink" title="数组的注意问题"></a>数组的注意问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr=[10,2,3,4,1];</span><br><span class="line">alert(arr);//输出的逗号是浏览器自己加的</span><br></pre></td></tr></table></figure>
+<h3 id="数组存储的类型一定是一样的吗"><a href="#数组存储的类型一定是一样的吗" class="headerlink" title="数组存储的类型一定是一样的吗"></a>数组存储的类型一定是一样的吗</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr=[10,&apos;嘎嘎&apos;，true,&apos;undefined&apos;,new object];//可以输出结果</span><br><span class="line">//但是一般使用都使用同样的数据类型</span><br></pre></td></tr></table></figure>
+<h3 id="数据的长度是否可以改变"><a href="#数据的长度是否可以改变" class="headerlink" title="数据的长度是否可以改变"></a>数据的长度是否可以改变</h3><p>可以</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-angular路由" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
