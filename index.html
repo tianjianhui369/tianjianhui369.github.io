@@ -260,6 +260,111 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-es6学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/19/es6学习笔记/" class="article-date">
+      <time datetime="2019-03-19T15:32:52.000Z" itemprop="datePublished">2019-03-19</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/19/es6学习笔记/">es6学习笔记01</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="es6-阮一峰教程学习笔记"><a href="#es6-阮一峰教程学习笔记" class="headerlink" title="es6(阮一峰教程学习笔记)"></a>es6(阮一峰教程学习笔记)</h1><h2 id="变量的结构赋值"><a href="#变量的结构赋值" class="headerlink" title="变量的结构赋值"></a>变量的结构赋值</h2><h3 id="数组的结构赋值"><a href="#数组的结构赋值" class="headerlink" title="数组的结构赋值"></a>数组的结构赋值</h3><h4 id="普通解构"><a href="#普通解构" class="headerlink" title="普通解构"></a>普通解构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">普通解构</span><br><span class="line">//es6允许按照一定的模式，从数组和对象中提取值，对变量进行赋值，这称为结构</span><br><span class="line">let [a,b,c]=[1,2,3]//a,b,c分别等于1,2,3</span><br><span class="line">//这种方法本质属于模式匹配</span><br></pre></td></tr></table></figure>
+<h4 id="嵌套解构"><a href="#嵌套解构" class="headerlink" title="嵌套解构"></a>嵌套解构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">嵌套解构</span><br><span class="line">let [foo, [[bar], baz]] = [1, [[2], 3]];</span><br><span class="line">此时可解构为</span><br><span class="line">foo=1;</span><br><span class="line">bar=2;</span><br><span class="line">baz=3;</span><br></pre></td></tr></table></figure>
+<h4 id="非对称解构"><a href="#非对称解构" class="headerlink" title="非对称解构"></a>非对称解构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">非对称结构</span><br><span class="line">let [ , , third] = [&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;];</span><br><span class="line">third=baz;</span><br><span class="line"></span><br><span class="line">let [x, , y]=[1,2,3]</span><br><span class="line">x=1;</span><br><span class="line">y=3;</span><br><span class="line"></span><br><span class="line">let [head, ...tail] = [1, 2, 3, 4];</span><br><span class="line">head=1；</span><br><span class="line">tail=[2, 3, 4]；</span><br><span class="line">//按照我的理解，...tail本身就应该是属于代表一个数组</span><br><span class="line">let [x, y, ...z] = [&apos;a&apos;];</span><br><span class="line">x // &quot;a&quot;</span><br><span class="line">y // undefined</span><br><span class="line">z // []</span><br><span class="line">//但是如果前面的数据比后面多，那变量值就是undefined</span><br></pre></td></tr></table></figure>
+<h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果等式右边不是可遍历的结构那么报错</span><br></pre></td></tr></table></figure>
+<h4 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">解构赋值允许使用默认值</span><br><span class="line">let [foo=true]=[];</span><br><span class="line">foo=true;</span><br><span class="line">let [x, y = &apos;b&apos;] = [&apos;a&apos;]; // x=&apos;a&apos;, y=&apos;b&apos;</span><br><span class="line">let [x, y = &apos;b&apos;] = [&apos;a&apos;, undefined]; // x=&apos;a&apos;, y=&apos;b&apos;</span><br><span class="line"></span><br><span class="line">//注意：等式右边的权重更大一点，但是右边如果是undefined，那么就取默认值</span><br><span class="line"></span><br><span class="line">//除此之外，默认值还可以使用已经赋值的其他变量，但是变量必须已声明</span><br><span class="line">let [x = 1, y = x] = [];     // x=1; y=1</span><br><span class="line">let [x = 1, y = x] = [2];    // x=2; y=2</span><br><span class="line">let [x = 1, y = x] = [1, 2]; // x=1; y=2</span><br><span class="line">let [x = y, y = 1] = [];     // ReferenceError: y is not defined</span><br></pre></td></tr></table></figure>
+<h3 id="对象的解构赋值"><a href="#对象的解构赋值" class="headerlink" title="对象的解构赋值"></a>对象的解构赋值</h3><h4 id="例"><a href="#例" class="headerlink" title="例"></a>例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let &#123; foo, bar &#125; = &#123; foo: &quot;aaa&quot;, bar: &quot;bbb&quot; &#125;;</span><br><span class="line">foo // &quot;aaa&quot;</span><br><span class="line">bar // &quot;bbb&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="与数组的不同"><a href="#与数组的不同" class="headerlink" title="与数组的不同"></a>与数组的不同</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//数组的取值关系是按照排列顺序位置决定的，但是对象是按照属性的名字决定的取值。</span><br><span class="line">//那么这种情况下，变量名如果和属性名不一样的处理方式是，先在等式左边将变量名赋予属性名。</span><br><span class="line">let obj = &#123; first: &apos;hello&apos;, last: &apos;world&apos; &#125;;</span><br><span class="line">let &#123; first: f, last: l &#125; = obj;</span><br><span class="line">f // &apos;hello&apos;</span><br><span class="line">l // &apos;world</span><br><span class="line"></span><br><span class="line">//所以真正赋值的是与属性名同名的变量罢了</span><br></pre></td></tr></table></figure>
+<h4 id="嵌套解构-1"><a href="#嵌套解构-1" class="headerlink" title="嵌套解构"></a>嵌套解构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">let obj = &#123;p: [&apos;Hello&apos;,&#123; y: &apos;World&apos; &#125;]&#125;;</span><br><span class="line">let &#123; p: [x, &#123; y &#125;] &#125; = obj;</span><br><span class="line">x // &quot;Hello&quot;</span><br><span class="line">y // &quot;World&quot;</span><br><span class="line"></span><br><span class="line">//这时p是模式，不是变量如果p也需要赋值的话</span><br><span class="line">let &#123; p, p: [x, &#123; y &#125;] &#125; = obj;</span><br><span class="line">x // &quot;Hello&quot;</span><br><span class="line">y // &quot;World&quot;</span><br><span class="line">p // [&quot;Hello&quot;, &#123;y: &quot;World&quot;&#125;]</span><br><span class="line"></span><br><span class="line">eg2：</span><br><span class="line">const node = &#123;loc: &#123;start: &#123;line: 1,column: 5&#125;&#125;&#125;;</span><br><span class="line">let &#123; loc, loc: &#123; start &#125;, loc: &#123; start: &#123; line &#125;&#125; &#125; = node;</span><br><span class="line">line // 1</span><br><span class="line">loc  // Object &#123;start: Object&#125;</span><br><span class="line">start // Object &#123;line: 1, column: 5&#125;</span><br></pre></td></tr></table></figure>
+<p>对象的解构也可以设置默认值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var &#123;x: y = 3&#125; = &#123;x: 5&#125;;</span><br><span class="line">y // 5</span><br><span class="line">默认值的条件是右边对象的属性值严格等于undefined</span><br><span class="line">undefined就会触发函数参数的默认值。</span><br><span class="line">[1, undefined, 3].map((x = &apos;yes&apos;) =&gt; x);</span><br><span class="line">// [ 1, &apos;yes&apos;, 3 ]</span><br></pre></td></tr></table></figure>
+<h4 id="已声明的变量解构"><a href="#已声明的变量解构" class="headerlink" title="已声明的变量解构"></a>已声明的变量解构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 错误的写法</span><br><span class="line">let x;</span><br><span class="line">&#123;x&#125; = &#123;x: 1&#125;;</span><br><span class="line">// SyntaxError: syntax error</span><br><span class="line"></span><br><span class="line">// 正确的写法</span><br><span class="line">let x;</span><br><span class="line">(&#123;x&#125; = &#123;x: 1&#125;);</span><br><span class="line"></span><br><span class="line">//这是为了避免JavaScript将&#123;x&#125;当成一个代码块</span><br></pre></td></tr></table></figure>
+<h3 id="字符串的解构赋值"><a href="#字符串的解构赋值" class="headerlink" title="字符串的解构赋值"></a>字符串的解构赋值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//对字符串直接进行转化成数组赋值，同时也可以对字符串的属性进行赋值</span><br><span class="line">//字符串赋值</span><br><span class="line">const [a, b, c, d, e] = &apos;hello&apos;;</span><br><span class="line">a // &quot;h&quot;</span><br><span class="line">b // &quot;e&quot;</span><br><span class="line">c // &quot;l&quot;</span><br><span class="line">d // &quot;l&quot;</span><br><span class="line">e // &quot;o&quot;</span><br><span class="line"></span><br><span class="line">//属性赋值</span><br><span class="line">let &#123;length : len&#125; = &apos;hello&apos;;</span><br><span class="line">len // 5</span><br></pre></td></tr></table></figure>
+<h4 id="数值和布尔值的解构赋值"><a href="#数值和布尔值的解构赋值" class="headerlink" title="数值和布尔值的解构赋值"></a>数值和布尔值的解构赋值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//如果是数值和布尔值，那么先转成对象，但是undefined和null无法转化对象，就会报错</span><br><span class="line">let &#123;toString: s&#125; = 123;</span><br><span class="line">s === Number.prototype.toString // true</span><br><span class="line"></span><br><span class="line">let &#123;toString: s&#125; = true;</span><br><span class="line">s === Boolean.prototype.toString // true</span><br></pre></td></tr></table></figure>
+<h4 id="函数参数的解构赋值"><a href="#函数参数的解构赋值" class="headerlink" title="函数参数的解构赋值"></a>函数参数的解构赋值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//相当于以解构赋值的方式传参</span><br><span class="line">function add([x, y])&#123;</span><br><span class="line">  return x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add([1, 2]); // 3</span><br><span class="line"></span><br><span class="line">[[1, 2], [3, 4]].map(([a, b]) =&gt; a + b);</span><br></pre></td></tr></table></figure>
+<p>map()拓展：</p>
+<p><strong>map定义和方法</strong>  map()方法返回一个新数组，数组中的元素为原始数组元素调用函数处理的后值。  map()方法按照原始数组元素顺序依次处理元素。 </p>
+<h4 id="不得使用圆括号的情况"><a href="#不得使用圆括号的情况" class="headerlink" title="不得使用圆括号的情况"></a>不得使用圆括号的情况</h4><p>对于编译器来说，一个式子到底是模式，还是表达式，没有办法从一开始就知道，必须解析到（或解析不到）等号才能知道。 </p>
+<h5 id="变量声明语句"><a href="#变量声明语句" class="headerlink" title="变量声明语句"></a>变量声明语句</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 全部报错</span><br><span class="line">let [(a)] = [1];</span><br><span class="line"></span><br><span class="line">let &#123;x: (c)&#125; = &#123;&#125;;</span><br><span class="line">let (&#123;x: c&#125;) = &#123;&#125;;</span><br><span class="line">let &#123;(x: c)&#125; = &#123;&#125;;</span><br><span class="line">let &#123;(x): c&#125; = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">let &#123; o: (&#123; p: p &#125;) &#125; = &#123; o: &#123; p: 2 &#125; &#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 报错</span><br><span class="line">function f([(z)]) &#123; return z; &#125;</span><br><span class="line">// 报错</span><br><span class="line">function f([z,(x)]) &#123; return x; &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="赋值语句的模式"><a href="#赋值语句的模式" class="headerlink" title="赋值语句的模式"></a>赋值语句的模式</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 全部报错</span><br><span class="line">(&#123; p: a &#125;) = &#123; p: 42 &#125;;</span><br><span class="line">([a]) = [5];</span><br></pre></td></tr></table></figure>
+<h4 id="可以使用圆括号的情况"><a href="#可以使用圆括号的情况" class="headerlink" title="可以使用圆括号的情况"></a>可以使用圆括号的情况</h4><p>赋值语句的非模式部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[(b)] = [3]; // 正确</span><br><span class="line">(&#123; p: (d) &#125; = &#123;&#125;); // 正确</span><br><span class="line">[(parseInt.prop)] = [3]; // 正确</span><br></pre></td></tr></table></figure>
+<p>上面三行语句都可以正确执行，因为首先它们都是赋值语句，而不是声明语句；其次它们的圆括号都不属于模式的一部分。第一行语句中，模式是取数组的第一个成员，跟圆括号无关；第二行语句中，模式是<code>p</code>，而不是<code>d</code>；第三行语句与第一行语句的性质一致。 </p>
+<h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><ol>
+<li><p>用于交换变量值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let x = 1;</span><br><span class="line">let y = 2;</span><br><span class="line"></span><br><span class="line">[x, y] = [y, x];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从函数返回多个值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function example() &#123;</span><br><span class="line">  return [1, 2, 3];</span><br><span class="line">&#125;</span><br><span class="line">let [a, b, c] = example();</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="3">
+<li>函数参数的定义</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function f([x, y, z]) &#123; ... &#125;</span><br><span class="line">f([1, 2, 3]);</span><br></pre></td></tr></table></figure>
+<ol>
+<li>提取JSON数据</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let jsonData = &#123;</span><br><span class="line">  id: 42,</span><br><span class="line">  status: &quot;OK&quot;,</span><br><span class="line">  data: [867, 5309]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let &#123; id, status, data: number &#125; = jsonData;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>给予参数的默认值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">jQuery.ajax = function (url, &#123;</span><br><span class="line">  async = true,</span><br><span class="line">  beforeSend = function () &#123;&#125;,</span><br><span class="line">  cache = true,</span><br><span class="line">  complete = function () &#123;&#125;,</span><br><span class="line">  crossDomain = false,</span><br><span class="line">  global = true,</span><br><span class="line">  // ... more config</span><br><span class="line">&#125; = &#123;&#125;) &#123;</span><br><span class="line">  // ... do stuff</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>遍历Map结构</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">const map = new Map();</span><br><span class="line">map.set(&apos;first&apos;, &apos;hello&apos;);</span><br><span class="line">map.set(&apos;second&apos;, &apos;world&apos;);</span><br><span class="line"></span><br><span class="line">for (let [key, value] of map) &#123;</span><br><span class="line">  console.log(key + &quot; is &quot; + value);</span><br><span class="line">&#125;</span><br><span class="line">// first is hello</span><br><span class="line">// second is world</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 获取键名</span><br><span class="line">for (let [key] of map) &#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br><span class="line">// 获取键值</span><br><span class="line">for (let [,value] of map) &#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>输入模块的指定方法</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const &#123; SourceMapConsumer, SourceNode &#125; = require(&quot;source-map&quot;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-angular精讲2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1271,93 +1376,6 @@
 </blockquote>
 <p>通过网址点击侧边栏的SurveyJs Service中的Get Survey Result</p>
 <p>填写数据，点击提交，就可以看到输出的数据格式。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-angular新建组件方法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/06/angular新建组件方法/" class="article-date">
-      <time datetime="2019-03-06T11:16:06.000Z" itemprop="datePublished">2019-03-06</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/06/angular新建组件方法/">angular新建组件方法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="angular新建组件方法"><a href="#angular新建组件方法" class="headerlink" title="angular新建组件方法"></a>angular新建组件方法</h1><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p><strong>工具</strong>：vs code</p>
-<p><strong>项目名</strong>：project-app</p>
-<h6 id="我的组件名为header"><a href="#我的组件名为header" class="headerlink" title="我的组件名为header"></a>我的组件名为header</h6><p><strong>步骤</strong>：</p>
-<ul>
-<li><p>vs code打开project-app项目</p>
-</li>
-<li><p>打开src文件夹</p>
-</li>
-<li><p>进入app文件夹</p>
-</li>
-<li><p>在app文件夹中新建一个文件夹作为组件文件夹</p>
-</li>
-<li><p>在文件夹中创建两个文件命名为 name.component.ts(name为你的组件名称)、name.component.html</p>
-</li>
-</ul>
-<ul>
-<li><p>在name.component.ts文件中数据以下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Component &#125; from &quot;@angular/core&quot;;</span><br><span class="line"></span><br><span class="line">import &#123; Template &#125; from &apos;@angular/compiler/src/render3/r3_ast&apos;;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line"></span><br><span class="line">    selector:&apos;app-name&apos;,(name为你的组件名称)</span><br><span class="line"></span><br><span class="line">    templateUrl:&apos;./name.component.html&apos;此处为你的组建中新建的html文件的路径</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export class HeaderComponent&#123;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>  示例代码</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Component &#125; from &quot;@angular/core&quot;;</span><br><span class="line"></span><br><span class="line">import &#123; Template &#125; from &apos;@angular/compiler/src/render3/r3_ast&apos;;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line"></span><br><span class="line">    selector:&apos;app-header&apos;,</span><br><span class="line"></span><br><span class="line">    templateUrl:&apos;./header.component.html&apos;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export class HeaderComponent&#123;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>找到app.module.ts文件，将nameCompontent添加到@NgModule中，同时在文件头部添加import { NameComponent } from ‘./header/header.compoment’; <code>此处是你组件的路径</code></p>
-<p>示例代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">import &#123; BrowserModule &#125; from &apos;@angular/platform-browser&apos;;</span><br><span class="line"></span><br><span class="line">import &#123; NgModule &#125; from &apos;@angular/core&apos;;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">import &#123; AppComponent &#125; from &apos;./app.component&apos;;</span><br><span class="line"></span><br><span class="line">import &#123; HeaderComponent &#125; from &apos;./header/header.compoment&apos;;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">@NgModule(&#123;</span><br><span class="line"></span><br><span class="line">  declarations: [</span><br><span class="line"></span><br><span class="line">    AppComponent,</span><br><span class="line"></span><br><span class="line">    HeaderComponent,</span><br><span class="line"></span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">  imports: [</span><br><span class="line"></span><br><span class="line">    BrowserModule</span><br><span class="line"></span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">  providers: [],</span><br><span class="line"></span><br><span class="line">  bootstrap: [AppComponent]</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export class AppModule &#123; &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="组件新建成功，可以开始在组件中添加内容了"><a href="#组件新建成功，可以开始在组件中添加内容了" class="headerlink" title="组件新建成功，可以开始在组件中添加内容了"></a>组件新建成功，可以开始在组件中添加内容了</h3><h2 id="方法二：命令行方式"><a href="#方法二：命令行方式" class="headerlink" title="方法二：命令行方式"></a>方法二：命令行方式</h2><ul>
-<li>在cmd中cd到project-app文件夹</li>
-<li>输入ng g c header即可创建组件，自动完成了以上步骤</li>
-</ul>
 
       
     </div>
