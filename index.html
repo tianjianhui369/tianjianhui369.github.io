@@ -260,6 +260,98 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-CSS3学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/20/CSS3学习笔记/" class="article-date">
+      <time datetime="2019-03-20T15:20:29.000Z" itemprop="datePublished">2019-03-20</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/20/CSS3学习笔记/">CSS3学习笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="CSS3"><a href="#CSS3" class="headerlink" title="CSS3"></a>CSS3</h1><h2 id="CSS3边框"><a href="#CSS3边框" class="headerlink" title="CSS3边框"></a>CSS3边框</h2><p>关键词</p>
+<ul>
+<li>border-radius//支持当前主流浏览器</li>
+<li>box-shadow//支持当前主流浏览器</li>
+<li>border-image//不支持ie</li>
+</ul>
+<h3 id="圆角边框"><a href="#圆角边框" class="headerlink" title="圆角边框"></a>圆角边框</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">关键指令：border-radius</span><br></pre></td></tr></table></figure>
+<h3 id="边框shadow"><a href="#边框shadow" class="headerlink" title="边框shadow"></a>边框shadow</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">关键指令box-shadow</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line">div&#123;</span><br><span class="line">	box-shadow:10px 10px 5pa #888888;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="边框图片"><a href="#边框图片" class="headerlink" title="边框图片"></a>边框图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">	border-image:url(border.png) 30 30 round;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="CSS3背景"><a href="#CSS3背景" class="headerlink" title="CSS3背景"></a>CSS3背景</h2><h3 id="background-size属性"><a href="#background-size属性" class="headerlink" title="background-size属性"></a>background-size属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">之前背景图片的大小都是根据图片实际尺寸决定的，CSS3中可规定</span><br></pre></td></tr></table></figure>
+<h3 id="background-origin属性"><a href="#background-origin属性" class="headerlink" title="background-origin属性"></a>background-origin属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用来规定背景图片的定位区域</span><br><span class="line">background-origin：content-box;</span><br></pre></td></tr></table></figure>
+<p><img src="C:\Users\28715\AppData\Local\Temp\1553075366907.png" alt="1553075366907"></p>
+<h3 id="CSS3多重背景图片"><a href="#CSS3多重背景图片" class="headerlink" title="CSS3多重背景图片"></a>CSS3多重背景图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">body</span><br><span class="line">&#123; </span><br><span class="line">background-image:url(bg_flower.gif),url(bg_flower_2.gif);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="背景的绘制区域"><a href="#背景的绘制区域" class="headerlink" title="背景的绘制区域"></a>背景的绘制区域</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">background-color:yellow;//这个属性重在绘制</span><br><span class="line">background-clip:content-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="CSS3文本效果"><a href="#CSS3文本效果" class="headerlink" title="CSS3文本效果"></a>CSS3文本效果</h2><h3 id="Text-shadow"><a href="#Text-shadow" class="headerlink" title="Text-shadow"></a>Text-shadow</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">h1&#123;</span><br><span class="line">    text-shadow:5px 5px 5px #FF0000</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="文本换行"><a href="#文本换行" class="headerlink" title="文本换行"></a>文本换行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">p&#123;</span><br><span class="line">	word-wrap:break-word;//当单词长度超出div时自动拆分</span><br><span class="line">&#125;</span><br><span class="line">//normal使用浏览器默认换行规则</span><br><span class="line">//break-all允许在单词内换行</span><br><span class="line">//keep-all只能再半角空格或者字符串换行</span><br></pre></td></tr></table></figure>
+<h3 id="word-break"><a href="#word-break" class="headerlink" title="word-break"></a>word-break</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//normal使用浏览器默认换行规则</span><br><span class="line">//break-all允许在单词内换行</span><br><span class="line">//keep-all只能再半角空格或者字符串换行</span><br></pre></td></tr></table></figure>
+<h3 id="省略符号text-overflow属性"><a href="#省略符号text-overflow属性" class="headerlink" title="省略符号text-overflow属性"></a>省略符号text-overflow属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">div.test</span><br><span class="line">&#123;</span><br><span class="line">text-overflow:ellipsis;</span><br><span class="line">&#125;</span><br><span class="line">//当属性为clip时，直接修建文本</span><br><span class="line">//当属性为string时，使用字符串来代替修剪的文本</span><br></pre></td></tr></table></figure>
+<h2 id="CSS3字体"><a href="#CSS3字体" class="headerlink" title="CSS3字体"></a>CSS3字体</h2><h3 id="font-face"><a href="#font-face" class="headerlink" title="@font-face"></a>@font-face</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不仅使用自己电脑字体还可以使用喜欢的任何字体</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt; </span><br><span class="line">@font-face</span><br><span class="line">&#123;</span><br><span class="line">font-family: myFirstFont;</span><br><span class="line">src: url(&apos;Sansation_Light.ttf&apos;),</span><br><span class="line">     url(&apos;Sansation_Light.eot&apos;); /* IE9+ */</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">font-family:myFirstFont;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>若需要字体改变例如bold</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@font-face</span><br><span class="line">&#123;</span><br><span class="line">font-family: myFirstFont;</span><br><span class="line">src: url(&apos;Sansation_Bold.ttf&apos;),</span><br><span class="line">     url(&apos;Sansation_Bold.eot&apos;); /* IE9+ */</span><br><span class="line">font-weight:bold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="CSS3-2D转换"><a href="#CSS3-2D转换" class="headerlink" title="CSS3 2D转换"></a>CSS3 2D转换</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">translate()</span><br><span class="line">rotate()</span><br><span class="line">scale()</span><br><span class="line">skew()</span><br><span class="line">matrix()</span><br></pre></td></tr></table></figure>
+<p>eg：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">	transform:rotate(30deg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="translate-方法移动"><a href="#translate-方法移动" class="headerlink" title="translate()方法移动"></a>translate()方法移动</h3><p>用于元素的移动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">transform: translate(50px,100px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="rotate旋转"><a href="#rotate旋转" class="headerlink" title="rotate旋转"></a>rotate旋转</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//div顺时针旋转30度</span><br></pre></td></tr></table></figure>
+<h3 id="scale转换元素大小"><a href="#scale转换元素大小" class="headerlink" title="scale转换元素大小"></a>scale转换元素大小</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用户转换元素大小</span><br><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">transform: scale(2,4);</span><br><span class="line">&#125;</span><br><span class="line">值 scale(2,4) 把宽度转换为原始的 2 倍，把高度转换为原始高度的 4 倍。</span><br></pre></td></tr></table></figure>
+<h3 id="Skew（3D旋转）"><a href="#Skew（3D旋转）" class="headerlink" title="Skew（3D旋转）"></a>Skew（3D旋转）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//按照水平X轴和垂直线Y轴去旋转元素</span><br><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">transform: skew(30deg,20deg);</span><br><span class="line">&#125;</span><br><span class="line">值 skew(30deg,20deg) 围绕 X 轴把元素翻转 30 度，围绕 Y 轴翻转 20 度。</span><br><span class="line">//skweX(angle)</span><br><span class="line">//skweY(angle)</span><br></pre></td></tr></table></figure>
+<h3 id="matrix-转化效果集成"><a href="#matrix-转化效果集成" class="headerlink" title="matrix()转化效果集成"></a>matrix()转化效果集成</h3><p>matrix() 方法把所有 2D 转换方法组合在一起。</p>
+<p>matrix() 方法需要六个参数，包含数学函数，允许您：旋转、缩放、移动以及倾斜元素。</p>
+<h3 id="transform-origin"><a href="#transform-origin" class="headerlink" title="transform-origin"></a>transform-origin</h3><p>//用于定位旋转的基点位置</p>
+<h2 id="3D转换"><a href="#3D转换" class="headerlink" title="3D转换"></a>3D转换</h2><h3 id="rotateX-元素围绕x轴以度数去旋转"><a href="#rotateX-元素围绕x轴以度数去旋转" class="headerlink" title="rotateX()元素围绕x轴以度数去旋转"></a>rotateX()元素围绕x轴以度数去旋转</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">transform: rotateX(120deg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="rotateY-元素围绕Y轴以度数去旋转"><a href="#rotateY-元素围绕Y轴以度数去旋转" class="headerlink" title="rotateY()元素围绕Y轴以度数去旋转"></a>rotateY()元素围绕Y轴以度数去旋转</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">transform: rotateY(120deg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3D与2D"><a href="#3D与2D" class="headerlink" title="3D与2D"></a>3D与2D</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2D转换方法除了skew之外，加上X,Y就变成了3D</span><br><span class="line">不加的情况下，直接在方法后写3D就行了，eg:translate3D</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-angular精讲3" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1324,102 +1416,6 @@
 <h4 id="ngSwitch"><a href="#ngSwitch" class="headerlink" title="ngSwitch"></a>ngSwitch</h4><p>如果在app.ts复制value=10</p>
 <p>在html中使用</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div [ngSwitch]=&quot;value&quot;&gt;</span><br><span class="line">	&lt;p *ngSwitchCase=&quot;5&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p *ngSwitchCase=&quot;10&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p *ngSwitchCase=&quot;100&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p *ngSwitchDefault&gt;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Angular-Component-databinding" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/09/Angular-Component-databinding/" class="article-date">
-      <time datetime="2019-03-09T14:43:53.000Z" itemprop="datePublished">2019-03-09</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/09/Angular-Component-databinding/">Angular Component$databinding</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="Components-amp-Databinding详解"><a href="#Components-amp-Databinding详解" class="headerlink" title="Components&amp;Databinding详解"></a>Components&amp;Databinding详解</h1><h3 id="组件划分"><a href="#组件划分" class="headerlink" title="组件划分"></a>组件划分</h3><p>​    可以将一个大的组件划分成多个小的组件，直接将大组件中的代码剪切到小组件中</p>
-<p>​    然后将大组件的ts文件中为这段代码所定义的模块剪切到小组件的ts文件中。</p>
-<h3 id="父组件引用子组件中的内容（属性）"><a href="#父组件引用子组件中的内容（属性）" class="headerlink" title="父组件引用子组件中的内容（属性）"></a>父组件引用子组件中的内容（属性）</h3><p>需要在子组件的OnInit的定义使用@Input()，例如</p>
-<blockquote>
-<p>@Input() element:{name:string};</p>
-<p>可以坐在Input（）加入’name’，定义外部组件访问此组件时的名称</p>
-<p>然后将Input添加到子组件头部的import当中</p>
-</blockquote>
-<h3 id="如何通知父组件子组件有更新（比如新创建了按钮）（事件）"><a href="#如何通知父组件子组件有更新（比如新创建了按钮）（事件）" class="headerlink" title="如何通知父组件子组件有更新（比如新创建了按钮）（事件）"></a>如何通知父组件子组件有更新（比如新创建了按钮）（事件）</h3><ol>
-<li><p>将子组件调用的方法放置到父组件当中如onServerAdded(serverData:{name:string}){<br>}</p>
-</li>
-<li><p>在父组件的html文件中引入子组件，例如在app中放入<app-cockpiy (servercreated)="onServerAdded($event)"></app-cockpiy></p>
-</li>
-<li><p>将</p>
-<blockquote>
-<p>@Output（） serverCreated = new EventEmitter\&lt;{name:string}>()定义到子组件的OnInit中</p>
-<p>同时将output放置到头部的import中，括号内也可以分配别名</p>
-</blockquote>
-</li>
-<li><p>将onServerAdded方法在子组件中定义，如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onAddServer()&#123;</span><br><span class="line">	this.serverCreated.emit(&#123;name:this.newServerName&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="Encapsulation"><a href="#Encapsulation" class="headerlink" title="Encapsulation"></a>Encapsulation</h3><p>angular默认将css封装在其自身组件之中，但是外部组件却不能用。这是angular提供的，不是浏览器提供的。</p>
-<p>在某一组件的name.component.ts文件中的@Component模块中，可以添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">encapsulation:ViewEncapsulation.Native或者None或者Emulated(默认的)</span><br></pre></td></tr></table></figure>
-<p>None:样式为全局</p>
-<p>Native：类似于Emulated</p>
-<h3 id="在模板中使用本地参数-代替ngmodel"><a href="#在模板中使用本地参数-代替ngmodel" class="headerlink" title="在模板中使用本地参数(代替ngmodel)"></a>在模板中使用本地参数(代替ngmodel)</h3><p>eg:在input中添加#serverNameInput,然后在所调用的函数之中传入serverNameInput参数，console.log可以打印输入的内容再做调整</p>
-<h3 id="ViewChild-代替ngmodel"><a href="#ViewChild-代替ngmodel" class="headerlink" title="ViewChild(代替ngmodel)"></a>ViewChild(代替ngmodel)</h3><p>eg:在input中添加#serverContentInput,在ts文件中添加@ViewChild(‘serverContentInput’) serverContentInput:ElementtRef;然后在头部文件添加ViewChild</p>
-<p>console.log(this.serverContentInput.nativeElement.value)</p>
-<p>可以直接给this.serverContentInput.nativeElement.value赋值，（是一个点击事件）那么点击按钮之后值就会直接显示在输入框。&lt;不推荐&gt;</p>
-<h3 id="constructor和ngOnInit"><a href="#constructor和ngOnInit" class="headerlink" title="constructor和ngOnInit"></a>constructor和ngOnInit</h3><p>eg:每次创建都会执行这两个代码</p>
-<p>在constructor代码块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&apos;constructor&apos;);</span><br></pre></td></tr></table></figure>
-<p>在ngOnInit代码块输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&apos;ngOninit&apos;);</span><br></pre></td></tr></table></figure>
-<p>在OnInit中创建代码，同时将onChanges添加到OnInit后面,将SimpleChanges添加到头部文件中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ngOnChanges(changes:SimpleChanges)&#123;</span><br><span class="line">	console.log(&apos;ngOnChanges&apos;);</span><br><span class="line">	console.log(changes);//打印一个改变的状态</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在OnInit中创建代码，同时将doCheck添加到OnInit后面,将doCheck添加到头部文件中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ngDoCheck()&#123;</span><br><span class="line">	console.log(&quot;Check&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
