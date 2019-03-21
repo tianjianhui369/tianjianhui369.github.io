@@ -260,6 +260,90 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-CSS3学习笔记2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/21/CSS3学习笔记2/" class="article-date">
+      <time datetime="2019-03-21T15:20:11.000Z" itemprop="datePublished">2019-03-21</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/21/CSS3学习笔记2/">CSS3学习笔记2</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="CSS3过渡"><a href="#CSS3过渡" class="headerlink" title="CSS3过渡"></a>CSS3过渡</h2><p>过渡是指元素从一种样式逐渐改变为另外一种样式</p>
+<p>重点在于设置时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">比如给div设置一个：hover的width，height的样式，然后在div的样式哪里设置时间</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">transition//过渡属性，简写</span><br><span class="line">transition-property//指CSS属性的名称</span><br><span class="line">transition-duration//过渡效果需要的时间</span><br><span class="line">transition-timing-function//liner匀速</span><br><span class="line">transition-delay//过渡效果延迟时间</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">transition-property: width;</span><br><span class="line">transition-duration: 1s;</span><br><span class="line">transition-timing-function: linear;</span><br><span class="line">transition-delay: 2s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以选择简写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">transition: width 1s linear 2s;</span><br><span class="line">/* Firefox 4 */</span><br><span class="line">-moz-transition:width 1s linear 2s;</span><br><span class="line">/* Safari and Chrome */</span><br><span class="line">-webkit-transition:width 1s linear 2s;</span><br><span class="line">/* Opera */</span><br><span class="line">-o-transition:width 1s linear 2s;</span><br><span class="line">&#125;//顺便了解一下不同浏览器的方式</span><br></pre></td></tr></table></figure>
+<h2 id="CSS动画"><a href="#CSS动画" class="headerlink" title="CSS动画"></a>CSS动画</h2><ol>
+<li>CSS动画需要创建@keyframe</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@keyframes test&#123;//指定动画名称</span><br><span class="line">from &#123;background: red;&#125;</span><br><span class="line">to &#123;background: yellow;&#125;</span><br><span class="line">//如果需要多个效果则可以使用</span><br><span class="line">//20%，40%，60%……</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@keyframes test2&#123;</span><br><span class="line">	0% &#123;background:red;left:0px;top:0px;&#125;</span><br><span class="line">	25% &#123;background:yellow;left:200px;top:0px;&#125;</span><br><span class="line">	50% &#123;background:blue;left:200px;top:200px;&#125;</span><br><span class="line">	75% &#123;background:green;left:0px;top:200px;&#125;</span><br><span class="line">	100% &#123;background:red;left:0px;top:0px;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>将这个动画绑定到相关元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">	animation:test 5s;//设置动画执行时间</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="CSS3动画属性"><a href="#CSS3动画属性" class="headerlink" title="CSS3动画属性"></a>CSS3动画属性</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">animation//设置动画属性的简写</span><br><span class="line">animation-name//设置动画名称</span><br><span class="line">animation-duration//设置动画执行时间</span><br><span class="line">animation-timing-function://设置动画的执行速率，liner为匀速，ease为匀加速</span><br><span class="line">animation-delay//设置动画的什么时候执行</span><br><span class="line">animation-iteration-count//设置动画执行次数</span><br><span class="line">animation-direction//设置动画的方向 normal，alternate</span><br><span class="line">animation-play-state//设置动画是否正在执行</span><br><span class="line">animation-fill-mode//设置动画时间之外forwards保持最后的属性，backwards返回开始属性</span><br></pre></td></tr></table></figure>
+<h2 id="CSS3多列"><a href="#CSS3多列" class="headerlink" title="CSS3多列"></a>CSS3多列</h2><p>感觉像是将一个div当成三个div来用</p>
+<h3 id="column-count用于设置列数"><a href="#column-count用于设置列数" class="headerlink" title="column-count用于设置列数"></a>column-count用于设置列数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">	column-count:3;//将一个div分成了三个部分，如果是文字的话就会出现3列文字</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="column-gap用于设置列间隔"><a href="#column-gap用于设置列间隔" class="headerlink" title="column-gap用于设置列间隔"></a>column-gap用于设置列间隔</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">	column-gap:40px;//用于规定列之间的间隔，间隔大的话，列就窄</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="column-rule用于设置列之间的宽度、样式和颜色"><a href="#column-rule用于设置列之间的宽度、样式和颜色" class="headerlink" title="column-rule用于设置列之间的宽度、样式和颜色"></a>column-rule用于设置列之间的宽度、样式和颜色</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">	column-rule:3px outset #ff0000;//就是在列之间加线的演示</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="多列属性"><a href="#多列属性" class="headerlink" title="多列属性"></a>多列属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">column-count:number|auto;//多少列|由属性例如column-width决定列数</span><br><span class="line">column-fill：balance|auto;//按照文字多少每列分配多少字符|按顺序分配字符</span><br><span class="line">column-gap:length|normal;//指定宽度|默认1em</span><br><span class="line">column-rule//设置样式，可单独设置column-rule-width</span><br><span class="line">column-span:1|all//设置元素横跨的列数</span><br><span class="line">column-width:auto|length;//由浏览器设置列宽|设置列的宽度</span><br><span class="line">column：column-width column-count;//简写</span><br></pre></td></tr></table></figure>
+<h2 id="CSS3用户界面"><a href="#CSS3用户界面" class="headerlink" title="CSS3用户界面"></a>CSS3用户界面</h2><h3 id="CSS3-Resizing"><a href="#CSS3-Resizing" class="headerlink" title="CSS3 Resizing"></a>CSS3 Resizing</h3><p>用于规定元素是否可由用户调整大小</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">resize:both;</span><br><span class="line">overflow:auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="box-sizing"><a href="#box-sizing" class="headerlink" title="box-sizing"></a>box-sizing</h3><p>用于设置以确切的方式设置某个区域的具体content</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">    box-sizing:border-box;</span><br><span class="line">    width:50%;</span><br><span class="line">    float:left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box-sizing:content-box;//宽度和高度应用于内容框。在宽度和高度外设置编剧和边框</span><br><span class="line">box-sizing:border-box;//元素的高度宽度包含边距和边框</span><br></pre></td></tr></table></figure>
+<h3 id="outline-offset"><a href="#outline-offset" class="headerlink" title="outline offset"></a>outline offset</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">border:2px solid black;</span><br><span class="line">outline:2px solid red;</span><br><span class="line">outline-offset:15px;</span><br><span class="line">&#125;//为元素设置外部轮廓</span><br></pre></td></tr></table></figure>
+<h3 id="用户界面属性"><a href="#用户界面属性" class="headerlink" title="用户界面属性"></a>用户界面属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">appearance:button|normal|icon|window|menu|field;</span><br><span class="line">		  按钮样式|普通元素|图标|视窗|选项|字段</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-angular精讲4" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1297,125 +1381,6 @@
 <h3 id="代码格式规范化"><a href="#代码格式规范化" class="headerlink" title="代码格式规范化"></a>代码格式规范化</h3><p>webStorm:Ctrl+Alt+L</p>
 <h3 id="获取变量的数据类型"><a href="#获取变量的数据类型" class="headerlink" title="获取变量的数据类型"></a>获取变量的数据类型</h3><h4 id="js的数据类型"><a href="#js的数据类型" class="headerlink" title="js的数据类型"></a>js的数据类型</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">number</span><br><span class="line">string</span><br><span class="line">boolean</span><br><span class="line">null//对象为空，赋值为null//为对象类型</span><br><span class="line">undefined</span><br><span class="line">object</span><br></pre></td></tr></table></figure>
 <h4 id="typeof获取js变量数据类型"><a href="#typeof获取js变量数据类型" class="headerlink" title="typeof获取js变量数据类型"></a>typeof获取js变量数据类型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//typeof 变量名</span></span><br><span class="line"><span class="comment">//typeof(变量名)</span></span><br><span class="line"><span class="keyword">typeof</span>(<span class="built_in">String</span>(<span class="literal">null</span>))结果为<span class="literal">null</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-angular服务的依赖注入" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/11/angular服务的依赖注入/" class="article-date">
-      <time datetime="2019-03-11T11:44:44.000Z" itemprop="datePublished">2019-03-11</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/11/angular服务的依赖注入/">angular服务的依赖注入</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="服务和依赖注入"><a href="#服务和依赖注入" class="headerlink" title="服务和依赖注入"></a>服务和依赖注入</h1><h2 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h2><ol>
-<li><p>建立一个服务能够让多个组件同时使用，相当于封装外部函数，别的html文件可以引用这个函数，提高代码复用性。‘</p>
-</li>
-<li><p>服务是用来替代@Output和@Input的</p>
-</li>
-<li><p>情景：在一个APP中包含两个组件，要让这两个组件都能使用这个服务</p>
-</li>
-<li><p>首先在APP建立一个组件命名为logging.service.ts</p>
-</li>
-<li><p>文件中代码如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export class LoggingService&#123;</span><br><span class="line">	logStatusChange(status:string)&#123;</span><br><span class="line">		console.log(&apos;A server status changed,new status:&apos;+status);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在组件使用</p>
-<ul>
-<li>方法一(不推荐)</li>
-</ul>
-<p>在相应组件ts文件中写以下代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123;LoggingService&#125; from &apos;../logging.service&apos;;</span><br></pre></td></tr></table></figure>
-<p>在需要执行服务的地方输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const service = new LoggingService();</span><br><span class="line">service.logStatusChange(accountStatus);</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>方法二（angular提供）——依赖注入</p>
-<ul>
-<li><p>在需要使用服务的组件ts文件的class模块写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">constructor（private loggingService:LoggingService)&#123;//服务的名称</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在头部引入LoggingService</p>
-</li>
-<li><p>在@component添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">provider：[LoggingService]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在需要执行服务的地方执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.loggingService.logStatusChange(accountStatus)//传入的参数，本次执行是在一个事件之后执行的，所以添加this</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>管理和存储数据的服务</p>
-<p>新建服务命名为：accounts.service.ts</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">export class AccountsService&#123;</span><br><span class="line">	accounts=[</span><br><span class="line">	&#123;</span><br><span class="line">		name:&apos;master&apos;,</span><br><span class="line">		status:&apos;active&apos;</span><br><span class="line">	&#125;</span><br><span class="line">	accounts=[</span><br><span class="line">	&#123;</span><br><span class="line">		name:&apos;master&apos;,</span><br><span class="line">		status:&apos;active&apos;</span><br><span class="line">	&#125;</span><br><span class="line">	accounts=[</span><br><span class="line">	&#123;</span><br><span class="line">		name:&apos;master&apos;,</span><br><span class="line">		status:&apos;active&apos;</span><br><span class="line">	&#125;</span><br><span class="line">	addAccount(name:string,status:string)&#123;//不同函数传参不同</span><br><span class="line">		this.accounts.push(&#123;name:name,status:status&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	updataStatus(id:number,status:string)&#123;</span><br><span class="line">		this.accounts[id].status = status;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//这样的结构</span><br></pre></td></tr></table></figure>
-<p>在app的ts文件写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">accounts:&#123;name:string,status:string&#125;[]=[];</span><br><span class="line">//剩下的代码和上面的代码一样</span><br></pre></td></tr></table></figure>
-<p>可以在export后添加implements OnInit</p>
-<p>然后在模块中添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ngOnInit()&#123;</span><br><span class="line">	this.accounts = this.accountsService.accounts;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="服务分类"><a href="#服务分类" class="headerlink" title="服务分类"></a>服务分类</h3><ol>
-<li><p>放在app.moudule.ts的，全局都可以使用的服务</p>
-</li>
-<li><p>放在别的地方的，只能其子组件才能使用这个服务</p>
-</li>
-<li><p>放在最底层的，只有自己才能访问</p>
-<ul>
-<li>对于子组件来说，如果父级服务添加到了子组件，那么子组件就不能再添加服务了，不然就会覆盖掉，这个时候只需要将provider的服务名称保留一个即可。</li>
-</ul>
-</li>
-<li><p>也可将子组件中provider的服务删掉，将服务添加到app.module.ts的@NgModule{}模块，添加provider:[],将服务添加。</p>
-<p>如果要把服务引到同级的服务(注意是服务)，那要在服务中添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123;Injectable&#125; from &apos;@angular/core&apos;</span><br></pre></td></tr></table></figure>
-<p>其他代码相同</p>
-</li>
-</ol>
-</li>
-</ol>
 
       
     </div>
