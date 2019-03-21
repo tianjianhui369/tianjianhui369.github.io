@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="angular新建组件方法方法一工具：vs code 项目名：project-app 我的组件名为header步骤：  vs code打开project-app项目  打开src文件夹  进入app文件夹  在app文件夹中新建一个文件夹作为组件文件夹  在文件夹中创建两个文件命名为 name.component.ts(name为你的组件名称)、name.component.html    在na">
+<meta name="description" content="接下来我们完善一下之前做的商品竞拍案例，添加路由当用户点击某个商品时，商品区域应该替换掉，显示商品的详情  创建一个商品详情组件，显示商品的图片和标题 重构代码，把轮播图组件和商品列表组件封装到一个新的Home组件 配置路由，在导航到商品详情组件时传递商品的标题参数 修改APP组件，根据路由显示home组件或商品详情组件 修改商品的列表组件，给商品标题添加routeLink指令，从而指向路由">
 <meta property="og:type" content="article">
-<meta property="og:title" content="angular新建组件方法">
-<meta property="og:url" content="http://yoursite.com/2019/03/06/angular新建组件方法/index.html">
+<meta property="og:title" content="angular精讲4">
+<meta property="og:url" content="http://yoursite.com/2019/03/21/angular精讲4/index.html">
 <meta property="og:site_name" content="yuaoblog">
-<meta property="og:description" content="angular新建组件方法方法一工具：vs code 项目名：project-app 我的组件名为header步骤：  vs code打开project-app项目  打开src文件夹  进入app文件夹  在app文件夹中新建一个文件夹作为组件文件夹  在文件夹中创建两个文件命名为 name.component.ts(name为你的组件名称)、name.component.html    在na">
+<meta property="og:description" content="接下来我们完善一下之前做的商品竞拍案例，添加路由当用户点击某个商品时，商品区域应该替换掉，显示商品的详情  创建一个商品详情组件，显示商品的图片和标题 重构代码，把轮播图组件和商品列表组件封装到一个新的Home组件 配置路由，在导航到商品详情组件时传递商品的标题参数 修改APP组件，根据路由显示home组件或商品详情组件 修改商品的列表组件，给商品标题添加routeLink指令，从而指向路由">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-06T14:29:18.537Z">
+<meta property="og:updated_time" content="2019-03-21T15:19:14.254Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="angular新建组件方法">
-<meta name="twitter:description" content="angular新建组件方法方法一工具：vs code 项目名：project-app 我的组件名为header步骤：  vs code打开project-app项目  打开src文件夹  进入app文件夹  在app文件夹中新建一个文件夹作为组件文件夹  在文件夹中创建两个文件命名为 name.component.ts(name为你的组件名称)、name.component.html    在na">
+<meta name="twitter:title" content="angular精讲4">
+<meta name="twitter:description" content="接下来我们完善一下之前做的商品竞拍案例，添加路由当用户点击某个商品时，商品区域应该替换掉，显示商品的详情  创建一个商品详情组件，显示商品的图片和标题 重构代码，把轮播图组件和商品列表组件封装到一个新的Home组件 配置路由，在导航到商品详情组件时传递商品的标题参数 修改APP组件，根据路由显示home组件或商品详情组件 修改商品的列表组件，给商品标题添加routeLink指令，从而指向路由">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -57,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>angular新建组件方法 | yuaoblog</title>
+<title>angular精讲4 | yuaoblog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -257,11 +257,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-angular新建组件方法" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-angular精讲4" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/06/angular新建组件方法/" class="article-date">
-      <time datetime="2019-03-06T11:16:06.000Z" itemprop="datePublished">2019-03-06</time>
+      <a href="/2019/03/21/angular精讲4/" class="article-date">
+      <time datetime="2019-03-21T15:18:30.000Z" itemprop="datePublished">2019-03-21</time>
 </a>
 
 
@@ -276,7 +276,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      angular新建组件方法
+      angular精讲4
     </h1>
   
 
@@ -293,38 +293,45 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="angular新建组件方法"><a href="#angular新建组件方法" class="headerlink" title="angular新建组件方法"></a>angular新建组件方法</h1><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p><strong>工具</strong>：vs code</p>
-<p><strong>项目名</strong>：project-app</p>
-<h6 id="我的组件名为header"><a href="#我的组件名为header" class="headerlink" title="我的组件名为header"></a>我的组件名为header</h6><p><strong>步骤</strong>：</p>
-<ul>
-<li><p>vs code打开project-app项目</p>
+        <h3 id="接下来我们完善一下之前做的商品竞拍案例，添加路由"><a href="#接下来我们完善一下之前做的商品竞拍案例，添加路由" class="headerlink" title="接下来我们完善一下之前做的商品竞拍案例，添加路由"></a>接下来我们完善一下之前做的商品竞拍案例，添加路由</h3><p>当用户点击某个商品时，商品区域应该替换掉，显示商品的详情</p>
+<ol>
+<li>创建一个商品详情组件，显示商品的图片和标题</li>
+<li>重构代码，把轮播图组件和商品列表组件封装到一个新的Home组件</li>
+<li>配置路由，在导航到商品详情组件时传递商品的标题参数</li>
+<li>修改APP组件，根据路由显示home组件或商品详情组件</li>
+<li>修改商品的列表组件，给商品标题添加routeLink指令，从而指向路由</li>
+</ol>
+<ol>
+<li><p>创建一个商品详情组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng g c product-detail</span><br></pre></td></tr></table></figure>
+<p>因为商品标题是外部组件传过来的，所以需要声明一个标题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">productTitle:string;</span><br><span class="line">//既然要接受外面穿过来的参数，则</span><br><span class="line">constructor(private routeInfo:ActivateRoute)&#123;&#125;</span><br><span class="line">ngOnInit()&#123;</span><br><span class="line">	this.productTitle=this.routeInfo.snapshot.params[&quot;prodTitle];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>控制器写完啦</p>
+<p>写商品详情组件模板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">	&lt;img src=&quot;http://placehold.it/820x230&quot;&gt;</span><br><span class="line">	&lt;h4&gt;&lt;&#123;&#123;productTitle&#125;&#125;&lt;/h4&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>打开src文件夹</p>
+<li><p>创建home组件，封装轮播图以及商品商品组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ng g c home</span><br><span class="line">//然后在home组件的模板</span><br><span class="line">&lt;div class=&quot;row&quot;&gt;//这片区域分成两个行</span><br><span class="line">	&lt;app-carousel&gt;&lt;/app-carousel&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;row&quot;&gt;</span><br><span class="line">	&lt;app-product&gt;&lt;/app-product&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">将两个组件放到这一个组件即可</span><br><span class="line">相应的要把组件的css文件也要粘贴过来</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>进入app文件夹</p>
+<li><p>增加路由</p>
+<p>在app.module.ts</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const routeConfig:Routes=[</span><br><span class="line">    &#123;</span><br><span class="line">		path:&apos;&apos;,</span><br><span class="line">		component:&apos;HomeComponent&apos;</span><br><span class="line">	&#125;,</span><br><span class="line">	&#123;</span><br><span class="line">		path:&apos;product/prodTitle&apos;,</span><br><span class="line">		component:ProductDetailComponet</span><br><span class="line">	&#125;</span><br><span class="line">]</span><br><span class="line">记得在import属性添加这个路由配置</span><br><span class="line">写上RouterMoudule.forRoot(routeConfig)</span><br><span class="line">//子模块路由需要写forChild</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>在app文件夹中新建一个文件夹作为组件文件夹</p>
+<li><p>在之前显示轮播图和商品组件的位置放置占位符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-outlet&gt;&lt;/router-outlet&gt;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>在文件夹中创建两个文件命名为 name.component.ts(name为你的组件名称)、name.component.html</p>
+<li><p>增加路由链接</p>
+<p>在商品组件的模板，给路由标题添加路由链接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h4&gt;&lt;a routerLink=[&apos;/product&apos;,product.title&gt;&#123;&#123;product.title&#125;&#125;&lt;/a&gt;&lt;/h4&gt;</span><br></pre></td></tr></table></figure>
+<p>基本的改造就完成了</p>
 </li>
-</ul>
-<ul>
-<li><p>在name.component.ts文件中数据以下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Component &#125; from &quot;@angular/core&quot;;</span><br><span class="line"></span><br><span class="line">import &#123; Template &#125; from &apos;@angular/compiler/src/render3/r3_ast&apos;;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line"></span><br><span class="line">    selector:&apos;app-name&apos;,(name为你的组件名称)</span><br><span class="line"></span><br><span class="line">    templateUrl:&apos;./name.component.html&apos;此处为你的组建中新建的html文件的路径</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export class HeaderComponent&#123;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>  示例代码</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Component &#125; from &quot;@angular/core&quot;;</span><br><span class="line"></span><br><span class="line">import &#123; Template &#125; from &apos;@angular/compiler/src/render3/r3_ast&apos;;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line"></span><br><span class="line">    selector:&apos;app-header&apos;,</span><br><span class="line"></span><br><span class="line">    templateUrl:&apos;./header.component.html&apos;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export class HeaderComponent&#123;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>找到app.module.ts文件，将nameCompontent添加到@NgModule中，同时在文件头部添加import { NameComponent } from ‘./header/header.compoment’; <code>此处是你组件的路径</code></p>
-<p>示例代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">import &#123; BrowserModule &#125; from &apos;@angular/platform-browser&apos;;</span><br><span class="line"></span><br><span class="line">import &#123; NgModule &#125; from &apos;@angular/core&apos;;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">import &#123; AppComponent &#125; from &apos;./app.component&apos;;</span><br><span class="line"></span><br><span class="line">import &#123; HeaderComponent &#125; from &apos;./header/header.compoment&apos;;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">@NgModule(&#123;</span><br><span class="line"></span><br><span class="line">  declarations: [</span><br><span class="line"></span><br><span class="line">    AppComponent,</span><br><span class="line"></span><br><span class="line">    HeaderComponent,</span><br><span class="line"></span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">  imports: [</span><br><span class="line"></span><br><span class="line">    BrowserModule</span><br><span class="line"></span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">  providers: [],</span><br><span class="line"></span><br><span class="line">  bootstrap: [AppComponent]</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export class AppModule &#123; &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="组件新建成功，可以开始在组件中添加内容了"><a href="#组件新建成功，可以开始在组件中添加内容了" class="headerlink" title="组件新建成功，可以开始在组件中添加内容了"></a>组件新建成功，可以开始在组件中添加内容了</h3><h2 id="方法二：命令行方式"><a href="#方法二：命令行方式" class="headerlink" title="方法二：命令行方式"></a>方法二：命令行方式</h2><ul>
-<li>在cmd中cd到project-app文件夹</li>
-<li>输入ng g c header即可创建组件，自动完成了以上步骤</li>
-</ul>
+</ol>
+<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><p>angular自动处理对象的创建过程</p>
+<p>每个angular程序都是组件、指令和依赖的类的集合，虽然每个组件都可以实例化依赖，但是angular提供了一种依赖注入模式去实例化</p>
+<h3 id="依赖注入模式要解决的问题"><a href="#依赖注入模式要解决的问题" class="headerlink" title="依赖注入模式要解决的问题"></a>依赖注入模式要解决的问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">依赖注入：DI,假设你写了一个方法，这个方法的参数是一个对象，当你调用这个对象时你需要实例化这个对象，而且将其传递给方法，也就是将参数注入给这个方法</span><br><span class="line"></span><br><span class="line">如果一个对象A要依赖一个类型为B的一个对象，那么A不需要明确的以new的方式去实例化B,B会由外部机制去注入，对象A只需要喊话：我需要一个B类型的对象，有没有人能给我一个。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">控制反转IOC</span><br><span class="line">这是一个经常与依赖注入同时出现的另外一个说法</span><br><span class="line">是指将依赖的控制权将从代码内部，转到外部</span><br><span class="line">例如</span><br><span class="line">var product = new Prouct()//这是内部决定，决定product依赖Product,如果想要依赖别的那我需要改掉这一行代码，而如果控制反转，则内部代码只需要喊话，我需要porduct，至于传过来的是Product还是别的实例化的，是由代码外部决定的。这时候依赖的控制权就转移到了外部。</span><br></pre></td></tr></table></figure>
+<p>这两个说法表达的是一个思想，控制反转侧重于表达一个目的，即转移代码控制权</p>
+<p>而依赖注入描述手段，即如何来实现控制反转，使用的手段叫做，依赖注入</p>
 
       
     </div>
@@ -333,13 +340,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/06/angular新建组件方法/">angular新建组件方法</a></p>
+        <p><span>本文标题:</span><a href="/2019/03/21/angular精讲4/">angular精讲4</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
-        <p><span>发布时间:</span>2019-03-06, 19:16:06</p>
-        <p><span>最后更新:</span>2019-03-06, 22:29:18</p>
+        <p><span>发布时间:</span>2019-03-21, 23:18:30</p>
+        <p><span>最后更新:</span>2019-03-21, 23:19:14</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/06/angular新建组件方法/" title="angular新建组件方法">http://yoursite.com/2019/03/06/angular新建组件方法/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/06/angular新建组件方法/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/03/21/angular精讲4/" title="angular精讲4">http://yoursite.com/2019/03/21/angular精讲4/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/21/angular精讲4/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -351,16 +358,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/03/08/survey.js/">
-                    survey.js
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/03/06/hello-/">
-                    Hello World
+                <a href="/2019/03/20/CSS3学习笔记/">
+                    CSS3学习笔记
                 </a>
             </div>
         
@@ -372,9 +373,9 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#angular新建组件方法"><span class="toc-number">1.</span> <span class="toc-text">angular新建组件方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方法一"><span class="toc-number">1.1.</span> <span class="toc-text">方法一</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#我的组件名为header"><span class="toc-number">1.1.0.0.0.1.</span> <span class="toc-text">我的组件名为header</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#组件新建成功，可以开始在组件中添加内容了"><span class="toc-number">1.1.1.</span> <span class="toc-text">组件新建成功，可以开始在组件中添加内容了</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法二：命令行方式"><span class="toc-number">1.2.</span> <span class="toc-text">方法二：命令行方式</span></a></li>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#接下来我们完善一下之前做的商品竞拍案例，添加路由"><span class="toc-number">1.</span> <span class="toc-text">接下来我们完善一下之前做的商品竞拍案例，添加路由</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#依赖注入"><span class="toc-number"></span> <span class="toc-text">依赖注入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#依赖注入模式要解决的问题"><span class="toc-number">1.</span> <span class="toc-text">依赖注入模式要解决的问题</span></a></li></ol>
         
-    </div>
+    </li></div>
     <style>
         .left-col .switch-btn,
         .left-col .switch-area {
@@ -408,7 +409,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"angular新建组件方法　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"angular精讲4　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -428,15 +429,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/03/08/survey.js/" title="上一篇: survey.js">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/03/06/hello-/" title="下一篇: Hello World">
+            <a href="/2019/03/20/CSS3学习笔记/" title="下一篇: CSS3学习笔记">
                 <i class="fa fa-angle-right"></i>
             </a>
         
