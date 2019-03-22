@@ -360,71 +360,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="服务和依赖注入"><a href="#服务和依赖注入" class="headerlink" title="服务和依赖注入"></a>服务和依赖注入</h1><h2 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h2><ol>
-<li><p>建立一个服务能够让多个组件同时使用，相当于封装外部函数，别的html文件可以引用这个函数，提高代码复用性。‘</p>
-</li>
-<li><p>服务是用来替代@Output和@Input的</p>
-</li>
-<li><p>情景：在一个APP中包含两个组件，要让这两个组件都能使用这个服务</p>
-</li>
-<li><p>首先在APP建立一个组件命名为logging.service.ts</p>
-</li>
-<li><p>文件中代码如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export class LoggingService&#123;</span><br><span class="line">	logStatusChange(status:string)&#123;</span><br><span class="line">		console.log(&apos;A server status changed,new status:&apos;+status);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在组件使用</p>
-<ul>
-<li>方法一(不推荐)</li>
-</ul>
-<p>在相应组件ts文件中写以下代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123;LoggingService&#125; from &apos;../logging.service&apos;;</span><br></pre></td></tr></table></figure>
-<p>在需要执行服务的地方输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const service = new LoggingService();</span><br><span class="line">service.logStatusChange(accountStatus);</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>方法二（angular提供）——依赖注入</p>
-<ul>
-<li><p>在需要使用服务的组件ts文件的class模块写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">constructor（private loggingService:LoggingService)&#123;//服务的名称</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在头部引入LoggingService</p>
-</li>
-<li><p>在@component添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">provider：[LoggingService]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在需要执行服务的地方执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.loggingService.logStatusChange(accountStatus)//传入的参数，本次执行是在一个事件之后执行的，所以添加this</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>管理和存储数据的服务</p>
-<p>新建服务命名为：accounts.service.ts</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">export class AccountsService&#123;</span><br><span class="line">	accounts=[</span><br><span class="line">	&#123;</span><br><span class="line">		name:&apos;master&apos;,</span><br><span class="line">		status:&apos;active&apos;</span><br><span class="line">	&#125;</span><br><span class="line">	accounts=[</span><br><span class="line">	&#123;</span><br><span class="line">		name:&apos;master&apos;,</span><br><span class="line">		status:&apos;active&apos;</span><br><span class="line">	&#125;</span><br><span class="line">	accounts=[</span><br><span class="line">	&#123;</span><br><span class="line">		name:&apos;master&apos;,</span><br><span class="line">		status:&apos;active&apos;</span><br><span class="line">	&#125;</span><br><span class="line">	addAccount(name:string,status:string)&#123;//不同函数传参不同</span><br><span class="line">		this.accounts.push(&#123;name:name,status:status&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	updataStatus(id:number,status:string)&#123;</span><br><span class="line">		this.accounts[id].status = status;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;//这样的结构</span><br></pre></td></tr></table></figure>
-<p>在app的ts文件写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">accounts:&#123;name:string,status:string&#125;[]=[];</span><br><span class="line">//剩下的代码和上面的代码一样</span><br></pre></td></tr></table></figure>
-<p>可以在export后添加implements OnInit</p>
-<p>然后在模块中添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ngOnInit()&#123;</span><br><span class="line">	this.accounts = this.accountsService.accounts;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="服务分类"><a href="#服务分类" class="headerlink" title="服务分类"></a>服务分类</h3><ol>
-<li><p>放在app.moudule.ts的，全局都可以使用的服务</p>
-</li>
-<li><p>放在别的地方的，只能其子组件才能使用这个服务</p>
-</li>
-<li><p>放在最底层的，只有自己才能访问</p>
-<ul>
-<li>对于子组件来说，如果父级服务添加到了子组件，那么子组件就不能再添加服务了，不然就会覆盖掉，这个时候只需要将provider的服务名称保留一个即可。</li>
-</ul>
-</li>
-<li><p>也可将子组件中provider的服务删掉，将服务添加到app.module.ts的@NgModule{}模块，添加provider:[],将服务添加。</p>
-<p>如果要把服务引到同级的服务(注意是服务)，那要在服务中添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123;Injectable&#125; from &apos;@angular/core&apos;</span><br></pre></td></tr></table></figure>
-<p>其他代码相同</p>
-</li>
-</ol>
-</li>
-</ol>
-
+              <h1 id="服务和依赖注入"><a href="#服务和依赖注入" class="headerlink" title="服务和依赖注入"></a>服务和依赖注入</h1>
+          
       
     </div>
     
@@ -437,6 +374,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/03/11/angular服务的依赖注入/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -483,46 +424,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="angular指令"><a href="#angular指令" class="headerlink" title="angular指令"></a>angular指令</h2><h3 id="一、在APP中建立指令文件夹"><a href="#一、在APP中建立指令文件夹" class="headerlink" title="一、在APP中建立指令文件夹"></a>一、在APP中建立指令文件夹</h3><ul>
-<li><p>类似于建立组件文件</p>
-</li>
-<li><p>首先建立文件夹例如basic-heightlight</p>
-</li>
-<li><p>在文件夹中建立basic-height.directive.ts文件</p>
-</li>
-<li><p>文件中需要做的是(本指令主要是为了改变元素的北京燕山)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import &#123;Directive,ElementRef&#125; from &apos;@angular/core&apos;;</span><br><span class="line">@Directive(&#123;</span><br><span class="line">	selector:&apos;[appBasicHightLight]&apos;//指令主要面向元素</span><br><span class="line">&#125;)</span><br><span class="line">export class BasicHightDirective implements OnInit&#123;</span><br><span class="line">	constructor（private elementRef:ElementRef）&#123;//前面的elementRef名字自己选，但是后面的类型要确定</span><br><span class="line">	&#125;</span><br><span class="line">	ngOnInit()&#123;</span><br><span class="line">		this.elementRef.nativeElement.style.backgroundColor=&quot;green&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="此处是组件的建立代码做对比"><a href="#此处是组件的建立代码做对比" class="headerlink" title="此处是组件的建立代码做对比"></a>此处是组件的建立代码做对比</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Component&#125; from &apos;@angular/core&apos;;</span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line">  selector: &apos;app-shopping-edit&apos;,</span><br><span class="line">  templateUrl: &apos;./shopping-edit.component.html&apos;,</span><br><span class="line">  styleUrls: [&apos;./shopping-edit.component.css&apos;]</span><br><span class="line">&#125;)</span><br><span class="line">export class ShoppingEditComponent implements OnInit &#123;</span><br><span class="line">	constructor() &#123; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="二、将指令添加到app-module-ts，像组件一样"><a href="#二、将指令添加到app-module-ts，像组件一样" class="headerlink" title="二、将指令添加到app.module.ts，像组件一样"></a>二、将指令添加到app.module.ts，像组件一样</h3><p>在declarations里添加指令BasicHighLightDirective</p>
-<p>同时在头部添加import {BasicHighLightDirective} from ‘路径’</p>
-<h3 id="三、在html中使用这个指令"><a href="#三、在html中使用这个指令" class="headerlink" title="三、在html中使用这个指令"></a>三、在html中使用这个指令</h3><p>例如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p appBasicHighyLight&gt;test&lt;/p&gt;</span><br></pre></td></tr></table></figure>
-<p>就像是给p添加一个属性一样，这样就可以改变p元素的背景颜色了。</p>
-<h3 id="四、another-way-推荐"><a href="#四、another-way-推荐" class="headerlink" title="四、another way(推荐)"></a>四、another way(推荐)</h3><p>使用命令行新建指令 ng g d better-hightlight</p>
-<p>将会在app中新建两个ts文件，删掉其中一个spec.ts文件没什么用</p>
-<p>可以将ts文件放到一个文件夹当中，之后要把app.module.ts文件中头部指令引入的路径修改了。</p>
-<p>ts文件中同样需要这些代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import &#123;Directive,OnInit,Render2,ElementRef&#125; from &apos;@angular/core&apos;;</span><br><span class="line">@Directive(&#123;</span><br><span class="line">	selector:&apos;[appBetterHightLight]&apos;//指令主要面向元素</span><br><span class="line">&#125;)</span><br><span class="line">export class BetterHightDirective implements OnInit&#123;</span><br><span class="line">	constructor（private elRef:ElementRef,private renderer:Render2）&#123;</span><br><span class="line">	&#125;</span><br><span class="line">	ngOnInit()&#123;</span><br><span class="line">		this.renderer.setStyle(this.elRef.nativeElement,&apos;backgroundColor&apos;,&apos;blue&apos;,false,false)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>之后再app的html文件中相应元素添加属性即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p appBetterHighyLight&gt;test&lt;/p&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="五、响应式样式变化"><a href="#五、响应式样式变化" class="headerlink" title="五、响应式样式变化"></a>五、响应式样式变化</h3><h4 id="使用-HostListener"><a href="#使用-HostListener" class="headerlink" title="使用@HostListener"></a>使用@HostListener</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import &#123;Directive,OnInit,Render2,ElementRef,HostListener&#125; from &apos;@angular/core&apos;;</span><br><span class="line">@Directive(&#123;</span><br><span class="line">	selector:&apos;[appBetterHightLight]&apos;//指令主要面向元素</span><br><span class="line">&#125;)</span><br><span class="line">export class BetterHightDirective implements OnInit&#123;</span><br><span class="line">	</span><br><span class="line">	constructor（private elRef:ElementRef,private renderer:Render2）&#123;</span><br><span class="line">	&#125;</span><br><span class="line">	ngOnInit()&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	@HostListener(mouseenter) mouseover(eventData:Event)&#123;</span><br><span class="line">		this.renderer.setStyle(this.elRef.nativeElement,&apos;backgroundColor&apos;,&apos;blue&apos;,false,false)</span><br><span class="line">	&#125;</span><br><span class="line">	@HostListener(mouseleave) mouseleave(eventData:Event)&#123;</span><br><span class="line">		this.renderer.setStyle(this.elRef.nativeElement,&apos;backgroundColor&apos;,&apos;transparent&apos;,false,false)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="hostBinding使用"><a href="#hostBinding使用" class="headerlink" title="@hostBinding使用"></a>@hostBinding使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import &#123;Directive,OnInit,Render2,ElementRef,HostListener,hostBinding&#125; from &apos;@angular/core&apos;;</span><br><span class="line">@Directive(&#123;</span><br><span class="line">	selector:&apos;[appBetterHightLight]&apos;//指令主要面向元素</span><br><span class="line">&#125;)</span><br><span class="line">export class BetterHightDirective implements OnInit&#123;</span><br><span class="line">	@hostBinding(&apos;style.backgroundColor&apos;) backgroundColor:string=&apos;transparent&apos;;</span><br><span class="line">	constructor（private elRef:ElementRef,private renderer:Render2）&#123;</span><br><span class="line">	&#125;</span><br><span class="line">	ngOnInit()&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	@HostListener(&apos;mouseenter&apos;) mouseover(eventData:Event)&#123;</span><br><span class="line">		this.backgroundColor=&apos;blue&apos;</span><br><span class="line">	&#125;</span><br><span class="line">	@HostListener(&apos;mouseleave&apos;) mouseleave(eventData:Event)&#123;</span><br><span class="line">		this.backgroundColor=&apos;transparent&apos;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="自己决定鼠标hover的颜色"><a href="#自己决定鼠标hover的颜色" class="headerlink" title="自己决定鼠标hover的颜色"></a>自己决定鼠标hover的颜色</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import &#123;Directive,OnInit,Render2,ElementRef,HostListener,hostBinding,Input&#125; from &apos;@angular/core&apos;;</span><br><span class="line">@Directive(&#123;</span><br><span class="line">	selector:&apos;[appBetterHightLight]&apos;//指令主要面向元素</span><br><span class="line">&#125;)</span><br><span class="line">export class BetterHightDirective implements OnInit&#123;</span><br><span class="line">	@Input() defaultColor:string=&apos;transparent&apos;;</span><br><span class="line">	@Input() highlightColor:string=&apos;blue&apos;</span><br><span class="line">	@hostBinding(&apos;style.backgroundColor&apos;) backgroundColor:string;</span><br><span class="line">	constructor（private elRef:ElementRef,private renderer:Render2）&#123;</span><br><span class="line">	&#125;</span><br><span class="line">	ngOnInit()&#123;</span><br><span class="line">		this.backgroundColor=&quot;defaultColor&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	@HostListener(&apos;mouseenter&apos;) mouseover(eventData:Event)&#123;</span><br><span class="line">		this.backgroundColor=this.highlightColor;</span><br><span class="line">	&#125;</span><br><span class="line">	@HostListener(&apos;mouseleave&apos;) mouseleave(eventData:Event)&#123;</span><br><span class="line">		this.backgroundColor=this.defaultColor;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在p标签中添加属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p appBetterHighyLight [defaultColor]=&quot;&apos;yellow&apos;&quot; [highlightColor]=&quot;&apos;red&apos;&quot;&gt;test&lt;/p&gt;</span><br></pre></td></tr></table></figure>
-<p>如果将上述</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Input() highlightColor:string=&apos;blue&apos;修改为</span><br><span class="line">@Input(&apos;appBetterHightLight&apos;) highlightColor:string=&apos;blue&apos;;那么html文件中就应该这样修改</span><br><span class="line">&lt;p [appBetterHighyLight]=&quot;&apos;red&apos;&quot; [defaultColor]=&quot;&apos;yellow&apos;&quot;&gt;test&lt;/p&gt;这里的&quot;&apos;red&apos;&quot;也可以改为&quot;red&quot;</span><br></pre></td></tr></table></figure>
-<h3 id="六、structural-directives"><a href="#六、structural-directives" class="headerlink" title="六、structural directives"></a>六、structural directives</h3><p>命令行创建一个structural directives，使用ts文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import &#123;Directive,Input,TemplateRef&#125; from &apos;@angular/core&apos;;</span><br><span class="line">@Directive(&#123;</span><br><span class="line">	selector:&apos;[appUnless]&apos;</span><br><span class="line">&#125;)</span><br><span class="line">export class UnlessDirective&#123;</span><br><span class="line">	@Input() set appUnless(condition:boolean)&#123;</span><br><span class="line">		if(!condition)&#123;</span><br><span class="line">			this.vcRef.creatEmbeddedView(this.templateRef);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			this.vcRef.clear();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	constructor（private templateRef:TemplateRef&lt;any&gt;,private vcRef:ViewContainerRef）&#123;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>记得将这个组件添加到moudule.ts文件</p>
-<p>在html中使用这个指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div *appUnless=&quot;onlyOdd&quot;&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="ngSwitch"><a href="#ngSwitch" class="headerlink" title="ngSwitch"></a>ngSwitch</h4><p>如果在app.ts复制value=10</p>
-<p>在html中使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div [ngSwitch]=&quot;value&quot;&gt;</span><br><span class="line">	&lt;p *ngSwitchCase=&quot;5&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p *ngSwitchCase=&quot;10&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p *ngSwitchCase=&quot;100&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p *ngSwitchDefault&gt;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
+              <h2 id="angular指令"><a href="#angular指令" class="headerlink" title="angular指令"></a>angular指令</h2>
+          
       
     </div>
     
@@ -535,6 +438,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/03/10/angular-指令简述/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -581,48 +488,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Components-amp-Databinding详解"><a href="#Components-amp-Databinding详解" class="headerlink" title="Components&amp;Databinding详解"></a>Components&amp;Databinding详解</h1><h3 id="组件划分"><a href="#组件划分" class="headerlink" title="组件划分"></a>组件划分</h3><p>​    可以将一个大的组件划分成多个小的组件，直接将大组件中的代码剪切到小组件中</p>
-<p>​    然后将大组件的ts文件中为这段代码所定义的模块剪切到小组件的ts文件中。</p>
-<h3 id="父组件引用子组件中的内容（属性）"><a href="#父组件引用子组件中的内容（属性）" class="headerlink" title="父组件引用子组件中的内容（属性）"></a>父组件引用子组件中的内容（属性）</h3><p>需要在子组件的OnInit的定义使用@Input()，例如</p>
-<blockquote>
-<p>@Input() element:{name:string};</p>
-<p>可以坐在Input（）加入’name’，定义外部组件访问此组件时的名称</p>
-<p>然后将Input添加到子组件头部的import当中</p>
-</blockquote>
-<h3 id="如何通知父组件子组件有更新（比如新创建了按钮）（事件）"><a href="#如何通知父组件子组件有更新（比如新创建了按钮）（事件）" class="headerlink" title="如何通知父组件子组件有更新（比如新创建了按钮）（事件）"></a>如何通知父组件子组件有更新（比如新创建了按钮）（事件）</h3><ol>
-<li><p>将子组件调用的方法放置到父组件当中如onServerAdded(serverData:{name:string}){<br>}</p>
-</li>
-<li><p>在父组件的html文件中引入子组件，例如在app中放入<app-cockpiy (servercreated)="onServerAdded($event)"></app-cockpiy></p>
-</li>
-<li><p>将</p>
-<blockquote>
-<p>@Output（） serverCreated = new EventEmitter\&lt;{name:string}>()定义到子组件的OnInit中</p>
-<p>同时将output放置到头部的import中，括号内也可以分配别名</p>
-</blockquote>
-</li>
-<li><p>将onServerAdded方法在子组件中定义，如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onAddServer()&#123;</span><br><span class="line">	this.serverCreated.emit(&#123;name:this.newServerName&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="Encapsulation"><a href="#Encapsulation" class="headerlink" title="Encapsulation"></a>Encapsulation</h3><p>angular默认将css封装在其自身组件之中，但是外部组件却不能用。这是angular提供的，不是浏览器提供的。</p>
-<p>在某一组件的name.component.ts文件中的@Component模块中，可以添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">encapsulation:ViewEncapsulation.Native或者None或者Emulated(默认的)</span><br></pre></td></tr></table></figure>
-<p>None:样式为全局</p>
-<p>Native：类似于Emulated</p>
-<h3 id="在模板中使用本地参数-代替ngmodel"><a href="#在模板中使用本地参数-代替ngmodel" class="headerlink" title="在模板中使用本地参数(代替ngmodel)"></a>在模板中使用本地参数(代替ngmodel)</h3><p>eg:在input中添加#serverNameInput,然后在所调用的函数之中传入serverNameInput参数，console.log可以打印输入的内容再做调整</p>
-<h3 id="ViewChild-代替ngmodel"><a href="#ViewChild-代替ngmodel" class="headerlink" title="ViewChild(代替ngmodel)"></a>ViewChild(代替ngmodel)</h3><p>eg:在input中添加#serverContentInput,在ts文件中添加@ViewChild(‘serverContentInput’) serverContentInput:ElementtRef;然后在头部文件添加ViewChild</p>
-<p>console.log(this.serverContentInput.nativeElement.value)</p>
-<p>可以直接给this.serverContentInput.nativeElement.value赋值，（是一个点击事件）那么点击按钮之后值就会直接显示在输入框。&lt;不推荐&gt;</p>
-<h3 id="constructor和ngOnInit"><a href="#constructor和ngOnInit" class="headerlink" title="constructor和ngOnInit"></a>constructor和ngOnInit</h3><p>eg:每次创建都会执行这两个代码</p>
-<p>在constructor代码块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&apos;constructor&apos;);</span><br></pre></td></tr></table></figure>
-<p>在ngOnInit代码块输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&apos;ngOninit&apos;);</span><br></pre></td></tr></table></figure>
-<p>在OnInit中创建代码，同时将onChanges添加到OnInit后面,将SimpleChanges添加到头部文件中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ngOnChanges(changes:SimpleChanges)&#123;</span><br><span class="line">	console.log(&apos;ngOnChanges&apos;);</span><br><span class="line">	console.log(changes);//打印一个改变的状态</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在OnInit中创建代码，同时将doCheck添加到OnInit后面,将doCheck添加到头部文件中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ngDoCheck()&#123;</span><br><span class="line">	console.log(&quot;Check&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+              <h1 id="Components-amp-Databinding详解"><a href="#Components-amp-Databinding详解" class="headerlink" title="Components&amp;Databinding详解"></a>Components&amp;Databinding详解</h1>
+          
       
     </div>
     
@@ -635,6 +502,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/03/09/Angular-Component-databinding/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -745,39 +616,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="angular新建组件方法"><a href="#angular新建组件方法" class="headerlink" title="angular新建组件方法"></a>angular新建组件方法</h1><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p><strong>工具</strong>：vs code</p>
-<p><strong>项目名</strong>：project-app</p>
-<h6 id="我的组件名为header"><a href="#我的组件名为header" class="headerlink" title="我的组件名为header"></a>我的组件名为header</h6><p><strong>步骤</strong>：</p>
-<ul>
-<li><p>vs code打开project-app项目</p>
-</li>
-<li><p>打开src文件夹</p>
-</li>
-<li><p>进入app文件夹</p>
-</li>
-<li><p>在app文件夹中新建一个文件夹作为组件文件夹</p>
-</li>
-<li><p>在文件夹中创建两个文件命名为 name.component.ts(name为你的组件名称)、name.component.html</p>
-</li>
-</ul>
-<ul>
-<li><p>在name.component.ts文件中数据以下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Component &#125; from &quot;@angular/core&quot;;</span><br><span class="line"></span><br><span class="line">import &#123; Template &#125; from &apos;@angular/compiler/src/render3/r3_ast&apos;;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line"></span><br><span class="line">    selector:&apos;app-name&apos;,(name为你的组件名称)</span><br><span class="line"></span><br><span class="line">    templateUrl:&apos;./name.component.html&apos;此处为你的组建中新建的html文件的路径</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export class HeaderComponent&#123;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>  示例代码</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Component &#125; from &quot;@angular/core&quot;;</span><br><span class="line"></span><br><span class="line">import &#123; Template &#125; from &apos;@angular/compiler/src/render3/r3_ast&apos;;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line"></span><br><span class="line">    selector:&apos;app-header&apos;,</span><br><span class="line"></span><br><span class="line">    templateUrl:&apos;./header.component.html&apos;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export class HeaderComponent&#123;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>找到app.module.ts文件，将nameCompontent添加到@NgModule中，同时在文件头部添加import { NameComponent } from ‘./header/header.compoment’; <code>此处是你组件的路径</code></p>
-<p>示例代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">import &#123; BrowserModule &#125; from &apos;@angular/platform-browser&apos;;</span><br><span class="line"></span><br><span class="line">import &#123; NgModule &#125; from &apos;@angular/core&apos;;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">import &#123; AppComponent &#125; from &apos;./app.component&apos;;</span><br><span class="line"></span><br><span class="line">import &#123; HeaderComponent &#125; from &apos;./header/header.compoment&apos;;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">@NgModule(&#123;</span><br><span class="line"></span><br><span class="line">  declarations: [</span><br><span class="line"></span><br><span class="line">    AppComponent,</span><br><span class="line"></span><br><span class="line">    HeaderComponent,</span><br><span class="line"></span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">  imports: [</span><br><span class="line"></span><br><span class="line">    BrowserModule</span><br><span class="line"></span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">  providers: [],</span><br><span class="line"></span><br><span class="line">  bootstrap: [AppComponent]</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export class AppModule &#123; &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="组件新建成功，可以开始在组件中添加内容了"><a href="#组件新建成功，可以开始在组件中添加内容了" class="headerlink" title="组件新建成功，可以开始在组件中添加内容了"></a>组件新建成功，可以开始在组件中添加内容了</h3><h2 id="方法二：命令行方式"><a href="#方法二：命令行方式" class="headerlink" title="方法二：命令行方式"></a>方法二：命令行方式</h2><ul>
-<li>在cmd中cd到project-app文件夹</li>
-<li>输入ng g c header即可创建组件，自动完成了以上步骤</li>
-</ul>
-
+              <h1 id="angular新建组件方法"><a href="#angular新建组件方法" class="headerlink" title="angular新建组件方法"></a>angular新建组件方法</h1>
+          
       
     </div>
     
@@ -790,6 +630,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/03/06/angular新建组件方法/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

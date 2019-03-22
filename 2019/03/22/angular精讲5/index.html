@@ -15,14 +15,23 @@
 
 
 
+<meta name="description" content="#Angular路由精讲5，主要讲的是服务的依赖注入">
 <meta property="og:type" content="article">
 <meta property="og:title" content="angular精讲5">
 <meta property="og:url" content="http://yoursite.com/2019/03/22/angular精讲5/index.html">
 <meta property="og:site_name" content="yuaoblog">
+<meta property="og:description" content="#Angular路由精讲5，主要讲的是服务的依赖注入">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-22T15:47:48.414Z">
+<meta property="og:image" content="c:/Users/28715/AppData/Local/Temp/1553221665384.png">
+<meta property="og:image" content="c:/Users/28715/AppData/Local/Temp/1553246262003.png">
+<meta property="og:image" content="c:/Users/28715/AppData/Local/Temp/1553246273205.png">
+<meta property="og:image" content="c:/Users/28715/AppData/Local/Temp/1553246333057.png">
+<meta property="og:image" content="c:/Users/28715/AppData/Local/Temp/1553247208269.png">
+<meta property="og:updated_time" content="2019-03-22T15:56:43.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="angular精讲5">
+<meta name="twitter:description" content="#Angular路由精讲5，主要讲的是服务的依赖注入">
+<meta name="twitter:image" content="c:/Users/28715/AppData/Local/Temp/1553221665384.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -297,7 +306,98 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <p>#Angular路由精讲5，主要讲的是服务的依赖注入</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">angular框架就是一个IOC容器(实现了控制反转的容器)</span><br></pre></td></tr></table></figure>
+<h4 id="使用依赖注入的好处"><a href="#使用依赖注入的好处" class="headerlink" title="使用依赖注入的好处"></a>使用依赖注入的好处</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使得代码松耦合、提高代码的复用性(有点类似于在某处看过的服务啊，不知道是不是一个东西)补充：好像就是服务</span><br><span class="line">提高可测试</span><br></pre></td></tr></table></figure>
+<p><img src="C:\Users\28715\AppData\Local\Temp\1553221665384.png" alt="1553221665384"></p>
+<h4 id="注入器"><a href="#注入器" class="headerlink" title="注入器"></a>注入器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">每个组件都有一个注入器，负责注入组件需要的对象，自动调用构造函数去实例化</span><br><span class="line">constructor(private productService:ProductService:ProductService)</span><br><span class="line">&#123;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="提供器"><a href="#提供器" class="headerlink" title="提供器"></a>提供器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//为了让注入器知道如何实例化</span><br><span class="line">providers:[ProductService]</span><br><span class="line">// 即providers:[&#123;provide:ProductService,useClass:ProductService&#125;]简写版</span><br><span class="line">//providers:[&#123;provider:ProductService,useClass:AnotherProductService&#125;]</span><br><span class="line">//providers:[&#123;provide:ProductService,useFactory:()=&gt;&#123;……&#125;&#125;]</span><br></pre></td></tr></table></figure>
+<h3 id="写个程序吧"><a href="#写个程序吧" class="headerlink" title="写个程序吧"></a>写个程序吧</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">不用之前的项目了，我们新建一个项目吧</span><br><span class="line">ng new &quot;project&quot;</span><br><span class="line">然后建个组件</span><br><span class="line">ng g c product1</span><br><span class="line">然后来建一个服务，具体服务是什么我这步学习中没讲，不过之前看过另一个课程，有兴趣的可以去专门学习一下什么是服务</span><br><span class="line">ng g service shared/product//这是可以在多个组件中共享的东西，相当于封装函数</span><br><span class="line">现在建立了一个组件和一个服务，这个时候服务还没有注入</span><br></pre></td></tr></table></figure>
+<p>找到product.service.ts</p>
+<p>可以看到基本的服务结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import &#123;Injectable&#125; from &apos;@angular&apos;</span><br><span class="line"></span><br><span class="line">@Injectable()</span><br><span class="line">export class ProductService&#123;</span><br><span class="line">	constructor()&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>我们使用这个服务是用来获取商品信息的，所以我们需要在服务中声明一个Product来封装产品信息的类</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">export class Product&#123;</span><br><span class="line">    constructor(//用构造函数来声明字段</span><br><span class="line">    	public id:number,</span><br><span class="line">    	public title:string,</span><br><span class="line">    	public price:number;</span><br><span class="line">    	public desc:string;</span><br><span class="line">    )&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>声明类之后我们需要在ProductService类声明一个方法去返回刚刚建的对象</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getProduct():Product&#123;//这里就不查询数据库了，就直接new一个product</span><br><span class="line">   	return new Product(0,&quot;iPhone7&quot;,5899,&quot;最新苹果手机&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>现在服务的版本就说完了</li>
+</ol>
+<p>然后需要模块的声明</p>
+<p>找到app.module.ts</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">providers:[ProductService],//一般会自动引</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>改造product.component.ts，这里涉及依赖注入</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">在组件的类声明一个product：Product；用来接收从服务获取的数据</span><br><span class="line">然后在构造函数以依赖注入的方式，声明服务</span><br><span class="line">constructor(private productService:ProductService)&#123;&#125;</span><br><span class="line">ngOnInit()&#123;</span><br><span class="line">	this.product=this.productService.getProduct();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>写组件的模板,只需要展示商品信息即可</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">	&lt;h1&gt;商品详情&lt;/h1&gt;</span><br><span class="line">	&lt;h2&gt;名称：&#123;&#123;product.title&#125;&#125;&lt;/h2&gt;</span><br><span class="line">	&lt;h2&gt;价格：&#123;&#123;product.price&#125;&#125;&lt;/h2&gt;</span><br><span class="line">	&lt;h2&gt;描述：&#123;&#123;product.desc&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>这样模板就写完了</p>
+<ol start="6">
+<li>然后我们来写一下app.component.ts的模板，来使用刚刚写的组件</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">		&lt;h1&gt;基本的依赖注入&lt;/h2&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">		&lt;app-product1&gt;&lt;/app-product1&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>这样就写完了，就是服务，借用商品组件的构造函数，注入到商品组件，然后使用服务的getProduct方法获取所有的值，然后赋值给组件的一个变量，然后在模板写变量数据</p>
+<p>这个例子我们将服务声明在了模块当中，提供器也可以声明在组件</p>
+<h4 id="我们建一个组件"><a href="#我们建一个组件" class="headerlink" title="我们建一个组件"></a>我们建一个组件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ng g c product2</span><br><span class="line">//建一个服务</span><br><span class="line">ng g service shared/anotherProduct</span><br></pre></td></tr></table></figure>
+<ol>
+<li>写服务</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">需要用这个服务来实现刚刚写的product的service</span><br><span class="line">import &#123;Injectable&#125; from &apos;@angular&apos;</span><br><span class="line"></span><br><span class="line">@Injectable()</span><br><span class="line">export class AnotherProductService implements ProductService&#123;</span><br><span class="line">	getProduct():Product&#123;//实现就要继承刚刚的方法</span><br><span class="line">		return new Product(1,&quot;iPhone8&quot;,6000,&quot;最新苹果手机&quot;)</span><br><span class="line">		//这里也直接返回一个商品对象</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	constructor()&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>然后写一下Product2.component.ts</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//控制器的代码和Product1的相似</span><br><span class="line">在组件的类声明一个product：Product；用来接收从服务获取的数据</span><br><span class="line">然后在构造函数以依赖注入的方式，声明服务</span><br><span class="line">constructor(private productService:ProductService)&#123;&#125;</span><br><span class="line">ngOnInit()&#123;</span><br><span class="line">	this.product=this.productService.getProduct();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这部分和Product1.component.ts的不同就是要在这里去依赖注入服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//在@Component(&#123;&#125;)写</span><br><span class="line">providers:[&#123;</span><br><span class="line">    provide:ProductService,useClass:AnotherProductService</span><br><span class="line">&#125;]//这时就像刚刚讲的，你虽然是同一个实例名称，但已经是实例化的另外一个服务了，当然之前的那个实例也不会修改，ProductService称为token</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>然后直接将Product1的模板拿过来</li>
+<li>修改app.component.html，使用新组件</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li>当一个提供器声明正在模块时，所有组件都可见，虽然product1这个组件没有声明product1这个注入器，但是是可以使用模块所注入的服务的 </li>
+<li>当一个提供器声明在组件中时，只对声明的组件及其子组件可见，其他组件不可以注入</li>
+<li>当声明在模块中和组件中的提供器具有相同的token时，组件的提供器会覆盖模块的提供器，所以Product2的组件会使用AnotherProductService这个服务</li>
+<li>一般情况下，优先声明咋模块，只有规定其他模块不可见时，才能声明在组件(不常用)</li>
+<li>在Product.service.ts的类写了一个@Injectable()的装饰器，是说这个ProductService也可以构造函数注入其他服务，意思是，这个构造器可以把其他服务放到这个服务来，但是不能整到其他地方，这个服务能不能注到其他组件是由在模块是否声明来决定的，</li>
+</ol>
+<h4 id="服务之间如何相互注入"><a href="#服务之间如何相互注入" class="headerlink" title="服务之间如何相互注入"></a>服务之间如何相互注入</h4><p>新建一个服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ng g service share/logger</span><br><span class="line">在类写</span><br><span class="line">log(message:string)&#123;</span><br><span class="line">	console.log(message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后在Product.service的构造函数去注入刚刚的服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import &#123;Injectable&#125; from &apos;@angular&apos;</span><br><span class="line"></span><br><span class="line">@Injectable()</span><br><span class="line">export class ProductService&#123;</span><br><span class="line">	constructor(public logger:LoggerService)&#123;&#125;</span><br><span class="line">	getProduct():Product&#123;</span><br><span class="line">		this.logger.log(&quot;调用方法&quot;)；</span><br><span class="line">		//现在运行肯定不能打印</span><br><span class="line">		需要在模块中将这个服务声明一下</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="工厂方法或值对象来声明提供器"><a href="#工厂方法或值对象来声明提供器" class="headerlink" title="工厂方法或值对象来声明提供器"></a>工厂方法或值对象来声明提供器</h3><h4 id="使用工厂函数来声明提供器"><a href="#使用工厂函数来声明提供器" class="headerlink" title="使用工厂函数来声明提供器"></a>使用工厂函数来声明提供器</h4><p>根据随机数来确定是实例化哪个服务</p>
+<ol>
+<li>先去掉product2.component.ts的providers声明</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//现在product1.和product2都使用模块的provider提供器</span><br><span class="line">把模块的提供器声明改成这样</span><br><span class="line">providers:[&#123;</span><br><span class="line">    provide:ProductService,</span><br><span class="line">    useFactory:()=&gt;&#123;</span><br><span class="line">        let logger=new LoggerService();</span><br><span class="line">        let dev=Math.random()&gt;0.5;</span><br><span class="line">        if(dev)&#123;</span><br><span class="line">			return new ProductService(logger);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			return new AnotherProductService(logger)</span><br><span class="line">		&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;，loggerService],</span><br></pre></td></tr></table></figure>
+<p>然后把anotherProduct.service.ts的构造器改一下</p>
+<p>constructor(public logger:Logger){}//讲真这步还没整懂，哦，看懂了，上一步忘了写了而已</p>
+<p>然后在刷新，显示的两个组件就有两个组件，但是两个组件都是相同的，所以工厂方法的对象都是同一个对象。</p>
+<p>我们在方法手工实例化了一个LoggerService,这意味着我们的对象与LoggerService的耦合度很高，实际上我们已经声明了LoggerService的提供器，那如何在工厂方法使用声明过的提供器呢</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">providers:[&#123;</span><br><span class="line">    provide:ProductService,</span><br><span class="line">    useFactory:(logger:LoggerService)=&gt;&#123;//这步改这里</span><br><span class="line">        let dev=Math.random()&gt;0.5;</span><br><span class="line">        if(dev)&#123;</span><br><span class="line">			return new ProductService(logger);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			return new AnotherProductService(logger)</span><br><span class="line">		&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    deps:[LoggerService]</span><br><span class="line">&#125;，loggerService],</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>实例化哪个对象是由随机数决定的，开发的时候是不能这样写的，开发可能需要一个变量，那变量是否可以像服务一样注入呢？看代码</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">加一个提供器</span><br><span class="line">&#123;</span><br><span class="line">	provide：&quot;IS_DEV_ENV&quot;,</span><br><span class="line">	useValue:false;//要注入的东西就是一个值false</span><br><span class="line">&#125;</span><br><span class="line">//然后在useFactory那家另一个参数isDev</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">providers:[&#123;</span><br><span class="line">    provide:ProductService,</span><br><span class="line">    useFactory:(logger:LoggerService,isDev)=&gt;&#123;//这步改这里</span><br><span class="line">      </span><br><span class="line">        if(isdev)&#123;</span><br><span class="line">			return new ProductService(logger);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			return new AnotherProductService(logger)</span><br><span class="line">		&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    deps:[LoggerService,IS_DEV_ENV]</span><br><span class="line">&#125;，loggerService],</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//也可以改造变量注入</span><br><span class="line">&#123;</span><br><span class="line">	provide：&quot;IS_DEV_ENV&quot;,</span><br><span class="line">	useValue:&#123;isDev:false&#125;;//要注入的东西就是一个值false</span><br><span class="line">&#125;</span><br><span class="line">这样判断的时候就是isdev.isDev</span><br></pre></td></tr></table></figure>
+<h3 id="注入器的层级关系"><a href="#注入器的层级关系" class="headerlink" title="注入器的层级关系"></a>注入器的层级关系</h3><p>项目启动，angular就会创建一个应用级注入器，将模块的提供器都注册到注入器，注册地提供器包含声明的和依赖的其他模块的提供器都会注册，然后angular会创建启动模块指着的主组件，也就是app.component,同时应用级注入器会为组件创建一个主组件注入器，然后将组件声明的提供器注册到这个注入器，然后在组件模板会引其他子组件，子组件创建时，也会为子组件创建一个注入器，然后将在子组件声明的提供器注册。</p>
+<p><code>注入只在构造函数</code></p>
+<h3 id="改造我们的竞拍商城"><a href="#改造我们的竞拍商城" class="headerlink" title="改造我们的竞拍商城"></a>改造我们的竞拍商城</h3><ol>
+<li>编写ProductService包含三个方法：getProducts()，getProduct(id),getCommentForProduct(id)</li>
+<li>修改路由配置，在从商品列表到达商品详情时不再传递商品名称，改为传递商品id</li>
+<li>注入ProductService使用服务</li>
+</ol>
+<p><img src="C:\Users\28715\AppData\Local\Temp\1553246262003.png" alt="1553246262003"></p>
+<p><img src="C:\Users\28715\AppData\Local\Temp\1553246273205.png" alt="1553246273205"></p>
+<p><img src="C:\Users\28715\AppData\Local\Temp\1553246333057.png" alt="1553246333057"></p>
+<p><img src="C:\Users\28715\AppData\Local\Temp\1553247208269.png" alt="1553247208269"></p>
+
       
     </div>
     
@@ -308,7 +408,7 @@
         <p><span>本文标题:</span><a href="/2019/03/22/angular精讲5/">angular精讲5</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
         <p><span>发布时间:</span>2019-03-22, 23:47:48</p>
-        <p><span>最后更新:</span>2019-03-22, 23:47:48</p>
+        <p><span>最后更新:</span>2019-03-22, 23:56:43</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/22/angular精讲5/" title="angular精讲5">http://yoursite.com/2019/03/22/angular精讲5/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/22/angular精讲5/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -338,9 +438,9 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用依赖注入的好处"><span class="toc-number">1.</span> <span class="toc-text">使用依赖注入的好处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注入器"><span class="toc-number">2.</span> <span class="toc-text">注入器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#提供器"><span class="toc-number">3.</span> <span class="toc-text">提供器</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#写个程序吧"><span class="toc-number"></span> <span class="toc-text">写个程序吧</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#我们建一个组件"><span class="toc-number">1.</span> <span class="toc-text">我们建一个组件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number"></span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#服务之间如何相互注入"><span class="toc-number">1.</span> <span class="toc-text">服务之间如何相互注入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工厂方法或值对象来声明提供器"><span class="toc-number"></span> <span class="toc-text">工厂方法或值对象来声明提供器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用工厂函数来声明提供器"><span class="toc-number">1.</span> <span class="toc-text">使用工厂函数来声明提供器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注入器的层级关系"><span class="toc-number"></span> <span class="toc-text">注入器的层级关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#改造我们的竞拍商城"><span class="toc-number"></span> <span class="toc-text">改造我们的竞拍商城</span></a>
         
-    </div>
+    </li></div>
     <style>
         .left-col .switch-btn,
         .left-col .switch-area {
