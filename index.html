@@ -267,6 +267,61 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-angular精讲5" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/22/angular精讲5/" class="article-date">
+      <time datetime="2019-03-22T15:47:48.000Z" itemprop="datePublished">2019-03-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/22/angular精讲5/">angular精讲5</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-CSS3学习笔记2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -296,36 +351,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="CSS3过渡"><a href="#CSS3过渡" class="headerlink" title="CSS3过渡"></a>CSS3过渡</h2><p>过渡是指元素从一种样式逐渐改变为另外一种样式</p>
-<p>重点在于设置时间</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">比如给div设置一个：hover的width，height的样式，然后在div的样式哪里设置时间</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">transition//过渡属性，简写</span><br><span class="line">transition-property//指CSS属性的名称</span><br><span class="line">transition-duration//过渡效果需要的时间</span><br><span class="line">transition-timing-function//liner匀速</span><br><span class="line">transition-delay//过渡效果延迟时间</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">transition-property: width;</span><br><span class="line">transition-duration: 1s;</span><br><span class="line">transition-timing-function: linear;</span><br><span class="line">transition-delay: 2s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以选择简写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">transition: width 1s linear 2s;</span><br><span class="line">/* Firefox 4 */</span><br><span class="line">-moz-transition:width 1s linear 2s;</span><br><span class="line">/* Safari and Chrome */</span><br><span class="line">-webkit-transition:width 1s linear 2s;</span><br><span class="line">/* Opera */</span><br><span class="line">-o-transition:width 1s linear 2s;</span><br><span class="line">&#125;//顺便了解一下不同浏览器的方式</span><br></pre></td></tr></table></figure>
-<h2 id="CSS动画"><a href="#CSS动画" class="headerlink" title="CSS动画"></a>CSS动画</h2><ol>
-<li>CSS动画需要创建@keyframe</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@keyframes test&#123;//指定动画名称</span><br><span class="line">from &#123;background: red;&#125;</span><br><span class="line">to &#123;background: yellow;&#125;</span><br><span class="line">//如果需要多个效果则可以使用</span><br><span class="line">//20%，40%，60%……</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@keyframes test2&#123;</span><br><span class="line">	0% &#123;background:red;left:0px;top:0px;&#125;</span><br><span class="line">	25% &#123;background:yellow;left:200px;top:0px;&#125;</span><br><span class="line">	50% &#123;background:blue;left:200px;top:200px;&#125;</span><br><span class="line">	75% &#123;background:green;left:0px;top:200px;&#125;</span><br><span class="line">	100% &#123;background:red;left:0px;top:0px;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>将这个动画绑定到相关元素</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">	animation:test 5s;//设置动画执行时间</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="CSS3动画属性"><a href="#CSS3动画属性" class="headerlink" title="CSS3动画属性"></a>CSS3动画属性</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">animation//设置动画属性的简写</span><br><span class="line">animation-name//设置动画名称</span><br><span class="line">animation-duration//设置动画执行时间</span><br><span class="line">animation-timing-function://设置动画的执行速率，liner为匀速，ease为匀加速</span><br><span class="line">animation-delay//设置动画的什么时候执行</span><br><span class="line">animation-iteration-count//设置动画执行次数</span><br><span class="line">animation-direction//设置动画的方向 normal，alternate</span><br><span class="line">animation-play-state//设置动画是否正在执行</span><br><span class="line">animation-fill-mode//设置动画时间之外forwards保持最后的属性，backwards返回开始属性</span><br></pre></td></tr></table></figure>
-<h2 id="CSS3多列"><a href="#CSS3多列" class="headerlink" title="CSS3多列"></a>CSS3多列</h2><p>感觉像是将一个div当成三个div来用</p>
-<h3 id="column-count用于设置列数"><a href="#column-count用于设置列数" class="headerlink" title="column-count用于设置列数"></a>column-count用于设置列数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">	column-count:3;//将一个div分成了三个部分，如果是文字的话就会出现3列文字</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="column-gap用于设置列间隔"><a href="#column-gap用于设置列间隔" class="headerlink" title="column-gap用于设置列间隔"></a>column-gap用于设置列间隔</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">	column-gap:40px;//用于规定列之间的间隔，间隔大的话，列就窄</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="column-rule用于设置列之间的宽度、样式和颜色"><a href="#column-rule用于设置列之间的宽度、样式和颜色" class="headerlink" title="column-rule用于设置列之间的宽度、样式和颜色"></a>column-rule用于设置列之间的宽度、样式和颜色</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">	column-rule:3px outset #ff0000;//就是在列之间加线的演示</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="多列属性"><a href="#多列属性" class="headerlink" title="多列属性"></a>多列属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">column-count:number|auto;//多少列|由属性例如column-width决定列数</span><br><span class="line">column-fill：balance|auto;//按照文字多少每列分配多少字符|按顺序分配字符</span><br><span class="line">column-gap:length|normal;//指定宽度|默认1em</span><br><span class="line">column-rule//设置样式，可单独设置column-rule-width</span><br><span class="line">column-span:1|all//设置元素横跨的列数</span><br><span class="line">column-width:auto|length;//由浏览器设置列宽|设置列的宽度</span><br><span class="line">column：column-width column-count;//简写</span><br></pre></td></tr></table></figure>
-<h2 id="CSS3用户界面"><a href="#CSS3用户界面" class="headerlink" title="CSS3用户界面"></a>CSS3用户界面</h2><h3 id="CSS3-Resizing"><a href="#CSS3-Resizing" class="headerlink" title="CSS3 Resizing"></a>CSS3 Resizing</h3><p>用于规定元素是否可由用户调整大小</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">resize:both;</span><br><span class="line">overflow:auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="box-sizing"><a href="#box-sizing" class="headerlink" title="box-sizing"></a>box-sizing</h3><p>用于设置以确切的方式设置某个区域的具体content</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">    box-sizing:border-box;</span><br><span class="line">    width:50%;</span><br><span class="line">    float:left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box-sizing:content-box;//宽度和高度应用于内容框。在宽度和高度外设置编剧和边框</span><br><span class="line">box-sizing:border-box;//元素的高度宽度包含边距和边框</span><br></pre></td></tr></table></figure>
-<h3 id="outline-offset"><a href="#outline-offset" class="headerlink" title="outline offset"></a>outline offset</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">border:2px solid black;</span><br><span class="line">outline:2px solid red;</span><br><span class="line">outline-offset:15px;</span><br><span class="line">&#125;//为元素设置外部轮廓</span><br></pre></td></tr></table></figure>
-<h3 id="用户界面属性"><a href="#用户界面属性" class="headerlink" title="用户界面属性"></a>用户界面属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">appearance:button|normal|icon|window|menu|field;</span><br><span class="line">		  按钮样式|普通元素|图标|视窗|选项|字段</span><br></pre></td></tr></table></figure>
-
+              <p>CSS3学习笔记02</p>
+          
       
     </div>
     
@@ -338,6 +365,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS3/">CSS3</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/03/21/CSS3学习笔记2/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -448,44 +479,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="CSS3"><a href="#CSS3" class="headerlink" title="CSS3"></a>CSS3</h1><h2 id="CSS3边框"><a href="#CSS3边框" class="headerlink" title="CSS3边框"></a>CSS3边框</h2><p>关键词</p>
-<ul>
-<li>border-radius//支持当前主流浏览器</li>
-<li>box-shadow//支持当前主流浏览器</li>
-<li>border-image//不支持ie</li>
-</ul>
-<h3 id="圆角边框"><a href="#圆角边框" class="headerlink" title="圆角边框"></a>圆角边框</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">关键指令：border-radius</span><br></pre></td></tr></table></figure>
-<h3 id="边框shadow"><a href="#边框shadow" class="headerlink" title="边框shadow"></a>边框shadow</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">关键指令box-shadow</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line">div&#123;</span><br><span class="line">	box-shadow:10px 10px 5pa #888888;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="边框图片"><a href="#边框图片" class="headerlink" title="边框图片"></a>边框图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">	border-image:url(border.png) 30 30 round;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="CSS3背景"><a href="#CSS3背景" class="headerlink" title="CSS3背景"></a>CSS3背景</h2><h3 id="background-size属性"><a href="#background-size属性" class="headerlink" title="background-size属性"></a>background-size属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">之前背景图片的大小都是根据图片实际尺寸决定的，CSS3中可规定</span><br></pre></td></tr></table></figure>
-<h3 id="background-origin属性"><a href="#background-origin属性" class="headerlink" title="background-origin属性"></a>background-origin属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用来规定背景图片的定位区域</span><br><span class="line">background-origin：content-box;</span><br></pre></td></tr></table></figure>
-<p><img src="C:\Users\28715\AppData\Local\Temp\1553075366907.png" alt="1553075366907"></p>
-<h3 id="CSS3多重背景图片"><a href="#CSS3多重背景图片" class="headerlink" title="CSS3多重背景图片"></a>CSS3多重背景图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">body</span><br><span class="line">&#123; </span><br><span class="line">background-image:url(bg_flower.gif),url(bg_flower_2.gif);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="背景的绘制区域"><a href="#背景的绘制区域" class="headerlink" title="背景的绘制区域"></a>背景的绘制区域</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">background-color:yellow;//这个属性重在绘制</span><br><span class="line">background-clip:content-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="CSS3文本效果"><a href="#CSS3文本效果" class="headerlink" title="CSS3文本效果"></a>CSS3文本效果</h2><h3 id="Text-shadow"><a href="#Text-shadow" class="headerlink" title="Text-shadow"></a>Text-shadow</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">h1&#123;</span><br><span class="line">    text-shadow:5px 5px 5px #FF0000</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="文本换行"><a href="#文本换行" class="headerlink" title="文本换行"></a>文本换行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">p&#123;</span><br><span class="line">	word-wrap:break-word;//当单词长度超出div时自动拆分</span><br><span class="line">&#125;</span><br><span class="line">//normal使用浏览器默认换行规则</span><br><span class="line">//break-all允许在单词内换行</span><br><span class="line">//keep-all只能再半角空格或者字符串换行</span><br></pre></td></tr></table></figure>
-<h3 id="word-break"><a href="#word-break" class="headerlink" title="word-break"></a>word-break</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//normal使用浏览器默认换行规则</span><br><span class="line">//break-all允许在单词内换行</span><br><span class="line">//keep-all只能再半角空格或者字符串换行</span><br></pre></td></tr></table></figure>
-<h3 id="省略符号text-overflow属性"><a href="#省略符号text-overflow属性" class="headerlink" title="省略符号text-overflow属性"></a>省略符号text-overflow属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">div.test</span><br><span class="line">&#123;</span><br><span class="line">text-overflow:ellipsis;</span><br><span class="line">&#125;</span><br><span class="line">//当属性为clip时，直接修建文本</span><br><span class="line">//当属性为string时，使用字符串来代替修剪的文本</span><br></pre></td></tr></table></figure>
-<h2 id="CSS3字体"><a href="#CSS3字体" class="headerlink" title="CSS3字体"></a>CSS3字体</h2><h3 id="font-face"><a href="#font-face" class="headerlink" title="@font-face"></a>@font-face</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不仅使用自己电脑字体还可以使用喜欢的任何字体</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt; </span><br><span class="line">@font-face</span><br><span class="line">&#123;</span><br><span class="line">font-family: myFirstFont;</span><br><span class="line">src: url(&apos;Sansation_Light.ttf&apos;),</span><br><span class="line">     url(&apos;Sansation_Light.eot&apos;); /* IE9+ */</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">font-family:myFirstFont;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<p>若需要字体改变例如bold</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@font-face</span><br><span class="line">&#123;</span><br><span class="line">font-family: myFirstFont;</span><br><span class="line">src: url(&apos;Sansation_Bold.ttf&apos;),</span><br><span class="line">     url(&apos;Sansation_Bold.eot&apos;); /* IE9+ */</span><br><span class="line">font-weight:bold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="CSS3-2D转换"><a href="#CSS3-2D转换" class="headerlink" title="CSS3 2D转换"></a>CSS3 2D转换</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">translate()</span><br><span class="line">rotate()</span><br><span class="line">scale()</span><br><span class="line">skew()</span><br><span class="line">matrix()</span><br></pre></td></tr></table></figure>
-<p>eg：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">	transform:rotate(30deg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="translate-方法移动"><a href="#translate-方法移动" class="headerlink" title="translate()方法移动"></a>translate()方法移动</h3><p>用于元素的移动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">transform: translate(50px,100px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="rotate旋转"><a href="#rotate旋转" class="headerlink" title="rotate旋转"></a>rotate旋转</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//div顺时针旋转30度</span><br></pre></td></tr></table></figure>
-<h3 id="scale转换元素大小"><a href="#scale转换元素大小" class="headerlink" title="scale转换元素大小"></a>scale转换元素大小</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用户转换元素大小</span><br><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">transform: scale(2,4);</span><br><span class="line">&#125;</span><br><span class="line">值 scale(2,4) 把宽度转换为原始的 2 倍，把高度转换为原始高度的 4 倍。</span><br></pre></td></tr></table></figure>
-<h3 id="Skew（3D旋转）"><a href="#Skew（3D旋转）" class="headerlink" title="Skew（3D旋转）"></a>Skew（3D旋转）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//按照水平X轴和垂直线Y轴去旋转元素</span><br><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">transform: skew(30deg,20deg);</span><br><span class="line">&#125;</span><br><span class="line">值 skew(30deg,20deg) 围绕 X 轴把元素翻转 30 度，围绕 Y 轴翻转 20 度。</span><br><span class="line">//skweX(angle)</span><br><span class="line">//skweY(angle)</span><br></pre></td></tr></table></figure>
-<h3 id="matrix-转化效果集成"><a href="#matrix-转化效果集成" class="headerlink" title="matrix()转化效果集成"></a>matrix()转化效果集成</h3><p>matrix() 方法把所有 2D 转换方法组合在一起。</p>
-<p>matrix() 方法需要六个参数，包含数学函数，允许您：旋转、缩放、移动以及倾斜元素。</p>
-<h3 id="transform-origin"><a href="#transform-origin" class="headerlink" title="transform-origin"></a>transform-origin</h3><p>//用于定位旋转的基点位置</p>
-<h2 id="3D转换"><a href="#3D转换" class="headerlink" title="3D转换"></a>3D转换</h2><h3 id="rotateX-元素围绕x轴以度数去旋转"><a href="#rotateX-元素围绕x轴以度数去旋转" class="headerlink" title="rotateX()元素围绕x轴以度数去旋转"></a>rotateX()元素围绕x轴以度数去旋转</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">transform: rotateX(120deg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="rotateY-元素围绕Y轴以度数去旋转"><a href="#rotateY-元素围绕Y轴以度数去旋转" class="headerlink" title="rotateY()元素围绕Y轴以度数去旋转"></a>rotateY()元素围绕Y轴以度数去旋转</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">transform: rotateY(120deg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="3D与2D"><a href="#3D与2D" class="headerlink" title="3D与2D"></a>3D与2D</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2D转换方法除了skew之外，加上X,Y就变成了3D</span><br><span class="line">不加的情况下，直接在方法后写3D就行了，eg:translate3D</span><br></pre></td></tr></table></figure>
-
+              <p>css3学习笔记01</p>
+          
       
     </div>
     
@@ -498,6 +493,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS3/">CSS3</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/03/20/CSS3学习笔记/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -670,57 +669,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="es6-阮一峰教程学习笔记"><a href="#es6-阮一峰教程学习笔记" class="headerlink" title="es6(阮一峰教程学习笔记)"></a>es6(阮一峰教程学习笔记)</h1><h2 id="变量的结构赋值"><a href="#变量的结构赋值" class="headerlink" title="变量的结构赋值"></a>变量的结构赋值</h2><h3 id="数组的结构赋值"><a href="#数组的结构赋值" class="headerlink" title="数组的结构赋值"></a>数组的结构赋值</h3><h4 id="普通解构"><a href="#普通解构" class="headerlink" title="普通解构"></a>普通解构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">普通解构</span><br><span class="line">//es6允许按照一定的模式，从数组和对象中提取值，对变量进行赋值，这称为结构</span><br><span class="line">let [a,b,c]=[1,2,3]//a,b,c分别等于1,2,3</span><br><span class="line">//这种方法本质属于模式匹配</span><br></pre></td></tr></table></figure>
-<h4 id="嵌套解构"><a href="#嵌套解构" class="headerlink" title="嵌套解构"></a>嵌套解构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">嵌套解构</span><br><span class="line">let [foo, [[bar], baz]] = [1, [[2], 3]];</span><br><span class="line">此时可解构为</span><br><span class="line">foo=1;</span><br><span class="line">bar=2;</span><br><span class="line">baz=3;</span><br></pre></td></tr></table></figure>
-<h4 id="非对称解构"><a href="#非对称解构" class="headerlink" title="非对称解构"></a>非对称解构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">非对称结构</span><br><span class="line">let [ , , third] = [&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;];</span><br><span class="line">third=baz;</span><br><span class="line"></span><br><span class="line">let [x, , y]=[1,2,3]</span><br><span class="line">x=1;</span><br><span class="line">y=3;</span><br><span class="line"></span><br><span class="line">let [head, ...tail] = [1, 2, 3, 4];</span><br><span class="line">head=1；</span><br><span class="line">tail=[2, 3, 4]；</span><br><span class="line">//按照我的理解，...tail本身就应该是属于代表一个数组</span><br><span class="line">let [x, y, ...z] = [&apos;a&apos;];</span><br><span class="line">x // &quot;a&quot;</span><br><span class="line">y // undefined</span><br><span class="line">z // []</span><br><span class="line">//但是如果前面的数据比后面多，那变量值就是undefined</span><br></pre></td></tr></table></figure>
-<h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果等式右边不是可遍历的结构那么报错</span><br></pre></td></tr></table></figure>
-<h4 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">解构赋值允许使用默认值</span><br><span class="line">let [foo=true]=[];</span><br><span class="line">foo=true;</span><br><span class="line">let [x, y = &apos;b&apos;] = [&apos;a&apos;]; // x=&apos;a&apos;, y=&apos;b&apos;</span><br><span class="line">let [x, y = &apos;b&apos;] = [&apos;a&apos;, undefined]; // x=&apos;a&apos;, y=&apos;b&apos;</span><br><span class="line"></span><br><span class="line">//注意：等式右边的权重更大一点，但是右边如果是undefined，那么就取默认值</span><br><span class="line"></span><br><span class="line">//除此之外，默认值还可以使用已经赋值的其他变量，但是变量必须已声明</span><br><span class="line">let [x = 1, y = x] = [];     // x=1; y=1</span><br><span class="line">let [x = 1, y = x] = [2];    // x=2; y=2</span><br><span class="line">let [x = 1, y = x] = [1, 2]; // x=1; y=2</span><br><span class="line">let [x = y, y = 1] = [];     // ReferenceError: y is not defined</span><br></pre></td></tr></table></figure>
-<h3 id="对象的解构赋值"><a href="#对象的解构赋值" class="headerlink" title="对象的解构赋值"></a>对象的解构赋值</h3><h4 id="例"><a href="#例" class="headerlink" title="例"></a>例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let &#123; foo, bar &#125; = &#123; foo: &quot;aaa&quot;, bar: &quot;bbb&quot; &#125;;</span><br><span class="line">foo // &quot;aaa&quot;</span><br><span class="line">bar // &quot;bbb&quot;</span><br></pre></td></tr></table></figure>
-<h4 id="与数组的不同"><a href="#与数组的不同" class="headerlink" title="与数组的不同"></a>与数组的不同</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//数组的取值关系是按照排列顺序位置决定的，但是对象是按照属性的名字决定的取值。</span><br><span class="line">//那么这种情况下，变量名如果和属性名不一样的处理方式是，先在等式左边将变量名赋予属性名。</span><br><span class="line">let obj = &#123; first: &apos;hello&apos;, last: &apos;world&apos; &#125;;</span><br><span class="line">let &#123; first: f, last: l &#125; = obj;</span><br><span class="line">f // &apos;hello&apos;</span><br><span class="line">l // &apos;world</span><br><span class="line"></span><br><span class="line">//所以真正赋值的是与属性名同名的变量罢了</span><br></pre></td></tr></table></figure>
-<h4 id="嵌套解构-1"><a href="#嵌套解构-1" class="headerlink" title="嵌套解构"></a>嵌套解构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">let obj = &#123;p: [&apos;Hello&apos;,&#123; y: &apos;World&apos; &#125;]&#125;;</span><br><span class="line">let &#123; p: [x, &#123; y &#125;] &#125; = obj;</span><br><span class="line">x // &quot;Hello&quot;</span><br><span class="line">y // &quot;World&quot;</span><br><span class="line"></span><br><span class="line">//这时p是模式，不是变量如果p也需要赋值的话</span><br><span class="line">let &#123; p, p: [x, &#123; y &#125;] &#125; = obj;</span><br><span class="line">x // &quot;Hello&quot;</span><br><span class="line">y // &quot;World&quot;</span><br><span class="line">p // [&quot;Hello&quot;, &#123;y: &quot;World&quot;&#125;]</span><br><span class="line"></span><br><span class="line">eg2：</span><br><span class="line">const node = &#123;loc: &#123;start: &#123;line: 1,column: 5&#125;&#125;&#125;;</span><br><span class="line">let &#123; loc, loc: &#123; start &#125;, loc: &#123; start: &#123; line &#125;&#125; &#125; = node;</span><br><span class="line">line // 1</span><br><span class="line">loc  // Object &#123;start: Object&#125;</span><br><span class="line">start // Object &#123;line: 1, column: 5&#125;</span><br></pre></td></tr></table></figure>
-<p>对象的解构也可以设置默认值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var &#123;x: y = 3&#125; = &#123;x: 5&#125;;</span><br><span class="line">y // 5</span><br><span class="line">默认值的条件是右边对象的属性值严格等于undefined</span><br><span class="line">undefined就会触发函数参数的默认值。</span><br><span class="line">[1, undefined, 3].map((x = &apos;yes&apos;) =&gt; x);</span><br><span class="line">// [ 1, &apos;yes&apos;, 3 ]</span><br></pre></td></tr></table></figure>
-<h4 id="已声明的变量解构"><a href="#已声明的变量解构" class="headerlink" title="已声明的变量解构"></a>已声明的变量解构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 错误的写法</span><br><span class="line">let x;</span><br><span class="line">&#123;x&#125; = &#123;x: 1&#125;;</span><br><span class="line">// SyntaxError: syntax error</span><br><span class="line"></span><br><span class="line">// 正确的写法</span><br><span class="line">let x;</span><br><span class="line">(&#123;x&#125; = &#123;x: 1&#125;);</span><br><span class="line"></span><br><span class="line">//这是为了避免JavaScript将&#123;x&#125;当成一个代码块</span><br></pre></td></tr></table></figure>
-<h3 id="字符串的解构赋值"><a href="#字符串的解构赋值" class="headerlink" title="字符串的解构赋值"></a>字符串的解构赋值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//对字符串直接进行转化成数组赋值，同时也可以对字符串的属性进行赋值</span><br><span class="line">//字符串赋值</span><br><span class="line">const [a, b, c, d, e] = &apos;hello&apos;;</span><br><span class="line">a // &quot;h&quot;</span><br><span class="line">b // &quot;e&quot;</span><br><span class="line">c // &quot;l&quot;</span><br><span class="line">d // &quot;l&quot;</span><br><span class="line">e // &quot;o&quot;</span><br><span class="line"></span><br><span class="line">//属性赋值</span><br><span class="line">let &#123;length : len&#125; = &apos;hello&apos;;</span><br><span class="line">len // 5</span><br></pre></td></tr></table></figure>
-<h4 id="数值和布尔值的解构赋值"><a href="#数值和布尔值的解构赋值" class="headerlink" title="数值和布尔值的解构赋值"></a>数值和布尔值的解构赋值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//如果是数值和布尔值，那么先转成对象，但是undefined和null无法转化对象，就会报错</span><br><span class="line">let &#123;toString: s&#125; = 123;</span><br><span class="line">s === Number.prototype.toString // true</span><br><span class="line"></span><br><span class="line">let &#123;toString: s&#125; = true;</span><br><span class="line">s === Boolean.prototype.toString // true</span><br></pre></td></tr></table></figure>
-<h4 id="函数参数的解构赋值"><a href="#函数参数的解构赋值" class="headerlink" title="函数参数的解构赋值"></a>函数参数的解构赋值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//相当于以解构赋值的方式传参</span><br><span class="line">function add([x, y])&#123;</span><br><span class="line">  return x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add([1, 2]); // 3</span><br><span class="line"></span><br><span class="line">[[1, 2], [3, 4]].map(([a, b]) =&gt; a + b);</span><br></pre></td></tr></table></figure>
-<p>map()拓展：</p>
-<p><strong>map定义和方法</strong>  map()方法返回一个新数组，数组中的元素为原始数组元素调用函数处理的后值。  map()方法按照原始数组元素顺序依次处理元素。 </p>
-<h4 id="不得使用圆括号的情况"><a href="#不得使用圆括号的情况" class="headerlink" title="不得使用圆括号的情况"></a>不得使用圆括号的情况</h4><p>对于编译器来说，一个式子到底是模式，还是表达式，没有办法从一开始就知道，必须解析到（或解析不到）等号才能知道。 </p>
-<h5 id="变量声明语句"><a href="#变量声明语句" class="headerlink" title="变量声明语句"></a>变量声明语句</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 全部报错</span><br><span class="line">let [(a)] = [1];</span><br><span class="line"></span><br><span class="line">let &#123;x: (c)&#125; = &#123;&#125;;</span><br><span class="line">let (&#123;x: c&#125;) = &#123;&#125;;</span><br><span class="line">let &#123;(x: c)&#125; = &#123;&#125;;</span><br><span class="line">let &#123;(x): c&#125; = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">let &#123; o: (&#123; p: p &#125;) &#125; = &#123; o: &#123; p: 2 &#125; &#125;;</span><br></pre></td></tr></table></figure>
-<h5 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 报错</span><br><span class="line">function f([(z)]) &#123; return z; &#125;</span><br><span class="line">// 报错</span><br><span class="line">function f([z,(x)]) &#123; return x; &#125;</span><br></pre></td></tr></table></figure>
-<h5 id="赋值语句的模式"><a href="#赋值语句的模式" class="headerlink" title="赋值语句的模式"></a>赋值语句的模式</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 全部报错</span><br><span class="line">(&#123; p: a &#125;) = &#123; p: 42 &#125;;</span><br><span class="line">([a]) = [5];</span><br></pre></td></tr></table></figure>
-<h4 id="可以使用圆括号的情况"><a href="#可以使用圆括号的情况" class="headerlink" title="可以使用圆括号的情况"></a>可以使用圆括号的情况</h4><p>赋值语句的非模式部分</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[(b)] = [3]; // 正确</span><br><span class="line">(&#123; p: (d) &#125; = &#123;&#125;); // 正确</span><br><span class="line">[(parseInt.prop)] = [3]; // 正确</span><br></pre></td></tr></table></figure>
-<p>上面三行语句都可以正确执行，因为首先它们都是赋值语句，而不是声明语句；其次它们的圆括号都不属于模式的一部分。第一行语句中，模式是取数组的第一个成员，跟圆括号无关；第二行语句中，模式是<code>p</code>，而不是<code>d</code>；第三行语句与第一行语句的性质一致。 </p>
-<h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><ol>
-<li><p>用于交换变量值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let x = 1;</span><br><span class="line">let y = 2;</span><br><span class="line"></span><br><span class="line">[x, y] = [y, x];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>从函数返回多个值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function example() &#123;</span><br><span class="line">  return [1, 2, 3];</span><br><span class="line">&#125;</span><br><span class="line">let [a, b, c] = example();</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol start="3">
-<li>函数参数的定义</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function f([x, y, z]) &#123; ... &#125;</span><br><span class="line">f([1, 2, 3]);</span><br></pre></td></tr></table></figure>
-<ol>
-<li>提取JSON数据</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let jsonData = &#123;</span><br><span class="line">  id: 42,</span><br><span class="line">  status: &quot;OK&quot;,</span><br><span class="line">  data: [867, 5309]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let &#123; id, status, data: number &#125; = jsonData;</span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>给予参数的默认值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">jQuery.ajax = function (url, &#123;</span><br><span class="line">  async = true,</span><br><span class="line">  beforeSend = function () &#123;&#125;,</span><br><span class="line">  cache = true,</span><br><span class="line">  complete = function () &#123;&#125;,</span><br><span class="line">  crossDomain = false,</span><br><span class="line">  global = true,</span><br><span class="line">  // ... more config</span><br><span class="line">&#125; = &#123;&#125;) &#123;</span><br><span class="line">  // ... do stuff</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>遍历Map结构</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">const map = new Map();</span><br><span class="line">map.set(&apos;first&apos;, &apos;hello&apos;);</span><br><span class="line">map.set(&apos;second&apos;, &apos;world&apos;);</span><br><span class="line"></span><br><span class="line">for (let [key, value] of map) &#123;</span><br><span class="line">  console.log(key + &quot; is &quot; + value);</span><br><span class="line">&#125;</span><br><span class="line">// first is hello</span><br><span class="line">// second is world</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 获取键名</span><br><span class="line">for (let [key] of map) &#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br><span class="line">// 获取键值</span><br><span class="line">for (let [,value] of map) &#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>输入模块的指定方法</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const &#123; SourceMapConsumer, SourceNode &#125; = require(&quot;source-map&quot;);</span><br></pre></td></tr></table></figure>
+              <h1 id="es6-阮一峰教程学习笔记"><a href="#es6-阮一峰教程学习笔记" class="headerlink" title="es6(阮一峰教程学习笔记)"></a>es6(阮一峰教程学习笔记)</h1>
+          
       
     </div>
     
@@ -733,6 +683,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/03/19/es6学习笔记/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -1091,94 +1045,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="javascript基础01-02"><a href="#javascript基础01-02" class="headerlink" title="javascript基础01_02"></a>javascript基础01_02</h3><h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><h5 id="number类型"><a href="#number类型" class="headerlink" title="number类型"></a>number类型</h5><ol>
-<li><p>JavaScript，number数值类型最值的表示</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.MAX_VALUE);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.MIN_VALUE);</span><br></pre></td></tr></table></figure>
-</li>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0.1+0.2!=0.3//不要用小数去验证小数</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>验证结果是不是NaN，使用方法isNaN();//不是一个数字吗？若要验证num,num=10;则返回结果为false；</p>
-</li>
-</ol>
-<h5 id="String类型"><a href="#String类型" class="headerlink" title="String类型"></a>String类型</h5><ol>
-<li><p>字符串可以使用单引号也可以使用双引号。</p>
-</li>
-<li><p>求字符串的个数 ，即求字符串的长度为多少。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.length</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>相关转义符</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">html的转义符</span><br><span class="line">&lt;   &amp;lt</span><br><span class="line">&gt;   &amp;gt</span><br><span class="line">空格   &amp;nbsp</span><br><span class="line">js的转义符</span><br><span class="line">table键   \t</span><br><span class="line">退格键   \b</span><br><span class="line">\   \\</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol start="4">
-<li><p>字符串的拼接</p>
-<ul>
-<li>用+号即可</li>
-<li>只要有一个是字符串，其它是数字，那么也是拼接</li>
-<li>如果有一个是字符串，另一个不是，使用-、*、/号，那么此时会发生计算”10”-5=5</li>
-</ul>
-</li>
-</ol>
-<h5 id="Boolean类型"><a href="#Boolean类型" class="headerlink" title="Boolean类型"></a>Boolean类型</h5><h5 id="undefined和null"><a href="#undefined和null" class="headerlink" title="undefined和null"></a>undefined和null</h5><ol>
-<li><p>变量声明未赋值是undefined</p>
-</li>
-<li><p>变量如果是null，只能自己赋值，要喝NaN区分开</p>
-</li>
-</ol>
-<h5 id="类型转化"><a href="#类型转化" class="headerlink" title="类型转化"></a>类型转化</h5><ol>
-<li><p>其它类型转数字类型</p>
-<ul>
-<li>parseInt()//转整数</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">"10"</span>));<span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">"10a"</span>));<span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">"g10"</span>));<span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">"1fds0"</span>));<span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">"10.98"</span>));<span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">"10.98dasda"</span>));<span class="comment">//10</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>parseFloat()//转小数</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">"10"</span>));<span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">"10a"</span>));<span class="comment">//10//别的语言无法转化</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">"g10"</span>));<span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">"1fds0"</span>));<span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">"10.98"</span>));<span class="comment">//10.98</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">"10.98dasda"</span>));<span class="comment">//10.98</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>Number()//转数字——更加严格</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">"10"</span>));<span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">"10a"</span>));<span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">"g10"</span>));<span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">"1fds0"</span>));<span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">"10.98"</span>));<span class="comment">//10.98</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">"10.98dasda"</span>));<span class="comment">//NaN</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>其它类型转字符串类型</p>
-<ul>
-<li>toString</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">num=<span class="number">10</span>;</span><br><span class="line"><span class="built_in">console</span>.log(num.toString());</span><br></pre></td></tr></table></figure>
-<ul>
-<li>String()</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">num=<span class="number">10</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(num));</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol start="3">
-<li><p>其它类型转布尔类型</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">"1"</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">"0"</span>));<span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">"11"</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">"-10"</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">"嘎嘎"</span>));<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">""</span>));<span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">"null"</span>));<span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="string">"undefined"</span>));<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="通过构造函数创建数组"><a href="#通过构造函数创建数组" class="headerlink" title="通过构造函数创建数组"></a>通过构造函数创建数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var 数组名=new Array();</span><br><span class="line"></span><br><span class="line">var array=new Array();</span><br><span class="line">//数组的名字如果直接输出，那么直接就可以把数组中的数据显示出来，如果没有数据，就看不到数据。</span><br><span class="line">var array=new Array(5);//规定数组大小,此时数组的每个值就是undefined</span><br></pre></td></tr></table></figure>
-<h3 id="通过字面量的方式创建数组"><a href="#通过字面量的方式创建数组" class="headerlink" title="通过字面量的方式创建数组"></a>通过字面量的方式创建数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var 数组名=[];</span><br><span class="line">var arr=[];</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>不管是构造函数的方式还是字面量的方式，如果定义了大小，那么数据默认为undefined</p>
-</li>
-<li><p>构造函数的方式创建数组的时候，如果在Array()写一个数字，则表示数组的长度，若在括号写多个值，那么数组就有数据了，数组的长度就是这些值的个数。</p>
-</li>
-<li><p>设置数组某个位置的值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数组名 [下标]=值；</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><p>数组的长度-1就是最大的索引值</p>
-</li>
-<li><p>字面量创建的方式更简单</p>
-</li>
-<li><p>arr.length数组大小</p>
-</li>
-</ul>
-<h3 id="数组的注意问题"><a href="#数组的注意问题" class="headerlink" title="数组的注意问题"></a>数组的注意问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr=[10,2,3,4,1];</span><br><span class="line">alert(arr);//输出的逗号是浏览器自己加的</span><br></pre></td></tr></table></figure>
-<h3 id="数组存储的类型一定是一样的吗"><a href="#数组存储的类型一定是一样的吗" class="headerlink" title="数组存储的类型一定是一样的吗"></a>数组存储的类型一定是一样的吗</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr=[10,&apos;嘎嘎&apos;，true,&apos;undefined&apos;,new object];//可以输出结果</span><br><span class="line">//但是一般使用都使用同样的数据类型</span><br></pre></td></tr></table></figure>
-<h3 id="数据的长度是否可以改变"><a href="#数据的长度是否可以改变" class="headerlink" title="数据的长度是否可以改变"></a>数据的长度是否可以改变</h3><p>可以</p>
-
+              <p>重温JavaScript02</p>
+          
       
     </div>
     
@@ -1191,6 +1059,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/03/15/javascript基础-02/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -1292,115 +1164,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-javascript基础01-01" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/12/javascript基础01-01/" class="article-date">
-      <time datetime="2019-03-12T15:41:08.000Z" itemprop="datePublished">2019-03-12</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/12/javascript基础01-01/">javascript基础01_01</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="javascript基础01"><a href="#javascript基础01" class="headerlink" title="javascript基础01"></a>javascript基础01</h1><h3 id="js分为三个部分"><a href="#js分为三个部分" class="headerlink" title="js分为三个部分"></a>js分为三个部分</h3><ul>
-<li>ECMAScript</li>
-<li>DOM</li>
-<li>BOM</li>
-</ul>
-<h3 id="JavaScript是什么"><a href="#JavaScript是什么" class="headerlink" title="JavaScript是什么"></a>JavaScript是什么</h3><ul>
-<li><p>是一门脚本语言</p>
-</li>
-<li><p>是一门解释性语言</p>
-</li>
-<li><p>是一门动态类型的语言</p>
-</li>
-<li><p>是一门基于对象的语言</p>
-</li>
-</ul>
-<h3 id="编译语言与脚本语言的区别"><a href="#编译语言与脚本语言的区别" class="headerlink" title="编译语言与脚本语言的区别"></a>编译语言与脚本语言的区别</h3><p>编译语言：需要把代码翻译成计算机语言才能执行</p>
-<p>脚本语言：不需要编译就可以直接执行</p>
-<p>常用的脚本语言：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t-sql、cmd</span><br></pre></td></tr></table></figure>
-<h3 id="js的作用"><a href="#js的作用" class="headerlink" title="js的作用"></a>js的作用</h3><p>js解决用户和浏览器之间的问题</p>
-<h3 id="js写法"><a href="#js写法" class="headerlink" title="js写法"></a>js写法</h3><ul>
-<li>js可以写在外部文件中，但是要引到html文件</li>
-<li>js的代码可以写在html标签中写</li>
-<li>在一对script标签有错误的js代码，那么错误代码后面的js代码不会执行</li>
-<li>但是第一个script标签中的代码错了，后面script标签中的正确js代码都看看呀执行</li>
-<li>script标签中可以写type=”text/javascript”和language=”javascript”,也可以两个标签都写，解决浏览器解析时可能出错的问题</li>
-<li>script标签在页面可以出现多次</li>
-<li>script标签一般是放在body标签的最后，也可以放在头部（需要别的方式）</li>
-<li>js每一行后面都要加分号，不容易出错。</li>
-<li>js区分大小写</li>
-<li>js字符串可以使用单引号也可以使用双引号</li>
-</ul>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><ul>
-<li><p>操作的数据都是在内存中操作</p>
-</li>
-<li><p>js中存储数据使用变量的方式（名字，值—&gt;数据）</p>
-</li>
-<li><p>js中声明变量都用var，数据需要拥有数据类型</p>
-</li>
-<li><p>没有赋值的变量为undefined(没有返回值的函数也为undefined)</p>
-</li>
-<li><p>undefined+一个数字为NaN</p>
-</li>
-</ul>
-<h3 id="变量的交换"><a href="#变量的交换" class="headerlink" title="变量的交换"></a>变量的交换</h3><h4 id="方法一-第三方变量"><a href="#方法一-第三方变量" class="headerlink" title="方法一:第三方变量"></a>方法一:第三方变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var num1=10;</span><br><span class="line">var num2=20;</span><br><span class="line">var temp = num1;</span><br><span class="line">num1 = num2;</span><br><span class="line">num2 = temp;</span><br></pre></td></tr></table></figure>
-<h4 id="方法二-用于数字的交换"><a href="#方法二-用于数字的交换" class="headerlink" title="方法二:用于数字的交换"></a>方法二:用于数字的交换</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var num1=10;</span><br><span class="line">var num2=20;</span><br><span class="line">num1=num1+num2;//30</span><br><span class="line">num2=num1-num2;//10</span><br><span class="line">num1=num1-num2;//20</span><br></pre></td></tr></table></figure>
-<h3 id="方法三：异或的方式"><a href="#方法三：异或的方式" class="headerlink" title="方法三：异或的方式"></a>方法三：异或的方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var num1=10;</span><br><span class="line">var num2=20;</span><br><span class="line">num1 = num1^num2;</span><br><span class="line">num2 = num1^num2;</span><br><span class="line">num1 = num1^num2;</span><br></pre></td></tr></table></figure>
-<h3 id="代码格式规范化"><a href="#代码格式规范化" class="headerlink" title="代码格式规范化"></a>代码格式规范化</h3><p>webStorm:Ctrl+Alt+L</p>
-<h3 id="获取变量的数据类型"><a href="#获取变量的数据类型" class="headerlink" title="获取变量的数据类型"></a>获取变量的数据类型</h3><h4 id="js的数据类型"><a href="#js的数据类型" class="headerlink" title="js的数据类型"></a>js的数据类型</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">number</span><br><span class="line">string</span><br><span class="line">boolean</span><br><span class="line">null//对象为空，赋值为null//为对象类型</span><br><span class="line">undefined</span><br><span class="line">object</span><br></pre></td></tr></table></figure>
-<h4 id="typeof获取js变量数据类型"><a href="#typeof获取js变量数据类型" class="headerlink" title="typeof获取js变量数据类型"></a>typeof获取js变量数据类型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//typeof 变量名</span></span><br><span class="line"><span class="comment">//typeof(变量名)</span></span><br><span class="line"><span class="keyword">typeof</span>(<span class="built_in">String</span>(<span class="literal">null</span>))结果为<span class="literal">null</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
     </div>
 
       

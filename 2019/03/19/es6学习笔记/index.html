@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="es6(阮一峰教程学习笔记)变量的结构赋值数组的结构赋值普通解构1234普通解构//es6允许按照一定的模式，从数组和对象中提取值，对变量进行赋值，这称为结构let [a,b,c]=[1,2,3]//a,b,c分别等于1,2,3//这种方法本质属于模式匹配 嵌套解构123456嵌套解构let [foo, [[bar], baz]] = [1, [[2], 3]];此时可解构为foo=1;bar=2">
+<meta name="description" content="es6(阮一峰教程学习笔记)">
 <meta name="keywords" content="es6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="es6学习笔记01">
 <meta property="og:url" content="http://yoursite.com/2019/03/19/es6学习笔记/index.html">
 <meta property="og:site_name" content="yuaoblog">
-<meta property="og:description" content="es6(阮一峰教程学习笔记)变量的结构赋值数组的结构赋值普通解构1234普通解构//es6允许按照一定的模式，从数组和对象中提取值，对变量进行赋值，这称为结构let [a,b,c]=[1,2,3]//a,b,c分别等于1,2,3//这种方法本质属于模式匹配 嵌套解构123456嵌套解构let [foo, [[bar], baz]] = [1, [[2], 3]];此时可解构为foo=1;bar=2">
+<meta property="og:description" content="es6(阮一峰教程学习笔记)">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-22T04:51:13.084Z">
+<meta property="og:updated_time" content="2019-03-22T15:51:57.782Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="es6学习笔记01">
-<meta name="twitter:description" content="es6(阮一峰教程学习笔记)变量的结构赋值数组的结构赋值普通解构1234普通解构//es6允许按照一定的模式，从数组和对象中提取值，对变量进行赋值，这称为结构let [a,b,c]=[1,2,3]//a,b,c分别等于1,2,3//这种方法本质属于模式匹配 嵌套解构123456嵌套解构let [foo, [[bar], baz]] = [1, [[2], 3]];此时可解构为foo=1;bar=2">
+<meta name="twitter:description" content="es6(阮一峰教程学习笔记)">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -305,7 +305,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="es6-阮一峰教程学习笔记"><a href="#es6-阮一峰教程学习笔记" class="headerlink" title="es6(阮一峰教程学习笔记)"></a>es6(阮一峰教程学习笔记)</h1><h2 id="变量的结构赋值"><a href="#变量的结构赋值" class="headerlink" title="变量的结构赋值"></a>变量的结构赋值</h2><h3 id="数组的结构赋值"><a href="#数组的结构赋值" class="headerlink" title="数组的结构赋值"></a>数组的结构赋值</h3><h4 id="普通解构"><a href="#普通解构" class="headerlink" title="普通解构"></a>普通解构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">普通解构</span><br><span class="line">//es6允许按照一定的模式，从数组和对象中提取值，对变量进行赋值，这称为结构</span><br><span class="line">let [a,b,c]=[1,2,3]//a,b,c分别等于1,2,3</span><br><span class="line">//这种方法本质属于模式匹配</span><br></pre></td></tr></table></figure>
+        <h1 id="es6-阮一峰教程学习笔记"><a href="#es6-阮一峰教程学习笔记" class="headerlink" title="es6(阮一峰教程学习笔记)"></a>es6(阮一峰教程学习笔记)</h1><a id="more"></a>
+<h2 id="变量的结构赋值"><a href="#变量的结构赋值" class="headerlink" title="变量的结构赋值"></a>变量的结构赋值</h2><h3 id="数组的结构赋值"><a href="#数组的结构赋值" class="headerlink" title="数组的结构赋值"></a>数组的结构赋值</h3><h4 id="普通解构"><a href="#普通解构" class="headerlink" title="普通解构"></a>普通解构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">普通解构</span><br><span class="line">//es6允许按照一定的模式，从数组和对象中提取值，对变量进行赋值，这称为结构</span><br><span class="line">let [a,b,c]=[1,2,3]//a,b,c分别等于1,2,3</span><br><span class="line">//这种方法本质属于模式匹配</span><br></pre></td></tr></table></figure>
 <h4 id="嵌套解构"><a href="#嵌套解构" class="headerlink" title="嵌套解构"></a>嵌套解构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">嵌套解构</span><br><span class="line">let [foo, [[bar], baz]] = [1, [[2], 3]];</span><br><span class="line">此时可解构为</span><br><span class="line">foo=1;</span><br><span class="line">bar=2;</span><br><span class="line">baz=3;</span><br></pre></td></tr></table></figure>
 <h4 id="非对称解构"><a href="#非对称解构" class="headerlink" title="非对称解构"></a>非对称解构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">非对称结构</span><br><span class="line">let [ , , third] = [&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;];</span><br><span class="line">third=baz;</span><br><span class="line"></span><br><span class="line">let [x, , y]=[1,2,3]</span><br><span class="line">x=1;</span><br><span class="line">y=3;</span><br><span class="line"></span><br><span class="line">let [head, ...tail] = [1, 2, 3, 4];</span><br><span class="line">head=1；</span><br><span class="line">tail=[2, 3, 4]；</span><br><span class="line">//按照我的理解，...tail本身就应该是属于代表一个数组</span><br><span class="line">let [x, y, ...z] = [&apos;a&apos;];</span><br><span class="line">x // &quot;a&quot;</span><br><span class="line">y // undefined</span><br><span class="line">z // []</span><br><span class="line">//但是如果前面的数据比后面多，那变量值就是undefined</span><br></pre></td></tr></table></figure>
 <h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果等式右边不是可遍历的结构那么报错</span><br></pre></td></tr></table></figure>
@@ -366,7 +367,7 @@
         <p><span>本文标题:</span><a href="/2019/03/19/es6学习笔记/">es6学习笔记01</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
         <p><span>发布时间:</span>2019-03-19, 23:32:52</p>
-        <p><span>最后更新:</span>2019-03-22, 12:51:13</p>
+        <p><span>最后更新:</span>2019-03-22, 23:51:57</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/19/es6学习笔记/" title="es6学习笔记01">http://yoursite.com/2019/03/19/es6学习笔记/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/19/es6学习笔记/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -472,7 +473,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/CSS3学习笔记2/">CSS3学习笔记2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/angular精讲4/">angular精讲4</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/20/CSS3学习笔记/">CSS3学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/20/angular精讲3/">angular精讲3</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/es6学习笔记/">es6学习笔记01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/angular精讲2/">angular精讲2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/angular精讲1/">angular精讲1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/javascript基础-02/">javascript基础_02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/angular路由/">angular路由</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/javascript基础01-01/">javascript基础01_01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/11/angular服务的依赖注入/">angular服务的依赖注入</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/10/angular-指令简述/">angular 指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/Angular-Component-databinding/">Angular Component$databinding</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/08/survey.js/">survey.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/angular新建组件方法/">angular新建组件方法</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/22/angular精讲5/">angular精讲5</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/CSS3学习笔记2/">CSS3学习笔记2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/angular精讲4/">angular精讲4</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/20/CSS3学习笔记/">CSS3学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/20/angular精讲3/">angular精讲3</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/es6学习笔记/">es6学习笔记01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/angular精讲2/">angular精讲2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/angular精讲1/">angular精讲1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/javascript基础-02/">javascript基础_02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/angular路由/">angular路由</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/javascript基础01-01/">javascript基础01_01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/11/angular服务的依赖注入/">angular服务的依赖注入</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/10/angular-指令简述/">angular 指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/Angular-Component-databinding/">Angular Component$databinding</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/08/survey.js/">survey.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/angular新建组件方法/">angular新建组件方法</a></li></ul>
 
 
 
