@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="接下来我们完善一下之前做的商品竞拍案例，添加路由当用户点击某个商品时，商品区域应该替换掉，显示商品的详情  创建一个商品详情组件，显示商品的图片和标题 重构代码，把轮播图组件和商品列表组件封装到一个新的Home组件 配置路由，在导航到商品详情组件时传递商品的标题参数 修改APP组件，根据路由显示home组件或商品详情组件 修改商品的列表组件，给商品标题添加routeLink指令，从而指向路由">
+<meta name="description" content="+">
 <meta name="keywords" content="Angular">
 <meta property="og:type" content="article">
 <meta property="og:title" content="angular精讲4">
 <meta property="og:url" content="http://yoursite.com/2019/03/21/angular精讲4/index.html">
 <meta property="og:site_name" content="yuaoblog">
-<meta property="og:description" content="接下来我们完善一下之前做的商品竞拍案例，添加路由当用户点击某个商品时，商品区域应该替换掉，显示商品的详情  创建一个商品详情组件，显示商品的图片和标题 重构代码，把轮播图组件和商品列表组件封装到一个新的Home组件 配置路由，在导航到商品详情组件时传递商品的标题参数 修改APP组件，根据路由显示home组件或商品详情组件 修改商品的列表组件，给商品标题添加routeLink指令，从而指向路由">
+<meta property="og:description" content="+">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-22T03:31:20.552Z">
+<meta property="og:updated_time" content="2019-03-22T04:04:23.901Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="angular精讲4">
-<meta name="twitter:description" content="接下来我们完善一下之前做的商品竞拍案例，添加路由当用户点击某个商品时，商品区域应该替换掉，显示商品的详情  创建一个商品详情组件，显示商品的图片和标题 重构代码，把轮播图组件和商品列表组件封装到一个新的Home组件 配置路由，在导航到商品详情组件时传递商品的标题参数 修改APP组件，根据路由显示home组件或商品详情组件 修改商品的列表组件，给商品标题添加routeLink指令，从而指向路由">
+<meta name="twitter:description" content="+">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -298,7 +298,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="接下来我们完善一下之前做的商品竞拍案例，添加路由"><a href="#接下来我们完善一下之前做的商品竞拍案例，添加路由" class="headerlink" title="接下来我们完善一下之前做的商品竞拍案例，添加路由"></a>接下来我们完善一下之前做的商品竞拍案例，添加路由</h3><p>当用户点击某个商品时，商品区域应该替换掉，显示商品的详情</p>
+        <hr>
+<p><excerpt in index | 首页摘要><br>+<a id="more"></a></excerpt></p>
+<the rest of contents | 余下全文>
+
+<h3 id="接下来我们完善一下之前做的商品竞拍案例，添加路由"><a href="#接下来我们完善一下之前做的商品竞拍案例，添加路由" class="headerlink" title="接下来我们完善一下之前做的商品竞拍案例，添加路由"></a>接下来我们完善一下之前做的商品竞拍案例，添加路由</h3><p>当用户点击某个商品时，商品区域应该替换掉，显示商品的详情</p>
 <ol>
 <li>创建一个商品详情组件，显示商品的图片和标题</li>
 <li>重构代码，把轮播图组件和商品列表组件封装到一个新的Home组件</li>
@@ -337,7 +341,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">控制反转IOC</span><br><span class="line">这是一个经常与依赖注入同时出现的另外一个说法</span><br><span class="line">是指将依赖的控制权将从代码内部，转到外部</span><br><span class="line">例如</span><br><span class="line">var product = new Prouct()//这是内部决定，决定product依赖Product,如果想要依赖别的那我需要改掉这一行代码，而如果控制反转，则内部代码只需要喊话，我需要porduct，至于传过来的是Product还是别的实例化的，是由代码外部决定的。这时候依赖的控制权就转移到了外部。</span><br></pre></td></tr></table></figure>
 <p>这两个说法表达的是一个思想，控制反转侧重于表达一个目的，即转移代码控制权</p>
 <p>而依赖注入描述手段，即如何来实现控制反转，使用的手段叫做，依赖注入</p>
-
+</the>
       
     </div>
     
@@ -348,7 +352,7 @@
         <p><span>本文标题:</span><a href="/2019/03/21/angular精讲4/">angular精讲4</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
         <p><span>发布时间:</span>2019-03-21, 23:18:30</p>
-        <p><span>最后更新:</span>2019-03-22, 11:31:20</p>
+        <p><span>最后更新:</span>2019-03-22, 12:04:23</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/21/angular精讲4/" title="angular精讲4">http://yoursite.com/2019/03/21/angular精讲4/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/21/angular精讲4/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
