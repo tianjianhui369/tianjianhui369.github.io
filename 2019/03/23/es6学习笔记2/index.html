@@ -15,18 +15,17 @@
 
 
 
-<meta name="description" content="angular路由">
-<meta name="keywords" content="Angular">
+<meta name="description" content="es6学习笔记2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="angular路由">
-<meta property="og:url" content="http://yoursite.com/2019/03/13/angular路由/index.html">
+<meta property="og:title" content="es6学习笔记2">
+<meta property="og:url" content="http://yoursite.com/2019/03/23/es6学习笔记2/index.html">
 <meta property="og:site_name" content="yuaoblog">
-<meta property="og:description" content="angular路由">
+<meta property="og:description" content="es6学习笔记2">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-22T15:53:43.917Z">
+<meta property="og:updated_time" content="2019-03-23T15:37:43.072Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="angular路由">
-<meta name="twitter:description" content="angular路由">
+<meta name="twitter:title" content="es6学习笔记2">
+<meta name="twitter:description" content="es6学习笔记2">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>angular路由 | yuaoblog</title>
+<title>es6学习笔记2 | yuaoblog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -265,11 +264,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-angular路由" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-es6学习笔记2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/13/angular路由/" class="article-date">
-      <time datetime="2019-03-13T15:42:01.000Z" itemprop="datePublished">2019-03-13</time>
+      <a href="/2019/03/23/es6学习笔记2/" class="article-date">
+      <time datetime="2019-03-23T15:36:00.000Z" itemprop="datePublished">2019-03-23</time>
 </a>
 
 
@@ -284,7 +283,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      angular路由
+      es6学习笔记2
     </h1>
   
 
@@ -294,10 +293,6 @@
         
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -305,51 +300,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="angular路由"><a href="#angular路由" class="headerlink" title="angular路由"></a>angular路由</h2><a id="more"></a>
-<ol>
-<li>我有三个组件需要作为页面显示，设置路由</li>
-<li>使用路由，需要在app.module.ts文件的import下面添加然后将Routes引入到头部</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const appRoutes:Routes=[</span><br><span class="line">    &#123;path:&apos;&apos;,component:HomeComponent&#125;//建立第一个路由</span><br><span class="line">    &#123;path:&apos;users&apos;,component:UsersComponent&#125;//建立第一个路由</span><br><span class="line">    &#123;path:&apos;servers&apos;,component:ServersComponent&#125;//建立第一个路由</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>在app.module.ts文件的@NgModule模块的imports数组添加RouterModule，然后将RouterModule添加到头部Routes的引入模块，如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RouterModule。forRoot(appRoutes);//注册路由</span><br><span class="line">import &#123;Routes,RouterModule&#125; from &apos;@angular/router&apos;;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol start="2">
-<li><p>至此，算是添加了路由功能了，基本模块结束了。angular知道了这个路由</p>
-</li>
-<li><p>在app.component.html模板中，你需要知道要把路由带来的页面添加到哪里，类似于模板引擎的原理。保留一个模板。在加载页面的html位置，添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-outlet&gt;&lt;/router-outlet&gt;//这是一个指令</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>若使用某个a标签使得页面刷新到另外的页面，则删掉a标签的href属性添加routerLink属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;li role=&quot;presentation&quot; class=&quot;active&quot;&gt;&lt;a routerLink=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li role=&quot;presentation&quot;&gt;&lt;a routerLink=&quot;/servers&quot;&gt;Servers&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li role=&quot;presentation&quot;&gt;&lt;a [routerLink]=&quot;[&apos;/users&apos;]&quot;&gt;Users&lt;/a&gt;&lt;/li&gt;//添加多个页面或参数时使用</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>注意上面的class=”active”是引用的css样式当点击时是选中的样式，在路由修改成如下,添加指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li role=&quot;presentation&quot; routerLinkActive=&quot;active&quot;&gt;&lt;a routerLink=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</span><br></pre></td></tr></table></figure>
-<p>也可以将这个指令添加到a标签,bootstrap还是放到li标签好点</p>
-<p>将这个属性添加到6的每个li标签就可以实现点击样式，但是起初的默认选中样式却没有删掉。此时可以如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li role=&quot;presentation&quot; routerLinkActive=&quot;active&quot; [routeLinkActionOptions]=&quot;&#123;exact:true&#125;&quot;&gt;&lt;a routerLink=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol start="6">
-<li><p>在某个组件，若想要当点击某个按钮时使用router则如下</p>
-<ul>
-<li><p>在组件的ts文件的constructor括号里写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">private router:Router//头部文件引用</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li><p>当点击按钮后执行函数事件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.router.navigate([&apos;/servers&apos;]);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ol start="7">
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;path:&apos;users/:id&apos;,component:UsersComponent&#125;//传值选择某个数据</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+        <h1 id="es6学习笔记2"><a href="#es6学习笔记2" class="headerlink" title="es6学习笔记2"></a>es6学习笔记2</h1><a id="more"></a>
+<h2 id="字符串的扩展"><a href="#字符串的扩展" class="headerlink" title="字符串的扩展"></a>字符串的扩展</h2><h3 id="字符串的Unicode码表示"><a href="#字符串的Unicode码表示" class="headerlink" title="字符串的Unicode码表示"></a>字符串的Unicode码表示</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">原本的JavaScript只能支持\u0000-\uffff的码点，超出这个范围就不能正确解析，在es6中只要将码点放到大括号就能正确解析</span><br></pre></td></tr></table></figure>
+<h3 id="codePointAt-字符串编码"><a href="#codePointAt-字符串编码" class="headerlink" title="codePointAt()字符串编码"></a>codePointAt()字符串编码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">一般默认的字符是2个字节存储，对于多于\u0000-\uffff的字符，这个存储需要四个字节，因此JavaScript会将其理解为两个字符，这样的话chatAt()就无法读取正确的值，charCodeAt()读取到的也是2个字节的十进制码</span><br><span class="line">所以为了能够正确解读，便可以采用codePointAt()方法</span><br><span class="line">这个方法返回的是UTF-16的十进制码点，如果需要转化可以使用toString</span><br><span class="line">s.codePointAt().toString(16)</span><br></pre></td></tr></table></figure>
+<h3 id="String-formCodePoint"><a href="#String-formCodePoint" class="headerlink" title="String.formCodePoint()"></a>String.formCodePoint()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">JavaScript提供了一种方法formCharCode(),用于将码点转化成为字符串，但是无法转化UTF-16的字符，即不在\u0000-\uffff范围的字符串无法解析</span><br><span class="line">因此es6提供了一种forCharCode()方法，用于转换这些字符</span><br><span class="line">这个字符串可以有多个参数，返回的时候将这几个参数转化后形成字符串返回</span><br></pre></td></tr></table></figure>
+<h3 id="字符串的遍历接口"><a href="#字符串的遍历接口" class="headerlink" title="字符串的遍历接口"></a>字符串的遍历接口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">在es6可以使用for of语句去遍历字符串</span><br><span class="line">for (let codePoint of &apos;foo&apos;) &#123;</span><br><span class="line">  console.log(codePoint)</span><br><span class="line">&#125;</span><br><span class="line">// &quot;f&quot;</span><br><span class="line">// &quot;o&quot;</span><br><span class="line">// &quot;o&quot;</span><br><span class="line">但是用for语句就不能遍历UTF-16的编码字符，因为会误以为一个字符是两个字符</span><br></pre></td></tr></table></figure>
+<h3 id="normalize"><a href="#normalize" class="headerlink" title="normalize()"></a>normalize()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在JavaScript提供合成语调符号和字符的方法合成Ǒ（\u004F\u030C）</span><br><span class="line">但是这种方式无法让JavaScript识别，就是说Unicode本身提供的语调字符和合成之后的字符无法===</span><br><span class="line">但是如果使用了normalize就可以===</span><br><span class="line">&apos;\u01D1&apos;.normalize() === &apos;\u004F\u030C&apos;.normalize()//true</span><br></pre></td></tr></table></figure>
+<h3 id="includes-startsWith-endsWith"><a href="#includes-startsWith-endsWith" class="headerlink" title="includes(), startsWith(), endsWith()"></a>includes(), startsWith(), endsWith()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">includes()：返回布尔值，表示是否找到了参数字符串。</span><br><span class="line">startsWith()：返回布尔值，表示参数字符串是否在原字符串的头部。</span><br><span class="line">endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部。</span><br><span class="line"></span><br><span class="line">let s = &apos;Hello world!&apos;;</span><br><span class="line"></span><br><span class="line">s.startsWith(&apos;Hello&apos;) // true</span><br><span class="line">s.endsWith(&apos;!&apos;) // true</span><br><span class="line">s.includes(&apos;o&apos;) // true</span><br><span class="line"></span><br><span class="line">可以传参数，表示开始查找的位置</span><br></pre></td></tr></table></figure>
+<h3 id="repeat"><a href="#repeat" class="headerlink" title="repeat()"></a>repeat()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">repeat方法返回一个新字符串，表示将原字符串重复n次。</span><br><span class="line">&apos;x&apos;.repeat(3) // &quot;xxx&quot;</span><br><span class="line">&apos;hello&apos;.repeat(2) // &quot;hellohello&quot;</span><br><span class="line">&apos;na&apos;.repeat(0) // &quot;&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="padStart-，padEnd"><a href="#padStart-，padEnd" class="headerlink" title="padStart()，padEnd"></a>padStart()，padEnd</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">padStart()用于头部补全，padEnd()用于尾部补全</span><br><span class="line">&apos;x&apos;.padStart(5, &apos;ab&apos;) // &apos;ababx&apos;</span><br><span class="line">&apos;x&apos;.padStart(4, &apos;ab&apos;) // &apos;abax&apos;</span><br><span class="line"></span><br><span class="line">&apos;x&apos;.padEnd(5, &apos;ab&apos;) // &apos;xabab&apos;</span><br><span class="line">&apos;x&apos;.padEnd(4, &apos;ab&apos;) // &apos;xaba&apos;</span><br><span class="line">如果第一个参数小于x的长度，则返回原字符串</span><br><span class="line">可用于补全字节</span><br></pre></td></tr></table></figure>
+<h3 id="matchAll"><a href="#matchAll" class="headerlink" title="matchAll()"></a>matchAll()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matchAll方法返回一个正则表达式在当前字符串的所有匹配</span><br></pre></td></tr></table></figure>
+<h3 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">JavaScript的模板需要写的格式比较麻烦，一般用+ +来写</span><br><span class="line">eg:</span><br><span class="line">$(&apos;#result&apos;).append(</span><br><span class="line">  &apos;There are &lt;b&gt;&apos; + basket.count + &apos;&lt;/b&gt; &apos; +</span><br><span class="line">  &apos;items in your basket, &apos; +</span><br><span class="line">  &apos;&lt;em&gt;&apos; + basket.onSale +</span><br><span class="line">  &apos;&lt;/em&gt; are on sale!&apos;</span><br><span class="line">);</span><br><span class="line">但是es6引入了模板字符串</span><br><span class="line">$(&apos;#result&apos;).append(`</span><br><span class="line">  There are &lt;b&gt;$&#123;basket.count&#125;&lt;/b&gt; items</span><br><span class="line">   in your basket, &lt;em&gt;$&#123;basket.onSale&#125;&lt;/em&gt;</span><br><span class="line">  are on sale!</span><br><span class="line">`);</span><br><span class="line">主要使用``来写还有$&#123;&#125;来拼</span><br><span class="line">当在模板字符串需要使用``时则需要使用转义符</span><br><span class="line">如果$&#123;&#125;使用的变量没有定义的话就会报错的</span><br><span class="line">用模板字符串所写的模板空格会保留，如果想要去掉空格，需要使用trim()方法</span><br><span class="line">模板字符串还可以用来嵌套</span><br><span class="line">const tmpl = addrs =&gt; `</span><br><span class="line">  &lt;table&gt;</span><br><span class="line">  $&#123;addrs.map(addr =&gt; `</span><br><span class="line">    &lt;tr&gt;&lt;td&gt;$&#123;addr.first&#125;&lt;/td&gt;&lt;/tr&gt;</span><br><span class="line">    &lt;tr&gt;&lt;td&gt;$&#123;addr.last&#125;&lt;/td&gt;&lt;/tr&gt;</span><br><span class="line">  `).join(&apos;&apos;)&#125;</span><br><span class="line">  &lt;/table&gt;</span><br><span class="line">`;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -358,13 +319,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/13/angular路由/">angular路由</a></p>
+        <p><span>本文标题:</span><a href="/2019/03/23/es6学习笔记2/">es6学习笔记2</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
-        <p><span>发布时间:</span>2019-03-13, 23:42:01</p>
-        <p><span>最后更新:</span>2019-03-22, 23:53:43</p>
+        <p><span>发布时间:</span>2019-03-23, 23:36:00</p>
+        <p><span>最后更新:</span>2019-03-23, 23:37:43</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/13/angular路由/" title="angular路由">http://yoursite.com/2019/03/13/angular路由/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/13/angular路由/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/03/23/es6学习笔记2/" title="es6学习笔记2">http://yoursite.com/2019/03/23/es6学习笔记2/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/23/es6学习笔记2/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -376,16 +337,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/03/15/javascript基础-02/">
-                    javascript基础_02
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/03/12/javascript基础01-01/">
-                    javascript基础01_01
+                <a href="/2019/03/22/angular精讲5/">
+                    angular精讲5
                 </a>
             </div>
         
@@ -397,7 +352,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#angular路由"><span class="toc-number">1.</span> <span class="toc-text">angular路由</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#es6学习笔记2"><span class="toc-number">1.</span> <span class="toc-text">es6学习笔记2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串的扩展"><span class="toc-number">1.1.</span> <span class="toc-text">字符串的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的Unicode码表示"><span class="toc-number">1.1.1.</span> <span class="toc-text">字符串的Unicode码表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#codePointAt-字符串编码"><span class="toc-number">1.1.2.</span> <span class="toc-text">codePointAt()字符串编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String-formCodePoint"><span class="toc-number">1.1.3.</span> <span class="toc-text">String.formCodePoint()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的遍历接口"><span class="toc-number">1.1.4.</span> <span class="toc-text">字符串的遍历接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#normalize"><span class="toc-number">1.1.5.</span> <span class="toc-text">normalize()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#includes-startsWith-endsWith"><span class="toc-number">1.1.6.</span> <span class="toc-text">includes(), startsWith(), endsWith()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#repeat"><span class="toc-number">1.1.7.</span> <span class="toc-text">repeat()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#padStart-，padEnd"><span class="toc-number">1.1.8.</span> <span class="toc-text">padStart()，padEnd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#matchAll"><span class="toc-number">1.1.9.</span> <span class="toc-text">matchAll()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板字符串"><span class="toc-number">1.1.10.</span> <span class="toc-text">模板字符串</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -433,7 +388,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"angular路由　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"es6学习笔记2　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -453,15 +408,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/03/15/javascript基础-02/" title="上一篇: javascript基础_02">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/03/12/javascript基础01-01/" title="下一篇: javascript基础01_01">
+            <a href="/2019/03/22/angular精讲5/" title="下一篇: angular精讲5">
                 <i class="fa fa-angle-right"></i>
             </a>
         
