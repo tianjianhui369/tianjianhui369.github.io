@@ -15,18 +15,17 @@
 
 
 
-<meta name="description" content="angular精讲4">
-<meta name="keywords" content="Angular">
+<meta name="description" content="HTML5的FileReaderFileReader:读取文件内容 readAsText():读取文本文件（可以使用Txt）打开的文件，返回文本字符串，默认编码是utf-8 readAsBinaryString():读取任意类型的文件。返回二进制字符串。这个方法不是用来读取文件给用户看，而是存储文件。例如:读取文件的内容，获取二进制数据，传递给后台，后台接收了数据之后，再将数据存储。 readAs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="angular精讲4">
-<meta property="og:url" content="http://yoursite.com/2019/03/21/angular精讲4/index.html">
+<meta property="og:title" content="HTML5的FileReader">
+<meta property="og:url" content="http://yoursite.com/2019/08/09/HTML5的FileReader-1/index.html">
 <meta property="og:site_name" content="yuaoblog">
-<meta property="og:description" content="angular精讲4">
+<meta property="og:description" content="HTML5的FileReaderFileReader:读取文件内容 readAsText():读取文本文件（可以使用Txt）打开的文件，返回文本字符串，默认编码是utf-8 readAsBinaryString():读取任意类型的文件。返回二进制字符串。这个方法不是用来读取文件给用户看，而是存储文件。例如:读取文件的内容，获取二进制数据，传递给后台，后台接收了数据之后，再将数据存储。 readAs">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-22T15:56:23.253Z">
+<meta property="og:updated_time" content="2019-08-09T12:59:18.523Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="angular精讲4">
-<meta name="twitter:description" content="angular精讲4">
+<meta name="twitter:title" content="HTML5的FileReader">
+<meta name="twitter:description" content="HTML5的FileReaderFileReader:读取文件内容 readAsText():读取文本文件（可以使用Txt）打开的文件，返回文本字符串，默认编码是utf-8 readAsBinaryString():读取任意类型的文件。返回二进制字符串。这个方法不是用来读取文件给用户看，而是存储文件。例如:读取文件的内容，获取二进制数据，传递给后台，后台接收了数据之后，再将数据存储。 readAs">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>angular精讲4 | yuaoblog</title>
+<title>HTML5的FileReader | yuaoblog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -265,11 +264,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-angular精讲4" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-HTML5的FileReader-1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/21/angular精讲4/" class="article-date">
-      <time datetime="2019-03-21T15:18:30.000Z" itemprop="datePublished">2019-03-21</time>
+      <a href="/2019/08/09/HTML5的FileReader-1/" class="article-date">
+      <time datetime="2019-08-09T12:58:36.000Z" itemprop="datePublished">2019-08-09</time>
 </a>
 
 
@@ -284,7 +283,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      angular精讲4
+      HTML5的FileReader
     </h1>
   
 
@@ -294,10 +293,6 @@
         
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -305,46 +300,23 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="angular精讲4"><a href="#angular精讲4" class="headerlink" title="angular精讲4"></a>angular精讲4</h1><a id="more"></a>
-<h3 id="接下来我们完善一下之前做的商品竞拍案例，添加路由"><a href="#接下来我们完善一下之前做的商品竞拍案例，添加路由" class="headerlink" title="接下来我们完善一下之前做的商品竞拍案例，添加路由"></a>接下来我们完善一下之前做的商品竞拍案例，添加路由</h3><p>当用户点击某个商品时，商品区域应该替换掉，显示商品的详情</p>
-<ol>
-<li>创建一个商品详情组件，显示商品的图片和标题</li>
-<li>重构代码，把轮播图组件和商品列表组件封装到一个新的Home组件</li>
-<li>配置路由，在导航到商品详情组件时传递商品的标题参数</li>
-<li>修改APP组件，根据路由显示home组件或商品详情组件</li>
-<li>修改商品的列表组件，给商品标题添加routeLink指令，从而指向路由</li>
+        <h1 id="HTML5的FileReader"><a href="#HTML5的FileReader" class="headerlink" title="HTML5的FileReader"></a>HTML5的FileReader</h1><h2 id="FileReader-读取文件内容"><a href="#FileReader-读取文件内容" class="headerlink" title="FileReader:读取文件内容"></a>FileReader:读取文件内容</h2><ol>
+<li>readAsText():读取文本文件（可以使用Txt）打开的文件，返回文本字符串，默认编码是utf-8</li>
+<li>readAsBinaryString():读取任意类型的文件。返回二进制字符串。这个方法不是用来读取文件给用户看，而是存储文件。例如:读取文件的内容，获取二进制数据，传递给后台，后台接收了数据之后，再将数据存储。</li>
+<li>readAsDataURL():读取文件获取一段以data开头的字符串，这字符串的本质就是DataURL.dataURL是一种将文件(这个文件一般就是指图像或能嵌入到文档的文件格式）嵌入到文档的方案。DataURL是将资源转换为base64的字符串形式，并且将这些内容直接存储在url，优化网站的加载速度和执行效率。</li>
 </ol>
-<ol>
-<li><p>创建一个商品详情组件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng g c product-detail</span><br></pre></td></tr></table></figure>
-<p>因为商品标题是外部组件传过来的，所以需要声明一个标题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">productTitle:string;</span><br><span class="line">//既然要接受外面穿过来的参数，则</span><br><span class="line">constructor(private routeInfo:ActivateRoute)&#123;&#125;</span><br><span class="line">ngOnInit()&#123;</span><br><span class="line">	this.productTitle=this.routeInfo.snapshot.params[&quot;prodTitle];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>控制器写完啦</p>
-<p>写商品详情组件模板</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">	&lt;img src=&quot;http://placehold.it/820x230&quot;&gt;</span><br><span class="line">	&lt;h4&gt;&lt;&#123;&#123;productTitle&#125;&#125;&lt;/h4&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建home组件，封装轮播图以及商品商品组件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ng g c home</span><br><span class="line">//然后在home组件的模板</span><br><span class="line">&lt;div class=&quot;row&quot;&gt;//这片区域分成两个行</span><br><span class="line">	&lt;app-carousel&gt;&lt;/app-carousel&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;row&quot;&gt;</span><br><span class="line">	&lt;app-product&gt;&lt;/app-product&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">将两个组件放到这一个组件即可</span><br><span class="line">相应的要把组件的css文件也要粘贴过来</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>增加路由</p>
-<p>在app.module.ts</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const routeConfig:Routes=[</span><br><span class="line">    &#123;</span><br><span class="line">		path:&apos;&apos;,</span><br><span class="line">		component:&apos;HomeComponent&apos;</span><br><span class="line">	&#125;,</span><br><span class="line">	&#123;</span><br><span class="line">		path:&apos;product/prodTitle&apos;,</span><br><span class="line">		component:ProductDetailComponet</span><br><span class="line">	&#125;</span><br><span class="line">]</span><br><span class="line">记得在import属性添加这个路由配置</span><br><span class="line">写上RouterMoudule.forRoot(routeConfig)</span><br><span class="line">//子模块路由需要写forChild</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在之前显示轮播图和商品组件的位置放置占位符</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-outlet&gt;&lt;/router-outlet&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>增加路由链接</p>
-<p>在商品组件的模板，给路由标题添加路由链接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h4&gt;&lt;a routerLink=[&apos;/product&apos;,product.title&gt;&#123;&#123;product.title&#125;&#125;&lt;/a&gt;&lt;/h4&gt;</span><br></pre></td></tr></table></figure>
-<p>基本的改造就完成了</p>
-</li>
+<h2 id="img的src解析"><a href="#img的src解析" class="headerlink" title="img的src解析"></a>img的src解析</h2><ol>
+<li>src：制定路径（资源定位–url):src请求的是外部文件，一般来说是服务器资源。意味着它需要向服务器发送请求，它占服务器资源</li>
 </ol>
-<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><p>angular自动处理对象的创建过程</p>
-<p>每个angular程序都是组件、指令和依赖的类的集合，虽然每个组件都可以实例化依赖，但是angular提供了一种依赖注入模式去实例化</p>
-<h3 id="依赖注入模式要解决的问题"><a href="#依赖注入模式要解决的问题" class="headerlink" title="依赖注入模式要解决的问题"></a>依赖注入模式要解决的问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">依赖注入：DI,假设你写了一个方法，这个方法的参数是一个对象，当你调用这个对象时你需要实例化这个对象，而且将其传递给方法，也就是将参数注入给这个方法</span><br><span class="line"></span><br><span class="line">如果一个对象A要依赖一个类型为B的一个对象，那么A不需要明确的以new的方式去实例化B,B会由外部机制去注入，对象A只需要喊话：我需要一个B类型的对象，有没有人能给我一个。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">控制反转IOC</span><br><span class="line">这是一个经常与依赖注入同时出现的另外一个说法</span><br><span class="line">是指将依赖的控制权将从代码内部，转到外部</span><br><span class="line">例如</span><br><span class="line">var product = new Prouct()//这是内部决定，决定product依赖Product,如果想要依赖别的那我需要改掉这一行代码，而如果控制反转，则内部代码只需要喊话，我需要porduct，至于传过来的是Product还是别的实例化的，是由代码外部决定的。这时候依赖的控制权就转移到了外部。</span><br></pre></td></tr></table></figure>
-<p>这两个说法表达的是一个思想，控制反转侧重于表达一个目的，即转移代码控制权</p>
-<p>而依赖注入描述手段，即如何来实现控制反转，使用的手段叫做，依赖注入</p>
+<h2 id="abort"><a href="#abort" class="headerlink" title="abort"></a>abort</h2><ol>
+<li>abort()终端读取</li>
+</ol>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><blockquote>
+<p>需求</p>
+<p>即时预览</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">    文件：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"myFile"</span> <span class="attr">id</span>=<span class="string">"myFile"</span> <span class="attr">onchange</span>=<span class="string">"getFIleContent()"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span></span></span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> div = <span class="built_in">document</span>.querySelector(<span class="string">"div"</span>);</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getFileContent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="comment">//1.创建文件读取对象</span></span><br><span class="line">    	<span class="keyword">var</span> reader=<span class="keyword">new</span> FileReader();</span><br><span class="line">    	<span class="comment">//2.读取文件，获取DataURL</span></span><br><span class="line">        <span class="comment">//2.1.说明没有任何的返回值：void:但是读取完文件之后，他会将读取的结果存储在文件读取对象的result。</span></span><br><span class="line">        <span class="comment">//2.2.需要传递一个参数binary large object：文件（图片或者其他可以嵌入到文档的类型）</span></span><br><span class="line">        <span class="comment">//2.3.文件存储在file表单元素的files属性，它是一个数组   </span></span><br><span class="line">        <span class="keyword">var</span> file = <span class="built_in">document</span>.querySelector(<span class="string">"#myFile"</span>).files;</span><br><span class="line">	reader.readAsDataURL(file[<span class="number">0</span>]);</span><br><span class="line">	<span class="comment">/*获取数据*/</span></span><br><span class="line">	<span class="comment">/*FileReader提供一个完整的时间模型，用来补货读取文件时的状态</span></span><br><span class="line"><span class="comment">	onabort:读取文件中断片时触发</span></span><br><span class="line"><span class="comment">	onerror:读取错误时触发</span></span><br><span class="line"><span class="comment">	onload:文件读取成功完成时触发</span></span><br><span class="line"><span class="comment">	onloadend:读取完成时触发，物流成功还是失败</span></span><br><span class="line"><span class="comment">	onloadstart:开始读取时触发</span></span><br><span class="line"><span class="comment">	onprogress:读取文件过程中持续触发</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">	reader.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">document</span>.querySelector(<span class="string">"img"</span>).src=reader.result;</span><br><span class="line">    &#125;</span><br><span class="line">	reader.onprogress=<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> percent=e.loaded/e.total*<span class="number">100</span>+<span class="string">"%"</span>;</span><br><span class="line">        div.style.width=percent;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -353,13 +325,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/21/angular精讲4/">angular精讲4</a></p>
+        <p><span>本文标题:</span><a href="/2019/08/09/HTML5的FileReader-1/">HTML5的FileReader</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
-        <p><span>发布时间:</span>2019-03-21, 23:18:30</p>
-        <p><span>最后更新:</span>2019-03-22, 23:56:23</p>
+        <p><span>发布时间:</span>2019-08-09, 20:58:36</p>
+        <p><span>最后更新:</span>2019-08-09, 20:59:18</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/21/angular精讲4/" title="angular精讲4">http://yoursite.com/2019/03/21/angular精讲4/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/21/angular精讲4/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/08/09/HTML5的FileReader-1/" title="HTML5的FileReader">http://yoursite.com/2019/08/09/HTML5的FileReader-1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/09/HTML5的FileReader-1/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -372,15 +344,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/03/21/CSS3学习笔记2/">
-                    CSS3学习笔记2
+                <a href="/2019/08/09/HTML5的FileReader/">
+                    HTML5的FileReader
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/03/20/CSS3学习笔记/">
-                    CSS3学习笔记
+                <a href="/2019/08/09/HTML5地理定位接口/">
+                    HTML5地理定位接口
                 </a>
             </div>
         
@@ -392,7 +364,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#angular精讲4"><span class="toc-number">1.</span> <span class="toc-text">angular精讲4</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#接下来我们完善一下之前做的商品竞拍案例，添加路由"><span class="toc-number">1.0.1.</span> <span class="toc-text">接下来我们完善一下之前做的商品竞拍案例，添加路由</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#依赖注入"><span class="toc-number">1.1.</span> <span class="toc-text">依赖注入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#依赖注入模式要解决的问题"><span class="toc-number">1.1.1.</span> <span class="toc-text">依赖注入模式要解决的问题</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML5的FileReader"><span class="toc-number">1.</span> <span class="toc-text">HTML5的FileReader</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#FileReader-读取文件内容"><span class="toc-number">1.1.</span> <span class="toc-text">FileReader:读取文件内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#img的src解析"><span class="toc-number">1.2.</span> <span class="toc-text">img的src解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#abort"><span class="toc-number">1.3.</span> <span class="toc-text">abort</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-number">1.4.</span> <span class="toc-text">测试</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -428,7 +400,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"angular精讲4　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"HTML5的FileReader　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -448,7 +420,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/03/21/CSS3学习笔记2/" title="上一篇: CSS3学习笔记2">
+            <a href="/2019/08/09/HTML5的FileReader/" title="上一篇: HTML5的FileReader">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -456,7 +428,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/03/20/CSS3学习笔记/" title="下一篇: CSS3学习笔记">
+            <a href="/2019/08/09/HTML5地理定位接口/" title="下一篇: HTML5地理定位接口">
                 <i class="fa fa-angle-right"></i>
             </a>
         
