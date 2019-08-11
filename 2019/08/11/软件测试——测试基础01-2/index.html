@@ -23,10 +23,12 @@
 <meta property="og:site_name" content="yuaoblog">
 <meta property="og:description" content="计算机基础02 常见的数学进制、进制转换、编码、数据计量单位、编程语言、常见的DOS命令">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-11T03:46:37.674Z">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image001.png">
+<meta property="og:updated_time" content="2019-08-11T03:56:05.583Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="软件测试——测试基础01-2">
 <meta name="twitter:description" content="计算机基础02 常见的数学进制、进制转换、编码、数据计量单位、编程语言、常见的DOS命令">
+<meta name="twitter:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image001.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -389,6 +391,39 @@
 <p>（2）Ip 地址：这个地址一般是用来在网络上唯一标识计算机。（ 一台机器的IP地址可以变 ）</p>
 <p>（3）Mac 地址：也叫物理地址，它是被写入 ROM 的。理论上每台计算机的mac地址是唯一的。</p>
 <p>8．上下键 ：调用我们之前使用过的命令，上键就是往回找，下键就是往下找。</p>
+<p>四、切换盘符</p>
+<p>具体盘符名称:  </p>
+<p>五、返回上一级或根目</p>
+<p>Cd ..  返回上一级</p>
+<p>Cd / 返回根目录</p>
+<p>注意：</p>
+<p>01 cd 就是change directory 的首字母缩写，表示切换目录的意思。</p>
+<p>02 cd 命令不可以切换盘符</p>
+<p>03 根目录指的就是某个盘符的一级目录</p>
+<p>04 命令语句一定都是在英文输入法下面书写的，命令和参数之间往往都用空格隔开</p>
+<p>六、列表示展示某个目录下的内容</p>
+<p>Dir </p>
+<p>七、目录及文件相关操作</p>
+<p>1．新建目录： md 路径</p>
+<p>2．新建文件： echo “内容”&gt;文件名称，通过这种方法间接得到一个文件</p>
+<p>3．删除目录： rd 路径 【默认情况下只能删除空目录，如果想连带它里的文件一起删除则需要设置 /s 参数】</p>
+<p>4．删除文件： del 文件名称 </p>
+<p>注：</p>
+<p>A. md 只能新建目录</p>
+<p>B. Rd 默认只能删除空目录</p>
+<p>C. 参与与命令之间一定要用空格</p>
+<p>D. 如果del 后面直接写的不是文件，而是一个目录，那么它就会将这个目录下的所有文件都删除（ 前提是我们选择 Y  ）</p>
+<p>八、文件复制和剪切命令</p>
+<p>Copy 被复制文件路径  将这个文件复制到哪里</p>
+<p>Copy aa/aa.txt c:\test\bb.txt [ 将目录aa下在的aa.txt 文件，复制到 c 盘test目录下，同时将名称修改为 bb ]</p>
+<p>注：</p>
+<p>01 复制操作语句，我们可以分为三段，第一段就是命令 copy ，第二段就是被复制文件的在地，第三段可以指明将当前文件复制到哪里，三段之间都要用空格隔开</p>
+<p>02 第三段可以省略，省略之后的结果就是会将相应的文件直接复制到我们的当前所在位置。</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image001.png" alt="img"></p>
+<p>Move 被剪切文件所在地 将这个文件剪切到哪里</p>
+<p>注：</p>
+<p>01 对于剪切操作来说 必须要进入到想要操作文件所在目录去执行命令</p>
+<p>02 第三段用来指明目标所在地的部分不能省略。</p>
 
       
     </div>
@@ -400,7 +435,7 @@
         <p><span>本文标题:</span><a href="/2019/08/11/软件测试——测试基础01-2/">软件测试——测试基础01-2</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
         <p><span>发布时间:</span>2019-08-11, 11:38:13</p>
-        <p><span>最后更新:</span>2019-08-11, 11:46:37</p>
+        <p><span>最后更新:</span>2019-08-11, 11:56:05</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/08/11/软件测试——测试基础01-2/" title="软件测试——测试基础01-2">http://yoursite.com/2019/08/11/软件测试——测试基础01-2/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/11/软件测试——测试基础01-2/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
