@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="yuao">
+
+
+
+<meta name="description" content="#测试用例设计方法  1.等价类划分法 2.边界值法 3.判定表法 4.因果图法">
+<meta name="keywords" content="测试理论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件测试——测试理论02">
+<meta property="og:url" content="http://yoursite.com/2019/08/13/软件测试——测试理论02/index.html">
+<meta property="og:site_name" content="yuaoblog">
+<meta property="og:description" content="#测试用例设计方法  1.等价类划分法 2.边界值法 3.判定表法 4.因果图法">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/119.png">
+<meta property="og:image" content="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/120.png">
+<meta property="og:image" content="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/122.png">
+<meta property="og:image" content="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/119.png">
+<meta property="og:image" content="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/123.png">
+<meta property="og:image" content="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/124.png">
+<meta property="og:image" content="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/126.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/13/assets/126.png">
+<meta property="og:image" content="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/127.png">
+<meta property="og:image" content="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/128.png">
+<meta property="og:image" content="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/131.png">
+<meta property="og:image" content="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/132.png">
+<meta property="og:image" content="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/133.png">
+<meta property="og:updated_time" content="2019-08-13T12:26:55.715Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="软件测试——测试理论02">
+<meta name="twitter:description" content="#测试用例设计方法  1.等价类划分法 2.边界值法 3.判定表法 4.因果图法">
+<meta name="twitter:image" content="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/119.png">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="yuaoblog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&fm=27&gp=0.jpg">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>软件测试——测试理论02 | yuaoblog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: false
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&amp;fm=27&amp;gp=0.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">yuao</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Survey-js/">Survey.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试理论/">测试理论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件测试简介/">软件测试简介</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">yuao</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&amp;fm=27&amp;gp=0.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">yuao</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-软件测试——测试理论02" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/08/13/软件测试——测试理论02/" class="article-date">
+      <time datetime="2019-08-13T12:14:00.000Z" itemprop="datePublished">2019-08-13</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      软件测试——测试理论02
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试理论/">测试理论</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>#测试用例设计方法</p>
+<blockquote>
+<p>1.等价类划分法</p>
+<p>2.边界值法</p>
+<p>3.判定表法</p>
+<p>4.因果图法</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="用例的设计方法"><a href="#用例的设计方法" class="headerlink" title="用例的设计方法"></a>用例的设计方法</h2><p>我们做为测试人员最核心的基本的工作就是根据业务来书写测试用例完成测试。</p>
+<p>但是测试用例的书写是有相应的设计方法的( 有套路 )</p>
+<p>常用的用例设计方法：划分等价类法 、边界值法、判定表法、正交实验法，还有因果图法、场景法、状态迁移法、错误推断法………</p>
+<ul>
+<li>案例</li>
+</ul>
+<p>需求：一个加法计算器，允许输入的数值范围为[1,100]。</p>
+<p>如何测试？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">计算两个1---100之间整数的和:</span><br><span class="line">穷举测试：</span><br><span class="line">1+2=3  1+3=4  1+4=5  1+5=6  ······  1+100=101</span><br><span class="line">100+1=101  100+2=102   100+3=103  ······   100+100=200</span><br></pre></td></tr></table></figure>
+<h2 id="1、-等价类划分法"><a href="#1、-等价类划分法" class="headerlink" title="1、 等价类划分法"></a>1、 等价类划分法</h2><ul>
+<li>等价类划分是一种典型的黑盒测试设计方法，使用该方法主要对测试项进行测试规格分析，得到用例，而不用对系统内部处理进行深入了解，它也是目前测试用例设计过程中使用最普遍的一种方法，采用等价类划分，是将系统的输入内容划分为若干部分，然后对每个部分选取少数代表性数据进行测试，这样可以避免穷举法产生的大量用例</li>
+<li>定义:等价类是指某个输入内容的所有数据的集合，将所有数据集合理划分为若干等价类，在每个等价类中取一个数据作为测试的输入数据。这样就可以用少量具有代表性的测试数据取得较好的测试效果</li>
+<li>等价类划分：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、有效等价类:是指对于系统的规格说明来说是合理的，有意义的输入数据构成的集合。利用有效等价类可检验程序是否实现了规格说明中所规定的功能或者性能要求</span><br><span class="line">2、无效等价类:是指对于系统的规格说明来说是不合理或者无意义的输入数据所构成的集合</span><br><span class="line">注意：设计测试用例时，要同时考虑这两种等价类，因为软件不仅要能接收合理的数据，也要能经受意外的考验，这样的测试才能确保软件具有更高的可靠性</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>案例</p>
+</li>
+<li><p>计算两个1-100之间整数的和</p>
+<h3 id="专业分析设计步骤："><a href="#专业分析设计步骤：" class="headerlink" title="专业分析设计步骤："></a>专业分析设计步骤：</h3></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1.明确需求----&gt;如果是文字描述，先将文字描述转为图形</span><br></pre></td></tr></table></figure>
+<p><img src="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/119.png" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">2.确定界面包含多少个功能</span><br><span class="line">3.针对每个功能确定有多少个输入</span><br><span class="line">4.确定每个输入的规则:</span><br><span class="line">    类型---&gt;数字</span><br><span class="line">    长度----&gt;无</span><br><span class="line">    取值范围---&gt;[1-100]</span><br><span class="line">    是否为空---&gt;否</span><br><span class="line">    是否重复---&gt;是</span><br><span class="line">    组成规则----&gt;无</span><br><span class="line">5.针对每个输入规则构造测试数据,形成等价类数据表</span><br></pre></td></tr></table></figure>
+<p><img src="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/120.png" alt="img"></p>
+<h3 id="2、等价类操作步骤"><a href="#2、等价类操作步骤" class="headerlink" title="2、等价类操作步骤"></a>2、等价类操作步骤</h3><ul>
+<li>1、明确需求（如果是文字，转化为图形）</li>
+<li>2、明确界面包含功能个数</li>
+<li>3、针对每一个功能，明确输入的个数</li>
+<li>4、确定每个输入的规则（类型、长度、取值范围、是否可以为空、是否可以重复、组成规则）</li>
+<li>5、针对每一个输入规则构造测试数据</li>
+<li><p>6、编写测试用例</p>
+</li>
+<li><p>需求练习1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QQ账号： 6---10位自然数</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>需求练习2：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">现有一个档案管理系统，容许用户通过输入年月对档案文件进行检索，系统对查询条件年月的输入限定为1990年1月~2049年12月，并规定：</span><br><span class="line">  日期由6位数字字符组成，前四位表示年，后两位表示月。</span><br><span class="line">现用等价类划分法设计测试用例，来测试程序的“日期检查功能”。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="3、等价类划分总结"><a href="#3、等价类划分总结" class="headerlink" title="3、等价类划分总结"></a>3、等价类划分总结</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">规则：</span><br><span class="line">1.一个有效数据的测试用例尽可能包含最多有效等价类</span><br><span class="line">2.一个无效数据的测试数据只能包含一个无效等价类</span><br><span class="line"></span><br><span class="line">优点：</span><br><span class="line">    1.简单、高效</span><br><span class="line">    2.快速评估测试用例的数量（有效测试用例数+无效测试用例数）</span><br><span class="line">    3不用熟悉业务可快速设计测试用例</span><br><span class="line">缺点：</span><br><span class="line">    1.只考虑了独立输入的有效和无效，没有考虑输入之间的组合</span><br><span class="line">    2.数据随机选取，不一定发现Bug</span><br><span class="line"></span><br><span class="line">适用范围：只要存在输入的功能</span><br></pre></td></tr></table></figure>
+<h1 id="测试用例设计方法—边界值法"><a href="#测试用例设计方法—边界值法" class="headerlink" title="测试用例设计方法—边界值法"></a>测试用例设计方法—边界值法</h1><h3 id="1-什么是边界值分析法"><a href="#1-什么是边界值分析法" class="headerlink" title="1.什么是边界值分析法"></a>1.什么是边界值分析法</h3><ul>
+<li>边界值分析也是一种黑盒测试方法，是对等价类划分法的一种补充，由长期的测试工作经验得知，大量的错误是发生在输入或者输出的边界上。因此针对各种边界情况设计测试用例，可以查出更多的错误。</li>
+<li>边界分析方法的理论基础，是假定大多数的错误是发生在各种输入条件的边界上，如果在边界附件的取值不会导致程序出错，那么其他的取值导致程序错误的可能性也很小</li>
+<li>边界值分析使用的条件： 输入内容明确了取值范围、或者规定了值得个数</li>
+</ul>
+<p>思考：输入一个大于0小于100的整数，边界值在哪里？</p>
+<ul>
+<li><p>边值点定义：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、上点：边界上的点，如果域的边界是封闭的，上点就在域范围内，如果域的边界是开放的，上点在域范围外。</span><br><span class="line">2、离点：就是离上点最近的一个点，如果域的边界是封闭的，离点就在域范围外，如果域的边界是开放的，离点就在域范围内</span><br><span class="line">3、内点：顾名思义，就是在域范围内的任意一个点</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/122.png" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">上点、离点的确定和这个域的边界是开放还是封闭有关，不论边界是开放还是封闭，上点和离点总有一个在域内，另外一个在域外</span><br><span class="line">假设a是整数，a的边界描述是a大于0，是开放的，那么上点是0，离点是1，如果边界描述的是a&gt;=0，是封闭的，上点仍然是0，离点是-1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>案例</li>
+<li>计算两个1-100之间整数的和</li>
+</ul>
+<h3 id="2-专业分析设计步骤："><a href="#2-专业分析设计步骤：" class="headerlink" title="2.专业分析设计步骤："></a>2.专业分析设计步骤：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1.明确需求----&gt;如果是文字描述，先将文字描述转为图形</span><br></pre></td></tr></table></figure>
+<p><img src="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/119.png" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">2.确定界面包含多少个功能</span><br><span class="line">3.针对每个功能确定有多少个输入</span><br><span class="line">4.确定每个输入的规则:</span><br><span class="line">    类型---&gt;数字</span><br><span class="line">    长度----&gt;无</span><br><span class="line">    取值范围---&gt;[1-100]</span><br><span class="line">    是否为空---&gt;否</span><br><span class="line">    是否重复---&gt;是</span><br><span class="line">    组成规则----&gt;无</span><br><span class="line">5.针对每个输入规则构造测试数据,形成等价类数据表,追加边界数据（上点、离点）</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>需求练习1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QQ账号： 6---10位自然数</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>需求练习2：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">现有一个档案管理系统，容许用户通过输入年月对档案文件进行检索，系统对查询条件年月的输入限定为1990年1月~2049年12月，并规定：</span><br><span class="line">  日期由6位数字字符组成，前四位表示年，后两位表示月。</span><br><span class="line">现用等价类划分法设计测试用例，来测试程序的“日期检查功能”。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>需求练习3：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">针对下图的用户名和密码写出所有的边界值</span><br></pre></td></tr></table></figure>
+<p><img src="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/123.png" alt="img"></p>
+</li>
+</ul>
+<h3 id="3-边界值法总结"><a href="#3-边界值法总结" class="headerlink" title="3.边界值法总结"></a>3.边界值法总结</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">优点：</span><br><span class="line">1.边界上的缺陷更容易被发现</span><br><span class="line">2.不用熟悉业务可快速设计测试用例</span><br><span class="line">缺点：</span><br><span class="line">1.存在边界时才能使用</span><br><span class="line">使用范围：</span><br><span class="line">1.有输入参数，且输入类型或范围长度有边界时</span><br><span class="line">2.和等价类一起使用</span><br></pre></td></tr></table></figure>
+<h1 id="测试用例设计方法—判定表法"><a href="#测试用例设计方法—判定表法" class="headerlink" title="测试用例设计方法—判定表法"></a>测试用例设计方法—判定表法</h1><h3 id="1-什么是判定表法"><a href="#1-什么是判定表法" class="headerlink" title="1.什么是判定表法"></a>1.什么是判定表法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">判定表示分析和表达多种输入条件下系统执行不同动作的工具。</span><br><span class="line">在程序设计发展初期，判定表就已经被当做编写程序的辅助工具了，它可以把</span><br><span class="line">复杂的逻辑关系和多种条件组合的情况表达的既具体又明确</span><br><span class="line"></span><br><span class="line">判断表通常由四个部分组成，如下图：</span><br></pre></td></tr></table></figure>
+<p><img src="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/124.png" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.条件桩：列出了系统的所有输入，列出的输入次序无关紧要</span><br><span class="line">2.动作桩：列出了系统可能采取的操作，这些操作的排列顺序没有约束</span><br><span class="line">3.条件项：列出针对它左列输入的取值，在所有可能情况下的真假值</span><br><span class="line">4.动作项：列出在输入项的各种取值情况下应该采取的动作</span><br><span class="line">5.动作项和条件项一起，指出了在条件项的各种取值情况下应该采取的动作，在判定表中贯穿条件项和动作项的一列就是</span><br><span class="line">  一条规则，可以针对每个合法输入组合的规则设计用例进行测试</span><br><span class="line"></span><br><span class="line">对于判定表可以进行化简操作，化简工作是以合并相似规则为目标的。如果表中有两条或者多条规则具有相同的动作，</span><br><span class="line">并且其条件项之间存在极为相似的关系（只有一个不同时，说明不管该输入取任何值，输出都是一样的），我们可以</span><br><span class="line">将其合并，如下图</span><br></pre></td></tr></table></figure>
+<p><img src="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/126.png" alt="img"></p>
+<p><img src="../assets/126.png" alt="img"></p>
+<ul>
+<li><p>案例</p>
+<ul>
+<li>举例：若用户欠费或者停机，则不允许主被叫，表示为判定表如下：</li>
+</ul>
+<p><img src="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/127.png" alt="img"></p>
+</li>
+</ul>
+<p>针对该判定表可以化简，第1列数据和第2列数据的动作完全相同，条件桩中只有条件2的取值不同，因此 可将第1/2列数据合并起来，化简后结果如下，每列数据就是一条测试用例，这样一共是3条测试用例</p>
+<p><img src="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/128.png" alt="img"></p>
+<h3 id="2-判定表法设计步骤"><a href="#2-判定表法设计步骤" class="headerlink" title="2.判定表法设计步骤"></a>2.判定表法设计步骤</h3><ul>
+<li>1、明确条件桩</li>
+<li>2、明确动作桩</li>
+<li>3、对条件桩进行全组合</li>
+<li>4、明确每个组合对应的动作桩</li>
+<li><p>5、设计测试用例，每列数据对应一条测试用例</p>
+</li>
+<li><p>需求练习1:</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">订购单的检查，如果金额大于500元，又未过期，则发出批准单和提货单；</span><br><span class="line">如果金额大于500元，但过期了，则不发批准单；如果金额小于等于500元</span><br><span class="line">则不论是否过期都发出批准单和提货单，在过期的情况下还需要发出通知单。</span><br><span class="line"></span><br><span class="line">    请用判定表的方法对测试用例 进行设计</span><br></pre></td></tr></table></figure>
+<ul>
+<li>需求练习2:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">如果想对文件进行修改，输入的第一列字符必须是A/B,第二例字符必须是一个数字，如果</span><br><span class="line">第一列字符不正确，则给出信息L，如果第二列字符不正确，则给出信息M</span><br></pre></td></tr></table></figure>
+<h3 id="3-判定表法总结："><a href="#3-判定表法总结：" class="headerlink" title="3.判定表法总结："></a>3.判定表法总结：</h3><p>\<figure class="highlight plain"><figcaption><span>1.充分考虑了输入条件间的组合，对组合情况覆盖充分</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>缺点：<br>1.条件过多时，造成判定表的规模庞大</p>
+<p>适用范围：<br>1.输入之间有逻辑关系<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 测试用例设计方法---因果图法法</span><br><span class="line"></span><br><span class="line">### 1.什么是因果图法</span><br></pre></td></tr></table></figure></p>
+<p>因果图用于描述系统的输入输出、以及输入和输出之间的因果关系、输入和输入之间的约束关系。<br>因果图和判定表两种方法在实际使用中结合紧密，往往同时使用，对于一些简单的系统或者输入<br>与输出已经非常明确的系统，判定表可以单独使用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 因果关系</span><br></pre></td></tr></table></figure></p>
+<pre><code>拿破仑说：“
+  失一个钉子，坏了一只蹄铁； 
+  坏了一只蹄铁，折了一匹战马； 
+  折了一匹战马，伤了一位骑士；
+  伤了一位骑士，输了一场战斗；
+  输了一场战斗，亡了一个帝国。”
+”
+</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  **这就是因果关系**</span><br><span class="line"></span><br><span class="line">- 实际测试工作中因果关系是描述的以下关系</span><br><span class="line"></span><br><span class="line">  1. 输入与输出之间的因果关系---&gt;因果图的表示中输入与输出间的因果关系有四种</span><br><span class="line"></span><br><span class="line">     1) 恒等关系：当输入内容时，会产生对应输出，当不输入或者输入不发生时，不会有输出</span><br><span class="line"></span><br><span class="line">     2）非关系：与恒等关系相反</span><br><span class="line"></span><br><span class="line">     3）或者关系：输入的内容有多个时，只要一个输入发生，就会有输出</span><br><span class="line"></span><br><span class="line">     4）与关系：输入的内容有多个时，只有所有输入都发生时，才会有对应输出</span><br><span class="line"></span><br><span class="line">     用图形表示以上四种关系如下：</span><br><span class="line"></span><br><span class="line">  ![img](file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/129.png)</span><br><span class="line"></span><br><span class="line">  1. 输入与输入之间的约束关系-----&gt;因果图的表示中输入与输入之间的约束关系也有四种</span><br><span class="line"></span><br><span class="line">     1）异：所有输入中最多一个输入发生</span><br><span class="line"></span><br><span class="line">     2）或：所有输入中至少一个输入发生</span><br><span class="line"></span><br><span class="line">     3）唯一：所有输入中有且只有一个输入条件发生</span><br><span class="line"></span><br><span class="line">     4）要求：所有输入中只要有一个输入发生，则其他输入也会发生</span><br><span class="line"></span><br><span class="line">     用图形表示以上四种关系如下：</span><br><span class="line"></span><br><span class="line">  ![img](file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/130.png)</span><br><span class="line"></span><br><span class="line">### 2.使用因果图法设计测试用例</span><br><span class="line"></span><br><span class="line">- 步骤1：标识输入和输出</span><br></pre></td></tr></table></figure>
+<pre><code>分析测试内容，找出其中的输入和输出并标识出来，其中要注意以下几点：
+    1）输入只涉及2种取值的，可以只作为一个标识出来，如果输入项涉及多种取值的，每个取值需要作为一个输入标识出来
+
+    2）标识可以自己确定，但是输入和输出需要独立的标识
+</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 步骤2：画出因果图</span><br></pre></td></tr></table></figure>
+<pre><code>分析输入和输出之间的因果关系，输入和输入之间的约束关系，根据这些关系，画出因果图
+</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 步骤3：将因果图转换为判定表</span><br></pre></td></tr></table></figure>
+<pre><code>1.将输入和输出分别写入条件桩和动作桩，并在条件项中填写输入的组合
+
+2.根据因果图中的输入条件约束关系，对不可能出现的输入组合，在动作项上作出删除标记
+
+3.根据因果图中的输入与输出的因果关系，在动作项上标出对应的动作结果
+</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 步骤4：生产测试用例</span><br><span class="line"></span><br><span class="line">### 3.因果图设计用例案例</span><br></pre></td></tr></table></figure>
+<p>根据上面的测试基本步骤，对下面的例子进行因果图测试<br>        如想对文件进行修改，输入的第一列字符必须是A或者B，第二列字符必须是一个数字，如果 第一列字符不正确<br>        则给出信息L，如果第二列字符不正确，则给出信息M<br><code>`</code></p>
+<ul>
+<li>使用因果图对该题分析步骤：</li>
+</ul>
+<p>第一步：标识输入和输出—–&gt;分析以上需求后，可以明确的把原因和结果分开（或者说输入和输出） 原因： 结果 1.第一列字符为A 21.修改文件 2.第一列字符为B 22.给出信息L 3.第二列字符为一个数字 23.给出信息M</p>
+<p>第二步：画因果图—-&gt;需求中很明确的给出原因和结果之间的对应关系，将原因和结果根据他们之间的对应关系用逻辑符号连接起来，如下图所示,左边表示原因，右边表示结果，编号11的节点是导出结果的进一步原因</p>
+<p><img src="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/131.png" alt="img"></p>
+<p>第三步：考虑到输入1和输入2不可能同时为Y（即第一列不能同时为A和B），我们在图上需要对其添加E约束，这样就有了具有约束的因果图，如下图所示</p>
+<p><img src="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/132.png" alt="img"></p>
+<p>第四步：把因果图转换成判定表如下：</p>
+<p><img src="file:///D:/software%20test/%E4%BC%A0%E6%99%BA%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%951%E6%9C%9F/%E5%9F%BA%E7%A1%80%E7%8F%AD/%E7%AC%AC%E4%BA%8C%E9%83%A8%EF%BC%88%E5%85%A8%EF%BC%89/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AF%BE%E4%BB%B6/3-1%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80%201-%E8%B5%84%E6%96%99/1-%E8%AF%BE%E5%A0%82%E8%B5%84%E6%96%9917/_book/assets/133.png" alt="img">由于原因1和原因2不可能同时为Y，故第1、2属于不可能发生的组合，所以编写测试用例时可以不用考虑</p>
+<p>第五步：编写测试用例即可</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/08/13/软件测试——测试理论02/">软件测试——测试理论02</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
+        <p><span>发布时间:</span>2019-08-13, 20:14:00</p>
+        <p><span>最后更新:</span>2019-08-13, 20:26:55</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/08/13/软件测试——测试理论02/" title="软件测试——测试理论02">http://yoursite.com/2019/08/13/软件测试——测试理论02/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/13/软件测试——测试理论02/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/08/13/软件测试——测试理论01/">
+                    软件测试——测试理论01
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#用例的设计方法"><span class="toc-number">1.</span> <span class="toc-text">用例的设计方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1、-等价类划分法"><span class="toc-number">2.</span> <span class="toc-text">1、 等价类划分法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#专业分析设计步骤："><span class="toc-number">2.1.</span> <span class="toc-text">专业分析设计步骤：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、等价类操作步骤"><span class="toc-number">2.2.</span> <span class="toc-text">2、等价类操作步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、等价类划分总结"><span class="toc-number">2.3.</span> <span class="toc-text">3、等价类划分总结</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#测试用例设计方法—边界值法"><span class="toc-number"></span> <span class="toc-text">测试用例设计方法—边界值法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-什么是边界值分析法"><span class="toc-number">0.1.</span> <span class="toc-text">1.什么是边界值分析法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-专业分析设计步骤："><span class="toc-number">0.2.</span> <span class="toc-text">2.专业分析设计步骤：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-边界值法总结"><span class="toc-number">0.3.</span> <span class="toc-text">3.边界值法总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#测试用例设计方法—判定表法"><span class="toc-number"></span> <span class="toc-text">测试用例设计方法—判定表法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-什么是判定表法"><span class="toc-number">0.1.</span> <span class="toc-text">1.什么是判定表法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-判定表法设计步骤"><span class="toc-number">0.2.</span> <span class="toc-text">2.判定表法设计步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-判定表法总结："><span class="toc-number">0.3.</span> <span class="toc-text">3.判定表法总结：</span></a></li></ol></li>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"软件测试——测试理论02　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/08/13/软件测试——测试理论01/" title="下一篇: 软件测试——测试理论01">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/软件测试——测试理论02/">软件测试——测试理论02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/软件测试——测试理论01/">软件测试——测试理论01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/软件测试——测试基础02-1/">软件测试——测试基础02-1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/软件测试——测试基础01-2/">软件测试——测试基础01-2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/软件测试——测试基础01-1/">软件测试——测试基础01_1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5的FileReader/">HTML5的FileReader</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5地理定位接口/">HTML5地理定位接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5的拖拽/">HTML5的拖拽</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/03/CSS复习内容01/">CSS复习内容01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/23/es6学习笔记2/">es6学习笔记2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/22/angular精讲5/">angular精讲5</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/CSS3学习笔记2/">CSS3学习笔记2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/angular精讲4/">angular精讲4</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/20/CSS3学习笔记/">CSS3学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/20/angular精讲3/">angular精讲3</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/es6学习笔记/">es6学习笔记01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/angular精讲2/">angular精讲2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/angular精讲1/">angular精讲1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/javascript基础-02/">javascript基础_02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/angular路由/">angular路由</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/javascript基础01-01/">javascript基础01_01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/11/angular服务的依赖注入/">angular服务的依赖注入</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/10/angular-指令简述/">angular 指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/Angular-Component-databinding/">Angular Component$databinding</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/08/survey.js/">survey.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/angular新建组件方法/">angular新建组件方法</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2019 yuao
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
