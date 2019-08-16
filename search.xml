@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>软件测试——测试用例03</title>
+      <link href="/2019/08/16/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B03/"/>
+      <url>/2019/08/16/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B03/</url>
+      
+        <content type="html"><![CDATA[<h1 id="决策表"><a href="#决策表" class="headerlink" title="决策表"></a>决策表</h1><a id="more"></a><p>在一个程序中，<strong>如果输入输出比较多，输入之间和输出之间相互制约的条件比较多，在这种情况下应用决策表很合适</strong>，它可以很清楚地表达它们之间的各种复杂关系。</p><p>决策表法简述：<br>       决策表是把作为条件的所有输入的各种组合值以及对应输出值都罗列出来而形成的表格。它能够将复杂的问题按照各种可能的情况全部列举出来，简明并可避免遗漏。因此，利用决策表能够设计出完整的测试用例集合。</p><blockquote><p>决策表通常由以下4部分组成：</p><p>1.条件桩—列出问题的所有条件</p><p>2.条件项—针对条件桩给出的条件列出所有可能取值</p><p>3.动作桩—列出问题规定的可能采取的操作</p><p>4.动作项—指出在条件项的各组取值情况下应采取的动作 </p></blockquote><h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><blockquote><p>打印机是否能打印出来正确的内容有多个因素影响，包括驱动程序、纸张、墨粉等。（为了简化问题，不考虑中途断电、卡纸等因素的影响）</p><p>假定：优先警告缺纸，然后警告没有墨粉，最后警告驱动程序不对。</p><p>1)列出条件桩和动作桩</p><p>条件桩:  a)驱动程序是否正确   b)是否有纸张   c)是否有墨粉</p><p>动作桩:  a) 打印内容       b)提示驱动程序不对   </p><p>​              c)提示没有纸张      d)提示没有墨粉</p></blockquote><h2 id="决策表的构造及化简"><a href="#决策表的构造及化简" class="headerlink" title="决策表的构造及化简"></a>决策表的构造及化简</h2><blockquote><p>1.列出所有的条件桩和动作桩。</p><p>2.确定规则的个数。</p><p>3.填入条件项。</p><p>4.填入动作项，得到初始决策表。</p><p>5.简化决策表，合并相似规则。</p></blockquote><h2 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h2><h3 id="得到初始判定表"><a href="#得到初始判定表" class="headerlink" title="得到初始判定表"></a>得到初始判定表</h3><table><thead><tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr></thead><tbody><tr><td>条件：   功率大于50马力？   维修记录不全？   运行超过10年？</td><td>Y   Y   Y</td><td>Y   Y   N</td><td>Y   N   Y</td><td>Y   N   N</td><td>N   Y   Y</td><td>N   Y   N</td><td>N   N   Y</td><td>N   N   N</td></tr><tr><td>动作：   进行优先处理   做其他处理</td><td>√</td><td>√</td><td>√</td><td>√</td><td>√</td><td>√</td><td>√</td><td>√</td></tr></tbody></table><h3 id="简化判定表，合并相似规则"><a href="#简化判定表，合并相似规则" class="headerlink" title="简化判定表，合并相似规则"></a>简化判定表，合并相似规则</h3><table><thead><tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr></thead><tbody><tr><td>条件：   功率大于50马力？   维修记录不全？   运行超过10年？</td><td>Y   Y   -</td><td>Y   N   Y</td><td>Y   N   N</td><td>N   -   Y</td><td>N   -  N</td><td></td><td>N   N   Y</td><td>N   N   N</td></tr><tr><td>动作：   进行优先处理   做其他处理</td><td>√</td><td>√</td><td>√</td><td>√</td><td>√</td><td></td><td></td></tr></tbody></table>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 测试用例 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>软件测试——测试用例02</title>
+      <link href="/2019/08/16/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B02/"/>
+      <url>/2019/08/16/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B02/</url>
+      
+        <content type="html"><![CDATA[<h1 id="测试用例设计"><a href="#测试用例设计" class="headerlink" title="测试用例设计"></a>测试用例设计</h1><blockquote><p>1.等价类法</p><p>2.边界值法</p></blockquote><a id="more"></a><h2 id="等价类法"><a href="#等价类法" class="headerlink" title="等价类法"></a>等价类法</h2><p>设计一个新的测试用例，使其尽可能多地覆盖尚未被覆盖的有效等价类，重复这个过程，直至所有的有效等价类均被测试用例所覆盖；</p><p>设计一个新的测试用例，使其仅覆盖一个无效等价类，重复这个过程，直至所有的无效等价类均被测试用例所覆盖。</p><h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><blockquote><p>某城市电话号码由三部分组成，分别是</p><p>地区码：空白或是3位数字</p><p>前缀：非‘0’且非‘1’开头的三位数字</p><p>后缀：4位数字</p><p>假定被测程序能接受一切符合上述规定的电话号码，拒绝所有不符合规定的电话号码</p></blockquote><table><thead><tr><th><strong>条件</strong></th><th><strong>有效等价类</strong></th><th><strong>编号</strong></th><th><strong>无效等价类</strong></th><th style="text-align:center"><strong>编号</strong></th></tr></thead><tbody><tr><td>地区码</td><td>空白</td><td>1</td><td>非数字</td><td style="text-align:center">5</td></tr><tr><td>三位数字</td><td>2</td><td>小于三位</td><td>6</td><td style="text-align:center"></td></tr><tr><td>前缀</td><td>大于三位</td><td>7</td><td></td><td style="text-align:center"></td></tr><tr><td>非0且非1开头的三位数字</td><td>3</td><td>空值</td><td>8</td><td style="text-align:center"></td></tr><tr><td></td><td>0开头的三位数字</td><td>9</td><td></td><td style="text-align:center"></td></tr><tr><td></td><td>1开头的三位数字</td><td>10</td><td></td><td style="text-align:center"></td></tr><tr><td></td><td>非0且非1 开头的长度小于三位的数字</td><td>11</td><td></td><td style="text-align:center"></td></tr><tr><td></td><td>非0且非1 开头的长度大于三位的数字</td><td>12</td><td></td><td style="text-align:center"></td></tr><tr><td></td><td>非数字</td><td>13</td><td></td><td style="text-align:center"></td></tr><tr><td>后缀</td><td>四位数字</td><td>4</td><td>空值</td><td style="text-align:center">14</td></tr><tr><td></td><td>非数字</td><td>15</td><td></td><td style="text-align:center"></td></tr><tr><td></td><td>小于四位</td><td>16</td><td></td><td style="text-align:center"></td></tr><tr><td></td><td>大于四位</td><td>17</td><td></td></tr></tbody></table><blockquote><p>1.Step1、分析需求中包含多少个独立功能</p><p>判断独立功能的标准：功能名是一个动词、不可继续往下分割、包含三要素：输入、处理、输出</p><p>2.Step2、分别针对每个独立功能开展需求分析</p><p>分析界面可见输入参数，罗列参数个数及名称、  分析界面不可见输入参数：网络、浏览器/系统、权限、数据库服务、系统本身服务</p><p>3.Step3、分析界面可见输入参数的特点及其关系</p><p>输入参数需要用户输入数据，并且存在有效/无效规则校验—— 则用等价类法设计测试用例</p><p>4.Step4、分别罗列每个界面可见输入参数的有效无效规则，形成等价类表</p><p>测试文本框类型应考虑的几个维度：长度、类型、组成规则、是否为空、是否重复、是否区分大小写、是否去前中后空格</p><p>构造无效规则时要注意：只能同时违背一条规则</p></blockquote><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><blockquote><p>用户注册页面需求</p><p>-USER NAME  长度为  3-19：以字母开头</p><p>-姓名：非空</p><p>-密码： 非空</p><p>-确认密码： 值和密码相同</p><p>-出生月份： 年—–四位数字</p><p>-                    月——1-12</p><p>​             日——-1-31</p></blockquote><table><thead><tr><th><strong>输入项</strong></th><th><strong>有效等价类</strong></th><th><strong>无效等价类</strong></th></tr></thead><tbody><tr><td>username</td><td>长3—19（1）      以字母开头   （4）</td><td>长度<3 (2) 长度>19      (3)   非字母开头（5）</3></td></tr><tr><td>姓名</td><td>非空    （6）</td><td>为空      （7）</td></tr><tr><td>密码</td><td>非空    （8）</td><td>为空    （9）</td></tr><tr><td>确认密码</td><td>值和密码值相同   （10）</td><td>值和密码值不同   （11）</td></tr><tr><td>出生年份</td><td>年  —-    四位（12）   年    —-   数字  （14）      年    —-     合理范围（16）</td><td>&lt;4(13)  &gt;4(18)   年数中他非数字符号(19)   空（15）   年数在不合理范围（17）</td></tr><tr><td></td><td></td></tr></tbody></table><h2 id="边界值"><a href="#边界值" class="headerlink" title="边界值"></a>边界值</h2><p>边界值分析法就是对输入或输出的边界值进行测试的一种黑盒测试方法</p><p>长期的测试工作经验告诉我们，大量的错误是发生在输入或输出范围的边界上，而不是发生在输入输出范围的内部（从开发角度可以发现）。因此针对各种边界情况设计测试用例，可以查出更多的错误。</p><p>使用边界值分析方法设计测试用例，首先应确定边界情况。通常输入和输出等价类的边界，就是应着重测试的边界情况。应当选取正好等于，刚刚大于或刚刚小于边界的值作为测试数据，而不是选取等价类中的典型值或任意值作为测试数据</p><p><img src="C:\Users\28715\AppData\Roaming\Typora\typora-user-images\1565956632576.png" alt="1565956632576"></p><h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><blockquote><p>例如，如果程序的规格说明中规定：“重量在10公斤至50公斤范围内的邮件，其邮费计算公式为……”。作为测试用例，我们应取？</p><p>9.99，10，10.01，49.99,50，50.01。</p><p>练习：</p><p>   [100   200]</p><p>   [100   200）</p><p>   (100   200)</p></blockquote><p>结合等价类划分法，设计测试数据！</p><p>移动公司话费赠送方案如下：</p><table><thead><tr><th><strong>话费累计</strong></th><th><strong>赠送</strong></th></tr></thead><tbody><tr><td>[0,200)</td><td>0</td></tr><tr><td>[200,500)</td><td>20</td></tr><tr><td>[500,800)</td><td>30</td></tr><tr><td>&gt;=800</td><td>50</td></tr></tbody></table><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>等价类用例设计要点</p><p>  1 操作步骤 </p><pre><code>1 一个新用例尽量覆盖有效规则2 一个新用例只能覆盖一条无效规则</code></pre><p>  2 测试过程中需要考虑要点</p><p>边界值用例设计要点</p><p>  1 上点</p><p>  2 离点</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 测试用例 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>软件测试——测试用例01</title>
       <link href="/2019/08/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B01/"/>
       <url>/2019/08/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B01/</url>
