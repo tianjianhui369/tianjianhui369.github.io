@@ -15,18 +15,21 @@
 
 
 
-<meta name="description" content="决策表">
+<meta name="description" content="软件测试——测试用例设计 1.状态迁移 2.流程法">
 <meta name="keywords" content="测试用例">
 <meta property="og:type" content="article">
-<meta property="og:title" content="软件测试——测试用例03">
-<meta property="og:url" content="http://yoursite.com/2019/08/16/软件测试——测试用例03/index.html">
+<meta property="og:title" content="软件测试——测试用例05">
+<meta property="og:url" content="http://yoursite.com/2019/08/17/软件测试——测试用例05/index.html">
 <meta property="og:site_name" content="yuaoblog">
-<meta property="og:description" content="决策表">
+<meta property="og:description" content="软件测试——测试用例设计 1.状态迁移 2.流程法">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-16T12:47:50.965Z">
+<meta property="og:image" content="c:/Users/28715/AppData/Roaming/Typora/typora-user-images/1566019423441.png">
+<meta property="og:image" content="c:/Users/28715/AppData/Roaming/Typora/typora-user-images/1566020072149.png">
+<meta property="og:updated_time" content="2019-08-17T05:36:26.470Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="软件测试——测试用例03">
-<meta name="twitter:description" content="决策表">
+<meta name="twitter:title" content="软件测试——测试用例05">
+<meta name="twitter:description" content="软件测试——测试用例设计 1.状态迁移 2.流程法">
+<meta name="twitter:image" content="c:/Users/28715/AppData/Roaming/Typora/typora-user-images/1566019423441.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +61,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>软件测试——测试用例03 | yuaoblog</title>
+<title>软件测试——测试用例05 | yuaoblog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -265,11 +268,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-软件测试——测试用例03" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-软件测试——测试用例05" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/08/16/软件测试——测试用例03/" class="article-date">
-      <time datetime="2019-08-16T12:11:30.000Z" itemprop="datePublished">2019-08-16</time>
+      <a href="/2019/08/17/软件测试——测试用例05/" class="article-date">
+      <time datetime="2019-08-17T04:51:10.000Z" itemprop="datePublished">2019-08-17</time>
 </a>
 
 
@@ -284,7 +287,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      软件测试——测试用例03
+      软件测试——测试用例05
     </h1>
   
 
@@ -305,108 +308,395 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="决策表"><a href="#决策表" class="headerlink" title="决策表"></a>决策表</h1><a id="more"></a>
-<p>在一个程序中，<strong>如果输入输出比较多，输入之间和输出之间相互制约的条件比较多，在这种情况下应用决策表很合适</strong>，它可以很清楚地表达它们之间的各种复杂关系。</p>
-<p>决策表法简述：<br>       决策表是把作为条件的所有输入的各种组合值以及对应输出值都罗列出来而形成的表格。它能够将复杂的问题按照各种可能的情况全部列举出来，简明并可避免遗漏。因此，利用决策表能够设计出完整的测试用例集合。</p>
+        <h1 id="软件测试——测试用例设计"><a href="#软件测试——测试用例设计" class="headerlink" title="软件测试——测试用例设计"></a>软件测试——测试用例设计</h1><blockquote>
+<p>1.状态迁移</p>
+<p>2.流程法</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="状态迁移"><a href="#状态迁移" class="headerlink" title="状态迁移"></a>状态迁移</h2><h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><blockquote>
+<p>手机中MP3播放功能状态-事件表如下，并且当MP3曲目在起点时不能按R键，当MP3曲目在末端时不能按P、F键。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">按键</th>
+<th style="text-align:center">停止</th>
+<th style="text-align:center">倒</th>
+<th style="text-align:center">播放</th>
+<th style="text-align:center">进</th>
+<th style="text-align:center">录音</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">R（倒）</td>
+<td style="text-align:center">倒</td>
+<td style="text-align:center">·</td>
+<td style="text-align:center">倒</td>
+<td style="text-align:center">倒</td>
+<td style="text-align:center">·</td>
+</tr>
+<tr>
+<td style="text-align:center">P（播放）</td>
+<td style="text-align:center">播放</td>
+<td style="text-align:center">播放</td>
+<td style="text-align:center">·</td>
+<td style="text-align:center">播</td>
+<td style="text-align:center">·</td>
+</tr>
+<tr>
+<td style="text-align:center">F（进）</td>
+<td style="text-align:center">进</td>
+<td style="text-align:center">进</td>
+<td style="text-align:center">进</td>
+<td style="text-align:center">·</td>
+<td style="text-align:center">·</td>
+</tr>
+<tr>
+<td style="text-align:center">RC（录音）</td>
+<td style="text-align:center">录音</td>
+<td style="text-align:center">·</td>
+<td style="text-align:center">·</td>
+<td style="text-align:center">·</td>
+<td style="text-align:center">·</td>
+</tr>
+<tr>
+<td style="text-align:center">S（停止）</td>
+<td style="text-align:center">·</td>
+<td style="text-align:center">停止</td>
+<td style="text-align:center">停止</td>
+<td style="text-align:center">停止</td>
+<td style="text-align:center">停止</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
-<p>决策表通常由以下4部分组成：</p>
-<p>1.条件桩—列出问题的所有条件</p>
-<p>2.条件项—针对条件桩给出的条件列出所有可能取值</p>
-<p>3.动作桩—列出问题规定的可能采取的操作</p>
-<p>4.动作项—指出在条件项的各组取值情况下应采取的动作 </p>
+<p>Step1、如果需求是文字描述，将文字转化为图形</p>
+<p>Step2、需求中包含1个独立功能 —— 播放功能</p>
+<p>Step3、针对打印功能开展需求分析</p>
+<p>​             界面可见输入参数：   播放、停止、前进、倒退、录音          </p>
+<p>​             界面不可见输入参数： 电量、音源</p>
+<p>Step4、分析界面可见输入参数之间的关系及特点</p>
+<p>​    界面所有参数都是有效的，不存在区间范围—X— 等价类、边界值</p>
+<p>​    参数之间不存在一个是什么另外一个必须是什么 —X— 判定表</p>
+<p>​    有效参数组合会输出不同结果，需求中参数部分可以组合，部分不可以组合，如前进与后退是互斥的  —X— 正交试验</p>
+<p>​    不跨多个界面 —X— 流程分析法</p>
+<p>​        所有参数都是有效的</p>
+<p>​        参数之间存在约束条件（功能之间的约束、状态之间的约束）</p>
+<p>​                                                —— 状态迁移图</p>
+<p>Step5、利用状态迁移图设计测试用例</p>
+<p>​    根据需求《SRS》提取所有的功能名或状态名</p>
+<p>​    形成N*N业务矩阵</p>
+<p>​    根据需求分析功能/状态的可达项可达用功能名/状态名代替、不可达用黑点表示</p>
+<p>​    将业务矩阵转化为需求树深度优先画法、广度优先画法</p>
+<p>​    一条分支为一条测试用例</p>
 </blockquote>
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><blockquote>
-<p>打印机是否能打印出来正确的内容有多个因素影响，包括驱动程序、纸张、墨粉等。（为了简化问题，不考虑中途断电、卡纸等因素的影响）</p>
-<p>假定：优先警告缺纸，然后警告没有墨粉，最后警告驱动程序不对。</p>
-<p>1)列出条件桩和动作桩</p>
-<p>条件桩:  a)驱动程序是否正确   b)是否有纸张   c)是否有墨粉</p>
-<p>动作桩:  a) 打印内容       b)提示驱动程序不对   </p>
-<p>​              c)提示没有纸张      d)提示没有墨粉</p>
+<h3 id="深度优先画法"><a href="#深度优先画法" class="headerlink" title="深度优先画法"></a>深度优先画法</h3><ol>
+<li><p>找一个功能名/状态名作为入口</p>
+</li>
+<li><p>根据业务矩阵从第一列开始竖着画，把可达项并列存放在入口的下一行</p>
+</li>
+<li><p>画可达项，从左边第一个功能画起，其他都注掉</p>
+</li>
+<li><p>一个功能只画一次，再出现就注掉，一直画到最后一个功能的可达项</p>
+</li>
+</ol>
+<h3 id="状态迁移图的优缺点"><a href="#状态迁移图的优缺点" class="headerlink" title="状态迁移图的优缺点"></a>状态迁移图的优缺点</h3><p>优点：保证每一个功能/状态的可达项都被覆盖</p>
+<p>缺点：对无效的路径无法覆盖</p>
+<h2 id="场景测试方法"><a href="#场景测试方法" class="headerlink" title="场景测试方法"></a>场景测试方法</h2><p>​    我们申请一个项目，需先提交审批单据，再由部门经理审批，审核通过后由总经理来最终审批，如果部门经理审核不通过，就直接退回.</p>
+<p>​    每个事件触发时的情景便形成了场景。而同一事件不同的触发顺序和处理结果形成事件流<strong>场景法：</strong>通过运用场景来对系统的功能点或业务流程进行描述，从而提高测试效果的一种方法。场景法一般包含基本流和备用流，从一个流程开始，通过描述经过的路径来确定的过程，经过遍历所有的基本流和备用流来完成整个场景。</p>
+<blockquote>
+<p><em>基本流</em>是从系统某个初始态开始，经一系列状态后到达终止状态的过程中最主要的一个业务流程。</p>
+<p><em>备选流</em>是以基本流为基础，在经过的每个判定节点处满足不同的触发条件而导致的其他事件流。</p>
 </blockquote>
-<h2 id="决策表的构造及化简"><a href="#决策表的构造及化简" class="headerlink" title="决策表的构造及化简"></a>决策表的构造及化简</h2><blockquote>
-<p>1.列出所有的条件桩和动作桩。</p>
-<p>2.确定规则的个数。</p>
-<p>3.填入条件项。</p>
-<p>4.填入动作项，得到初始决策表。</p>
-<p>5.简化决策表，合并相似规则。</p>
-</blockquote>
-<h2 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h2><h3 id="得到初始判定表"><a href="#得到初始判定表" class="headerlink" title="得到初始判定表"></a>得到初始判定表</h3><table>
+<h3 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h3><p>对ATM机的取款用例，使用场景法设计用例</p>
+<p>（1）描述提款用例的基本流和备选流 </p>
+<table>
 <thead>
 <tr>
-<th></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
+<th>基本流</th>
+<th><strong>1</strong> <strong>插入银行卡</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>条件：   功率大于50马力？   维修记录不全？   运行超过10年？</td>
-<td>Y   Y   Y</td>
-<td>Y   Y   N</td>
-<td>Y   N   Y</td>
-<td>Y   N   N</td>
-<td>N   Y   Y</td>
-<td>N   Y   N</td>
-<td>N   N   Y</td>
-<td>N   N   N</td>
+<td></td>
+<td><strong>2</strong> <strong>验证银行卡</strong></td>
 </tr>
 <tr>
-<td>动作：   进行优先处理   做其他处理</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
+<td></td>
+<td><strong>3</strong> <strong>输入</strong> <strong>PIN</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>4</strong> <strong>验证帐户代码和</strong> <strong>PIN</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>5 ATM</strong> <strong>选项</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>6</strong> <strong>输入金额</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>7</strong> <strong>授权</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>8</strong> <strong>出钞</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>9</strong> <strong>退卡</strong></td>
 </tr>
 </tbody>
 </table>
-<h3 id="简化判定表，合并相似规则"><a href="#简化判定表，合并相似规则" class="headerlink" title="简化判定表，合并相似规则"></a>简化判定表，合并相似规则</h3><table>
+<table>
 <thead>
 <tr>
 <th></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>条件：   功率大于50马力？   维修记录不全？   运行超过10年？</td>
-<td>Y   Y   -</td>
-<td>Y   N   Y</td>
-<td>Y   N   N</td>
-<td>N   -   Y</td>
-<td>N   -  N</td>
 <td></td>
-<td>N   N   Y</td>
-<td>N   N   N</td>
 </tr>
 <tr>
-<td>动作：   进行优先处理   做其他处理</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
-<td>√</td>
+<td>备选流 1 - 帐户不存在</td>
+</tr>
+<tr>
+<td>备选流 2 - PIN 有误</td>
+</tr>
+<tr>
+<td>备选流 3 - ATM 内没有现金</td>
+</tr>
+<tr>
+<td>备选流 4 - ATM 内现金不足</td>
+</tr>
+<tr>
+<td>备选流 5 - 帐户金额不足</td>
+</tr>
+<tr>
 <td></td>
+</tr>
+<tr>
 <td></td>
 </tr>
 </tbody>
 </table>
+<p>（2）场景设计 </p>
+<table>
+<thead>
+<tr>
+<th><strong>场景1-成功的提款</strong></th>
+<th>基本流</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>场景2-ATM内没有现金</td>
+<td>基本流</td>
+<td>备选流3</td>
+</tr>
+<tr>
+<td>场景3-ATM内现金不足</td>
+<td>基本流</td>
+<td>备选流4</td>
+</tr>
+<tr>
+<td>场景4-PIN有误（还有输入机会）</td>
+<td>基本流</td>
+<td>备选流2</td>
+</tr>
+<tr>
+<td>场景5-PIN有误（不再有输入机会）</td>
+<td>基本流</td>
+<td>备选流2</td>
+</tr>
+<tr>
+<td>场景6-帐户不存在/帐户类型有误</td>
+<td>基本流</td>
+<td>备选流1</td>
+</tr>
+<tr>
+<td>场景7-帐户余额不足</td>
+<td>基本流</td>
+<td>备选流5</td>
+</tr>
+</tbody>
+</table>
+<p>备选流 1 - 帐户不存在</p>
+<p>备选流 2 - PIN 有误</p>
+<p>备选流 3 - ATM 内没有现金</p>
+<p>备选流 4 - ATM 内现金不足</p>
+<p>备选流 5 - 帐户金额不足</p>
+<p>（3）用例设计 </p>
+<table>
+<thead>
+<tr>
+<th>ID号</th>
+<th>场景/条件</th>
+<th>PIN码</th>
+<th>帐号</th>
+<th>输入金额</th>
+<th>帐面金额</th>
+<th>ATM 的金额</th>
+<th>预期结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CW1</td>
+<td>场景1-成功的提款</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>成功的提款</td>
+</tr>
+<tr>
+<td>CW2</td>
+<td>场景2-ATM 内没有现金</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>I</td>
+<td>提款选项不可用，用例结束</td>
+</tr>
+<tr>
+<td>CW3</td>
+<td>场景3-ATM 内现金不足</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>I</td>
+<td>警告消息，返回基本流步骤 6，输入金额</td>
+</tr>
+<tr>
+<td>CW4</td>
+<td>场景4-PIN 有误（还有两次机会）</td>
+<td>I</td>
+<td>V</td>
+<td>n/a</td>
+<td>V</td>
+<td>V</td>
+<td>警告消息，返回基本流步骤 4，输入PIN</td>
+</tr>
+<tr>
+<td>CW5</td>
+<td>场景4-PIN 有误（还有一次机会）</td>
+<td>I</td>
+<td>V</td>
+<td>n/a</td>
+<td>V</td>
+<td>V</td>
+<td>警告消息，返回基本流步骤 4，输入PIN</td>
+</tr>
+<tr>
+<td>CW6</td>
+<td>场景5-PIN 有误（没有输入机会）</td>
+<td>I</td>
+<td>V</td>
+<td>n/a</td>
+<td>V</td>
+<td>V</td>
+<td>警告消息，卡予保留，用例结束</td>
+</tr>
+</tbody>
+</table>
+<p>（4）补充异常流</p>
+<p>无效卡（挂失卡、非承兑银行发卡、磁条损坏等） </p>
+<p>无法读卡（读卡机堵塞、脱机或出现故障）</p>
+<p>无法联系银行系统以获得认可 </p>
+<p>银行网络离线或交易过程中断电 </p>
+<h3 id="例题-2"><a href="#例题-2" class="headerlink" title="例题"></a>例题</h3><p>【例】　有一个处理单价为5角钱的饮料的自动售货机，相应规格说明如下。</p>
+<p>① 若投入5角钱或1元钱的硬币，按下【橙汁】或【啤酒】的按钮，则相应的饮料就送出来。（每次只投入一个硬币，只按下一种饮料的按钮。）</p>
+<p>② 如投入5角的硬币，按下按钮后，总有饮料送出。</p>
+<p>③ 若售货机没有零钱找，则【零钱找完】的红灯不会亮，这时再投入1元硬币并按下按钮后，饮料不送出来而且1元硬币也退出来。</p>
+<p>④ 若有零钱找，则【零钱找完】的红灯不会亮，若投入1元硬币及按饮料按钮，则送出饮料的同时找回5角硬币。</p>
+<p>（1）分析基本流和备选流</p>
+<p>基本流：投入5角钱，按下【橙汁】或【啤酒】的按钮，则相应的饮料就送出来。</p>
+<p>备选流：</p>
+<ol>
+<li><p>备选流1：【零钱找完】的红灯没亮，若投入1元硬币及按饮料按钮，则送出饮料的同时找回5角硬币。</p>
+</li>
+<li><p>备选流2：【零钱找完】的红灯亮，这时投入1元硬币并按下按钮后，饮料不送出来且1元硬币也退出来。</p>
+</li>
+</ol>
+<p>（2）分析场景</p>
+<p>场景1：基本流</p>
+<p>场景2：备选流1</p>
+<p>场景3：备选流2</p>
+<p>（3）设计测试用例</p>
+<p><img src="C:\Users\28715\AppData\Roaming\Typora\typora-user-images\1566019423441.png" alt="1566019423441"></p>
+<h3 id="QQ安装功能测试"><a href="#QQ安装功能测试" class="headerlink" title="QQ安装功能测试"></a>QQ安装功能测试</h3><p>安装系统之家版QQ</p>
+<p>运行XTZJQQ2006.exe</p>
+<p>点击“下一步”</p>
+<p>点击“上一步</p>
+<p>返回上一个界面，</p>
+<p>点击“下一步”</p>
+<p>点击“上一步</p>
+<p>返回上一个界面，</p>
+<p>点击“下一步”</p>
+<p>点击“上一步</p>
+<p>返回上一个界面，</p>
+<p>点击“下一步”</p>
+<p>点击“上一步</p>
+<p>返回上一个界面，</p>
+<p>点击“下一步”</p>
+<p>点击“上一步</p>
+<p>返回上一个界面，</p>
+<p>点击“下一步”</p>
+<p>点击“上一步</p>
+<p>返回上一个界面，</p>
+<p>点击“安装”</p>
+<p>点击“完成”</p>
+<p>安装过程结束，</p>
+<p>在所有界面中点击“取消”</p>
+<blockquote>
+<p>Step1、如果需求是文字描述，将文字转化为图形</p>
+<p>Step2、需求中包含1个独立功能 —— QQ安装功能</p>
+<p>Step3、针对打印功能开展需求分析</p>
+<p>​             界面可见输入参数：同意、安装组件、安装位置、</p>
+<p>​                                           创建菜单文件夹、显示说明书</p>
+<p>​             界面不可见输入参数：系统平台兼容、安装组件、安装空间</p>
+<p>Step4、分析界面可见输入参数之间的关系及特点</p>
+<p>​    选择组件、显示说明书不存在有效无效规则校验 —X— 等价类、边界值</p>
+<p>​    同意、安装位置、创建菜单文件夹存在有效无效，但是当前界面并不提示错误，所以不能用等价类、边界值</p>
+<p>​    参数之间不存在一个是什么另外一个必须什么的逻辑关系 —X— 判定表</p>
+<p>​    参数存在无效，不全是有效的 —X— 正交试验</p>
+<p>​        一个功能的实现需要多个界面协同完成（跨界面）</p>
+<p>​        存在逻辑关系（对错不能同时存在，同意/不同意、上一步/下一步）</p>
+<p>​        并且不同参数组合会输出不同结果</p>
+<p>​                                —— 流程分析法</p>
+<p>Step5、利用流程分析法设计测试用例</p>
+<p>画图法：</p>
+<ol>
+<li><p>将安装向导界面的判定条件并列存放在一行</p>
+</li>
+<li><p>将许可协议加密的判定条件并列存放在下一行</p>
+</li>
+<li><p>重复步骤1，直到所有界面都画完</p>
+</li>
+<li><p>先画条件为真的分支</p>
+</li>
+<li><p>再画条件为假的分支</p>
+</li>
+<li><p>一条分支为一条测试用例</p>
+</li>
+</ol>
+<p>Step4_2、流程分析法设计测试用例</p>
+<p>矩阵法（实战）：</p>
+</blockquote>
+<p><img src="C:\Users\28715\AppData\Roaming\Typora\typora-user-images\1566020072149.png" alt="1566020072149"></p>
+<h3 id="流程分析法的优缺点"><a href="#流程分析法的优缺点" class="headerlink" title="流程分析法的优缺点"></a>流程分析法的优缺点</h3><p>优点：流程分析法既能覆盖条件为真的分支，也能覆盖条件为假的分支</p>
+<p>缺点：流程分析法不能验证每个界面的参数是否正确，验证的是流程，所以需要与开发进行沟通需求，需要在每个界面进行校验，如果错误，直接在当前界面提示信息，所以需要多种方法组合使用。</p>
 
       
     </div>
@@ -415,13 +705,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/08/16/软件测试——测试用例03/">软件测试——测试用例03</a></p>
+        <p><span>本文标题:</span><a href="/2019/08/17/软件测试——测试用例05/">软件测试——测试用例05</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
-        <p><span>发布时间:</span>2019-08-16, 20:11:30</p>
-        <p><span>最后更新:</span>2019-08-16, 20:47:50</p>
+        <p><span>发布时间:</span>2019-08-17, 12:51:10</p>
+        <p><span>最后更新:</span>2019-08-17, 13:36:26</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/08/16/软件测试——测试用例03/" title="软件测试——测试用例03">http://yoursite.com/2019/08/16/软件测试——测试用例03/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/16/软件测试——测试用例03/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/08/17/软件测试——测试用例05/" title="软件测试——测试用例05">http://yoursite.com/2019/08/17/软件测试——测试用例05/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/17/软件测试——测试用例05/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -433,16 +723,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/08/17/软件测试——测试用例04/">
-                    软件测试——测试用例04
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/08/16/软件测试——测试用例02/">
-                    软件测试——测试用例02
+                <a href="/2019/08/17/软件测试——测试用例04/">
+                    软件测试——测试用例04
                 </a>
             </div>
         
@@ -454,7 +738,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#决策表"><span class="toc-number">1.</span> <span class="toc-text">决策表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#例题"><span class="toc-number">1.1.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#决策表的构造及化简"><span class="toc-number">1.2.</span> <span class="toc-text">决策表的构造及化简</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例题-1"><span class="toc-number">1.3.</span> <span class="toc-text">例题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#得到初始判定表"><span class="toc-number">1.3.1.</span> <span class="toc-text">得到初始判定表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简化判定表，合并相似规则"><span class="toc-number">1.3.2.</span> <span class="toc-text">简化判定表，合并相似规则</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#软件测试——测试用例设计"><span class="toc-number">1.</span> <span class="toc-text">软件测试——测试用例设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#状态迁移"><span class="toc-number">1.1.</span> <span class="toc-text">状态迁移</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例题"><span class="toc-number">1.1.1.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深度优先画法"><span class="toc-number">1.1.2.</span> <span class="toc-text">深度优先画法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#状态迁移图的优缺点"><span class="toc-number">1.1.3.</span> <span class="toc-text">状态迁移图的优缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#场景测试方法"><span class="toc-number">1.2.</span> <span class="toc-text">场景测试方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例题-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#例题-2"><span class="toc-number">1.2.2.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#QQ安装功能测试"><span class="toc-number">1.2.3.</span> <span class="toc-text">QQ安装功能测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#流程分析法的优缺点"><span class="toc-number">1.2.4.</span> <span class="toc-text">流程分析法的优缺点</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -490,7 +774,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"软件测试——测试用例03　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"软件测试——测试用例05　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -510,15 +794,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/08/17/软件测试——测试用例04/" title="上一篇: 软件测试——测试用例04">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/08/16/软件测试——测试用例02/" title="下一篇: 软件测试——测试用例02">
+            <a href="/2019/08/17/软件测试——测试用例04/" title="下一篇: 软件测试——测试用例04">
                 <i class="fa fa-angle-right"></i>
             </a>
         
