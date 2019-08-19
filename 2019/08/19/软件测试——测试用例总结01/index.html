@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="yuao">
+
+
+
+<meta name="description" content="1.等价类划分方法 2.边界值分析方法 3.错误推测方法">
+<meta name="keywords" content="测试用例">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件测试——测试用例总结01">
+<meta property="og:url" content="http://yoursite.com/2019/08/19/软件测试——测试用例总结01/index.html">
+<meta property="og:site_name" content="yuaoblog">
+<meta property="og:description" content="1.等价类划分方法 2.边界值分析方法 3.错误推测方法">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image001.jpg">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image003.jpg">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image004.jpg">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image005.jpg">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image006.jpg">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image007.jpg">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image008.jpg">
+<meta property="og:updated_time" content="2019-08-19T11:58:16.623Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="软件测试——测试用例总结01">
+<meta name="twitter:description" content="1.等价类划分方法 2.边界值分析方法 3.错误推测方法">
+<meta name="twitter:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image001.jpg">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="yuaoblog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&fm=27&gp=0.jpg">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>软件测试——测试用例总结01 | yuaoblog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: false
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&amp;fm=27&amp;gp=0.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">yuao</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Survey-js/">Survey.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试理论/">测试理论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试用例/">测试用例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件测试简介/">软件测试简介</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">yuao</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&amp;fm=27&amp;gp=0.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">yuao</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-软件测试——测试用例总结01" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/08/19/软件测试——测试用例总结01/" class="article-date">
+      <time datetime="2019-08-19T11:39:34.000Z" itemprop="datePublished">2019-08-19</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      软件测试——测试用例总结01
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试用例/">测试用例</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>1.等价类划分方法</p>
+<p>2.边界值分析方法</p>
+<p>3.错误推测方法</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="等价类划分方法"><a href="#等价类划分方法" class="headerlink" title="等价类划分方法"></a>等价类划分方法</h3><p>一.方法简介</p>
+<p>1.定义<br>   是把所有可能的输入数据,即程序的输入域划分成若干部分（子集）,然后从每一个子集中选取少数具有代表性的数据作为测试用例。该方法是一种重要的,常用的黑盒测试用例设计方法。</p>
+<p>2.划分等价类：<br>   等价类是指某个输入域的子集合。在该子集合中,各个输入数据对于揭露程序中的错误都是等效的，并合理地假定：测试某等价类的代表值就等于对这一类其它值的测试，因此,可以把全部输入数据合理划分为若干等价类,在每一个等价类中取一个数据作为测试的输入条件就可以用少量代表性的测试数据取得较好的测试结果。等价类划分可有两种不同的情况：有效等价类和无效等价类。<br>   1)有效等价类<br>     是指对于程序的规格说明来说是合理的、有意义的输入数据构成的集合。利用有效等价类可检验程序是否实现了规格说明中所规定的功能和性能。<br>   2)无效等价类<br>     与有效等价类的定义恰巧相反。无效等价类指对程序的规格说明是不合理的或无意义的输入数据所构成的集合。对于具体的问题，无效等价类至少应有一个，也可能有多个。<br>   设计测试用例时,要同时考虑这两种等价类。因为软件不仅要能接收合理的数据,也要能经受意外的考验，这样的测试才能确保软件具有更高的可靠性。</p>
+<p>3.划分等价类的标准：<br>   1)完备测试、避免冗余;<br>   2)划分等价类重要的是：集合的划分，划分为互不相交的一组子集，而子集的并是整个集合;<br>   3)并是整个集合：完备性;<br>   4)子集互不相交：保证一种形式的无冗余性;<br>   5)同一类中标识（选择）一个测试用例，同一等价类中，往往处理相同，相同处理映射到”相同的执行路径”。</p>
+<p>4.划分等价类的方法<br>   1)在输入条件规定了取值范围或值的个数的情况下,则可以确立一个有效等价类和两个无效等价类。如：输入值是学生成绩，范围是0～100；</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image001.jpg" alt="img"></p>
+<p>2)在输入条件规定了输入值的集合或者规定了”必须如何”的条件的情况下,可确立一个有效等价类和一个无效等价类；<br>   3)在输入条件是一个布尔量的情况下,可确定一个有效等价类和一个无效等价类。<br>   4)在规定了输入数据的一组值（假定n个）,并且程序要对每一个输入值分别处理的情况下,可确立n个有效等价类和一个无效等价类。<br>     例：输入条件说明学历可为:专科、本科、硕士、博士四种之一，则分别取这四种这四个值作为四个有效等价类，另外把四种学历之外的任何学历作为无效等价类。<br>   5)在规定了输入数据必须遵守的规则的情况下,可确立一个有效等价类（符合规则）和若干个无效等价类（从不同角度违反规则）；<br>   6)在确知已划分的等价类中各元素在程序处理中的方式不同的情况下,则应再将该等价类进一步的划分为更小的等价类。</p>
+<p> 5.设计测试用例<br>   在确立了等价类后,可建立等价类表,列出所有划分出的等价类输入条件：有效等价类、无效等价类，然后从划分出的等价类中按以下三个原则设计测试用例：<br>   1)为每一个等价类规定一个唯一的编号；<br>   2)设计一个新的测试用例,使其尽可能多地覆盖尚未被覆盖地有效等价类,重复这一步，直到所有的有效等价类都被覆盖为止；<br>   3)设计一个新的测试用例,使其仅覆盖一个尚未被覆盖的无效等价类,重复这一步，直到所有的无效等价类都被覆盖为止。</p>
+<p>二.实战演习 </p>
+<p>1.某程序规定：”输入三个整数 a 、 b 、 c 分别作为三边的边长构成三角形。通过程序判定所构成的三角形的类型，当此三角形为一般三角形、等腰三角形及等边三角形时，分别作计算 … “。用等价类划分方法为该程序进行测试用例设计。（三角形问题的复杂之处在于输入与输出之间的关系比较复杂。）<br>   分析题目中给出和隐含的对输入条件的要求：<br>   （1）整数    （2）三个数    （3）非零数   （4）正数  </p>
+<p>   （5）两边之和大于第三边     （6）等腰     （7）等边<br>    如果 a 、 b 、 c 满足条件（ 1 ） ~ （ 4 ），则输出下列四种情况之一：<br>    1)如果不满足条件（5），则程序输出为 “ 非三角形 “ 。<br>    2)如果三条边相等即满足条件（7），则程序输出为 “ 等边三角形 “ 。<br>    3)如果只有两条边相等、即满足条件（6），则程序输出为 “ 等腰三角形 “ 。<br>    4)如果三条边都不相等，则程序输出为 “ 一般三角形 “ 。<br>    列出等价类表并编号</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg" alt="img"></p>
+<p>覆盖有效等价类的测试用例：<br>     a      b      c              覆盖等价类号码<br>     3      4      5             （1）–（7）<br>     4      4      5             （1）–（7），（8）<br>     4      5      5             （1）–（7），（9）    </p>
+<p>​     5      4      5             （1）–（7），（10）<br>​     4      4      4             （1）–（7），（11）<br>​    覆盖无效等价类的测试用例：</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image003.jpg" alt="img"></p>
+<p>2.设有一个档案管理系统，要求用户输入以年月表示的日期。假设日期限定在1990年1月~2049年12月，并规定日期由6位数字字符组成，前4位表示年，后2位表示月。现用等价类划分法设计测试用例，来测试程序的”日期检查功能”。<br>   1)划分等价类并编号,下表等价类划分的结果</p>
+<table>
+<thead>
+<tr>
+<th><strong>输入等价类</strong></th>
+<th><strong>有效等价类</strong></th>
+<th><strong>无效等价类</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>日期的类型及长度</td>
+<td>①6位数字字符</td>
+<td>②有非数字字符   ③少于6位数字字符   ④多于6位数字字符</td>
+</tr>
+<tr>
+<td>年份范围</td>
+<td>⑤在1990~2049之间</td>
+<td>⑥小于1990   ⑦大于2049</td>
+</tr>
+<tr>
+<td>月份范围</td>
+<td>⑧在01~12之间</td>
+<td>⑨等于00   ⑩大于12</td>
+</tr>
+</tbody>
+</table>
+<p>2)设计测试用例，以便覆盖所有的有效等价类在表中列出了3个有效等价类，编号分别为①、⑤、⑧，设计的测试用例如下：<br>     测试数据    期望结果      覆盖的有效等价类<br>     200211      输入有效      ①、⑤、⑧<br>   3)为每一个无效等价类设计一个测试用例，设计结果如下：<br>     测试数据   期望结果     覆盖的无效等价类<br>     95June     无效输入          ②<br>     20036      无效输入          ③<br>     2001006   无效输入          ④<br>     198912     无效输入          ⑥<br>     200401     无效输入          ⑦<br>     200100     无效输入          ⑨<br>     200113     无效输入          ⑩</p>
+<p>3.NextDate 函数包含三个变量：month 、 day 和 year ，函数的输出为输入日期后一天的日期。 例如，输入为 2006年3月 7日，则函数的输出为 2006年3月8日 。要求输入变量 month 、 day 和 year 均为整数值，并且满足下列条件：<br>   ①1≤month≤12<br>   ②1≤day≤31<br>   ③1920≤year≤2050<br>   1)有效等价类为：<br>     M1＝{月份：1≤月份≤12}<br>     D1＝{日期：1≤日期≤31}<br>     Y1＝{年：1812≤年≤2012}<br>   2)若条件 ① ~ ③中任何一个条件失效，则 NextDate 函数都会产生一个输出，指明相应的变量超出取值范围，比如 “month 的值不在 1-12 范围当中 “ 。显然还存在着大量的 year 、 month 、 day 的无效组合， NextDate 函数将这些组合作统一的输出： “ 无效输入日期 “ 。其无效等价类为：<br>     M2＝{月份：月份&lt;1}<br>     M3＝{月份：月份&gt;12}<br>     D2＝{日期：日期&lt;1}<br>     D3＝{日期：日期&gt;31}<br>     Y2＝{年：年&lt;1812}<br>     Y3＝{年：年&gt;2012}<br>   弱一般等价类测试用例<br>   月份    日期       年               预期输出<br>    6       15        1912           1912年6月16日<br>   强一般等价类测试用例同弱一般等价类测试用例<br>   注：弱–有单缺陷假设；健壮–考虑了无效值<br>   (一)弱健壮等价类测试<br>   用例ID   月份  日期    年          预期输出<br>   WR1      6      15    1912      1912年6月16日<br>   WR2     -1     15    1912      月份不在1～12中<br>   WR3     13     15    1912      月份不在1～12中<br>   WR4      6      -1    1912      日期不在1～31中<br>   WR5      6      32    1912      日期不在1～31中<br>   WR6      6      15    1811      年份不在1812～2012中<br>   WR7      6      15    2013      年份不在1812～2012中</p>
+<p>  (二)强健壮等价类测试<br>   用例ID   月份    日期      年          预期输出<br>   SR1       -1      15       1912      月份不在1～12中<br>   SR2        6      -1        1912      日期不在1～31中<br>   SR3        6      15       1811      年份不在1812～2012中<br>   SR4       -1      -1       1912      两个无效一个有效<br>   SR5        6      -1        1811      两个无效一个有效<br>   SR6       -1      15       1811      两个无效一个有效<br>   SR7       -1      -1       1811      三个无效</p>
+<p>4.佣金问题等价类测试用例，它是根据佣金函数的输出值域定义等价类，来改进测试用例集合。<br> 输出销售额≤1000元     佣金10％<br> 1000&lt;销售额≤1800     佣金=100+(销售额-1000)<em>15%<br> 销售额&gt;1800              佣金=220+(销售额-1800)</em>20%<br> 测试用例         枪机(45)    枪托(30)      枪管(25)          销售额     佣金<br>     1               5             5                5                  500        50<br>     2              15           15              15                 1500       175<br>     3              25           25              25                 2500       360<br> 根据输出域选择输入值，使落在输出域等价类内，可以结合弱健壮测试用例结合。</p>
+<h3 id="边界值分析方法"><a href="#边界值分析方法" class="headerlink" title="边界值分析方法"></a>边界值分析方法</h3><p>一.方法简介 </p>
+<p>1.定义：边界值分析法就是对输入或输出的边界值进行测试的一种黑盒测试方法。通常边界值分析法是作为对等价类划分法的补充，这种情况下，其测试用例来自等价类的边界。  </p>
+<p>2.与等价划分的区别<br>   1)边界值分析不是从某等价类中随便挑一个作为代表，而是使这个等价类的每个边界都要作为测试条件。<br>   2)边界值分析不仅考虑输入条件，还要考虑输出空间产生的测试情况。</p>
+<p>3.边界值分析方法的考虑：<br>   长期的测试工作经验告诉我们，大量的错误是发生在输入或输出范围的边界上，而不是发生在输入输出范围的内部。因此针对各种边界情况设计测试用例，可以查出更多的错误。<br>   使用边界值分析方法设计测试用例，首先应确定边界情况。通常输入和输出等价类的边界，就是应着重测试的边界情况。应当选取正好等于，刚刚大于或刚刚小于边界的值作为测试数据，而不是选取等价类中的典型值或任意值作为测试数据。 </p>
+<p>4.常见的边界值<br>   1)对16-bit 的整数而言 32767 和 -32768 是边界<br>   2)屏幕上光标在最左上、最右下位置<br>   3)报表的第一行和最后一行<br>   4)数组元素的第一个和最后一个<br>   5)循环的第 0 次、第 1 次和倒数第 2 次、最后一次</p>
+<p>5.边界值分析<br>   1)边界值分析使用与等价类划分法相同的划分，只是边界值分析假定错误更多地存在于划分的边界上，因此在等价类的边界上以及两侧的情况设计测试用例。<br>     例：测试计算平方根的函数<br>         –输入：实数<br>         –输出：实数<br>         –规格说明：当输入一个0或比0大的数的时候，返回其正平方根；当输入一个小于0的数时，显示错误信息”平方根非法-输入值小于0”并返回0；库函数Print-Line可以用来输出错误信息。<br>   2)等价类划分：<br>     I.可以考虑作出如下划分：<br>       a、输入 (i)<0 和 (ii)>=0<br>       b、输出 (a)&gt;=0 和 (b) Error<br>     II.测试用例有两个：<br>       a、输入4，输出2。对应于 (ii) 和 (a) 。<br>       b、输入-10，输出0和错误提示。对应于 (i) 和 (b) 。</0></p>
+<p>  3)边界值分析：<br>     划分(ii)的边界为0和最大正实数；划分(i)的边界为最小负实数和0。由此得到以下测试用例：<br>     a、输入 {最小负实数}<br>     b、输入 {绝对值很小的负数}<br>     c、输入 0<br>     d、输入 {绝对值很小的正数}<br>     e、输入 {最大正实数}<br>   4)通常情况下，软件测试所包含的边界检验有几种类型：数字、字符、位置、重量、大小、速度、方位、尺寸、空间等。<br>   5)相应地，以上类型的边界值应该在：最大/最小、首位/末位、上/下、最快/最慢、最高/最低、  最短/最长、 空/满等情况下。<br>   6)利用边界值作为测试数据</p>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>边界值</th>
+<th>测试用例的设计思路</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>字符</td>
+<td>起始-1个字符/结束+1个字符</td>
+<td>假设一个文本输入区域允许输入1个到255个 字符，输入1个和255个字符作为有效等价类；输入0个和256个字符作为无效等价类，这几个数值都属于边界条件值。</td>
+</tr>
+<tr>
+<td>数值</td>
+<td>最小值-1/最大值+1</td>
+<td>假设某软件的数据输入域要求输入5位的数据值，可以使用10000作为最小值、99999作为最大值；然后使用刚好小于5位和大于5位的 数值来作为边界条件。</td>
+</tr>
+<tr>
+<td>空间</td>
+<td>小于空余空间一点/大于满空间一点</td>
+<td>例如在用U盘存储数据时，使用比剩余磁盘空间大一点（几KB）的文件作为边界条件。</td>
+</tr>
+</tbody>
+</table>
+<p>7)内部边界值分析：<br>     在多数情况下，边界值条件是基于应用程序的功能设计而需要考虑的因素，可以从软件的规格说明或常识中得到，也是最终用户可以很容易发现问题的。然而，在测试用例设计过程中，某些边界值条件是不需要呈现给用户的，或者说用户是很难注意到的，但同时确实属于检验范畴内的边界条件，称为内部边界值条件或子边界值条件。<br>     内部边界值条件主要有下面几种：<br>     a)数值的边界值检验：计算机是基于二进制进行工作的，因此，软件的任何数值运算都有一定的范围限制。</p>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>范围或值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>位（bit）</td>
+<td>0或者1</td>
+</tr>
+<tr>
+<td>字节（byte）</td>
+<td>0——225</td>
+</tr>
+<tr>
+<td>字（word）</td>
+<td>0~65535（单字）或 0~4294967295（双字）</td>
+</tr>
+<tr>
+<td>千（K）</td>
+<td>1024</td>
+</tr>
+<tr>
+<td>兆（M）</td>
+<td>1048576</td>
+</tr>
+<tr>
+<td>吉（G）</td>
+<td>1073741824</td>
+</tr>
+</tbody>
+</table>
+<p>b)字符的边界值检验：在计算机软件中，字符也是很重要的表示元素，其中ASCII和Unicode是常见的编码方式。下表中列出了一些常用字符对应的ASCII码值。</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th><strong>ASCII**</strong>码值**</th>
+<th>字符</th>
+<th><strong>ASCII**</strong>码值**</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空 (null)</td>
+<td>0</td>
+<td>A</td>
+<td>65</td>
+</tr>
+<tr>
+<td>空格 (space)</td>
+<td>32</td>
+<td>a</td>
+<td>97</td>
+</tr>
+<tr>
+<td>斜杠 ( / )</td>
+<td>47</td>
+<td>Z</td>
+<td>90</td>
+</tr>
+<tr>
+<td>0</td>
+<td>48</td>
+<td>z</td>
+<td>122</td>
+</tr>
+<tr>
+<td>冒号 ( : )</td>
+<td>58</td>
+<td>单引号 ( ‘ )</td>
+<td>96</td>
+</tr>
+<tr>
+<td>@</td>
+<td>64</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>c)其它边界值检验</p>
+<p>6.基于边界值分析方法选择测试用例的原则<br>   1)如果输入条件规定了值的范围,则应取刚达到这个范围的边界的值,以及刚刚超越这个范围边界的值作为测试输入数据。<br>     例如，如果程序的规格说明中规定：”重量在10公斤至50公斤范围内的邮件，其邮费计算公式为……”。作为测试用例，我们应取10及50，还应取10.01,49.99,9.99及50.01等。<br>   2)如果输入条件规定了值的个数,则用最大个数,最小个数,比最小个数少一,比最大个数多一的数作为测试数据。<br>     比如，一个输入文件应包括1~255个记录，则测试用例可取1和255，还应取0及256等。<br>   3)将规则1）和2）应用于输出条件，即设计测试用例使输出值达到边界值及其左右的值。<br>     例如，某程序的规格说明要求计算出”每月保险金扣除额为0至1165.25元”，其测试用例可取0.00及1165.24、还可取一0.01及1165．26等。<br>     再如一程序属于情报检索系统，要求每次”最少显示1条、最多显示4条情报摘要”，这时我们应考虑的测试用例包括1和4，还应包括0和5等。<br>   4)如果程序的规格说明给出的输入域或输出域是有序集合,则应选取集合的第一个元素和最后一个元素作为测试用例。<br>   5)如果程序中使用了一个内部数据结构,则应当选择这个内部数据结构的边界上的值作为测试用例。<br>   6)分析规格说明,找出其它可能的边界条件。</p>
+<p>二.实战演习</p>
+<p>1.现有一个学生标准化考试批阅试卷,产生成绩报告的程序。其规格说明如下:程序的输入文件由一些有80个字符的记录组成,如右图所示，所有记录分为3组：</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image004.jpg" alt="img"></p>
+<p>①标题：这一组只有一个记录，其内容为输出成绩报告的名字。<br>   ②试卷各题标准答案记录：每个记录均在第80个字符处标以数字”2”。该组的第一个记录的第1至第3个字符为题目编号（取值为1一999）。第10至第59个字符给出第1至第50题的答案（每个合法字符表示一个答案）。该组的第2，第3……个记录相应为第51至第100，第101至第150，…题的答案。<br>   ③每个学生的答卷描述：该组中每个记录的第80个字符均为数字”3”。每个学生的答卷在若干个记录中给出。如甲的首记录第1至第9字符给出学生姓名及学号，第10至第59字符列出的是甲所做的第1至第50题的答案。若试题数超过50，则第2，第3……纪录分别给出他的第51至第100，第101至第150……题的解答。然后是学生乙的答卷记录。<br>   ④学生人数不超过200，试题数不超过999。<br>   ⑤程序的输出有4个报告：<br>     a)按学号排列的成绩单，列出每个学生的成绩、名次。<br>     b)按学生成绩排序的成绩单。<br>     c)平均分数及标准偏差的报告。<br>     d)试题分析报告。按试题号排序，列出各题学生答对的百分比。<br>   解答：分别考虑输入条件和输出条件，以及边界条件。给出下表所示的输入条件及相应的测试用例。</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image005.jpg" alt="img"></p>
+<p>   输出条件及相应的测试用例表。</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image006.jpg" alt="img"></p>
+<p>2.三角形问题的边界值分析测试用例<br> 在三角形问题描述中，除了要求边长是整数外，没有给出其它的限制条件。在此，我们将三角形每边边长的取范围值设值为[1, 100] 。</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image007.jpg" alt="img"></p>
+<p>3.NextDate函数的边界值分析测试用例<br> 在NextDate函数中，隐含规定了变量mouth和变量day的取值范围为1≤mouth≤12和1≤day≤31，并设定变量year的取值范围为1912≤year≤2050 。</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image008.jpg" alt="img"></p>
+<h3 id="错误推测方法"><a href="#错误推测方法" class="headerlink" title="错误推测方法"></a>错误推测方法</h3><p><strong>一.   </strong>方法简介</p>
+<ol>
+<li><p>定义：基于经验和直觉推测程序中所有可能存在的各种错误, 从而有针对性的设计测试用例的方法。</p>
+</li>
+<li><p>错误推测方法的基本思想：</p>
+</li>
+</ol>
+<p>列举出程序中所有可能有的错误和容易发生错误的特殊情况,根据他们选择测试用例。</p>
+<p>1)        例如, 输入数据和输出数据为0的情况；输入表格为空格或输入表格只有一行。 这些都是容易发生错误的情况。可选择这些情况下的例子作为测试用例。</p>
+<p>2)        例如，前面例子中成绩报告的程序，采用错误推测法还可补充设计一些测试用例：</p>
+<p>I.          程序是否把空格作为回答</p>
+<p>II.       在回答记录中混有标准答案记录</p>
+<p>III.     除了标题记录外，还有一些的记录最后一个字符即不是2也不是3</p>
+<p>IV.     有两个学生的学号相同</p>
+<p>V.        试题数是负数。 </p>
+<p>3)    再如，测试一个对线性表（比如数组）进行排序的程序，可推测列出以下几项需要特别测试的情况：</p>
+<p>I.          输入的线性表为空表；</p>
+<p>II.       表中只含有一个元素；</p>
+<p>III.     输入表中所有元素已排好序；</p>
+<p>IV.     输入表已按逆序排好；</p>
+<p>V.输入表中部分或全部元素相同。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/08/19/软件测试——测试用例总结01/">软件测试——测试用例总结01</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
+        <p><span>发布时间:</span>2019-08-19, 19:39:34</p>
+        <p><span>最后更新:</span>2019-08-19, 19:58:16</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/08/19/软件测试——测试用例总结01/" title="软件测试——测试用例总结01">http://yoursite.com/2019/08/19/软件测试——测试用例总结01/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/19/软件测试——测试用例总结01/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2019/08/19/软件测试——测试用例总结02/">
+                    软件测试——测试用例总结02
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/08/17/软件测试——测试用例05/">
+                    软件测试——测试用例05
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#等价类划分方法"><span class="toc-number">1.</span> <span class="toc-text">等价类划分方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#边界值分析方法"><span class="toc-number">2.</span> <span class="toc-text">边界值分析方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误推测方法"><span class="toc-number">3.</span> <span class="toc-text">错误推测方法</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"软件测试——测试用例总结01　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/08/19/软件测试——测试用例总结02/" title="上一篇: 软件测试——测试用例总结02">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/08/17/软件测试——测试用例05/" title="下一篇: 软件测试——测试用例05">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/软件测试——测试用例总结02/">软件测试——测试用例总结02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/软件测试——测试用例总结01/">软件测试——测试用例总结01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/软件测试——测试用例05/">软件测试——测试用例05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/软件测试——测试用例04/">软件测试——测试用例04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/软件测试——测试用例03/">软件测试——测试用例03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/软件测试——测试用例02/">软件测试——测试用例02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/软件测试——测试用例01/">软件测试——测试用例01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/软件测试——测试理论05/">软件测试——测试理论05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/14/软件测试——测试理论04/">软件测试——测试理论04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/14/软件测试——测试理论03/">软件测试——测试理论03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/软件测试——测试理论02/">软件测试——测试理论02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/软件测试——测试理论01/">软件测试——测试理论01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/软件测试——测试基础02-1/">软件测试——测试基础02-1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/软件测试——测试基础01-2/">软件测试——测试基础01-2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/软件测试——测试基础01-1/">软件测试——测试基础01_1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5的FileReader/">HTML5的FileReader</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5地理定位接口/">HTML5地理定位接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5的拖拽/">HTML5的拖拽</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/03/CSS复习内容01/">CSS复习内容01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/23/es6学习笔记2/">es6学习笔记2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/22/angular精讲5/">angular精讲5</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/CSS3学习笔记2/">CSS3学习笔记2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/angular精讲4/">angular精讲4</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/20/CSS3学习笔记/">CSS3学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/20/angular精讲3/">angular精讲3</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/es6学习笔记/">es6学习笔记01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/angular精讲2/">angular精讲2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/angular精讲1/">angular精讲1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/javascript基础-02/">javascript基础_02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/angular路由/">angular路由</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/javascript基础01-01/">javascript基础01_01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/11/angular服务的依赖注入/">angular服务的依赖注入</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/10/angular-指令简述/">angular 指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/Angular-Component-databinding/">Angular Component$databinding</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/08/survey.js/">survey.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/angular新建组件方法/">angular新建组件方法</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2019 yuao
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

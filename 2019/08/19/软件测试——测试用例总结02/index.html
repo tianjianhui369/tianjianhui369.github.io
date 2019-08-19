@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="yuao">
+
+
+
+<meta name="description" content="1.因果图方法 2.判定表驱动分析方法 3.正交试验设计方法 4.功能图分析方法 5.场景设计方法 6.测试用例设计综合策略">
+<meta name="keywords" content="测试用例">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件测试——测试用例总结02">
+<meta property="og:url" content="http://yoursite.com/2019/08/19/软件测试——测试用例总结02/index.html">
+<meta property="og:site_name" content="yuaoblog">
+<meta property="og:description" content="1.因果图方法 2.判定表驱动分析方法 3.正交试验设计方法 4.功能图分析方法 5.场景设计方法 6.测试用例设计综合策略">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image003.jpg">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image004.jpg">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image005.jpg">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image006.jpg">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image007.jpg">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image009.jpg">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image010.jpg">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image011.jpg">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image012.jpg">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image013.jpg">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image015.jpg">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image017.jpg">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image019.jpg">
+<meta property="og:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image021.jpg">
+<meta property="og:updated_time" content="2019-08-19T12:00:47.190Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="软件测试——测试用例总结02">
+<meta name="twitter:description" content="1.因果图方法 2.判定表驱动分析方法 3.正交试验设计方法 4.功能图分析方法 5.场景设计方法 6.测试用例设计综合策略">
+<meta name="twitter:image" content="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="yuaoblog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&fm=27&gp=0.jpg">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>软件测试——测试用例总结02 | yuaoblog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: false
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&amp;fm=27&amp;gp=0.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">yuao</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Survey-js/">Survey.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试理论/">测试理论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试用例/">测试用例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件测试简介/">软件测试简介</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">yuao</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&amp;fm=27&amp;gp=0.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">yuao</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-软件测试——测试用例总结02" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/08/19/软件测试——测试用例总结02/" class="article-date">
+      <time datetime="2019-08-19T11:43:43.000Z" itemprop="datePublished">2019-08-19</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      软件测试——测试用例总结02
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试用例/">测试用例</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>1.因果图方法</p>
+<p>2.判定表驱动分析方法</p>
+<p>3.正交试验设计方法</p>
+<p>4.功能图分析方法</p>
+<p>5.场景设计方法</p>
+<p>6.测试用例设计综合策略</p>
+</blockquote>
+<a id="more"></a>
+<p>###因果图方法</p>
+<p>一.方法简介</p>
+<ol>
+<li><p>定义：是一种利用图解法分析输入的各种组合情况，从而设计测试用例的方法，它适合于检查程序输入条件的各种组合情况。</p>
+</li>
+<li><p>因果图法产生的背景：</p>
+</li>
+</ol>
+<p>等价类划分法和边界值分析方法都是着重考虑输入条件，但没有考虑输入条件的各种组合、输入条件之间的相互制约关系。这样虽然各种输入条件可能出错的情况已经测试到了，但多个输入条件组合起来可能出错的情况却被忽视了。</p>
+<p>如果在测试时必须考虑输入条件的各种组合，则可能的组合数目将是天文数字，因此必须考虑采用一种适合于描述多种条件的组合、相应产生多个动作的形式来进行测试用例的设计，这就需要利用因果图（逻辑模型）。</p>
+<ol start="3">
+<li>因果图介绍</li>
+</ol>
+<p>1) 4种符号分别表示了规格说明中向4种因果关系。</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg" alt="img"></p>
+<p>2) 因果图中使用了简单的逻辑符号，以直线联接左右结点。左结点表示输入状态（或称原因），右结点表示输出状态（或称结果）。 </p>
+<p>3) Ci表示原因，通常置于图的左部；ei表示结果，通常在图的右部。Ci和ei均可取值0或1，0表示某状态不出现，1表示某状态出现。 </p>
+<ol start="4">
+<li>因果图概念</li>
+</ol>
+<p>1)    关系</p>
+<p>①恒等：若ci是1，则ei也是1；否则ei为0。</p>
+<p>②非：若ci是1，则ei是0；否则ei是1。</p>
+<p>③或：若c1或c2或c3是1，则ei是1；否则ei为0。“或”可有任意个输入。</p>
+<p>④与：若c1和c2都是1，则ei为1；否则ei为0。“与”也可有任意个输入。</p>
+<p>2)    约束</p>
+<p>输入状态相互之间还可能存在某些依赖关系，称为约束。例如, 某些输入条件本身不可能同时出现。输出状态之间也往往存在约束。在因果图中,用特定的符号标明这些约束。</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image003.jpg" alt="img"></p>
+<p>A.输入条件的约束有以下4类：</p>
+<p>   ① E约束（异）：a和b中至多有一个可能为1，即a和b不能同时为1。</p>
+<p>   ② I约束（或）：a、b和c中至少有一个必须是1，即 a、b 和c不能同时为0。</p>
+<p>   ③ O约束（唯一）；a和b必须有一个，且仅有1个为1。</p>
+<p>   ④R约束（要求）：a是1时，b必须是1，即不可能a是1时b是0。</p>
+<p>B.输出条件约束类型</p>
+<p>   输出条件的约束只有M约束（强制）：若结果a是1，则结果b强制为0。</p>
+<ol start="5">
+<li>采用因果图法设计测试用例的步骤：</li>
+</ol>
+<p>1)分析软件规格说明描述中, 那些是原因(即输入条件或输入条件的等价类),那些是结果(即输出条件), 并给每个原因和结果赋予一个标识符。</p>
+<p>2)分析软件规格说明描述中的语义，找出原因与结果之间, 原因与原因之间对应的关系，根据这些关系,画出因果图。</p>
+<p>3)由于语法或环境限制, 有些原因与原因之间,原因与结果之间的组合情况不可能出现，为表明这些特殊情况, 在因果图上用一些记号表明约束或限制条件。</p>
+<p>4)把因果图转换为判定表。</p>
+<p>5)把判定表的每一列拿出来作为依据,设计测试用例。</p>
+<p>二.实战演习</p>
+<ol>
+<li>某软件规格说明书包含这样的要求：第一列字符必须是A或B，第二列字符必须是一个数字，在此情况下进行文件的修改，但如果第一列字符不正确，则给出信息L；如果第二列字符不是数字，则给出信息M。</li>
+</ol>
+<p>解答：</p>
+<p>1) 根据题意，原因和结果如下：</p>
+<p>​       原因：</p>
+<p>​          1——第一列字符是A；</p>
+<p>​          2——第一列字符是B；</p>
+<p>​          3——第二列字符是一数字。</p>
+<p>​       结果：</p>
+<p>​          21——修改文件；</p>
+<p>​          22 ——给出信息L；</p>
+<p>​          23——给出信息M。</p>
+<p>2) 其对应的因果图如下：</p>
+<p>11为中间节点；考虑到原因1和原因2不可能同时为1，因此在因果图上施加E约束。</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image004.jpg" alt="img"></p>
+<p>3)根据因果图建立判定表。</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image005.jpg" alt="img"> </p>
+<p>​       表中8种情况的左面两列情况中，原因①和原因②同时为1，这是不可能出现的，故应排除这两种情况。表的最下一栏给出了6种情况的测试用例，这是我们所需要的数据。 </p>
+<p>2.有一个处理单价为5角钱的饮料的自动售货机软件测试用例的设计。其规格说明如下：若投入5角钱或1元钱的硬币，押下〖橙汁〗或〖啤酒〗的按钮，则相应的饮料就送出来。若售货机没有零钱找，则一个显示〖零钱找完〗的红灯亮，这时在投入1元硬币并押下按钮后，饮料不送出来而且1元硬币也退出来；若有零钱找，则显示〖零钱找完〗的红灯灭，在送出饮料的同时退还5角硬币。</p>
+<p>1) 分析这一段说明，列出原因和结果</p>
+<p>原因：</p>
+<p>1.售货机有零钱找</p>
+<p>2.投入1元硬币</p>
+<p>3.投入5角硬币 </p>
+<p>4.押下橙汁按钮</p>
+<p>5.押下啤酒按钮 </p>
+<p>结果： </p>
+<p>21.售货机〖零钱找完〗灯亮    </p>
+<p>22.退还1元硬币</p>
+<p>23.退还5角硬币              </p>
+<p>24.送出橙汁饮料</p>
+<p>25.送出啤酒饮料</p>
+<p>2)画出因果图，如图所示。所有原因结点列在左边，所有结果结点列在右边。建立中间结点，表示处理的中间状态。中间结点：</p>
+<ol start="11">
+<li><p>投入1元硬币且押下饮料按钮</p>
+</li>
+<li><p>押下〖橙汁〗或〖啤酒〗的按钮</p>
+</li>
+<li><p>应当找5角零钱并且售货机有零钱找</p>
+</li>
+<li><p>钱已付清</p>
+</li>
+</ol>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image006.jpg" alt="img"></p>
+<p>3)转换成判定表：</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image007.jpg" alt="img"> </p>
+<p>4) 在判定表中，阴影部分表示因违反约束条件的不可能出现的情况，删去。第16列与第32列因什么动作也没做，也删去。最后可根据剩下的16列作为确定测试用例的依据。</p>
+<h3 id="判定表驱动分析方法"><a href="#判定表驱动分析方法" class="headerlink" title="判定表驱动分析方法"></a>判定表驱动分析方法</h3><p>一.    方法简介</p>
+<p>1.定义：判定表是分析和表达多逻辑条件下执行不同操作的情况的工具。</p>
+<p>2.判定表的优点</p>
+<p>能够将复杂的问题按照各种可能的情况全部列举出来，简明并避免遗漏。因此，利用判定表能够设计出完整的测试用例集合。</p>
+<p>在一些数据处理问题当中，某些操作的实施依赖于多个逻辑条件的组合，即：针对不同逻辑条件的组合值，分别执行不同的操作。判定表很适合于处理这类问题。</p>
+<p>3.“阅读指南”判定表</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image009.jpg" alt="img"></p>
+<ol start="4">
+<li>判定表通常由四个部分组成如下图所示。</li>
+</ol>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image010.jpg" alt="img"></p>
+<p>1)条件桩（Condition Stub）：列出了问题得所有条件。通常认为列出的条件的次序无关紧要。</p>
+<p>2)动作桩（Action Stub）：列出了问题规定可能采取的操作。这些操作的排列顺序没有约束。</p>
+<p>3)条件项（Condition Entry）：列出针对它左列条件的取值。在所有可能情况下的真假值。</p>
+<p>4)动作项（Action Entry）：列出在条件项的各种取值情况下应该采取的动作。</p>
+<p>5.规则及规则合并</p>
+<p>1)规则：任何一个条件组合的特定取值及其相应要执行的操作称为规则。在判定表中贯穿条件项和动作项的一列就是一条规则。显然,判定表中列出多少组条件取值,也就有多少条规则,既条件项和动作项有多少列。</p>
+<p>2)化简：就是规则合并有两条或多条规则具有相同的动作，并且其条件项之间存在着极为相似的关系。</p>
+<p>6.规则及规则合并举例</p>
+<p>1)如下图左端，两规则动作项一样，条件项类似，在1、2条件项分别取Y、N时，无论条件3取何值，都执行同一操作。即要执行的动作与条件3无关。于是可合并。“－”表示与取值无关。</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image011.jpg" alt="img"></p>
+<p>2)与上类似，下图中，无关条件项“－”可包含其他条件项取值，具有相同动作的规则可合并。</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image012.jpg" alt="img"></p>
+<p>3)化简后的读书指南判定表</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>问</strong>   <strong>题</strong></td>
+<td><strong>你觉得疲倦吗？</strong></td>
+<td>-</td>
+<td>-</td>
+<td>Y</td>
+<td>N</td>
+</tr>
+<tr>
+<td><strong>你对内容感兴趣吗？</strong></td>
+<td>Y</td>
+<td>Y</td>
+<td>N</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>书中内容使你胡涂吗？</strong></td>
+<td>Y</td>
+<td>N</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>建</strong>   <strong>议</strong></td>
+<td><strong>请回到本章开头重读</strong></td>
+<td>x</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>继续读下去</strong></td>
+<td></td>
+<td>X</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>跳到下一章去读</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>停止阅读，请休息</strong></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>7.判定表的建立步骤：（根据软件规格说明）</p>
+<p>1)确定规则的个数.假如有n个条件。每个条件有两个取值（0,1）,故有2n种规则。</p>
+<p>2)列出所有的条件桩和动作桩。</p>
+<p>3)填入条件项。</p>
+<p>4)填入动作项。等到初始判定表。</p>
+<p>5)简化.合并相似规则（相同动作）。</p>
+<p>二<strong>.</strong>实战演习</p>
+<ol>
+<li>问题要求：”……对功率大于50马力的机器、维修记录不全或已运行10年以上的机器，应给予优先的维修处理……” 。这里假定，“维修记录不全”和“优先维修处理”均已在别处有更严格的定义 。请建立判定表。</li>
+</ol>
+<p>解答：</p>
+<p>①确定规则的个数：这里有3个条件，每个条件有两个取值，故应有2<em>2</em>2=8种规则。</p>
+<p>②列出所有的条件茬和动作桩：</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image013.jpg" alt="img"></p>
+<p>③填入条件项。可从最后1行条件项开始，逐行向上填满。如第三行是： Y N Y N Y N Y N，第二行是： Y Y N N Y Y N N等等。  </p>
+<p>④填入动作桩和动作顶。这样便得到形如图的初始判定表。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>条</strong>   <strong>件</strong></td>
+<td>功率大于50马力吗？</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td>N</td>
+<td>N</td>
+<td>N</td>
+<td>N</td>
+</tr>
+<tr>
+<td>维修记录不全吗？</td>
+<td>Y</td>
+<td>Y</td>
+<td>N</td>
+<td>N</td>
+<td>Y</td>
+<td>Y</td>
+<td>N</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>运行超过10年吗？</td>
+<td>Y</td>
+<td>N</td>
+<td>Y</td>
+<td>N</td>
+<td>Y</td>
+<td>N</td>
+<td>Y</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>动</strong>   <strong>作</strong></td>
+<td><strong>进行优先处理</strong></td>
+<td>x</td>
+<td>x</td>
+<td>X</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>X</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>作其他处理</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+</tr>
+</tbody>
+</table>
+<p>初始判定表</p>
+<p>⑤化简。合并相似规则后得到图。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>条</strong>   <strong>件</strong></td>
+<td><strong>功率大于50马力吗？</strong></td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td>N</td>
+<td>N</td>
+</tr>
+<tr>
+<td><strong>维修记录不全吗？</strong></td>
+<td>Y</td>
+<td>N</td>
+<td>N</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>运行超过10年吗？</td>
+<td>-</td>
+<td>Y</td>
+<td>N</td>
+<td>Y</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>动</strong>   <strong>作</strong></td>
+<td><strong>进行优先处理</strong></td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td>X</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>作其他处理</strong></td>
+<td></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>NextData函数的精简决策表</li>
+</ol>
+<p>M1＝{月份， 每月有30天}</p>
+<p>M2＝{月份， 每月有31天}</p>
+<p>M3＝{月份， 2月}                 有29＝512条规则</p>
+<p>D1＝{日期，1～28}                 12月末31日和其它31</p>
+<p>D2＝{日期，29}                    日月份的31日处理不同</p>
+<p>D3＝{日期，30}                    平年2月28日处理不同</p>
+<p>D4＝{日期，31}                    于2月27日</p>
+<p>Y1 ＝{年：年是闰年}</p>
+<p>Y2 ＝{年：年不是闰年}</p>
+<p>改进为</p>
+<p>M1＝{月份： 每月有30天}</p>
+<p>M2＝{月份： 每月有31天， 12月除外}</p>
+<p>M4＝{月份：12月}</p>
+<p>M3＝{月份： 2月} </p>
+<p>D1＝{日期：1&lt;=日期&lt;=27}</p>
+<p>D2＝{日期：28}</p>
+<p>D3＝{日期：29}</p>
+<p>D4＝{日期：30}</p>
+<p>D5＝{日期：31}</p>
+<p>Y1 ＝{年：年是闰年}</p>
+<p>Y2 ＝{年：年不是闰年}</p>
+<p>输入变量间存在大量逻辑关系的NextData决策表</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image015.jpg" alt="img"></p>
+<ol start="3">
+<li><p>用决策表测试法测试以下程序：该程序有三个输入变量month、day、year（month、day和year均为整数值，并且满足：1≤month≤12和1≤day≤31），分别作为输入日期的月份、日、年份，通过程序可以输出该输入日期在日历上隔一天的日期。</p>
+<p>例如，输入为2004年11月29日，则该程序的输出为2000年12月1日。</p>
+</li>
+</ol>
+<p>1)分析各种输入情况，列出为输入变量month、day、year划分的有效等价类。</p>
+<p>2)分析程序规格说明，结合以上等价类划分的情况给出问题规定的可能采取的操作（即列出所有的动作桩）。</p>
+<p>3)根据（1）和（2），画出简化后的决策表。</p>
+<p>案例分析如下：</p>
+<p>1)      month变量的有效等价类：</p>
+<p> M1: {month=4,6,9,11}            </p>
+<p> M2: {month=1,3,5,7,8,10}</p>
+<p>M3: {month=12}                 </p>
+<p> M4: {month=2}</p>
+<p>2)day变量的有效等价类：</p>
+<p>​    D1:{1≤day≤26}         D2: {day=27}         D3: {day=28}                    D4: {day=29}                    D5: {day=30}                D6: {day=31}</p>
+<p>3)year变量的有效等价类：</p>
+<p>Y1: {year是闰年}                Y2:  {year不是闰年}</p>
+<p>4)考虑各种有效的输入情况，程序中可能采取的操作有以下六种：</p>
+<p>a1: day+2                       a2: day=2                    a3: day=1  </p>
+<p>a4: month+1                     a5: month=1                  a6: year+1  </p>
+<ol start="4">
+<li>判定表在功能测试中的应用</li>
+</ol>
+<p>1)一些软件的功能需求可用判定表表达得非常清楚，在检验程序的功能时判定表也就成为一个不错的工具。如果一个软件的规格说明指出：</p>
+<p>I. 当条件1和条件2满足，并且条件3和条件4不满足，或者当条件1、3和条件4满足时，要执行操作1。</p>
+<p>II. 在任一个条件都不满足时，要执行操作2。</p>
+<p>III. 在条件1不满足，而条件4被满足时，要执行操作3。 根据规格说明得到如下判定表：</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image017.jpg" alt="img"></p>
+<p>这里，判定表只给出了16种规则中的8种。事实上，除这8条以外的一些规则是指当不能满足指定的条件，执行3种操作时，要执行1个默许的操作。在没必要时，判定表通常可略去这些规则。但如果用判定表来设计测试用例，就必须列出这些默许规则（如下表）。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>规则5</th>
+<th>规则6</th>
+<th>规则7</th>
+<th>规则8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>条件1</td>
+<td>-</td>
+<td>N</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>条件2</td>
+<td>-</td>
+<td>Y</td>
+<td>Y</td>
+<td>N</td>
+</tr>
+<tr>
+<td>条件3</td>
+<td>Y</td>
+<td>N</td>
+<td>N</td>
+<td>N</td>
+</tr>
+<tr>
+<td>条件4</td>
+<td>N</td>
+<td>N</td>
+<td>Y</td>
+<td>-</td>
+</tr>
+<tr>
+<td>默许操作</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+</tbody>
+</table>
+<p>默许的规则</p>
+<p>2)判定表的优点和缺点</p>
+<p>I.  优点：它能把复杂的问题按各种可能的情况一一列举出来，简明而易于理解，也可避免遗漏。</p>
+<p>II. 缺点：不能表达重复执行的动作，例如循环结构。</p>
+<p>3)B. Beizer 指出了适合使用判定表设计测试用例的条件：</p>
+<p>①规格说明以判定表形式给出,或很容易转换成判定表。</p>
+<p>②条件的排列顺序不会也不影响执行哪些操作。</p>
+<p>③规则的排列顺序不会也不影响执行哪些操作。</p>
+<p>④每当某一规则的条件已经满足,并确定要执行的操作后,不必检验别的规则。</p>
+<p>⑤如果某一规则得到满足要执行多个操作,这些操作的执行顺序无关紧要。</p>
+<p>B. Beizer提出这5个必要条件的目的是为了使操作的执行完全依赖于条件的组合。其实对于某些不满足这几条的判定表，同样可以借以设计测试用例，只不过尚需增加其它的测试用例罢了。</p>
+<h3 id="正交实验设计方法"><a href="#正交实验设计方法" class="headerlink" title="正交实验设计方法"></a>正交实验设计方法</h3><p>一.方法简介</p>
+<p>利用因果图来设计测试用例时, 作为输入条件的原因与输出结果之间的因果关系,有时很难从软件需求规格说明中得到。往往因果关系非常庞大,以至于据此因果图而得到的测试用例数目多的惊人，给软件测试带来沉重的负担，为了有效地,合理地减少测试的工时与费用,可利用正交实验设计方法进行测试用例的设计。</p>
+<p>正交实验设计方法:依据Galois理论,从大量的（实验）数据（测试例）中挑选适量的,有代表性的点（例）,从而合理地安排实验（测试）的一种科学实验设计方法.类似的方法有:聚类分析方法,因子方法方法等.</p>
+<p>利用正交实验设计测试用例的步骤：</p>
+<p>1.提取功能说明,构造因子–状态表</p>
+<p>把影响实验指标的条件称为因子.而影响实验因子的条件叫因子的状态.利用正交实验设计方法来设计测试用例时,首先要根据被测试软件的规格说明书找出影响其功能实现的操作对象和外部因素,把他们当作因子,而把各个因子的取值当作状态.对软件需求规格说明中的功能要求进行划分,把整体的概要性的功能要求进行层层分解与展开,分解成具体的有相对独立性的基本的功能要求.这样就可以把被测试软件中所有的因子都确定下来,并为确定个因子的权值提供参考的依据.确定因子与状态是设计测试用例的关键.因此要求尽可能全面的正确的确定取值,以确保测试用例的设计作到完整与有效。</p>
+<p>2.加权筛选,生成因素分析表</p>
+<p>对因子与状态的选择可按其重要程度分别加权.可根据各个因子及状态的作用大小,出现频率的大小以及测试的需要,确定权值的大小。</p>
+<p>3.利用正交表构造测试数据集</p>
+<p>正交表的推导依据Galois理论（这里省略,需要时可查数理统计方面的教材）。</p>
+<p>利用正交实验设计方法设计测试用例,比使用等价类划分,边界值分析,因果图等方法有以下优点:节省测试工作工时；可控制生成的测试用例数量；测试用例具有一定的覆盖率。</p>
+<h3 id="功能图分析方法"><a href="#功能图分析方法" class="headerlink" title="功能图分析方法"></a>功能图分析方法</h3><p>一.方法简介</p>
+<p>一个程序的功能说明通常由动态说明和静态说明组成.动态说明描述了输入数据的次序或转移的次序.静态说明描述了输入条件与输出条件之间的对应关系.对于较复杂的程序,由于存在大量的组合情况,因此,仅用静态说明组成的规格说明对于测试来说往往是不够的.必须用动态说明来补充功能说明.功能图方法是用功能图FD形式化地表示程序的功能说明,并机械地生成功能图的测试用例. 功能图模型由状态迁移图和逻辑功能模型构成.状态迁移图用于表示输入数据序列以及相应的输出数据.在状态迁移图中,由输入数据和当前状态决定输出数据和后续状态.逻辑功能模型用于表示在状态中输入条件和输出条件之间的对应关系.逻辑功能模型只适合于描述静态说明,输出数据仅由输入数据决定.测试用例则是由测试中经过的一系列状态和在每个状态中必须依靠输入/输出数据满足的一对条件组成.功能图方法其实是是一种黑盒白盒混合用例设计方法。</p>
+<p>（功能图方法中,要用到逻辑覆盖和路径测试的概念和方法,其属白盒测试方法中 的内容.逻辑覆盖是以程序内部的逻辑结构为基础的测试用例设计方法.该方法要求测试人员对程序的逻辑结构有清楚的了解.由于覆盖测试的目标不同,逻辑覆盖可分为:语句覆盖,判定覆盖,判定-条件覆盖,条件组合覆盖及路径覆盖.下面我们指的逻辑覆盖和路径是功能或系统水平上的,以区别与白盒测试中的程序内部的.）</p>
+<p>1.功能图</p>
+<p>功能图由状态迁移图和布尔函数组成.状态迁移图用状态和迁移来描述.一个状态指出数据输入的位置（或时间）,而迁移则指明状态的改变.同时要依靠判定表或因果图表示的逻辑功能.例,一个简化的自动出纳机ATM的功能图。</p>
+<p>2.测试用例生成方法</p>
+<p>从功能图生成测试用例,得到的测试用例数是可接受的. 问题的关键的是如何从状态迁移图中选取测试用例. 若用节点代替状态,用弧线代替迁移,则状态迁移图就可转化成一个程序的控制流程图形式.问题就转化为程序的路径测试问题（如白盒测试）问题了.</p>
+<p>3.测试用例生成规则</p>
+<p>为了把状态迁移（测试路径）的测试用例与逻辑模型（局部测试用例）的测试用例组合起来,从功能图生成实用的测试用例,须定义下面的规则.在一个结构化的状态迁移（SST）中,定义三种形式的循环:顺序,选择和重复.但分辨一个状态迁移中的所有循环是有困难的.（其表示图形省略）。</p>
+<p>4.从功能图生成测试用例的过程</p>
+<p>1)生成局部测试用例:在每个状态中,从因果图生成局部测试用例.局部测试用例由原因值（输入数据）组合与对应的结果值（输出数据或状态）构成。</p>
+<p>2)测试路径生成:利用上面的规则（三种）生成从初始状态到最后状态的测试路径。</p>
+<p>3)测试用例合成:合成测试路径与功能图中每个状态中的局部测试用例.结果是初始状态到最后状态的一个状态序列,以及每个状态中输入数据与对应输出数据的组合。</p>
+<p>5.测试用例的合成算法:采用条件构造树.</p>
+<h3 id="场景设计方法"><a href="#场景设计方法" class="headerlink" title="场景设计方法"></a>场景设计方法</h3><p>一.方法简介</p>
+<p>现在的软件几乎都是用事件触发来控制流程的，事件触发时的情景便形成了场景，而同一事件不同的触发顺序和处理结果就形成事件流。这种在软件设计方面的思想也可以引入到软件测试中，可以比较生动地描绘出事件触发时的情景，有利于测试设计者设计测试用例，同时使测试用例更容易理解和执行。</p>
+<p>基本流和备选流：如下图所示，图中经过用例的每条路径都用基本流和备选流来表示，直黑线表示基本流，是经过用例的最简单的路径。备选流用不同的色彩表示，一个备选流可能从基本流开始，在某个特定条件下执行，然后重新加入基本流中（如备选流1和3）；也可能起源于另一个备选流（如备选流2），或者终止用例而不再重新加入到某个流（如备选流2和4）。</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image019.jpg" alt="img"></p>
+<p>二.实战演习</p>
+<ol>
+<li>例子描述</li>
+</ol>
+<p>下图所示是ATM例子的流程示意图。</p>
+<p><img src="file:///C:/Users/28715/AppData/Local/Temp/msohtmlclip1/01/clip_image021.jpg" alt="img"></p>
+<ol start="2">
+<li>场景设计：下表所示是生成的场景。</li>
+</ol>
+<p>表3-8 场景设计</p>
+<table>
+<thead>
+<tr>
+<th>场景1——成功提款</th>
+<th>基本流</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>场景2——ATM内没有现金</td>
+<td>基本流</td>
+<td>备选流2</td>
+</tr>
+<tr>
+<td>场景3——ATM内现金不足</td>
+<td>基本流</td>
+<td>备选流3</td>
+</tr>
+<tr>
+<td>场景4——PIN有误（还有输入机会）</td>
+<td>基本流</td>
+<td>备选流4</td>
+</tr>
+<tr>
+<td>场景5——PIN有误（不再有输入机会）</td>
+<td>基本流</td>
+<td>备选流4</td>
+</tr>
+<tr>
+<td>场景6——账户不存在/账户类型有误</td>
+<td>基本流</td>
+<td>备选流5</td>
+</tr>
+<tr>
+<td>场景7——账户余额不足</td>
+<td>基本流</td>
+<td>备选流6</td>
+</tr>
+</tbody>
+</table>
+<p>注：为方便起见，备选流3和6（场景3和7）内的循环以及循环组合未纳入上表。</p>
+<ol start="3">
+<li>用例设计</li>
+</ol>
+<p>对于这7个场景中的每一个场景都需要确定测试用例。可以采用矩阵或决策表来确定和管理测试用例。下面显示了一种通用格式，其中各行代表各个测试用例，而各列则代表测试用例的信息。本示例中，对于每个测试用例，存在一个测试用例ID、条件（或说明）、测试用例中涉及的所有数据元素（作为输入或已经存在于数据库中）以及预期结果。</p>
+<p>表3-9 测试用例表</p>
+<p>​    </p>
+<table>
+<thead>
+<tr>
+<th>TC（测试用例）ID号</th>
+<th>场景/条件</th>
+<th>PIN</th>
+<th>账号</th>
+<th>输入（或选择）的金额</th>
+<th>账面   金额</th>
+<th>ATM内的金额</th>
+<th>预期结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CW1</td>
+<td>场景1：成功提款</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>成功提款</td>
+</tr>
+<tr>
+<td>CW2</td>
+<td>场景2：ATM内没有现金</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>I</td>
+<td>提款选项不可用，用例结束</td>
+</tr>
+<tr>
+<td>CW3</td>
+<td>场景3：ATM内现金不足</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>I</td>
+<td>警告消息，返回基本流步骤6，输入金额</td>
+</tr>
+<tr>
+<td>CW4</td>
+<td>场景4：PIN有误（还有不止一次输入机会）</td>
+<td>I</td>
+<td>V</td>
+<td>n/a</td>
+<td>V</td>
+<td>V</td>
+<td>警告消息，返回基本流步骤 4，输入 PIN</td>
+</tr>
+<tr>
+<td>CW5</td>
+<td>场景4：PIN有误（还有一次输入机会）</td>
+<td>I</td>
+<td>V</td>
+<td>n/a</td>
+<td>V</td>
+<td>V</td>
+<td>警告消息，返回基本流步骤 4，输入 PIN</td>
+</tr>
+<tr>
+<td>CW6</td>
+<td>场景4：PIN有误（不再有输入机会）</td>
+<td>I</td>
+<td>V</td>
+<td>n/a</td>
+<td>V</td>
+<td>V</td>
+<td>警告消息，卡予保留，用例结束</td>
+</tr>
+</tbody>
+</table>
+<ol start="4">
+<li>数据设计</li>
+</ol>
+<p>一旦确定了所有的测试用例，则应对这些用例进行复审和验证以确保其准确且适度，并取消多余或等效的测试用例。</p>
+<p>测试用例一经认可，就可以确定实际数据值（在测试用例实施矩阵中）并且设定测试数据，如表3-10所示。</p>
+<p>表3-10    测试用例表</p>
+<table>
+<thead>
+<tr>
+<th>TC（测试用例）ID号</th>
+<th>场景/条件</th>
+<th>PIN</th>
+<th>账号</th>
+<th>输入（或选择）的金额   （元）</th>
+<th>账面    金额（元）</th>
+<th>ATM内的金额（元）</th>
+<th>预期结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CW1</td>
+<td>场景1：成功提款</td>
+<td>4987</td>
+<td>809-498</td>
+<td>50.00</td>
+<td>500.00</td>
+<td>2 000</td>
+<td>成功提款。账户余额被更新为450.00</td>
+</tr>
+<tr>
+<td>CW2</td>
+<td>场景2：ATM内没有现金</td>
+<td>4987</td>
+<td>809-498</td>
+<td>100.00</td>
+<td>500.00</td>
+<td>0.00</td>
+<td>提款选项不可用，用例结束</td>
+</tr>
+<tr>
+<td>CW3</td>
+<td>场景3：ATM内现金不足</td>
+<td>4987</td>
+<td>809-498</td>
+<td>100.00</td>
+<td>500.00</td>
+<td>70.00</td>
+<td>警告消息，返回基本流步骤6，输入金额</td>
+</tr>
+<tr>
+<td>CW4</td>
+<td>场景4：PIN有误（还有不止一次输入机会）</td>
+<td>4978</td>
+<td>809-498</td>
+<td>n/a</td>
+<td>500.00</td>
+<td>2 000</td>
+<td>警告消息，返回基本流步骤4，输入PIN</td>
+</tr>
+<tr>
+<td>CW5</td>
+<td>场景4：PIN有误（还有一次输入机会）</td>
+<td>4978</td>
+<td>809-498</td>
+<td>n/a</td>
+<td>500.00</td>
+<td>2 000</td>
+<td>警告消息，返回基本流步骤4，输入PIN</td>
+</tr>
+<tr>
+<td>CW6</td>
+<td>场景4：PIN有误（不再有输入机会）</td>
+<td>4978</td>
+<td>809-498</td>
+<td>n/a</td>
+<td>500.00</td>
+<td>2 000</td>
+<td>警告消息，卡予保留，用例结束</td>
+</tr>
+</tbody>
+</table>
+<h3 id="测试用例设计综合策略"><a href="#测试用例设计综合策略" class="headerlink" title="测试用例设计综合策略"></a>测试用例设计综合策略</h3><ol>
+<li>Myers提出了使用各种测试方法的综合策略：</li>
+</ol>
+<p>1)在任何情况下都必须使用边界值分析方法，经验表明用这种方法设计出测试用例发现程序错误的能力最强。 【文章来源：文斯测试技术研究中心 <a href="http://blog.csdn.net/vincetest" target="_blank" rel="noopener">http://blog.csdn.net/vincetest</a>】</p>
+<p>2)必要时用等价类划分方法补充一些测试用例。</p>
+<p>3)用错误推测法再追加一些测试用例。</p>
+<p>4)对照程序逻辑，检查已设计出的测试用例的逻辑覆盖程度，如果没有达到要求的覆盖标准，应当再补充足够的测试用例。</p>
+<p>5)如果程序的功能说明中含有输入条件的组合情况，则一开始就可选用因果图法。</p>
+<ol start="2">
+<li>测试用例的设计步骤 【文章来源：文斯测试技术研究中心 <a href="http://blog.csdn.net/vincetest" target="_blank" rel="noopener">http://blog.csdn.net/vincetest</a>】</li>
+</ol>
+<p>1)构造根据设计规格得出的基本功能测试用例；</p>
+<p>2)边界值测试用例；</p>
+<p>3)状态转换测试用例；</p>
+<p>4)错误猜测测试用例；</p>
+<p>5)异常测试用例； 【文章来源：文斯测试技术研究中心 <a href="http://blog.csdn.net/vincetest" target="_blank" rel="noopener">http://blog.csdn.net/vincetest</a>】</p>
+<p>6)性能测试用例；</p>
+<p>7)压力测试用例。</p>
+<ol start="3">
+<li>优化测试用例的方法</li>
+</ol>
+<p>1)利用设计测试用例的8种方法不断的对测试用例进行分解与合并；</p>
+<p>2)采用遗传算法理论进化测试用例；</p>
+<p>3)在测试时利用发散思维构造测试用例。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/08/19/软件测试——测试用例总结02/">软件测试——测试用例总结02</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
+        <p><span>发布时间:</span>2019-08-19, 19:43:43</p>
+        <p><span>最后更新:</span>2019-08-19, 20:00:47</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/08/19/软件测试——测试用例总结02/" title="软件测试——测试用例总结02">http://yoursite.com/2019/08/19/软件测试——测试用例总结02/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/19/软件测试——测试用例总结02/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/08/19/软件测试——测试用例总结01/">
+                    软件测试——测试用例总结01
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#判定表驱动分析方法"><span class="toc-number">1.</span> <span class="toc-text">判定表驱动分析方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正交实验设计方法"><span class="toc-number">2.</span> <span class="toc-text">正交实验设计方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能图分析方法"><span class="toc-number">3.</span> <span class="toc-text">功能图分析方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#场景设计方法"><span class="toc-number">4.</span> <span class="toc-text">场景设计方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试用例设计综合策略"><span class="toc-number">5.</span> <span class="toc-text">测试用例设计综合策略</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"软件测试——测试用例总结02　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/08/19/软件测试——测试用例总结01/" title="下一篇: 软件测试——测试用例总结01">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/软件测试——测试用例总结02/">软件测试——测试用例总结02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/软件测试——测试用例总结01/">软件测试——测试用例总结01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/软件测试——测试用例05/">软件测试——测试用例05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/软件测试——测试用例04/">软件测试——测试用例04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/软件测试——测试用例03/">软件测试——测试用例03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/软件测试——测试用例02/">软件测试——测试用例02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/软件测试——测试用例01/">软件测试——测试用例01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/软件测试——测试理论05/">软件测试——测试理论05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/14/软件测试——测试理论04/">软件测试——测试理论04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/14/软件测试——测试理论03/">软件测试——测试理论03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/软件测试——测试理论02/">软件测试——测试理论02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/软件测试——测试理论01/">软件测试——测试理论01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/软件测试——测试基础02-1/">软件测试——测试基础02-1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/软件测试——测试基础01-2/">软件测试——测试基础01-2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/软件测试——测试基础01-1/">软件测试——测试基础01_1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5的FileReader/">HTML5的FileReader</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5地理定位接口/">HTML5地理定位接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5的拖拽/">HTML5的拖拽</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/03/CSS复习内容01/">CSS复习内容01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/23/es6学习笔记2/">es6学习笔记2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/22/angular精讲5/">angular精讲5</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/CSS3学习笔记2/">CSS3学习笔记2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/angular精讲4/">angular精讲4</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/20/CSS3学习笔记/">CSS3学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/20/angular精讲3/">angular精讲3</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/es6学习笔记/">es6学习笔记01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/angular精讲2/">angular精讲2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/angular精讲1/">angular精讲1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/javascript基础-02/">javascript基础_02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/angular路由/">angular路由</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/javascript基础01-01/">javascript基础01_01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/11/angular服务的依赖注入/">angular服务的依赖注入</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/10/angular-指令简述/">angular 指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/Angular-Component-databinding/">Angular Component$databinding</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/08/survey.js/">survey.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/angular新建组件方法/">angular新建组件方法</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2019 yuao
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
