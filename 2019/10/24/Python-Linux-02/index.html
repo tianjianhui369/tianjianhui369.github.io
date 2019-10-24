@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="学习一下survey.js">
-<meta name="keywords" content="Survey.js">
+<meta name="description" content="常用Linux命令的基本使用">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="survey.js">
-<meta property="og:url" content="http://yoursite.com/2019/03/08/survey.js/index.html">
+<meta property="og:title" content="Python_Linux-02">
+<meta property="og:url" content="http://yoursite.com/2019/10/24/Python-Linux-02/index.html">
 <meta property="og:site_name" content="yuaoblog">
-<meta property="og:description" content="学习一下survey.js">
+<meta property="og:description" content="常用Linux命令的基本使用">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-22T15:51:08.513Z">
+<meta property="og:updated_time" content="2019-10-24T09:04:40.771Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="survey.js">
-<meta name="twitter:description" content="学习一下survey.js">
+<meta name="twitter:title" content="Python_Linux-02">
+<meta name="twitter:description" content="常用Linux命令的基本使用">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>survey.js | yuaoblog</title>
+<title>Python_Linux-02 | yuaoblog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -265,11 +265,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-survey.js" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Python-Linux-02" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/08/survey.js/" class="article-date">
-      <time datetime="2019-03-08T15:23:28.000Z" itemprop="datePublished">2019-03-08</time>
+      <a href="/2019/10/24/Python-Linux-02/" class="article-date">
+      <time datetime="2019-10-24T09:02:22.000Z" itemprop="datePublished">2019-10-24</time>
 </a>
 
 
@@ -284,7 +284,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      survey.js
+      Python_Linux-02
     </h1>
   
 
@@ -295,7 +295,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Survey-js/">Survey.js</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -305,31 +305,138 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>学习一下survey.js</p>
-<a id="more"></a>
-<h3 id="一、首先需要在电脑中安装了node-js以及npm"><a href="#一、首先需要在电脑中安装了node-js以及npm" class="headerlink" title="一、首先需要在电脑中安装了node.js以及npm"></a>一、首先需要在电脑中安装了node.js以及npm</h3><p>可以用过在cmd命令行下输入node -v以及npm -v检查自己是否安装</p>
-<h3 id="二、新建一个文件夹"><a href="#二、新建一个文件夹" class="headerlink" title="二、新建一个文件夹"></a>二、新建一个文件夹</h3><p>在命令行下cd到这个文件夹，然后输入如下代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/surveyjs/quickstart  my-proj</span><br><span class="line">cd my-proj</span><br><span class="line">npm install</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
-<p>server.js建立成功</p>
-<h3 id="三、做自己的demo问卷"><a href="#三、做自己的demo问卷" class="headerlink" title="三、做自己的demo问卷"></a>三、做自己的demo问卷</h3><p>找到my-proj文件夹，到达如下路径</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src/app/app.component.ts</span><br></pre></td></tr></table></figure>
-<p>查看前几行的注释</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// If you want to show survey, uncomment the line below</span><br><span class="line">如果想要查看模板问卷就将下面的代码取消注释</span><br><span class="line">// template: `&lt;h1&gt;Survey&lt;/h1&gt;&lt;survey [json]=&quot;json&quot;&gt;&lt;/survey&gt;`</span><br><span class="line">// If you want to show survey editor, uncomment the line below</span><br><span class="line">如果想要编辑一份问卷就将下面的代码取消注释</span><br><span class="line">// template: `&lt;h1&gt;Survey JS Editor&lt;/h1&gt;&lt;survey-editor&gt;&lt;/survey-editor&gt;`</span><br></pre></td></tr></table></figure>
-<h3 id="四、利用工具"><a href="#四、利用工具" class="headerlink" title="四、利用工具"></a>四、利用工具</h3><p>当我们想要建立自己的问卷时，就要利用server-editor工具即将上面的第四条代码取消注释后的工具，也可以直接通过网址使用</p>
-<blockquote>
-<blockquote>
-<p><a href="https://surveyjs.io/Editor/Editor/" target="_blank" rel="noopener">https://surveyjs.io/Editor/Editor/</a></p>
-</blockquote>
-</blockquote>
-<p>可以使用这个工具将所需要的问卷组件拖拽到空白区域</p>
-<p>接着点击JSON Editor(左上角)将其中的代码除掉最外层的大括号，复制。</p>
-<p>将app.component.ts中json数据块当中的pages删掉</p>
-<p>将复制的内容粘贴，再打开浏览器就可以看到你制作的问卷了。</p>
-<h3 id="五、查看提交数据格式"><a href="#五、查看提交数据格式" class="headerlink" title="五、查看提交数据格式"></a>五、查看提交数据格式</h3><blockquote>
-<p><a href="https://surveyjs.io/Examples/Library/?id=real-productfeedback&amp;platform=Angular2#" target="_blank" rel="noopener">https://surveyjs.io/Examples/Library/?id=real-productfeedback&amp;platform=Angular2#</a></p>
-</blockquote>
-<p>通过网址点击侧边栏的SurveyJs Service中的Get Survey Result</p>
-<p>填写数据，点击提交，就可以看到输出的数据格式。</p>
+        <h1 id="常用Linux命令的基本使用"><a href="#常用Linux命令的基本使用" class="headerlink" title="常用Linux命令的基本使用"></a>常用Linux命令的基本使用</h1><a id="more"></a>
+<h2 id="学习Linux终端命令的原因"><a href="#学习Linux终端命令的原因" class="headerlink" title="学习Linux终端命令的原因"></a>学习Linux终端命令的原因</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Linux刚面世时并没有图形界面，所有操作全靠命令完成，如磁盘操作、文件存取、目录操作、进程管理、文件权限设定等</span><br><span class="line">在职场中，大量的服务器维护工作都是在远程通过ssh客户端来完成的，并没有图形界面，多有的维护工作都需要通过命令来完成</span><br><span class="line">在职场中，作为后端程序员，必须要或多或少的掌握一些Linux常用的终端命</span><br><span class="line">Linux发行版本的命令大概有200多个，但是常用的命令只有10多个而已</span><br></pre></td></tr></table></figure>
+<ul>
+<li>学习终端命令的技巧<ul>
+<li>不需要死记硬背，对于常用命令，用的多了，自然就记住了</li>
+<li>不要尝试一次学会所有的命令，有些命令是非常不常用的，临时遇到，临时百度就可以</li>
+</ul>
+</li>
+</ul>
+<h2 id="常用Linux命令的基本使用-1"><a href="#常用Linux命令的基本使用-1" class="headerlink" title="常用Linux命令的基本使用"></a>常用Linux命令的基本使用</h2><p>tip:ctrl+shift+=放大终端窗口的字体显示</p>
+<p>ctrl+-缩小终端字体</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>命令</th>
+<th>对应英文</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>ls</td>
+<td>list</td>
+<td>查看当前文件夹下的内容</td>
+</tr>
+<tr>
+<td>02</td>
+<td>pwd</td>
+<td>print work directory</td>
+<td>查看当前所在文件夹</td>
+</tr>
+<tr>
+<td>03</td>
+<td>cd [目录名]</td>
+<td>change directory</td>
+<td>切换文件夹</td>
+</tr>
+<tr>
+<td>04</td>
+<td>touch [文件名]</td>
+<td>touch</td>
+<td>如果文件不存在，新建文件</td>
+</tr>
+<tr>
+<td>05</td>
+<td>mkdir [目录名]</td>
+<td>make directory</td>
+<td>创建目录</td>
+</tr>
+<tr>
+<td>06</td>
+<td>rm [文件名]</td>
+<td>remove</td>
+<td>删除指定的文件名</td>
+</tr>
+<tr>
+<td>07</td>
+<td>clear</td>
+<td>clear</td>
+<td>清屏</td>
+</tr>
+</tbody>
+</table>
+<p>删除文件夹 rm -r [文件夹名]</p>
+<h2 id="Linux终端命令格式"><a href="#Linux终端命令格式" class="headerlink" title="Linux终端命令格式"></a>Linux终端命令格式</h2><p>command [-options] [parameter]</p>
+<p>command : 命令名，相应功能的英文单词或单词的缩写</p>
+<p>[option] : 选项，可用来对命令进行控制，也可以省略</p>
+<p>parameter : 传给命令参数，可以是零个、一个或者多个</p>
+<p>[] : 代表可选</p>
+<h2 id="查阅命令帮助信息"><a href="#查阅命令帮助信息" class="headerlink" title="查阅命令帮助信息"></a>查阅命令帮助信息</h2><ul>
+<li>tip:<ul>
+<li>现阶段只需要知道通过以下两种方式可以查询命令的帮助信息</li>
+<li>先学习常用命令及常用选项的使用即可，工作中遇到问题可以借助网络搜索</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><p>–help</p>
+<p>command –help</p>
+<p>显示command命令的帮助信息</p>
+</li>
+<li><p>man</p>
+<p>man command</p>
+<p>查阅commmand命令的使用手册</p>
+<p>| 操作键  | 功能                 |<br>| ——- | ——————– |<br>| 空格键  | 显示手册页的下一屏   |<br>| Enter键 | 一次滚动手册页的一行 |<br>| b       | 回滚一屏             |<br>| f       | 前滚一屏             |<br>| q       | 退出                 |<br>| /word   | 搜索word字符串       |</p>
+</li>
+</ol>
+<h2 id="文件和目录常用命令"><a href="#文件和目录常用命令" class="headerlink" title="文件和目录常用命令"></a>文件和目录常用命令</h2><h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><hr>
+<ul>
+<li><p>查看目录内容</p>
+<ul>
+<li>ls</li>
+</ul>
+</li>
+<li><p>切换目录</p>
+<ul>
+<li>cd</li>
+</ul>
+</li>
+<li><p>创建和删除操作</p>
+<ul>
+<li>touch</li>
+<li>rm</li>
+<li>mkdir</li>
+</ul>
+</li>
+<li><p>拷贝和移动文件</p>
+<ul>
+<li>cp</li>
+<li>mv</li>
+</ul>
+</li>
+<li><p>参考文件内容</p>
+<ul>
+<li>cat</li>
+<li>more</li>
+<li>grep</li>
+</ul>
+</li>
+<li><p>其他</p>
+<ul>
+<li><p>echo</p>
+</li>
+<li><p>重定向&gt;和&gt;&gt;</p>
+</li>
+<li><p>管道|</p>
+</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -338,13 +445,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/08/survey.js/">survey.js</a></p>
+        <p><span>本文标题:</span><a href="/2019/10/24/Python-Linux-02/">Python_Linux-02</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
-        <p><span>发布时间:</span>2019-03-08, 23:23:28</p>
-        <p><span>最后更新:</span>2019-03-22, 23:51:08</p>
+        <p><span>发布时间:</span>2019-10-24, 17:02:22</p>
+        <p><span>最后更新:</span>2019-10-24, 17:04:40</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/08/survey.js/" title="survey.js">http://yoursite.com/2019/03/08/survey.js/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/08/survey.js/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/10/24/Python-Linux-02/" title="Python_Linux-02">http://yoursite.com/2019/10/24/Python-Linux-02/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/10/24/Python-Linux-02/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -356,16 +463,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/03/09/Angular-Component-databinding/">
-                    Angular Component$databinding
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/03/06/angular新建组件方法/">
-                    angular新建组件方法
+                <a href="/2019/10/24/Python-Linux-01/">
+                    Python_Linux-01
                 </a>
             </div>
         
@@ -377,7 +478,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、首先需要在电脑中安装了node-js以及npm"><span class="toc-number">1.</span> <span class="toc-text">一、首先需要在电脑中安装了node.js以及npm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、新建一个文件夹"><span class="toc-number">2.</span> <span class="toc-text">二、新建一个文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、做自己的demo问卷"><span class="toc-number">3.</span> <span class="toc-text">三、做自己的demo问卷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、利用工具"><span class="toc-number">4.</span> <span class="toc-text">四、利用工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、查看提交数据格式"><span class="toc-number">5.</span> <span class="toc-text">五、查看提交数据格式</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#常用Linux命令的基本使用"><span class="toc-number">1.</span> <span class="toc-text">常用Linux命令的基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#学习Linux终端命令的原因"><span class="toc-number">1.1.</span> <span class="toc-text">学习Linux终端命令的原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用Linux命令的基本使用-1"><span class="toc-number">1.2.</span> <span class="toc-text">常用Linux命令的基本使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux终端命令格式"><span class="toc-number">1.3.</span> <span class="toc-text">Linux终端命令格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查阅命令帮助信息"><span class="toc-number">1.4.</span> <span class="toc-text">查阅命令帮助信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件和目录常用命令"><span class="toc-number">1.5.</span> <span class="toc-text">文件和目录常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#目标"><span class="toc-number">1.5.1.</span> <span class="toc-text">目标</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -413,7 +514,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"survey.js　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Python_Linux-02　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -433,15 +534,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/03/09/Angular-Component-databinding/" title="上一篇: Angular Component$databinding">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/03/06/angular新建组件方法/" title="下一篇: angular新建组件方法">
+            <a href="/2019/10/24/Python-Linux-01/" title="下一篇: Python_Linux-01">
                 <i class="fa fa-angle-right"></i>
             </a>
         
