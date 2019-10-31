@@ -15,20 +15,20 @@
 
 
 
-<meta name="description" content="测试用例设计 1.等价类法 2.边界值法">
-<meta name="keywords" content="测试用例">
+<meta name="description" content="配置别名">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="软件测试——测试用例02">
-<meta property="og:url" content="http://yoursite.com/2019/08/16/软件测试——测试用例02/index.html">
+<meta property="og:title" content="Python-Linux-07">
+<meta property="og:url" content="http://yoursite.com/2019/10/31/Python-Linux-07/index.html">
 <meta property="og:site_name" content="yuaoblog">
-<meta property="og:description" content="测试用例设计 1.等价类法 2.边界值法">
+<meta property="og:description" content="配置别名">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="c:/Users/28715/AppData/Roaming/Typora/typora-user-images/1565956632576.png">
-<meta property="og:updated_time" content="2019-08-16T12:01:14.837Z">
+<meta property="og:image" content="c:/Users/28715/AppData/Roaming/Typora/typora-user-images/1572483299456.png">
+<meta property="og:updated_time" content="2019-10-31T15:35:35.232Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="软件测试——测试用例02">
-<meta name="twitter:description" content="测试用例设计 1.等价类法 2.边界值法">
-<meta name="twitter:image" content="c:/Users/28715/AppData/Roaming/Typora/typora-user-images/1565956632576.png">
+<meta name="twitter:title" content="Python-Linux-07">
+<meta name="twitter:description" content="配置别名">
+<meta name="twitter:image" content="c:/Users/28715/AppData/Roaming/Typora/typora-user-images/1572483299456.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -60,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>软件测试——测试用例02 | yuaoblog</title>
+<title>Python-Linux-07 | yuaoblog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -267,11 +267,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-软件测试——测试用例02" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Python-Linux-07" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/08/16/软件测试——测试用例02/" class="article-date">
-      <time datetime="2019-08-16T11:37:36.000Z" itemprop="datePublished">2019-08-16</time>
+      <a href="/2019/10/31/Python-Linux-07/" class="article-date">
+      <time datetime="2019-10-31T15:30:00.000Z" itemprop="datePublished">2019-10-31</time>
 </a>
 
 
@@ -286,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      软件测试——测试用例02
+      Python-Linux-07
     </h1>
   
 
@@ -297,7 +297,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试用例/">测试用例</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -307,233 +307,102 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="测试用例设计"><a href="#测试用例设计" class="headerlink" title="测试用例设计"></a>测试用例设计</h1><blockquote>
-<p>1.等价类法</p>
-<p>2.边界值法</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="等价类法"><a href="#等价类法" class="headerlink" title="等价类法"></a>等价类法</h2><p>设计一个新的测试用例，使其尽可能多地覆盖尚未被覆盖的有效等价类，重复这个过程，直至所有的有效等价类均被测试用例所覆盖；</p>
-<p>设计一个新的测试用例，使其仅覆盖一个无效等价类，重复这个过程，直至所有的无效等价类均被测试用例所覆盖。</p>
-<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><blockquote>
-<p>某城市电话号码由三部分组成，分别是</p>
-<p>地区码：空白或是3位数字</p>
-<p>前缀：非‘0’且非‘1’开头的三位数字</p>
-<p>后缀：4位数字</p>
-<p>假定被测程序能接受一切符合上述规定的电话号码，拒绝所有不符合规定的电话号码</p>
-</blockquote>
+        <h2 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h2><a id="more"></a>
+<p>配置别名可以让我们偷懒，比如将ssh -p port user@remote用：ssh mac来代替</p>
+<p>则在~/.ssh/config追加如下内容,如果没有config文件，则新建一个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host mac</span><br><span class="line">	HostName ip地址</span><br><span class="line">	User itheima</span><br><span class="line">	Port 22</span><br></pre></td></tr></table></figure>
+<p>保存之后就可以用ssh mac 实现远程登录了，scp同样可以使用</p>
+<h2 id="用户权限相关命令"><a href="#用户权限相关命令" class="headerlink" title="用户权限相关命令"></a>用户权限相关命令</h2><h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><ul>
+<li>用户和权限的基本概念</li>
+<li>用户管理终端命令</li>
+<li>组管理终端命令</li>
+<li>修改权限终端命令</li>
+</ul>
+<h3 id="01-用户和权限的基本概念"><a href="#01-用户和权限的基本概念" class="headerlink" title="01.用户和权限的基本概念"></a>01.用户和权限的基本概念</h3><h4 id="1-1基本概念"><a href="#1-1基本概念" class="headerlink" title="1.1基本概念"></a>1.1基本概念</h4><ul>
+<li>用户是Linux系统工作中重要的一环，用户管理包括用户与组管理</li>
+<li>在Linux系统，不管是由本机或者是远程登录系统，每个系统都必须拥有一个账号，并且对于不同的系统资源拥有不同的权限</li>
+<li>在Linux，可以指定每一个用户，针对不同的文件或者目录的不同权限</li>
+<li>对文件/目录的权限包括</li>
+</ul>
 <table>
 <thead>
 <tr>
-<th><strong>条件</strong></th>
-<th><strong>有效等价类</strong></th>
-<th><strong>编号</strong></th>
-<th><strong>无效等价类</strong></th>
-<th style="text-align:center"><strong>编号</strong></th>
+<th>序号</th>
+<th>权限</th>
+<th>英文</th>
+<th>缩写</th>
+<th>数字代号</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>地区码</td>
-<td>空白</td>
-<td>1</td>
-<td>非数字</td>
-<td style="text-align:center">5</td>
-</tr>
-<tr>
-<td>三位数字</td>
-<td>2</td>
-<td>小于三位</td>
-<td>6</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>前缀</td>
-<td>大于三位</td>
-<td>7</td>
-<td></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>非0且非1开头的三位数字</td>
-<td>3</td>
-<td>空值</td>
-<td>8</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td></td>
-<td>0开头的三位数字</td>
-<td>9</td>
-<td></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td></td>
-<td>1开头的三位数字</td>
-<td>10</td>
-<td></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td></td>
-<td>非0且非1 开头的长度小于三位的数字</td>
-<td>11</td>
-<td></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td></td>
-<td>非0且非1 开头的长度大于三位的数字</td>
-<td>12</td>
-<td></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td></td>
-<td>非数字</td>
-<td>13</td>
-<td></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>后缀</td>
-<td>四位数字</td>
+<td>01</td>
+<td>读</td>
+<td>read</td>
+<td>r</td>
 <td>4</td>
-<td>空值</td>
-<td style="text-align:center">14</td>
 </tr>
 <tr>
-<td></td>
-<td>非数字</td>
-<td>15</td>
-<td></td>
-<td style="text-align:center"></td>
+<td>02</td>
+<td>写</td>
+<td>write</td>
+<td>w</td>
+<td>2</td>
 </tr>
 <tr>
-<td></td>
-<td>小于四位</td>
-<td>16</td>
-<td></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td></td>
-<td>大于四位</td>
-<td>17</td>
-<td></td>
+<td>03</td>
+<td>执行</td>
+<td>excute</td>
+<td>x</td>
+<td>1</td>
 </tr>
 </tbody>
 </table>
+<h4 id="1-2组"><a href="#1-2组" class="headerlink" title="1.2组"></a>1.2组</h4><ul>
+<li>为了方便用户管理，提出了组的概念，如下图所示</li>
+</ul>
+<p><img src="C:\Users\28715\AppData\Roaming\Typora\typora-user-images\1572483299456.png" alt="1572483299456"></p>
+<ul>
+<li>在实际应用，可以预先针对组设置好权限，然后将不同的用户添加到对应的组，而不用为每一个用户设置权限</li>
+</ul>
+<h4 id="1-3ls-l扩展"><a href="#1-3ls-l扩展" class="headerlink" title="1.3ls -l扩展"></a>1.3ls -l扩展</h4><ul>
+<li>ls -l可以查看文件夹下文件的详细信息，从左到右依次是<ul>
+<li>权限，第一个字符如果是d表示目录</li>
+<li>硬链接数，通俗的讲，就是有多少种方式，可以访问到当前目录/文件</li>
+<li>拥有者，家目录下的文件/目录的拥有者通常都是当前用户</li>
+<li>组，在Linux，很多时候会出现组名和用户名相同的情况</li>
+<li>大小</li>
+<li>时间</li>
+<li>名称</li>
+</ul>
+</li>
+</ul>
+<p>rwxrwxrwx，第一组代表文件和目录的拥有者的权限</p>
+<p>​            第二组代表文件或目录所存在组的权限</p>
+<p>​            第三组代表既不是文件拥有者也不是目录所在组的其他用户所拥有的权限</p>
+<h4 id="1-4简单使用"><a href="#1-4简单使用" class="headerlink" title="1.4简单使用"></a>1.4简单使用</h4><p>ls -l 先查看文件权限</p>
+<p>chmod -rw 01.py 把01.py的读写权限删了</p>
+<p>chmod +r 01.py 给01.py加读权限</p>
+<p>chmod +x 01.py 给01.py加执行权限</p>
+<ul>
+<li>chmod修改用户/组对文件/目录的权限</li>
+<li>命令格式如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +/-rwx 文件名|目录名</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>1.Step1、分析需求中包含多少个独立功能</p>
-<p>判断独立功能的标准：功能名是一个动词、不可继续往下分割、包含三要素：输入、处理、输出</p>
-<p>2.Step2、分别针对每个独立功能开展需求分析</p>
-<p>分析界面可见输入参数，罗列参数个数及名称、  分析界面不可见输入参数：网络、浏览器/系统、权限、数据库服务、系统本身服务</p>
-<p>3.Step3、分析界面可见输入参数的特点及其关系</p>
-<p>输入参数需要用户输入数据，并且存在有效/无效规则校验—— 则用等价类法设计测试用例</p>
-<p>4.Step4、分别罗列每个界面可见输入参数的有效无效规则，形成等价类表</p>
-<p>测试文本框类型应考虑的几个维度：长度、类型、组成规则、是否为空、是否重复、是否区分大小写、是否去前中后空格</p>
-<p>构造无效规则时要注意：只能同时违背一条规则</p>
+<p>提示：以上方式会一次性修改拥有者/组的权限</p>
 </blockquote>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><blockquote>
-<p>用户注册页面需求</p>
-<p>-USER NAME  长度为  3-19：以字母开头</p>
-<p>-姓名：非空</p>
-<p>-密码： 非空</p>
-<p>-确认密码： 值和密码相同</p>
-<p>-出生月份： 年—–四位数字</p>
-<p>-                    月——1-12</p>
-<p>​             日——-1-31</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th><strong>输入项</strong></th>
-<th><strong>有效等价类</strong></th>
-<th><strong>无效等价类</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>username</td>
-<td>长3—19（1）      以字母开头   （4）</td>
-<td>长度<3 (2) 长度>19      (3)   非字母开头（5）</3></td>
-</tr>
-<tr>
-<td>姓名</td>
-<td>非空    （6）</td>
-<td>为空      （7）</td>
-</tr>
-<tr>
-<td>密码</td>
-<td>非空    （8）</td>
-<td>为空    （9）</td>
-</tr>
-<tr>
-<td>确认密码</td>
-<td>值和密码值相同   （10）</td>
-<td>值和密码值不同   （11）</td>
-</tr>
-<tr>
-<td>出生年份</td>
-<td>年  —-    四位（12）   年    —-   数字  （14）      年    —-     合理范围（16）</td>
-<td>&lt;4(13)  &gt;4(18)   年数中他非数字符号(19)   空（15）   年数在不合理范围（17）</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="边界值"><a href="#边界值" class="headerlink" title="边界值"></a>边界值</h2><p>边界值分析法就是对输入或输出的边界值进行测试的一种黑盒测试方法</p>
-<p>长期的测试工作经验告诉我们，大量的错误是发生在输入或输出范围的边界上，而不是发生在输入输出范围的内部（从开发角度可以发现）。因此针对各种边界情况设计测试用例，可以查出更多的错误。</p>
-<p>使用边界值分析方法设计测试用例，首先应确定边界情况。通常输入和输出等价类的边界，就是应着重测试的边界情况。应当选取正好等于，刚刚大于或刚刚小于边界的值作为测试数据，而不是选取等价类中的典型值或任意值作为测试数据</p>
-<p><img src="C:\Users\28715\AppData\Roaming\Typora\typora-user-images\1565956632576.png" alt="1565956632576"></p>
-<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><blockquote>
-<p>例如，如果程序的规格说明中规定：“重量在10公斤至50公斤范围内的邮件，其邮费计算公式为……”。作为测试用例，我们应取？</p>
-<p>9.99，10，10.01，49.99,50，50.01。</p>
-<p>练习：</p>
-<p>   [100   200]</p>
-<p>   [100   200）</p>
-<p>   (100   200)</p>
-</blockquote>
-<p>结合等价类划分法，设计测试数据！</p>
-<p>移动公司话费赠送方案如下：</p>
-<table>
-<thead>
-<tr>
-<th><strong>话费累计</strong></th>
-<th><strong>赠送</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[0,200)</td>
-<td>0</td>
-</tr>
-<tr>
-<td>[200,500)</td>
-<td>20</td>
-</tr>
-<tr>
-<td>[500,800)</td>
-<td>30</td>
-</tr>
-<tr>
-<td>&gt;=800</td>
-<td>50</td>
-</tr>
-</tbody>
-</table>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>等价类用例设计要点</p>
-<p>  1 操作步骤 </p>
-<pre><code>1 一个新用例尽量覆盖有效规则
-
-2 一个新用例只能覆盖一条无效规则
-</code></pre><p>  2 测试过程中需要考虑要点</p>
-<p>边界值用例设计要点</p>
-<p>  1 上点</p>
-<p>  2 离点</p>
+<p>执行文件的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./文件名</span><br></pre></td></tr></table></figure>
+<p>新建测试文件夹test</p>
+<p>ls -l 检测权限，默认拥有者可读可写可执行，组也是可读可写可执行，其他用户只有可读可执行</p>
+<p>在测试文件夹建01.py</p>
+<p>chmod -x test 即可去掉test的可执行权限,则目录不能查看</p>
+<p>chmod -rw test 去掉test的读写权限,不能ls</p>
+<p>若加上r权限，则ls可用，但不能新建文件</p>
+<p>r就是目录的可读权限</p>
+<p>w就是目录的可写权限</p>
+<p>x在目录中就是执行终端命令的权限，如果没有x权限，则cd命令都不能用</p>
 
       
     </div>
@@ -542,13 +411,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/08/16/软件测试——测试用例02/">软件测试——测试用例02</a></p>
+        <p><span>本文标题:</span><a href="/2019/10/31/Python-Linux-07/">Python-Linux-07</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
-        <p><span>发布时间:</span>2019-08-16, 19:37:36</p>
-        <p><span>最后更新:</span>2019-08-16, 20:01:14</p>
+        <p><span>发布时间:</span>2019-10-31, 23:30:00</p>
+        <p><span>最后更新:</span>2019-10-31, 23:35:35</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/08/16/软件测试——测试用例02/" title="软件测试——测试用例02">http://yoursite.com/2019/08/16/软件测试——测试用例02/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/16/软件测试——测试用例02/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/10/31/Python-Linux-07/" title="Python-Linux-07">http://yoursite.com/2019/10/31/Python-Linux-07/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/10/31/Python-Linux-07/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -561,15 +430,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/08/16/软件测试——测试用例03/">
-                    软件测试——测试用例03
+                <a href="/2019/10/31/Python-Linux-08/">
+                    Python-Linux-08
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/08/15/软件测试——测试用例01/">
-                    软件测试——测试用例01
+                <a href="/2019/10/29/Python-Linux-06/">
+                    Python-Linux-06
                 </a>
             </div>
         
@@ -581,7 +450,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#测试用例设计"><span class="toc-number">1.</span> <span class="toc-text">测试用例设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#等价类法"><span class="toc-number">1.1.</span> <span class="toc-text">等价类法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#练习"><span class="toc-number">1.1.1.</span> <span class="toc-text">练习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#例子"><span class="toc-number">1.1.2.</span> <span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#边界值"><span class="toc-number">1.2.</span> <span class="toc-text">边界值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例题"><span class="toc-number">1.2.1.</span> <span class="toc-text">例题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.3.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置别名"><span class="toc-number">1.</span> <span class="toc-text">配置别名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户权限相关命令"><span class="toc-number">2.</span> <span class="toc-text">用户权限相关命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#目标"><span class="toc-number">2.1.</span> <span class="toc-text">目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#01-用户和权限的基本概念"><span class="toc-number">2.2.</span> <span class="toc-text">01.用户和权限的基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1基本概念"><span class="toc-number">2.2.1.</span> <span class="toc-text">1.1基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2组"><span class="toc-number">2.2.2.</span> <span class="toc-text">1.2组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3ls-l扩展"><span class="toc-number">2.2.3.</span> <span class="toc-text">1.3ls -l扩展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4简单使用"><span class="toc-number">2.2.4.</span> <span class="toc-text">1.4简单使用</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -617,7 +486,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"软件测试——测试用例02　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Python-Linux-07　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -637,7 +506,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/08/16/软件测试——测试用例03/" title="上一篇: 软件测试——测试用例03">
+            <a href="/2019/10/31/Python-Linux-08/" title="上一篇: Python-Linux-08">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -645,7 +514,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/08/15/软件测试——测试用例01/" title="下一篇: 软件测试——测试用例01">
+            <a href="/2019/10/29/Python-Linux-06/" title="下一篇: Python-Linux-06">
                 <i class="fa fa-angle-right"></i>
             </a>
         

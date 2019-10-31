@@ -15,20 +15,20 @@
 
 
 
-<meta name="description" content="测试用例设计 1.等价类法 2.边界值法">
-<meta name="keywords" content="测试用例">
+<meta name="description" content="超级用户">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="软件测试——测试用例02">
-<meta property="og:url" content="http://yoursite.com/2019/08/16/软件测试——测试用例02/index.html">
+<meta property="og:title" content="Python-Linux-08">
+<meta property="og:url" content="http://yoursite.com/2019/10/31/Python-Linux-08/index.html">
 <meta property="og:site_name" content="yuaoblog">
-<meta property="og:description" content="测试用例设计 1.等价类法 2.边界值法">
+<meta property="og:description" content="超级用户">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="c:/Users/28715/AppData/Roaming/Typora/typora-user-images/1565956632576.png">
-<meta property="og:updated_time" content="2019-08-16T12:01:14.837Z">
+<meta property="og:image" content="c:/Users/28715/AppData/Roaming/Typora/typora-user-images/1572486914737.png">
+<meta property="og:updated_time" content="2019-10-31T15:36:55.252Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="软件测试——测试用例02">
-<meta name="twitter:description" content="测试用例设计 1.等价类法 2.边界值法">
-<meta name="twitter:image" content="c:/Users/28715/AppData/Roaming/Typora/typora-user-images/1565956632576.png">
+<meta name="twitter:title" content="Python-Linux-08">
+<meta name="twitter:description" content="超级用户">
+<meta name="twitter:image" content="c:/Users/28715/AppData/Roaming/Typora/typora-user-images/1572486914737.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -60,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>软件测试——测试用例02 | yuaoblog</title>
+<title>Python-Linux-08 | yuaoblog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -267,11 +267,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-软件测试——测试用例02" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Python-Linux-08" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/08/16/软件测试——测试用例02/" class="article-date">
-      <time datetime="2019-08-16T11:37:36.000Z" itemprop="datePublished">2019-08-16</time>
+      <a href="/2019/10/31/Python-Linux-08/" class="article-date">
+      <time datetime="2019-10-31T15:35:58.000Z" itemprop="datePublished">2019-10-31</time>
 </a>
 
 
@@ -286,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      软件测试——测试用例02
+      Python-Linux-08
     </h1>
   
 
@@ -297,7 +297,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试用例/">测试用例</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -307,233 +307,170 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="测试用例设计"><a href="#测试用例设计" class="headerlink" title="测试用例设计"></a>测试用例设计</h1><blockquote>
-<p>1.等价类法</p>
-<p>2.边界值法</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="等价类法"><a href="#等价类法" class="headerlink" title="等价类法"></a>等价类法</h2><p>设计一个新的测试用例，使其尽可能多地覆盖尚未被覆盖的有效等价类，重复这个过程，直至所有的有效等价类均被测试用例所覆盖；</p>
-<p>设计一个新的测试用例，使其仅覆盖一个无效等价类，重复这个过程，直至所有的无效等价类均被测试用例所覆盖。</p>
-<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><blockquote>
-<p>某城市电话号码由三部分组成，分别是</p>
-<p>地区码：空白或是3位数字</p>
-<p>前缀：非‘0’且非‘1’开头的三位数字</p>
-<p>后缀：4位数字</p>
-<p>假定被测程序能接受一切符合上述规定的电话号码，拒绝所有不符合规定的电话号码</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th><strong>条件</strong></th>
-<th><strong>有效等价类</strong></th>
-<th><strong>编号</strong></th>
-<th><strong>无效等价类</strong></th>
-<th style="text-align:center"><strong>编号</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>地区码</td>
-<td>空白</td>
-<td>1</td>
-<td>非数字</td>
-<td style="text-align:center">5</td>
-</tr>
-<tr>
-<td>三位数字</td>
-<td>2</td>
-<td>小于三位</td>
-<td>6</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>前缀</td>
-<td>大于三位</td>
-<td>7</td>
-<td></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>非0且非1开头的三位数字</td>
-<td>3</td>
-<td>空值</td>
-<td>8</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td></td>
-<td>0开头的三位数字</td>
-<td>9</td>
-<td></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td></td>
-<td>1开头的三位数字</td>
-<td>10</td>
-<td></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td></td>
-<td>非0且非1 开头的长度小于三位的数字</td>
-<td>11</td>
-<td></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td></td>
-<td>非0且非1 开头的长度大于三位的数字</td>
-<td>12</td>
-<td></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td></td>
-<td>非数字</td>
-<td>13</td>
-<td></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>后缀</td>
-<td>四位数字</td>
-<td>4</td>
-<td>空值</td>
-<td style="text-align:center">14</td>
-</tr>
-<tr>
-<td></td>
-<td>非数字</td>
-<td>15</td>
-<td></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td></td>
-<td>小于四位</td>
-<td>16</td>
-<td></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td></td>
-<td>大于四位</td>
-<td>17</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+        <h2 id="超级用户"><a href="#超级用户" class="headerlink" title="超级用户"></a>超级用户</h2><a id="more"></a>
+<ul>
+<li>Linux系统的root账号通常用于系统的维护和管理，对操作系统的所有资源具有访问权限</li>
+<li>在大多数版本的Linux，都不推荐直接使用root账号</li>
+<li>标准用户是指只能在自己的家目录下执行命令的用户，在Linux安装，系统会自动创建一个用户账号，而这个默认的用户就是标准用户</li>
+</ul>
+<h3 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h3><ul>
+<li>su是substitute user的缩写，表示使用另一个用户的身份</li>
+<li>sudo命令用来以其他身份来执行命令，预设的身份为root</li>
+<li>用户使用sudo，必须输入密码，之后有5的有效期限权限，超过期限必须重新输入密码</li>
+</ul>
 <blockquote>
-<p>1.Step1、分析需求中包含多少个独立功能</p>
-<p>判断独立功能的标准：功能名是一个动词、不可继续往下分割、包含三要素：输入、处理、输出</p>
-<p>2.Step2、分别针对每个独立功能开展需求分析</p>
-<p>分析界面可见输入参数，罗列参数个数及名称、  分析界面不可见输入参数：网络、浏览器/系统、权限、数据库服务、系统本身服务</p>
-<p>3.Step3、分析界面可见输入参数的特点及其关系</p>
-<p>输入参数需要用户输入数据，并且存在有效/无效规则校验—— 则用等价类法设计测试用例</p>
-<p>4.Step4、分别罗列每个界面可见输入参数的有效无效规则，形成等价类表</p>
-<p>测试文本框类型应考虑的几个维度：长度、类型、组成规则、是否为空、是否重复、是否区分大小写、是否去前中后空格</p>
-<p>构造无效规则时要注意：只能同时违背一条规则</p>
+<p>若未经授权的用户企图使用sudo，则会发警告邮件给管理员</p>
 </blockquote>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><blockquote>
-<p>用户注册页面需求</p>
-<p>-USER NAME  长度为  3-19：以字母开头</p>
-<p>-姓名：非空</p>
-<p>-密码： 非空</p>
-<p>-确认密码： 值和密码相同</p>
-<p>-出生月份： 年—–四位数字</p>
-<p>-                    月——1-12</p>
-<p>​             日——-1-31</p>
+<h2 id="组管理终端命令"><a href="#组管理终端命令" class="headerlink" title="组管理终端命令"></a>组管理终端命令</h2><blockquote>
+<p>提示：创建组/删除组的终端命令都需要通过sudo执行</p>
 </blockquote>
 <table>
 <thead>
 <tr>
-<th><strong>输入项</strong></th>
-<th><strong>有效等价类</strong></th>
-<th><strong>无效等价类</strong></th>
+<th>序号</th>
+<th>命令</th>
+<th>作用</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>username</td>
-<td>长3—19（1）      以字母开头   （4）</td>
-<td>长度<3 (2) 长度>19      (3)   非字母开头（5）</3></td>
+<td>01</td>
+<td>groupadd</td>
+<td>添加组</td>
 </tr>
 <tr>
-<td>姓名</td>
-<td>非空    （6）</td>
-<td>为空      （7）</td>
+<td>02</td>
+<td>groupdel组名</td>
+<td>删除组</td>
 </tr>
 <tr>
-<td>密码</td>
-<td>非空    （8）</td>
-<td>为空    （9）</td>
+<td>03</td>
+<td>cat /etc/group</td>
+<td>确认组信息</td>
 </tr>
 <tr>
-<td>确认密码</td>
-<td>值和密码值相同   （10）</td>
-<td>值和密码值不同   （11）</td>
-</tr>
-<tr>
-<td>出生年份</td>
-<td>年  —-    四位（12）   年    —-   数字  （14）      年    —-     合理范围（16）</td>
-<td>&lt;4(13)  &gt;4(18)   年数中他非数字符号(19)   空（15）   年数在不合理范围（17）</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
+<td>04</td>
+<td>chgrp -R 组名 文件/目录名</td>
+<td>修改文件/目录的所属值</td>
 </tr>
 </tbody>
 </table>
-<h2 id="边界值"><a href="#边界值" class="headerlink" title="边界值"></a>边界值</h2><p>边界值分析法就是对输入或输出的边界值进行测试的一种黑盒测试方法</p>
-<p>长期的测试工作经验告诉我们，大量的错误是发生在输入或输出范围的边界上，而不是发生在输入输出范围的内部（从开发角度可以发现）。因此针对各种边界情况设计测试用例，可以查出更多的错误。</p>
-<p>使用边界值分析方法设计测试用例，首先应确定边界情况。通常输入和输出等价类的边界，就是应着重测试的边界情况。应当选取正好等于，刚刚大于或刚刚小于边界的值作为测试数据，而不是选取等价类中的典型值或任意值作为测试数据</p>
-<p><img src="C:\Users\28715\AppData\Roaming\Typora\typora-user-images\1565956632576.png" alt="1565956632576"></p>
-<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><blockquote>
-<p>例如，如果程序的规格说明中规定：“重量在10公斤至50公斤范围内的邮件，其邮费计算公式为……”。作为测试用例，我们应取？</p>
-<p>9.99，10，10.01，49.99,50，50.01。</p>
-<p>练习：</p>
-<p>   [100   200]</p>
-<p>   [100   200）</p>
-<p>   (100   200)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">groupadd dev执行这个命令会告诉我们权限不够，无法锁定/etc/group</span><br><span class="line"></span><br><span class="line">sudo groupadd dev 要求写密码，然后就可以新建成功组了,可以查看/etc/group看看这个dev组，cat /etc/group</span><br><span class="line"></span><br><span class="line">groupdel dev 无权限</span><br><span class="line"></span><br><span class="line">sudo groupdel dev 可删除组</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>提示：</p>
+<ul>
+<li>组信息保存在/etc/group文件中</li>
+<li>/etc目录是专门用来保存系统配置信息的目录</li>
+</ul>
 </blockquote>
-<p>结合等价类划分法，设计测试数据！</p>
-<p>移动公司话费赠送方案如下：</p>
-<table>
+<p><img src="C:\Users\28715\AppData\Roaming\Typora\typora-user-images\1572486914737.png" alt="1572486914737"></p>
+<ul>
+<li>在实际使用，可以预先对组设置好权限，然后将不同的用户添加到组，而不用为用户单独设置权限</li>
+</ul>
+<h3 id="演练目标"><a href="#演练目标" class="headerlink" title="演练目标"></a>演练目标</h3><ul>
+<li>在python用户的桌面文件夹创建python学习目录</li>
+</ul>
+<p>切换到python用户的桌面文件夹</p>
+<p>mkdir Python学习</p>
+<ul>
+<li>新建dev组</li>
+</ul>
+<p>sudo groupadd dev</p>
+<p>cat /etc/group</p>
+<ul>
+<li>将Python学习目录的组修改为dev</li>
+</ul>
+<p>chgrp -R dev Python学习/ 不允许执行这个命令</p>
+<p>sudo chgrp -R dev Python学习/ 这就可以修改Python学习这个目录的组了</p>
+<h2 id="用户管理终端命令"><a href="#用户管理终端命令" class="headerlink" title="用户管理终端命令"></a>用户管理终端命令</h2><blockquote>
+<p>提示：创建用户/删除用户/修改其他用户密码的终端命令都需要通过sudo执行</p>
+</blockquote>
+<h3 id="1-创建用户-设置密码-删除用户"><a href="#1-创建用户-设置密码-删除用户" class="headerlink" title="1.创建用户/设置密码/删除用户"></a>1.创建用户/设置密码/删除用户</h3><table>
 <thead>
 <tr>
-<th><strong>话费累计</strong></th>
-<th><strong>赠送</strong></th>
+<th>序号</th>
+<th>命令</th>
+<th>作用</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>[0,200)</td>
-<td>0</td>
+<td>01</td>
+<td>useradd -m -g组新建用户名</td>
+<td>添加新用户</td>
+<td>-m 自动建立用户家目录<br>-g指定用户所在组，否则会建立一个和同名的组</td>
 </tr>
 <tr>
-<td>[200,500)</td>
-<td>20</td>
+<td>02</td>
+<td>passwd 用户名</td>
+<td>设置用户密码</td>
+<td>如果是普通用户，直接passwd可以修改自己的账户密码</td>
 </tr>
 <tr>
-<td>[500,800)</td>
-<td>30</td>
+<td>03</td>
+<td>userdel -r 用户名</td>
+<td>删除用户</td>
+<td>-r 选项会自动删除用户家目录</td>
 </tr>
 <tr>
-<td>&gt;=800</td>
-<td>50</td>
+<td>04</td>
+<td>cat/etc/passwd\</td>
+<td>grep用户名</td>
+<td>确认用户信息</td>
+<td>新建用户后，用户信息会保存在/etc/passwd文件</td>
 </tr>
 </tbody>
 </table>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>等价类用例设计要点</p>
-<p>  1 操作步骤 </p>
-<pre><code>1 一个新用例尽量覆盖有效规则
-
-2 一个新用例只能覆盖一条无效规则
-</code></pre><p>  2 测试过程中需要考虑要点</p>
-<p>边界值用例设计要点</p>
-<p>  1 上点</p>
-<p>  2 离点</p>
+<p>sudo useradd -m -g dev zhangsan 写密码后回车，则home文件夹就会多一个zhangsan用户的家目录文件夹</p>
+<p>验证：ls -l /home可以看到zhangsan目录的文件拥有者是zhangsan用户,所属组为dev</p>
+<p>需要指定密码</p>
+<p>sudo passwd zhangsan 设置密码即可</p>
+<blockquote>
+<p>提示：</p>
+<ul>
+<li>创建用户时，如果忘记添加-m选项指定新用户的家目录——最简单的方法就是删除用户，重新创建</li>
+<li>创建用户时，默认会创建一个和用户名同名的组名</li>
+<li>用户信息保存在/etc/passwd文件</li>
+</ul>
+</blockquote>
+<h3 id="2-查看用户信息"><a href="#2-查看用户信息" class="headerlink" title="2.查看用户信息"></a>2.查看用户信息</h3><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>id [用户名]</td>
+<td>查看用户UID和GID信息</td>
+</tr>
+<tr>
+<td>02</td>
+<td>who</td>
+<td>查看当前所有登录的用户列表</td>
+</tr>
+<tr>
+<td>03</td>
+<td>whoami</td>
+<td>查看当前登录用户的账户名</td>
+</tr>
+</tbody>
+</table>
+<p>passwd文件</p>
+<p>/etc/passwd文件存放的是用户的信息，由6个分好组成的7个信息，分别是</p>
+<ol>
+<li>用户名</li>
+<li>密码（x，表示加密的密码）</li>
+<li>UID（用户标识）</li>
+<li>GID（组标识）</li>
+<li>用户全名或本地账号</li>
+<li>家目录</li>
+<li>登录使用的Shell,就是登录之后，使用的终端命令，ubuntu默认是dash</li>
+</ol>
 
       
     </div>
@@ -542,13 +479,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/08/16/软件测试——测试用例02/">软件测试——测试用例02</a></p>
+        <p><span>本文标题:</span><a href="/2019/10/31/Python-Linux-08/">Python-Linux-08</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
-        <p><span>发布时间:</span>2019-08-16, 19:37:36</p>
-        <p><span>最后更新:</span>2019-08-16, 20:01:14</p>
+        <p><span>发布时间:</span>2019-10-31, 23:35:58</p>
+        <p><span>最后更新:</span>2019-10-31, 23:36:55</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/08/16/软件测试——测试用例02/" title="软件测试——测试用例02">http://yoursite.com/2019/08/16/软件测试——测试用例02/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/16/软件测试——测试用例02/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/10/31/Python-Linux-08/" title="Python-Linux-08">http://yoursite.com/2019/10/31/Python-Linux-08/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/10/31/Python-Linux-08/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -560,16 +497,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/08/16/软件测试——测试用例03/">
-                    软件测试——测试用例03
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/08/15/软件测试——测试用例01/">
-                    软件测试——测试用例01
+                <a href="/2019/10/31/Python-Linux-07/">
+                    Python-Linux-07
                 </a>
             </div>
         
@@ -581,7 +512,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#测试用例设计"><span class="toc-number">1.</span> <span class="toc-text">测试用例设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#等价类法"><span class="toc-number">1.1.</span> <span class="toc-text">等价类法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#练习"><span class="toc-number">1.1.1.</span> <span class="toc-text">练习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#例子"><span class="toc-number">1.1.2.</span> <span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#边界值"><span class="toc-number">1.2.</span> <span class="toc-text">边界值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例题"><span class="toc-number">1.2.1.</span> <span class="toc-text">例题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.3.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#超级用户"><span class="toc-number">1.</span> <span class="toc-text">超级用户</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sudo"><span class="toc-number">1.1.</span> <span class="toc-text">sudo</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组管理终端命令"><span class="toc-number">2.</span> <span class="toc-text">组管理终端命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#演练目标"><span class="toc-number">2.1.</span> <span class="toc-text">演练目标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户管理终端命令"><span class="toc-number">3.</span> <span class="toc-text">用户管理终端命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-创建用户-设置密码-删除用户"><span class="toc-number">3.1.</span> <span class="toc-text">1.创建用户/设置密码/删除用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-查看用户信息"><span class="toc-number">3.2.</span> <span class="toc-text">2.查看用户信息</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -617,7 +548,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"软件测试——测试用例02　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Python-Linux-08　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -637,15 +568,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/08/16/软件测试——测试用例03/" title="上一篇: 软件测试——测试用例03">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/08/15/软件测试——测试用例01/" title="下一篇: 软件测试——测试用例01">
+            <a href="/2019/10/31/Python-Linux-07/" title="下一篇: Python-Linux-07">
                 <i class="fa fa-angle-right"></i>
             </a>
         
