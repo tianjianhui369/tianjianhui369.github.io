@@ -15,17 +15,21 @@
 
 
 
-<meta name="description" content="es6学习笔记2">
+<meta name="description" content="Linux其它命令">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="es6学习笔记2">
-<meta property="og:url" content="http://yoursite.com/2019/03/23/es6学习笔记2/index.html">
+<meta property="og:title" content="Python-Linux-09">
+<meta property="og:url" content="http://yoursite.com/2019/11/02/Python-Linux-09/index.html">
 <meta property="og:site_name" content="yuaoblog">
-<meta property="og:description" content="es6学习笔记2">
+<meta property="og:description" content="Linux其它命令">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-23T15:37:43.072Z">
+<meta property="og:image" content="c:/Users/28715/AppData/Roaming/Typora/typora-user-images/1572575218274.png">
+<meta property="og:image" content="c:/Users/28715/AppData/Roaming/Typora/typora-user-images/1572576391931.png">
+<meta property="og:updated_time" content="2019-11-02T12:46:16.983Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="es6学习笔记2">
-<meta name="twitter:description" content="es6学习笔记2">
+<meta name="twitter:title" content="Python-Linux-09">
+<meta name="twitter:description" content="Linux其它命令">
+<meta name="twitter:image" content="c:/Users/28715/AppData/Roaming/Typora/typora-user-images/1572575218274.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -57,7 +61,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>es6学习笔记2 | yuaoblog</title>
+<title>Python-Linux-09 | yuaoblog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -264,11 +268,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-es6学习笔记2" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Python-Linux-09" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/23/es6学习笔记2/" class="article-date">
-      <time datetime="2019-03-23T15:36:00.000Z" itemprop="datePublished">2019-03-23</time>
+      <a href="/2019/11/02/Python-Linux-09/" class="article-date">
+      <time datetime="2019-11-02T12:45:26.000Z" itemprop="datePublished">2019-11-02</time>
 </a>
 
 
@@ -283,7 +287,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      es6学习笔记2
+      Python-Linux-09
     </h1>
   
 
@@ -293,6 +297,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -300,17 +308,126 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="es6学习笔记2"><a href="#es6学习笔记2" class="headerlink" title="es6学习笔记2"></a>es6学习笔记2</h1><a id="more"></a>
-<h2 id="字符串的扩展"><a href="#字符串的扩展" class="headerlink" title="字符串的扩展"></a>字符串的扩展</h2><h3 id="字符串的Unicode码表示"><a href="#字符串的Unicode码表示" class="headerlink" title="字符串的Unicode码表示"></a>字符串的Unicode码表示</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">原本的JavaScript只能支持\u0000-\uffff的码点，超出这个范围就不能正确解析，在es6中只要将码点放到大括号就能正确解析</span><br></pre></td></tr></table></figure>
-<h3 id="codePointAt-字符串编码"><a href="#codePointAt-字符串编码" class="headerlink" title="codePointAt()字符串编码"></a>codePointAt()字符串编码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">一般默认的字符是2个字节存储，对于多于\u0000-\uffff的字符，这个存储需要四个字节，因此JavaScript会将其理解为两个字符，这样的话chatAt()就无法读取正确的值，charCodeAt()读取到的也是2个字节的十进制码</span><br><span class="line">所以为了能够正确解读，便可以采用codePointAt()方法</span><br><span class="line">这个方法返回的是UTF-16的十进制码点，如果需要转化可以使用toString</span><br><span class="line">s.codePointAt().toString(16)</span><br></pre></td></tr></table></figure>
-<h3 id="String-formCodePoint"><a href="#String-formCodePoint" class="headerlink" title="String.formCodePoint()"></a>String.formCodePoint()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">JavaScript提供了一种方法formCharCode(),用于将码点转化成为字符串，但是无法转化UTF-16的字符，即不在\u0000-\uffff范围的字符串无法解析</span><br><span class="line">因此es6提供了一种forCharCode()方法，用于转换这些字符</span><br><span class="line">这个字符串可以有多个参数，返回的时候将这几个参数转化后形成字符串返回</span><br></pre></td></tr></table></figure>
-<h3 id="字符串的遍历接口"><a href="#字符串的遍历接口" class="headerlink" title="字符串的遍历接口"></a>字符串的遍历接口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">在es6可以使用for of语句去遍历字符串</span><br><span class="line">for (let codePoint of &apos;foo&apos;) &#123;</span><br><span class="line">  console.log(codePoint)</span><br><span class="line">&#125;</span><br><span class="line">// &quot;f&quot;</span><br><span class="line">// &quot;o&quot;</span><br><span class="line">// &quot;o&quot;</span><br><span class="line">但是用for语句就不能遍历UTF-16的编码字符，因为会误以为一个字符是两个字符</span><br></pre></td></tr></table></figure>
-<h3 id="normalize"><a href="#normalize" class="headerlink" title="normalize()"></a>normalize()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在JavaScript提供合成语调符号和字符的方法合成Ǒ（\u004F\u030C）</span><br><span class="line">但是这种方式无法让JavaScript识别，就是说Unicode本身提供的语调字符和合成之后的字符无法===</span><br><span class="line">但是如果使用了normalize就可以===</span><br><span class="line">&apos;\u01D1&apos;.normalize() === &apos;\u004F\u030C&apos;.normalize()//true</span><br></pre></td></tr></table></figure>
-<h3 id="includes-startsWith-endsWith"><a href="#includes-startsWith-endsWith" class="headerlink" title="includes(), startsWith(), endsWith()"></a>includes(), startsWith(), endsWith()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">includes()：返回布尔值，表示是否找到了参数字符串。</span><br><span class="line">startsWith()：返回布尔值，表示参数字符串是否在原字符串的头部。</span><br><span class="line">endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部。</span><br><span class="line"></span><br><span class="line">let s = &apos;Hello world!&apos;;</span><br><span class="line"></span><br><span class="line">s.startsWith(&apos;Hello&apos;) // true</span><br><span class="line">s.endsWith(&apos;!&apos;) // true</span><br><span class="line">s.includes(&apos;o&apos;) // true</span><br><span class="line"></span><br><span class="line">可以传参数，表示开始查找的位置</span><br></pre></td></tr></table></figure>
-<h3 id="repeat"><a href="#repeat" class="headerlink" title="repeat()"></a>repeat()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">repeat方法返回一个新字符串，表示将原字符串重复n次。</span><br><span class="line">&apos;x&apos;.repeat(3) // &quot;xxx&quot;</span><br><span class="line">&apos;hello&apos;.repeat(2) // &quot;hellohello&quot;</span><br><span class="line">&apos;na&apos;.repeat(0) // &quot;&quot;</span><br></pre></td></tr></table></figure>
-<h3 id="padStart-，padEnd"><a href="#padStart-，padEnd" class="headerlink" title="padStart()，padEnd"></a>padStart()，padEnd</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">padStart()用于头部补全，padEnd()用于尾部补全</span><br><span class="line">&apos;x&apos;.padStart(5, &apos;ab&apos;) // &apos;ababx&apos;</span><br><span class="line">&apos;x&apos;.padStart(4, &apos;ab&apos;) // &apos;abax&apos;</span><br><span class="line"></span><br><span class="line">&apos;x&apos;.padEnd(5, &apos;ab&apos;) // &apos;xabab&apos;</span><br><span class="line">&apos;x&apos;.padEnd(4, &apos;ab&apos;) // &apos;xaba&apos;</span><br><span class="line">如果第一个参数小于x的长度，则返回原字符串</span><br><span class="line">可用于补全字节</span><br></pre></td></tr></table></figure>
-<h3 id="matchAll"><a href="#matchAll" class="headerlink" title="matchAll()"></a>matchAll()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matchAll方法返回一个正则表达式在当前字符串的所有匹配</span><br></pre></td></tr></table></figure>
-<h3 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">JavaScript的模板需要写的格式比较麻烦，一般用+ +来写</span><br><span class="line">eg:</span><br><span class="line">$(&apos;#result&apos;).append(</span><br><span class="line">  &apos;There are &lt;b&gt;&apos; + basket.count + &apos;&lt;/b&gt; &apos; +</span><br><span class="line">  &apos;items in your basket, &apos; +</span><br><span class="line">  &apos;&lt;em&gt;&apos; + basket.onSale +</span><br><span class="line">  &apos;&lt;/em&gt; are on sale!&apos;</span><br><span class="line">);</span><br><span class="line">但是es6引入了模板字符串</span><br><span class="line">$(&apos;#result&apos;).append(`</span><br><span class="line">  There are &lt;b&gt;$&#123;basket.count&#125;&lt;/b&gt; items</span><br><span class="line">   in your basket, &lt;em&gt;$&#123;basket.onSale&#125;&lt;/em&gt;</span><br><span class="line">  are on sale!</span><br><span class="line">`);</span><br><span class="line">主要使用``来写还有$&#123;&#125;来拼</span><br><span class="line">当在模板字符串需要使用``时则需要使用转义符</span><br><span class="line">如果$&#123;&#125;使用的变量没有定义的话就会报错的</span><br><span class="line">用模板字符串所写的模板空格会保留，如果想要去掉空格，需要使用trim()方法</span><br><span class="line">模板字符串还可以用来嵌套</span><br><span class="line">const tmpl = addrs =&gt; `</span><br><span class="line">  &lt;table&gt;</span><br><span class="line">  $&#123;addrs.map(addr =&gt; `</span><br><span class="line">    &lt;tr&gt;&lt;td&gt;$&#123;addr.first&#125;&lt;/td&gt;&lt;/tr&gt;</span><br><span class="line">    &lt;tr&gt;&lt;td&gt;$&#123;addr.last&#125;&lt;/td&gt;&lt;/tr&gt;</span><br><span class="line">  `).join(&apos;&apos;)&#125;</span><br><span class="line">  &lt;/table&gt;</span><br><span class="line">`;</span><br></pre></td></tr></table></figure>
+        <h1 id="Linux其它命令"><a href="#Linux其它命令" class="headerlink" title="Linux其它命令"></a>Linux其它命令</h1><a id="more"></a>
+<h2 id="usermod"><a href="#usermod" class="headerlink" title="usermod"></a>usermod</h2><ul>
+<li>usermod可以用来设置用户的主组/附加组和登录Shell，命令格式如下：</li>
+<li>主组：通常在新建用户时指定，在etc/passwd的第4列GID对应的组</li>
+<li>附加组：在etc/group中最后一列表示该组的用户列表，用于指定用户的附加权限</li>
+</ul>
+<blockquote>
+<p>提示：设置了用户的附加组之后，需要重新登录才能生效</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">修改用户的主组（passwd中的GID）</span><br><span class="line">usermod -g 组 用户名</span><br><span class="line">修改用户的附加组</span><br><span class="line">usermod -G 组 用户名</span><br><span class="line">修改用户登录的Shell</span><br><span class="line">usermod -s /bin/bash</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：默认使用useradd添加的用户是没有权限使用sudo以root身份执行命令的，可以使用以下命令，将用户添加到sudo附加组</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod -G sudo 用户名</span><br></pre></td></tr></table></figure>
+<h2 id="which"><a href="#which" class="headerlink" title="which"></a>which</h2><blockquote>
+<p>提示：</p>
+<ul>
+<li>/etc/passwd是用于保存用户信息的文件</li>
+<li>/usr/bin/passwd是用于修改用户密码的程序</li>
+</ul>
+</blockquote>
+<ul>
+<li>which命令可以查看执行的命令所在的位置</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">which ls</span><br><span class="line">/bin/ls</span><br><span class="line">which useradd</span><br><span class="line">/usr/sbin/useradd</span><br></pre></td></tr></table></figure>
+<h2 id="bin和sbin"><a href="#bin和sbin" class="headerlink" title="bin和sbin"></a>bin和sbin</h2><ul>
+<li>在Linux，绝大多数可执行文件都是保存在/bin,/sbin,/usr/bin,/usr/sbin</li>
+<li>/bin(binary)是二进制执行文件目录，主要用于具体应用</li>
+<li>/sbin(system binary)是系统管理员专用的二进制代码存放目录，主要用于系统管理</li>
+<li>/usr/bin(user commadns for applications)后期安装的一些软件</li>
+<li>/usr/sbin(super user commadns for applications)超级用户的一些管理程序</li>
+</ul>
+<blockquote>
+<p>提示</p>
+<ul>
+<li>cd这个终端命令是内置正在系统内核的，没有独立的文件，因此用which无法找cd的位置</li>
+</ul>
+</blockquote>
+<h2 id="切换用户"><a href="#切换用户" class="headerlink" title="切换用户"></a>切换用户</h2><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>命令</th>
+<th>作用</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>su - 用户名</td>
+<td>切换用户，并且切换目录</td>
+<td>-可以切换到用户家目录，否则保持位置不变</td>
+</tr>
+<tr>
+<td>02</td>
+<td>exit</td>
+<td>退出当前登录账户</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>su - 不接用户名，可以切换到root，但是不推荐使用，因为不安全</li>
+<li>exit示意图如下</li>
+</ul>
+<p><img src="C:\Users\28715\AppData\Roaming\Typora\typora-user-images\1572575218274.png" alt="1572575218274"></p>
+<h2 id="修改文件权限"><a href="#修改文件权限" class="headerlink" title="修改文件权限"></a>修改文件权限</h2><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>chown</td>
+<td>修改拥有者</td>
+</tr>
+<tr>
+<td>02</td>
+<td>chgrp</td>
+<td>修改组</td>
+</tr>
+<tr>
+<td>03</td>
+<td>chmod</td>
+<td>修改权限</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>命令格式如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">修改文件|目录的拥有者</span><br><span class="line">chown 用户名 文件名|目录名</span><br><span class="line">递归修改文件|目录的组</span><br><span class="line">chgrp -R 组名 文件名|目录名</span><br><span class="line">递归修改文件权限</span><br><span class="line">chmod -R 755 文件名|目录名</span><br><span class="line">//第一个数组表示拥有者权限，第二个数字表示组权限，第三个数字表示其他用户权限，分别到标着各自权限所代表数字的和</span><br></pre></td></tr></table></figure>
+<p><img src="C:\Users\28715\AppData\Roaming\Typora\typora-user-images\1572576391931.png" alt="1572576391931"></p>
+<ul>
+<li>chmod 在设置权限时，可以简单地使用三个数字分别对应拥有者/组合其他用户的权限</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">直接修改文件|目录的读|写|执行权限，但是不能精确到拥有者|组|其他</span><br><span class="line">chmod +/-rwx 文件名|目录名</span><br></pre></td></tr></table></figure>
+<ul>
+<li>常见数字组合（u表示用户/g表示组/o表示其他）：<ul>
+<li>777===&gt;u=rwx,g=rwx,o=rwx</li>
+<li>755===&gt;u=rwx,g=rx,o=rx</li>
+<li>644===&gt;u=rw,g=r,o=r</li>
+</ul>
+</li>
+</ul>
+<h2 id="chmod演练目标"><a href="#chmod演练目标" class="headerlink" title="chmod演练目标"></a>chmod演练目标</h2><ol>
+<li><p>将01.py的权限修改为u=rwx,g=rx,o=r</p>
+<p>chmod 754 01.py</p>
+</li>
+<li><p>将123.txt的权限修改为u=rw,g=r,o=-</p>
+<p>chmod 640 123.txt</p>
+</li>
+<li><p>将test目录以及目录下的所有文件权限修改为u=rwx,g=rwx,o=rx</p>
+<p>chmod -R 775 test</p>
+</li>
+</ol>
 
       
     </div>
@@ -319,13 +436,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/23/es6学习笔记2/">es6学习笔记2</a></p>
+        <p><span>本文标题:</span><a href="/2019/11/02/Python-Linux-09/">Python-Linux-09</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
-        <p><span>发布时间:</span>2019-03-23, 23:36:00</p>
-        <p><span>最后更新:</span>2019-03-23, 23:37:43</p>
+        <p><span>发布时间:</span>2019-11-02, 20:45:26</p>
+        <p><span>最后更新:</span>2019-11-02, 20:46:16</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/23/es6学习笔记2/" title="es6学习笔记2">http://yoursite.com/2019/03/23/es6学习笔记2/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/23/es6学习笔记2/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/11/02/Python-Linux-09/" title="Python-Linux-09">http://yoursite.com/2019/11/02/Python-Linux-09/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/11/02/Python-Linux-09/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -338,15 +455,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/04/03/CSS复习内容01/">
-                    CSS复习内容01
+                <a href="/2019/11/02/Python-Linux-10/">
+                    Python-Linux-10
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/03/22/angular精讲5/">
-                    angular精讲5
+                <a href="/2019/10/31/Python-Linux-08/">
+                    Python-Linux-08
                 </a>
             </div>
         
@@ -358,7 +475,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#es6学习笔记2"><span class="toc-number">1.</span> <span class="toc-text">es6学习笔记2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串的扩展"><span class="toc-number">1.1.</span> <span class="toc-text">字符串的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的Unicode码表示"><span class="toc-number">1.1.1.</span> <span class="toc-text">字符串的Unicode码表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#codePointAt-字符串编码"><span class="toc-number">1.1.2.</span> <span class="toc-text">codePointAt()字符串编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String-formCodePoint"><span class="toc-number">1.1.3.</span> <span class="toc-text">String.formCodePoint()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的遍历接口"><span class="toc-number">1.1.4.</span> <span class="toc-text">字符串的遍历接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#normalize"><span class="toc-number">1.1.5.</span> <span class="toc-text">normalize()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#includes-startsWith-endsWith"><span class="toc-number">1.1.6.</span> <span class="toc-text">includes(), startsWith(), endsWith()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#repeat"><span class="toc-number">1.1.7.</span> <span class="toc-text">repeat()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#padStart-，padEnd"><span class="toc-number">1.1.8.</span> <span class="toc-text">padStart()，padEnd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#matchAll"><span class="toc-number">1.1.9.</span> <span class="toc-text">matchAll()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板字符串"><span class="toc-number">1.1.10.</span> <span class="toc-text">模板字符串</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux其它命令"><span class="toc-number">1.</span> <span class="toc-text">Linux其它命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#usermod"><span class="toc-number">1.1.</span> <span class="toc-text">usermod</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#which"><span class="toc-number">1.2.</span> <span class="toc-text">which</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bin和sbin"><span class="toc-number">1.3.</span> <span class="toc-text">bin和sbin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#切换用户"><span class="toc-number">1.4.</span> <span class="toc-text">切换用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改文件权限"><span class="toc-number">1.5.</span> <span class="toc-text">修改文件权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chmod演练目标"><span class="toc-number">1.6.</span> <span class="toc-text">chmod演练目标</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -394,7 +511,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"es6学习笔记2　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Python-Linux-09　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -414,7 +531,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/04/03/CSS复习内容01/" title="上一篇: CSS复习内容01">
+            <a href="/2019/11/02/Python-Linux-10/" title="上一篇: Python-Linux-10">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -422,7 +539,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/03/22/angular精讲5/" title="下一篇: angular精讲5">
+            <a href="/2019/10/31/Python-Linux-08/" title="下一篇: Python-Linux-08">
                 <i class="fa fa-angle-right"></i>
             </a>
         
