@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="yuao">
+
+
+
+<meta name="description" content="数据库介绍 数据库知识点 数据存储 SQL MySQL的安装与使用 数据类型与约束">
+<meta name="keywords" content="Oracle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle-06">
+<meta property="og:url" content="http://yoursite.com/2019/12/26/Oracle-06/index.html">
+<meta property="og:site_name" content="yuaoblog">
+<meta property="og:description" content="数据库介绍 数据库知识点 数据存储 SQL MySQL的安装与使用 数据类型与约束">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-12-26T08:58:17.202Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Oracle-06">
+<meta name="twitter:description" content="数据库介绍 数据库知识点 数据存储 SQL MySQL的安装与使用 数据类型与约束">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="yuaoblog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&fm=27&gp=0.jpg">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Oracle-06 | yuaoblog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: false
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&amp;fm=27&amp;gp=0.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">yuao</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Survey-js/">Survey.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试理论/">测试理论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试用例/">测试用例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件测试简介/">软件测试简介</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">yuao</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&amp;fm=27&amp;gp=0.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">yuao</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-Oracle-06" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/12/26/Oracle-06/" class="article-date">
+      <time datetime="2019-12-26T08:56:05.000Z" itemprop="datePublished">2019-12-26</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Oracle-06
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Oracle/">Oracle</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<ul>
+<li>数据库介绍</li>
+<li>数据库知识点</li>
+<li>数据存储</li>
+<li>SQL</li>
+<li>MySQL的安装与使用</li>
+<li>数据类型与约束</li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<h1 id="数据库介绍"><a href="#数据库介绍" class="headerlink" title="数据库介绍"></a>数据库介绍</h1><p>数据库：数据库实际上还是处理数据的软件</p>
+<p>使用：Mysql navicat</p>
+<p>语言：SQL语言 查询（重点）</p>
+<p>​    Mysql高级</p>
+<h1 id="为什么学习数据库"><a href="#为什么学习数据库" class="headerlink" title="为什么学习数据库"></a>为什么学习数据库</h1><p>测试工程师的目的是找出软件的不足，并告诉开发工程师，出现问题的环境，操作步骤和输入输出的数据。而优秀的测试工程师，当测出问题后，还可以告诉开发团队，问题的原因和解决方案。</p>
+<p>这就要求测试工程师除了会测试，还需要知道开发相关的知识，其中非常重要的就是数据库，因为绝大多数的软件都跟数据紧密相关，比如微博、论坛、新闻、商城等，这些软件都在不停的操作数据，而它们的数据大部分都是存储在数据库中，开发人员的一大部分工作就是在搬迁数据：把数据库中的数据显示到软件中；把用户输入的数据保存到数据库中。</p>
+<p>测试工程师在测试软件的过程中，不仅需要在界面上操作，还需要检查数据库中的数据是否正确。从而在软件出问题时，能够定位问题的原因。</p>
+<p>比如测试注册登录功能，在输入了注册信息后，提示注册成功，但是使用刚才注册的信息登录不成功。这时需要检查数据库中是否保存了正确的注册信息，如果数据库中没有保存数据，那么使用刚才注册的账号肯定登录不了，这样就能定位问题：注册时，没有把数据存储起来。 </p>
+<h1 id="数据库知识点"><a href="#数据库知识点" class="headerlink" title="数据库知识点"></a>数据库知识点</h1><ul>
+<li>数据库相关概念</li>
+<li>MySQL安装与使用</li>
+<li><strong>Navicat使用（重点）</strong></li>
+<li><strong>SQL语言-查询（重点）</strong></li>
+<li>高级</li>
+</ul>
+<h1 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a>学习目标</h1><ul>
+<li>熟练编写SQL语言中的查询语句</li>
+</ul>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><ul>
+<li>数据库是什么</li>
+<li>RDBMS</li>
+<li>SQL</li>
+<li>MySQL</li>
+</ul>
+<blockquote>
+<p>此部分为理论知识，需要了解</p>
+</blockquote>
+<h1 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h1><h3 id="1、人工管理阶段"><a href="#1、人工管理阶段" class="headerlink" title="1、人工管理阶段"></a>1、人工管理阶段</h3><ul>
+<li><h5 id="结绳记事"><a href="#结绳记事" class="headerlink" title="结绳记事"></a>结绳记事</h5></li>
+<li><h5 id="甲骨"><a href="#甲骨" class="headerlink" title="甲骨"></a>甲骨</h5></li>
+<li><h5 id="纸"><a href="#纸" class="headerlink" title="纸"></a>纸</h5></li>
+</ul>
+<p>人工管理阶段，数据都是靠人工进行整理和保存，使用起来很不方便。不便于查询、共享、保存。</p>
+<h3 id="2、文件系统阶段"><a href="#2、文件系统阶段" class="headerlink" title="2、文件系统阶段"></a>2、文件系统阶段</h3><ul>
+<li><h5 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h5></li>
+</ul>
+<p>文件系统阶段，将数据存储在磁盘上，数据都是以文件的形式出现，通过文件系统管理。相对于人工管理方便的多，但是在查询数据内容时，还不是很方便。</p>
+<h3 id="3、数据库系统阶段"><a href="#3、数据库系统阶段" class="headerlink" title="3、数据库系统阶段"></a>3、数据库系统阶段</h3><ul>
+<li><h5 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h5></li>
+</ul>
+<p>数据库是指长期存储在计算机内、有组织的数据集合。简而言之，数据库就是一个存储数据的地方。表是数据库中存储数据的基本单位，数据按照分类存储到不同的表中，能够非常高效的查询其中的数据。</p>
+<h5 id="网页中显示的商品信息"><a href="#网页中显示的商品信息" class="headerlink" title="网页中显示的商品信息"></a>网页中显示的商品信息</h5><h5 id="数据库中存储的商品数据"><a href="#数据库中存储的商品数据" class="headerlink" title="数据库中存储的商品数据"></a>数据库中存储的商品数据</h5><h5 id="真实的商品"><a href="#真实的商品" class="headerlink" title="真实的商品"></a>真实的商品</h5><h1 id="RDBMS"><a href="#RDBMS" class="headerlink" title="RDBMS"></a>RDBMS</h1><blockquote>
+<p>Relational Database Management System</p>
+<p>关系型数据库系统</p>
+<p>通过表来表示关系</p>
+</blockquote>
+<ul>
+<li>当前主要使用两种类型的数据库：关系型数据库、非关系型数据库，我们主要学习主流的关系型数据库</li>
+<li>所谓的关系型数据库RDBMS，是建立在关系模型基础上的数据库，借助于集合代数等数学概念和方法来处理数据库中的数据</li>
+<li><p>查看数据库排名:<a href="https://db-engines.com/en/ranking" target="_blank" rel="noopener">https://db-engines.com/en/ranking</a></p>
+</li>
+<li><p>关系型数据库的主要产品：</p>
+<ul>
+<li>oracle：在以前的大型项目中使用,银行,电信等项目</li>
+<li>mysql：web时代使用最广泛的关系型数据库</li>
+<li>ms sql server：在微软的项目中使用</li>
+<li>sqlite：轻量级数据库，主要应用在移动平台</li>
+</ul>
+</li>
+</ul>
+<h3 id="关系型数据库核心元素"><a href="#关系型数据库核心元素" class="headerlink" title="关系型数据库核心元素"></a>关系型数据库核心元素</h3><ul>
+<li>数据行(一条记录)</li>
+<li>数据列(字段)</li>
+<li>数据表(数据行的集合)</li>
+<li>数据库(数据表的集合,一个数据库中能够有 n 多个数据表)</li>
+</ul>
+<h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h1><blockquote>
+<p>Structured Query Language</p>
+<p>结构化查询语言</p>
+</blockquote>
+<p>在数据库中进行操作的语言，称为sql，结构化查询语言，当前关系型数据库都支持使用sql语言进行操作,也就是说可以通过 sql 操作 oracle,sql server,mysql,sqlite 等等所有的关系型的数据库</p>
+<ul>
+<li>sql语言主要分为：<ul>
+<li><strong>DQL：数据查询语言，用于对数据进行查询，如select</strong></li>
+<li>DML：数据操作语言，对数据进行增加、修改、删除，如insert、udpate、delete</li>
+<li>TPL：事务处理语言，对事务进行处理，包括begin transaction、commit、rollback</li>
+<li>DCL：数据控制语言，进行授权与权限回收，如grant、revoke</li>
+<li>DDL：数据定义语言，进行数据库、表的管理等，如create、drop</li>
+<li>CCL：指针控制语言，通过控制指针完成表的操作，如declare cursor</li>
+</ul>
+</li>
+<li>对于测试工程师来讲，重点是数据的查询，需要熟练编写DQL，其它语言如TPL、DCL、CCL了解即可</li>
+<li>SQL 是一门特殊的语言,专门用来操作关系数据库</li>
+<li>不区分大小写</li>
+</ul>
+<h1 id="MySQL-简介"><a href="#MySQL-简介" class="headerlink" title="MySQL 简介"></a>MySQL 简介</h1><ul>
+<li>点击查看<a href="http://www.mysql.com/" target="_blank" rel="noopener">MySQL官方网站</a></li>
+<li>MySQL是一个关系型数据库管理系统，由瑞典MySQL AB公司开发，后来被Sun公司收购，Sun公司后来又被Oracle公司收购，目前属于Oracle旗下产品</li>
+</ul>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>使用C和C++编写，并使用了多种编译器进行测试，保证源代码的可移植性</li>
+<li>支持多种操作系统，如Linux、Windows、AIX、FreeBSD、HP-UX、MacOS、NovellNetware、OpenBSD、OS/2 Wrap、Solaris等</li>
+<li>为多种编程语言提供了API，如C、C++、Python、Java、Perl、PHP、Eiffel、Ruby等</li>
+<li>支持多线程，充分利用CPU资源</li>
+<li>优化的SQL查询算法，有效地提高查询速度</li>
+<li>提供多语言支持，常见的编码如GB2312、BIG5、UTF8</li>
+<li>提供TCP/IP、ODBC和JDBC等多种数据库连接途径</li>
+<li>提供用于管理、检查、优化数据库操作的管理工具</li>
+<li>大型的数据库。可以处理拥有上千万条记录的大型数据库</li>
+<li>支持多种存储引擎</li>
+<li>MySQL 软件采用了双授权政策，它分为社区版和商业版，由于其体积小、速度快、总体拥有成本低，尤其是开放源码这一特点，一般中小型网站的开发都选择MySQL作为网站数据库</li>
+<li>MySQL使用标准的SQL数据语言形式</li>
+<li>Mysql是可以定制的，采用了GPL协议，你可以修改源码来开发自己的Mysql系统</li>
+<li>在线DDL更改功能</li>
+<li>复制全局事务标识</li>
+<li>复制无崩溃从机</li>
+<li>复制多线程从机</li>
+</ul>
+<blockquote>
+<p>开源 免费 使用范围广 支持多平台</p>
+<p>是学习数据库开发的首选</p>
+</blockquote>
+<h1 id="MySQL安装与使用"><a href="#MySQL安装与使用" class="headerlink" title="MySQL安装与使用"></a>MySQL安装与使用</h1><ul>
+<li>Linux平台下安装MySQL</li>
+<li>Windows平台下安装MySQL</li>
+</ul>
+<blockquote>
+<p>后面的操作主要在Windows中进行</p>
+</blockquote>
+<h1 id="Linux服务器端安装"><a href="#Linux服务器端安装" class="headerlink" title="Linux服务器端安装"></a>Linux服务器端安装</h1><ul>
+<li>当前使用的Centos镜像中已经安装好了MySQL服务器端，无需再安装，并且设置成了开机自启动</li>
+<li>服务端用于接收客户端的请求、执行sql语句</li>
+<li>启动服务(需要root权限)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su</span><br><span class="line">输入root密码</span><br><span class="line">service mysqld start</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看进程中是否存在mysql服务</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps ajx|grep mysql</span><br></pre></td></tr></table></figure>
+<ul>
+<li>停止服务(需要root权限)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su</span><br><span class="line">输入root密码</span><br><span class="line">service mysqld stop</span><br></pre></td></tr></table></figure>
+<ul>
+<li>重启服务(需要root权限)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su</span><br><span class="line">输入root密码</span><br><span class="line">service mysqld restart</span><br></pre></td></tr></table></figure>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ul>
+<li>配置文件位置为/data/server/mysql/my.cnf</li>
+</ul>
+<h1 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h1><ul>
+<li>常用的有图形化界面客户端(navicat)、命令行客户端</li>
+</ul>
+<h4 id="图形化界面客户端navicat"><a href="#图形化界面客户端navicat" class="headerlink" title="图形化界面客户端navicat"></a>图形化界面客户端navicat</h4><ul>
+<li>可以到<a href="https://www.navicat.com.cn/" target="_blank" rel="noopener">Navicat官网</a>下载</li>
+<li>将压缩文件拷贝到Centos虚拟机中，放到桌面上，解压</li>
+<li>进入解压的目录，运行navicat，命令如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/admin/Desktop/navicat112_mysql_cs_x64</span><br><span class="line">./start_navicat</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>启动后如下图</p>
+</li>
+<li><p>点击两次“取消”按钮后如下图</p>
+</li>
+<li><p>点击“试用”按钮后如下图</p>
+</li>
+<li><p>问题：试用期到期</p>
+</li>
+<li>解决：删除用户目录下的.navicat64目录</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">rm -r .navicat64</span><br></pre></td></tr></table></figure>
+<h4 id="命令行客户端"><a href="#命令行客户端" class="headerlink" title="命令行客户端"></a>命令行客户端</h4><ul>
+<li>当前使用的Centos镜像中已经安装好了MySQL客户端，无需再安装</li>
+<li>最基本的连接命令如下，输入后回车</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>连接成功后提示如下图</p>
+</li>
+<li><p>按ctrl+d或输入如下命令退出</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quit 或者 exit</span><br></pre></td></tr></table></figure>
+<h1 id="服务器端安装"><a href="#服务器端安装" class="headerlink" title="服务器端安装"></a>服务器端安装</h1><p>1、解压mysql-essential-5.1.55-win32.zip，双击运行mysql-essential-5.1.55-win32.msi</p>
+<p>2、点击next</p>
+<p>3、选择accept，点击next</p>
+<p>4、点击next</p>
+<p>5、点击install</p>
+<p>6、点击next</p>
+<p>7、点击next</p>
+<p>8、点击finish，开始配置MySQL</p>
+<p>9、点击next</p>
+<p>10、点击next</p>
+<p>11、点击next</p>
+<p>12、点击next</p>
+<p>13、点击next</p>
+<p>14、点击next</p>
+<p>15、勾选 add firewall，点击next</p>
+<p>16、选择最下面选项，下拉框里选择utf8，点击next</p>
+<p>17、点击next</p>
+<p>18、输入两次密码，勾选 enable root，点击next</p>
+<p>19、点击execute</p>
+<p>20、点击finish，配置完成，MySQL服务端已经配置成开机自启动，且已经启动</p>
+<h3 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h3><ul>
+<li>配置文件位置为C:\Program Files (x86)\MySQL\MySQL Server 5.1\my.ini</li>
+</ul>
+<h3 id="服务端的启动、停止、重启"><a href="#服务端的启动、停止、重启" class="headerlink" title="服务端的启动、停止、重启"></a>服务端的启动、停止、重启</h3><p>打开控制面板</p>
+<p>在控制面板中以小图标显示，打开管理工具</p>
+<p>在管理工具中，打开服务，找到MySQL，右键点击，能看到启动、停止、重启功能</p>
+<h1 id="客户端-1"><a href="#客户端-1" class="headerlink" title="客户端"></a>客户端</h1><h3 id="命令行客户端-1"><a href="#命令行客户端-1" class="headerlink" title="命令行客户端"></a>命令行客户端</h3><p>MySQL服务端安装后，自带了命令行的客户端，在系统开始菜单-&gt;所有程序-&gt;MySQL-MySQL Server 5.1目录下，点击MySQL Command Line Client，弹出如下图所示窗口</p>
+<p>输入安装MySQL时设置的密码，既连接上MySQL的服务端</p>
+<p>按ctrl+c或输入如下命令退出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quit 或者 exit</span><br></pre></td></tr></table></figure>
+<h3 id="图形化界面客户端navicat-1"><a href="#图形化界面客户端navicat-1" class="headerlink" title="图形化界面客户端navicat"></a>图形化界面客户端navicat</h3><p>双击navicat112_premium_cs_x86.exe，一路下一步，安装完成</p>
+<h4 id="注册navicat（不要打开navicat程序）"><a href="#注册navicat（不要打开navicat程序）" class="headerlink" title="注册navicat（不要打开navicat程序）"></a>注册navicat（不要打开navicat程序）</h4><p>1、解压navicat注册机.7z，右键点击navicat_chs.exe，<strong>以管理员身份运行</strong></p>
+<p>2、在产品下拉框中选择 Navicat Premium Enterprise v11</p>
+<p>3、点击补丁按钮，在弹出的窗口中，找到navicat的安装目录C:\Program Files (x86)\PremiumSoft\Navicat Premium，选择navicat.exe，点击打开按钮</p>
+<p>4、此时注册机会显示成功补丁信息，如下图</p>
+<p>5、点击生成按钮，在弹出的窗口中，选择一个目录，用来保存生成的文件，点击保存按钮（生成的文件会出现在navicat_chs.exe同目录下）</p>
+<p>6、此时注册机会显示注册序列号，如下图</p>
+<p>7、打开navicat程序，点击注册按钮</p>
+<p>8、把刚才生成的序列号复制粘贴过来，不要点击激活按钮</p>
+<p>9、按住Ctrl+Shilft键不松开，再点击激活按钮，弹出如下窗口</p>
+<p>10、选择license_file，点击打开按钮(license_file在navicat注册机目录中)</p>
+<p>11、navicat注册成功</p>
+<h1 id="数据类型与约束"><a href="#数据类型与约束" class="headerlink" title="数据类型与约束"></a>数据类型与约束</h1><ul>
+<li>为了更加准确的存储数据，保证数据的正确有效，需要合理的使用数据类型和约束来限制数据的存储。</li>
+</ul>
+<h3 id="常用数据类型"><a href="#常用数据类型" class="headerlink" title="常用数据类型"></a>常用数据类型</h3><ul>
+<li>整数：int，有符号范围（-2147483648 ~2147483647），无符号范围（0 ~ 4294967295）</li>
+<li>小数：decimal，如decimal(5,2)表示共存5位数，小数占2位，整数占3位</li>
+<li>字符串：varchar，范围（0~65533），如varchar(3)表示最多存3个字符，一个中文或一个字母都占一个字符</li>
+<li>日期时间: datetime，范围（1000-01-01 00:00:00 ~ 9999-12-31 23:59:59），如’2020-01-01 12:29:59’</li>
+</ul>
+<h4 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h4><ul>
+<li>主键(primary key)：物理上存储的顺序</li>
+<li>非空(not null)：此字段不允许填写空值</li>
+<li>惟一(unique)：此字段的值不允许重复</li>
+<li>默认值(default)：当不填写此值时会使用默认值，如果填写时以填写为准</li>
+<li>外键(foreign key)：维护两个表之间的关联关系</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/12/26/Oracle-06/">Oracle-06</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
+        <p><span>发布时间:</span>2019-12-26, 16:56:05</p>
+        <p><span>最后更新:</span>2019-12-26, 16:58:17</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/12/26/Oracle-06/" title="Oracle-06">http://yoursite.com/2019/12/26/Oracle-06/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/12/26/Oracle-06/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2019/12/26/Oracle-07/">
+                    Oracle-07
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/12/26/Python-11/">
+                    Python-11
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据库介绍"><span class="toc-number">1.</span> <span class="toc-text">数据库介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么学习数据库"><span class="toc-number">2.</span> <span class="toc-text">为什么学习数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据库知识点"><span class="toc-number">3.</span> <span class="toc-text">数据库知识点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#学习目标"><span class="toc-number">4.</span> <span class="toc-text">学习目标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本概念"><span class="toc-number">5.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据存储"><span class="toc-number">6.</span> <span class="toc-text">数据存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、人工管理阶段"><span class="toc-number">6.0.1.</span> <span class="toc-text">1、人工管理阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#结绳记事"><span class="toc-number">6.0.1.0.1.</span> <span class="toc-text">结绳记事</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#甲骨"><span class="toc-number">6.0.1.0.2.</span> <span class="toc-text">甲骨</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#纸"><span class="toc-number">6.0.1.0.3.</span> <span class="toc-text">纸</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、文件系统阶段"><span class="toc-number">6.0.2.</span> <span class="toc-text">2、文件系统阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#磁盘"><span class="toc-number">6.0.2.0.1.</span> <span class="toc-text">磁盘</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#3、数据库系统阶段"><span class="toc-number">6.0.3.</span> <span class="toc-text">3、数据库系统阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#数据库"><span class="toc-number">6.0.3.0.1.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#网页中显示的商品信息"><span class="toc-number">6.0.3.0.2.</span> <span class="toc-text">网页中显示的商品信息</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数据库中存储的商品数据"><span class="toc-number">6.0.3.0.3.</span> <span class="toc-text">数据库中存储的商品数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#真实的商品"><span class="toc-number">6.0.3.0.4.</span> <span class="toc-text">真实的商品</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RDBMS"><span class="toc-number">7.</span> <span class="toc-text">RDBMS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关系型数据库核心元素"><span class="toc-number">7.0.1.</span> <span class="toc-text">关系型数据库核心元素</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL"><span class="toc-number">8.</span> <span class="toc-text">SQL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL-简介"><span class="toc-number">9.</span> <span class="toc-text">MySQL 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特点"><span class="toc-number">9.0.1.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL安装与使用"><span class="toc-number">10.</span> <span class="toc-text">MySQL安装与使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux服务器端安装"><span class="toc-number">11.</span> <span class="toc-text">Linux服务器端安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-number">11.0.1.</span> <span class="toc-text">配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#客户端"><span class="toc-number">12.</span> <span class="toc-text">客户端</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#图形化界面客户端navicat"><span class="toc-number">12.0.0.1.</span> <span class="toc-text">图形化界面客户端navicat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#命令行客户端"><span class="toc-number">12.0.0.2.</span> <span class="toc-text">命令行客户端</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#服务器端安装"><span class="toc-number">13.</span> <span class="toc-text">服务器端安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置-1"><span class="toc-number">13.0.1.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务端的启动、停止、重启"><span class="toc-number">13.0.2.</span> <span class="toc-text">服务端的启动、停止、重启</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#客户端-1"><span class="toc-number">14.</span> <span class="toc-text">客户端</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#命令行客户端-1"><span class="toc-number">14.0.1.</span> <span class="toc-text">命令行客户端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图形化界面客户端navicat-1"><span class="toc-number">14.0.2.</span> <span class="toc-text">图形化界面客户端navicat</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注册navicat（不要打开navicat程序）"><span class="toc-number">14.0.2.1.</span> <span class="toc-text">注册navicat（不要打开navicat程序）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据类型与约束"><span class="toc-number">15.</span> <span class="toc-text">数据类型与约束</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用数据类型"><span class="toc-number">15.0.1.</span> <span class="toc-text">常用数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#约束"><span class="toc-number">15.0.1.1.</span> <span class="toc-text">约束</span></a></li></ol></li></ol></li>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Oracle-06　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/12/26/Oracle-07/" title="上一篇: Oracle-07">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/12/26/Python-11/" title="下一篇: Python-11">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/12/26/Oracle-07/">Oracle-07</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/26/Oracle-06/">Oracle-06</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/26/Python-11/">Python-11</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/26/Python-10/">Python-10</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Oracle-05/">Oracle-05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Python-09/">Python-09</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Python-08/">Python-08</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Oracle-04/">Oracle-04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Oracle-03/">Oracle-03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Python-07/">Python-07</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Python-06/">Python-06</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/17/Oracle-02/">Oracle-02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/17/Python-05/">Python-05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/17/Python-04/">Python-04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/16/Oracle-01/">Oracle-01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/16/Python-03/">Python-03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/16/Python-02/">Python-02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/15/Python-01/">Python-01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/15/Python-Linux-12/">Python-Linux-12</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/14/Python-Linux-11/">Python-Linux-11</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/02/Python-Linux-10/">Python-Linux-10</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/02/Python-Linux-09/">Python-Linux-09</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/31/Python-Linux-08/">Python-Linux-08</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/31/Python-Linux-07/">Python-Linux-07</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/29/Python-Linux-06/">Python-Linux-06</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/29/Python-Linux-05/">Python-Linux-05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/27/Python-Linux-04/">Python-Linux-04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/27/Python-Linux-03/">Python-Linux-03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/24/Python-Linux-02/">Python_Linux-02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/24/Python-Linux-01/">Python_Linux-01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/软件测试——测试用例拓展/">软件测试——测试用例拓展</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/软件测试——测试用例总结02/">软件测试——测试用例总结02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/软件测试——测试用例总结01/">软件测试——测试用例总结01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/软件测试——测试用例05/">软件测试——测试用例05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/软件测试——测试用例04/">软件测试——测试用例04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/软件测试——测试用例03/">软件测试——测试用例03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/软件测试——测试用例02/">软件测试——测试用例02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/软件测试——测试用例01/">软件测试——测试用例01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/软件测试——测试理论05/">软件测试——测试理论05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/14/软件测试——测试理论04/">软件测试——测试理论04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/14/软件测试——测试理论03/">软件测试——测试理论03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/软件测试——测试理论02/">软件测试——测试理论02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/软件测试——测试理论01/">软件测试——测试理论01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/软件测试——测试基础02-1/">软件测试——测试基础02-1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/软件测试——测试基础01-2/">软件测试——测试基础01-2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/软件测试——测试基础01-1/">软件测试——测试基础01_1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5的FileReader/">HTML5的FileReader</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5地理定位接口/">HTML5地理定位接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5的拖拽/">HTML5的拖拽</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/03/CSS复习内容01/">CSS复习内容01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/23/es6学习笔记2/">es6学习笔记2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/22/angular精讲5/">angular精讲5</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/CSS3学习笔记2/">CSS3学习笔记2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/angular精讲4/">angular精讲4</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/20/CSS3学习笔记/">CSS3学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/20/angular精讲3/">angular精讲3</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/es6学习笔记/">es6学习笔记01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/angular精讲2/">angular精讲2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/angular精讲1/">angular精讲1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/javascript基础-02/">javascript基础_02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/angular路由/">angular路由</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/javascript基础01-01/">javascript基础01_01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/11/angular服务的依赖注入/">angular服务的依赖注入</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/10/angular-指令简述/">angular 指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/Angular-Component-databinding/">Angular Component$databinding</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/08/survey.js/">survey.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/angular新建组件方法/">angular新建组件方法</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2019 yuao
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
