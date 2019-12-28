@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="angular精讲3">
-<meta name="keywords" content="Angular">
+<meta name="description" content="变量的命名规则 判断(if)语句 运算符   变量的命名规则 命名规则 可以被视为一种 惯例，并无绝对与强制目的是为了 增加代码的识别和可读性  注意 Python 中的 标识符 是 区分大小写的  在定义变量时，为了保证代码格式，= 的左右应该各保留一个空格  在 Python 中，如果 变量名 需要由 二个 或 多个单词 组成时，可以按照以下方式命名  每个单词都使用小写字母 单词与单词之">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="angular精讲3">
-<meta property="og:url" content="http://yoursite.com/2019/03/20/angular精讲3/index.html">
+<meta property="og:title" content="Python-12">
+<meta property="og:url" content="http://yoursite.com/2019/12/28/Python-12/index.html">
 <meta property="og:site_name" content="yuaoblog">
-<meta property="og:description" content="angular精讲3">
+<meta property="og:description" content="变量的命名规则 判断(if)语句 运算符   变量的命名规则 命名规则 可以被视为一种 惯例，并无绝对与强制目的是为了 增加代码的识别和可读性  注意 Python 中的 标识符 是 区分大小写的  在定义变量时，为了保证代码格式，= 的左右应该各保留一个空格  在 Python 中，如果 变量名 需要由 二个 或 多个单词 组成时，可以按照以下方式命名  每个单词都使用小写字母 单词与单词之">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-22T15:56:26.783Z">
+<meta property="og:updated_time" content="2019-12-28T10:40:02.688Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="angular精讲3">
-<meta name="twitter:description" content="angular精讲3">
+<meta name="twitter:title" content="Python-12">
+<meta name="twitter:description" content="变量的命名规则 判断(if)语句 运算符   变量的命名规则 命名规则 可以被视为一种 惯例，并无绝对与强制目的是为了 增加代码的识别和可读性  注意 Python 中的 标识符 是 区分大小写的  在定义变量时，为了保证代码格式，= 的左右应该各保留一个空格  在 Python 中，如果 变量名 需要由 二个 或 多个单词 组成时，可以按照以下方式命名  每个单词都使用小写字母 单词与单词之">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>angular精讲3 | yuaoblog</title>
+<title>Python-12 | yuaoblog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -265,11 +265,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-angular精讲3" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Python-12" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/03/20/angular精讲3/" class="article-date">
-      <time datetime="2019-03-20T15:18:19.000Z" itemprop="datePublished">2019-03-20</time>
+      <a href="/2019/12/28/Python-12/" class="article-date">
+      <time datetime="2019-12-28T10:38:31.000Z" itemprop="datePublished">2019-12-28</time>
 </a>
 
 
@@ -284,7 +284,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      angular精讲3
+      Python-12
     </h1>
   
 
@@ -295,7 +295,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -305,74 +305,124 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="angular精讲3"><a href="#angular精讲3" class="headerlink" title="angular精讲3"></a>angular精讲3</h1><a id="more"></a>
-<h4 id="辅助路由"><a href="#辅助路由" class="headerlink" title="辅助路由"></a>辅助路由</h4><p>若要使用辅助路由，在模板位置除了需要声明普通占位符外，还需要别的声明</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-outlet&gt;&lt;/router-outlet&gt;</span><br><span class="line">&lt;router-outlet name=&quot;aux&quot;&gt;&lt;/router-outlet&gt;//带有name属性的占位符</span><br></pre></td></tr></table></figure>
-<p>在路由的配置时需要这样的路由</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path:&apos;xxx&apos;,</span><br><span class="line">    component:XxxComponent,</span><br><span class="line">    outlet:&quot;aux&quot;</span><br><span class="line">&#125;//声明在名字为aux的占位符的位置可以显示声明组件</span><br><span class="line">&#123;</span><br><span class="line">&#123;</span><br><span class="line">    path:&apos;yyy&apos;,</span><br><span class="line">    component:yyyComponent,</span><br><span class="line">    outlet:&quot;aux&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在路由调用时需要这样写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;a [routerLink]=&quot;[&apos;/home&apos;,&#123;outlets:&#123;ayx:&apos;xxx&apos;&#125;&#125;]&quot;&gt;xxx&lt;/a&gt;</span><br><span class="line">&lt;a [routerLink]=&quot;[&apos;/product&apos;,&#123;outlets:&#123;ayx:&apos;yyy&apos;&#125;&#125;]&quot;&gt;yyy&lt;/a&gt;</span><br><span class="line">//表示在点击链接显示一个大组件和另一个组件，二者相对独立</span><br></pre></td></tr></table></figure>
-<h5 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h5><ol>
-<li>在app组件模板写一个占位符来显示聊天面板</li>
-<li>单独开发一个聊天室组件，只定义在新的占位符</li>
-<li>以路由参数来控制是否使用聊天面板</li>
-</ol>
+        <blockquote>
+<ul>
+<li>变量的命名规则</li>
+<li>判断(if)语句</li>
+<li>运算符</li>
+</ul>
+</blockquote>
+<h2 id="变量的命名规则"><a href="#变量的命名规则" class="headerlink" title="变量的命名规则"></a>变量的命名规则</h2><blockquote>
+<p><strong>命名规则</strong> 可以被视为一种 <strong>惯例</strong>，并无绝对与强制<br>目的是为了 <strong>增加代码的识别和可读性</strong></p>
+</blockquote>
+<p><strong>注意</strong> <code>Python</code> 中的 <strong>标识符</strong> 是 <strong>区分大小写的</strong></p>
 <ol>
-<li><p>首先在APP的模板添加一个辅助占位符</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-outlet name=&quot;aux&quot;&gt;&lt;/router-outlet&gt;</span><br></pre></td></tr></table></figure>
+<li><p>在定义变量时，为了保证代码格式，<code>=</code> 的左右应该各保留一个空格</p>
 </li>
-<li><p>新建聊天组件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng g c chat</span><br></pre></td></tr></table></figure>
-<p>写组件模板</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;textarea placeholder=&quot;请输入聊天内容&quot; class=&quot;chat&quot;&gt;&lt;/textarea&gt;</span><br></pre></td></tr></table></figure>
-<p>写样式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.chat&#123;</span><br><span class="line">    background:blue;</span><br><span class="line">    height:100px;</span><br><span class="line">    width:30%;</span><br><span class="line">    float:left；</span><br><span class="line">    box-sizing:border-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后需要将之前的Product的模板样式也做调整，这个看自己的需要，和angular关系不大</p>
-</li>
-<li><p>增加路由配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path:&apos;chat&apos;,</span><br><span class="line">    component:ChatComponent,</span><br><span class="line">    outlet:&apos;aux&apos;</span><br><span class="line">&#125;这个路由会显示在名字为aux的占位符</span><br></pre></td></tr></table></figure>
-<p>然后在app.html文件新增两个链接用来指向聊天的路由</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;a [routerLink]=&quot;[&#123;outlets:&#123;aux:&apos;chat&apos;&#125;&#125;]&quot;&gt;开始聊天&lt;/a&gt;</span><br><span class="line">&lt;a [routerLink]=&quot;[&#123;outlets:&#123;aux:null&#125;&#125;]&quot;&gt;结束聊天&lt;/a&gt;//这样组件就不显示了</span><br></pre></td></tr></table></figure>
+<li><p>在 <code>Python</code> 中，如果 <strong>变量名</strong> 需要由 <strong>二个</strong> 或 <strong>多个单词</strong> 组成时，可以按照以下方式命名</p>
+<ol>
+<li>每个单词都使用小写字母</li>
+<li>单词与单词之间使用 <strong><code>_</code>下划线</strong> 连接</li>
+</ol>
+<ul>
+<li>例如：<code>first_name</code>、<code>last_name</code>、<code>qq_number</code>、<code>qq_password</code></li>
+</ul>
 </li>
 </ol>
-<p>如果希望当路由在点击开始聊天链接时跳到home路由</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a [routerLink]=&quot;[&#123;outlets:&#123;primary:&apos;home&apos;,aux:&apos;chat&apos;&#125;&#125;]&quot;&gt;开始聊天&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h4><ol>
-<li>当用户已登录或拥有某些权限的时候才能使用某些路由</li>
-<li>一个由多个表单组件组成的向导，例如注册流程，用户只有在当前路由的组件填写了满足要求的信息才能指向下一个路由</li>
-<li>当用户没有执行保存而试图离开路由时提醒路由</li>
+<h3 id="驼峰命名法"><a href="#驼峰命名法" class="headerlink" title="驼峰命名法"></a>驼峰命名法</h3><ul>
+<li>当 <strong>变量名</strong> 是由二个或多个单词组成时，还可以利用驼峰命名法来命名</li>
+<li><strong>小驼峰式命名法</strong><ul>
+<li>第一个单词以小写字母开始，后续单词的首字母大写</li>
+<li>例如：<code>firstName</code>、<code>lastName</code></li>
+</ul>
+</li>
+<li><strong>大驼峰式命名法</strong><ul>
+<li>每一个单词的首字母都采用大写字母</li>
+<li>例如：<code>FirstName</code>、<code>LastName</code>、<code>CamelCase</code> </li>
+</ul>
+</li>
+</ul>
+<h1 id="判断（if）语句"><a href="#判断（if）语句" class="headerlink" title="判断（if）语句"></a>判断（if）语句</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>开发中的应用场景</li>
+<li>if 语句体验</li>
+<li>if 语句进阶</li>
+<li>综合应用</li>
+</ul>
+<h2 id="01-开发中的应用场景"><a href="#01-开发中的应用场景" class="headerlink" title="01. 开发中的应用场景"></a>01. 开发中的应用场景</h2><p>生活中的判断几乎是无所不在的，我们每天都在做各种各样的选择，如果这样？如果那样？……</p>
+<h3 id="程序中的判断"><a href="#程序中的判断" class="headerlink" title="程序中的判断"></a>程序中的判断</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 今天发工资:</span><br><span class="line"></span><br><span class="line">    先还信用卡的钱</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> 有剩余:</span><br><span class="line"></span><br><span class="line">        又可以happy了，O(∩_∩)O哈哈~</span><br><span class="line"></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">        噢，no。。。还的等<span class="number">30</span>天</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">    盼着发工资</span><br></pre></td></tr></table></figure>
+<h3 id="判断的定义"><a href="#判断的定义" class="headerlink" title="判断的定义"></a>判断的定义</h3><ul>
+<li>如果 <strong>条件满足</strong>，才能做某件事情，</li>
+<li>如果 <strong>条件不满足</strong>，就做另外一件事情，或者什么也不做</li>
+</ul>
+<blockquote>
+<p>正是因为有了判断，才使得程序世界丰富多彩，充满变化！</p>
+<p><strong>判断语句</strong> 又被称为 “分支语句”，正是因为有了判断，才让程序有了很多的分支</p>
+</blockquote>
+<h2 id="02-if-语句体验"><a href="#02-if-语句体验" class="headerlink" title="02. if 语句体验"></a>02. if 语句体验</h2><h3 id="2-1-if-判断语句基本语法"><a href="#2-1-if-判断语句基本语法" class="headerlink" title="2.1 if 判断语句基本语法"></a>2.1 if 判断语句基本语法</h3><p>在 <code>Python</code> 中，<strong>if 语句</strong> 就是用来进行判断的，格式如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 要判断的条件:</span><br><span class="line">    条件成立时，要做的事情</span><br><span class="line">    ……</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：代码的缩进为一个 <code>tab</code> 键，或者 <strong>4</strong> 个空格 —— <strong>建议使用空格</strong></p>
+<ul>
+<li>在 Python 开发中，Tab 和空格不要混用！</li>
+</ul>
+</blockquote>
+<h3 id="2-2-判断语句演练-——-判断年龄"><a href="#2-2-判断语句演练-——-判断年龄" class="headerlink" title="2.2 判断语句演练 —— 判断年龄"></a>2.2 判断语句演练 —— 判断年龄</h3><p><strong>需求</strong></p>
+<ol>
+<li>定义一个整数变量记录年龄</li>
+<li>判断是否满 18 岁 （<strong>&gt;=</strong>）</li>
+<li>如果满 18 岁，允许进网吧嗨皮</li>
 </ol>
-<p>angular路由提供了一些钩子，实现这样的功能，这又称为路由守卫</p>
-<h5 id="包括三种"><a href="#包括三种" class="headerlink" title="包括三种"></a>包括三种</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CanActivate：处理导航到某路由的情况，当不能满足要求不能使用路由</span><br><span class="line">CanDeactivate：处理从当前路由离开的情况，如果不能满足本路由要求就不能离开或提升</span><br><span class="line">Resolve：在激活路由前获取路由数据，在到达路由时就将数据展示给用户</span><br></pre></td></tr></table></figure>
-<h5 id="使用：只让登录用户能够查看产品信息路由"><a href="#使用：只让登录用户能够查看产品信息路由" class="headerlink" title="使用：只让登录用户能够查看产品信息路由"></a>使用：只让登录用户能够查看产品信息路由</h5><ol>
-<li>首先在app建一个目录，称为guard(守卫)</li>
-<li>在目录建一个ts文件，login.guard.ts</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">export class LoginGuard implements CanActivate&#123;</span><br><span class="line">	CanActivate()&#123;//一些参数目前还用不到</span><br><span class="line">	//angular会根据这个方法返回的是true还是false去判断是否执行路由</span><br><span class="line">		let loggedIn:boolean=Math.random()&lt;0.5;</span><br><span class="line">		//在这里使用随机数是否大于0.5来模拟用户是否登录</span><br><span class="line">		if(!loggedIn)&#123;</span><br><span class="line">            console.log(&quot;用户未登录&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		return loggedIn；</span><br><span class="line">	&#125;</span><br><span class="line">	//CanActivate只有这一个方法</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这就是一个登录守卫</p>
-<p>此时需要修改路由配置，将其加到路由</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//添加子路由</span><br><span class="line">	&#123;</span><br><span class="line">		path:&apos;product&apos;,//一般不写成/product</span><br><span class="line">		component：ProductComponent,//需要把HomeComponent给import到头部</span><br><span class="line">		children:[</span><br><span class="line">            &#123;</span><br><span class="line">                path:&apos;&apos;,</span><br><span class="line">                component:ProductDescComponent</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                path:&apos;seller/:id&apos;,</span><br><span class="line">                component:SellerInfoComponent</span><br><span class="line">            &#125;</span><br><span class="line">		],canActivate:[LoginGuard]//可以在这里设置多个路由守卫，这些守卫会依次调用，如果一个为false那就不能使用路由</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//我们可以看到LoginGuard类没有实例化，那谁来实例化呢，可以使用依赖注入机制去实例化，详细稍后讲</span><br></pre></td></tr></table></figure>
-<p>在@NgModule的provider:[]写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">providers:[LoginGuard]//这样就可以守卫商品信息路由了</span><br></pre></td></tr></table></figure>
-<p>这样就写好了路由守卫</p>
-<h5 id="写一个离开路由的守卫"><a href="#写一个离开路由的守卫" class="headerlink" title="写一个离开路由的守卫"></a>写一个离开路由的守卫</h5><p>在guard文件夹新建一个save.component.ts文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">export class save implements CanDeactivate&lt;ProductCompoent&gt;&#123;</span><br><span class="line">//写在括号的组件是指要保护的组件是这个组件</span><br><span class="line">	CanDeactivate(component:ProductComponent&#125;)&#123;</span><br><span class="line">		//根据组件的状态和属性去判断用户是否可以离开</span><br><span class="line">		return window.confirm(&quot;你还没有保存，确定不保存吗&quot;);</span><br><span class="line">		//用来模拟</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后把守卫加到路由</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//添加子路由</span><br><span class="line">	&#123;</span><br><span class="line">		path:&apos;product&apos;,</span><br><span class="line">		component：ProductComponent,</span><br><span class="line">		children:[</span><br><span class="line">            &#123;</span><br><span class="line">                path:&apos;&apos;,</span><br><span class="line">                component:ProductDescComponent</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                path:&apos;seller/:id&apos;,</span><br><span class="line">                component:SellerInfoComponent</span><br><span class="line">            &#125;</span><br><span class="line">		],</span><br><span class="line">		canActivate:[LoginGuard],</span><br><span class="line">		canDeactivate:[save]</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<p>在providers也记得加</p>
-<h4 id="resolve守卫"><a href="#resolve守卫" class="headerlink" title="resolve守卫"></a>resolve守卫</h4><p>可用路由守卫传递数据，那就是使用resolve守卫</p>
-<p>当想要到一个路由时，一般传统做法是，比如带着一个参数过去，但是在真正发送http请求时会有很大延迟，那你再页面获取的数据就会是空的，这样用户体验不好，resolve就是解决这个问题，</p>
-<p>resolve是在到达路由之前就读取数据，之后带着数据到达路由，直接使用这些数据</p>
-<p>在guard守卫文件夹再建一个product.resolve.ts</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@Injectable()//只有这个装饰器装饰了Router才能成功依赖注入，组件不用是因为组件已经集成了</span><br><span class="line">export class ProductResolve implements Resolve&lt;Product&gt;&#123;</span><br><span class="line">    //此处想要解析一个商品信息的数据集就传一个Product</span><br><span class="line">    constructor(private router:Router)</span><br><span class="line">    resolve(route：ActivatedRouteSnapshot,state:RouterStateSnapshot):Observable&lt;product&gt;|Promise&lt;Product&gt;|Product&#123;</span><br><span class="line">    let id:number=route.params[&quot;id&quot;];</span><br><span class="line">    if(productId==1)&#123;</span><br><span class="line">		return new Product(1.&quot;iPhone7&quot;)</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		this.router.navigate([&apos;/home&apos;])</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">//记得引包，需要Resolve和Product</span><br></pre></td></tr></table></figure>
-<p>需要在product组件的ts文件去声明一个Product类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export class Product&#123;</span><br><span class="line">	constructor(public id:number,public name:string)&#123;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>同样的路由建好之后要加到路由配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">resolve:&#123;</span><br><span class="line">    product:ProductResolve</span><br><span class="line">&#125;</span><br><span class="line">在providers也要加</span><br></pre></td></tr></table></figure>
-<p>因为对象一个是id一个是name</p>
-<p>商品属性只设置了id，所以要在商品的ts文件中再声明一个name</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">private productName:string;</span><br><span class="line">这时不是订阅params，而是订阅传递的数据，ngOnInit块写,</span><br><span class="line">this.routeInfo.data.subscribe（(data:&#123;product:Product&#125;)=&#123;</span><br><span class="line">   this.productId=data.product.id; </span><br><span class="line">   this.productName=data.product.name; </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>记得在商品模板添加商品名称</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 定义年龄变量</span></span><br><span class="line">age = <span class="number">18</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 判断是否满 18 岁</span></span><br><span class="line"><span class="comment"># if 语句以及缩进部分的代码是一个完整的代码块</span></span><br><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span>:</span><br><span class="line">    print(<span class="string">"可以进网吧嗨皮……"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 思考！- 无论条件是否满足都会执行</span></span><br><span class="line">print(<span class="string">"这句代码什么时候执行?"</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h2 id="目标-1"><a href="#目标-1" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>算数运算符</li>
+<li>比较（关系）运算符</li>
+<li>逻辑运算符</li>
+<li>赋值运算符</li>
+<li>运算符的优先级</li>
+</ul>
+<p>数学符号表链接：[<a href="https://zh.wikipedia.org/wiki/数学符号表]" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/数学符号表]</a>(</p>
+<h2 id="比较（关系）运算符"><a href="#比较（关系）运算符" class="headerlink" title="比较（关系）运算符"></a>比较（关系）运算符</h2><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>==</td>
+<td>检查两个操作数的值是否 <strong>相等</strong>，如果是，则条件成立，返回 True</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>检查两个操作数的值是否 <strong>不相等</strong>，如果是，则条件成立，返回 True</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>检查左操作数的值是否 <strong>大于</strong> 右操作数的值，如果是，则条件成立，返回 True</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>检查左操作数的值是否 <strong>小于</strong> 右操作数的值，如果是，则条件成立，返回 True</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>检查左操作数的值是否 <strong>大于或等于</strong> 右操作数的值，如果是，则条件成立，返回 True</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>检查左操作数的值是否 <strong>小于或等于</strong> 右操作数的值，如果是，则条件成立，返回 True</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Python 2.x 中判断 <strong>不等于</strong> 还可以使用 <code>&lt;&gt;</code> 运算符</p>
+<p><code>!=</code> 在 Python 2.x 中同样可以用来判断 <strong>不等于</strong></p>
+</blockquote>
+<p><strong>注意</strong>：</p>
+<ul>
+<li><code>if</code> 语句以及缩进部分是一个 <strong>完整的代码块</strong></li>
+</ul>
 
       
     </div>
@@ -381,13 +431,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/03/20/angular精讲3/">angular精讲3</a></p>
+        <p><span>本文标题:</span><a href="/2019/12/28/Python-12/">Python-12</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
-        <p><span>发布时间:</span>2019-03-20, 23:18:19</p>
-        <p><span>最后更新:</span>2019-03-22, 23:56:26</p>
+        <p><span>发布时间:</span>2019-12-28, 18:38:31</p>
+        <p><span>最后更新:</span>2019-12-28, 18:40:02</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/03/20/angular精讲3/" title="angular精讲3">http://yoursite.com/2019/03/20/angular精讲3/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/20/angular精讲3/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/12/28/Python-12/" title="Python-12">http://yoursite.com/2019/12/28/Python-12/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/12/28/Python-12/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -400,15 +450,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/03/20/CSS3学习笔记/">
-                    CSS3学习笔记
+                <a href="/2019/12/28/Oracle-08/">
+                    Oracle-08
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/03/19/es6学习笔记/">
-                    es6学习笔记01
+                <a href="/2019/12/26/Oracle-07/">
+                    Oracle-07
                 </a>
             </div>
         
@@ -420,9 +470,9 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#angular精讲3"><span class="toc-number">1.</span> <span class="toc-text">angular精讲3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#辅助路由"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">辅助路由</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#案例"><span class="toc-number">1.0.0.1.1.</span> <span class="toc-text">案例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#路由守卫"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">路由守卫</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#包括三种"><span class="toc-number">1.0.0.2.1.</span> <span class="toc-text">包括三种</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用：只让登录用户能够查看产品信息路由"><span class="toc-number">1.0.0.2.2.</span> <span class="toc-text">使用：只让登录用户能够查看产品信息路由</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#写一个离开路由的守卫"><span class="toc-number">1.0.0.2.3.</span> <span class="toc-text">写一个离开路由的守卫</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#resolve守卫"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">resolve守卫</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量的命名规则"><span class="toc-number">1.</span> <span class="toc-text">变量的命名规则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#驼峰命名法"><span class="toc-number">1.1.</span> <span class="toc-text">驼峰命名法</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#判断（if）语句"><span class="toc-number"></span> <span class="toc-text">判断（if）语句</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目标"><span class="toc-number">1.</span> <span class="toc-text">目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#01-开发中的应用场景"><span class="toc-number">2.</span> <span class="toc-text">01. 开发中的应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#程序中的判断"><span class="toc-number">2.1.</span> <span class="toc-text">程序中的判断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断的定义"><span class="toc-number">2.2.</span> <span class="toc-text">判断的定义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#02-if-语句体验"><span class="toc-number">3.</span> <span class="toc-text">02. if 语句体验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-if-判断语句基本语法"><span class="toc-number">3.1.</span> <span class="toc-text">2.1 if 判断语句基本语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-判断语句演练-——-判断年龄"><span class="toc-number">3.2.</span> <span class="toc-text">2.2 判断语句演练 —— 判断年龄</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#运算符"><span class="toc-number"></span> <span class="toc-text">运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目标-1"><span class="toc-number">1.</span> <span class="toc-text">目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#比较（关系）运算符"><span class="toc-number">2.</span> <span class="toc-text">比较（关系）运算符</span></a></li></ol>
         
-    </div>
+    </li></div>
     <style>
         .left-col .switch-btn,
         .left-col .switch-area {
@@ -456,7 +506,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"angular精讲3　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Python-12　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -476,7 +526,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/03/20/CSS3学习笔记/" title="上一篇: CSS3学习笔记">
+            <a href="/2019/12/28/Oracle-08/" title="上一篇: Oracle-08">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -484,7 +534,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/03/19/es6学习笔记/" title="下一篇: es6学习笔记01">
+            <a href="/2019/12/26/Oracle-07/" title="下一篇: Oracle-07">
                 <i class="fa fa-angle-right"></i>
             </a>
         
