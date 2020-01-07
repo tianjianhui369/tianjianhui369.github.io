@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="yuao">
+
+
+
+<meta name="description" content="随机数的处理 循环语句">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python-15">
+<meta property="og:url" content="http://yoursite.com/2020/01/07/Python-15/index.html">
+<meta property="og:site_name" content="yuaoblog">
+<meta property="og:description" content="随机数的处理 循环语句">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-01-07T09:54:58.385Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python-15">
+<meta name="twitter:description" content="随机数的处理 循环语句">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="yuaoblog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&fm=27&gp=0.jpg">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Python-15 | yuaoblog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: false
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&amp;fm=27&amp;gp=0.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">yuao</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Survey-js/">Survey.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试理论/">测试理论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试用例/">测试用例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件测试简介/">软件测试简介</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">yuao</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&amp;fm=27&amp;gp=0.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">yuao</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-Python-15" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/01/07/Python-15/" class="article-date">
+      <time datetime="2020-01-07T09:52:46.000Z" itemprop="datePublished">2020-01-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python-15
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<ul>
+<li>随机数的处理</li>
+<li>循环语句</li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<h3 id="随机数的处理"><a href="#随机数的处理" class="headerlink" title="随机数的处理"></a>随机数的处理</h3><ul>
+<li>在 <code>Python</code> 中，要使用随机数，首先需要导入 <strong>随机数</strong> 的 <strong>模块</strong> —— “工具包”</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>导入模块后，可以直接在 <strong>模块名称</strong> 后面敲一个 <code>.</code> 然后按 <code>Tab</code> 键，会提示该模块中包含的所有函数</p>
+</li>
+<li><p><code>random.randint(a, b)</code> ，返回 <code>[a, b]</code> 之间的整数，包含 <code>a</code> 和 <code>b</code></p>
+</li>
+<li>例如：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">random.randint(<span class="number">12</span>, <span class="number">20</span>)  <span class="comment"># 生成的随机数n: 12 &lt;= n &lt;= 20   </span></span><br><span class="line">random.randint(<span class="number">20</span>, <span class="number">20</span>)  <span class="comment"># 结果永远是 20   </span></span><br><span class="line">random.randint(<span class="number">20</span>, <span class="number">10</span>)  <span class="comment"># 该语句是错误的，下限必须小于上限</span></span><br></pre></td></tr></table></figure>
+<h1 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>程序的三大流程</li>
+<li>while 循环基本使用</li>
+<li>break 和 continue</li>
+<li>while 循环嵌套</li>
+</ul>
+<h2 id="01-程序的三大流程"><a href="#01-程序的三大流程" class="headerlink" title="01. 程序的三大流程"></a>01. 程序的三大流程</h2><ul>
+<li>在程序开发中，一共有三种流程方式：<ul>
+<li><strong>顺序</strong> —— <strong>从上向下</strong>，顺序执行代码</li>
+<li><strong>分支</strong> —— 根据条件判断，决定执行代码的 <strong>分支</strong></li>
+<li><strong>循环</strong> —— 让 <strong>特定代码 重复</strong> 执行</li>
+</ul>
+</li>
+</ul>
+<h2 id="02-while-循环基本使用"><a href="#02-while-循环基本使用" class="headerlink" title="02. while 循环基本使用"></a>02. <code>while</code> 循环基本使用</h2><ul>
+<li>循环的作用就是让 <strong>指定的代码</strong> 重复的执行</li>
+<li><p><code>while</code> 循环最常用的应用场景就是 <strong>让执行的代码</strong> 按照 <strong>指定的次数</strong> <strong>重复</strong> 执行</p>
+</li>
+<li><p>需求 —— 打印 5 遍 <code>Hello Python</code></p>
+</li>
+<li>思考 —— 如果要求打印 100 遍怎么办？</li>
+</ul>
+<h3 id="2-1-while-语句基本语法"><a href="#2-1-while-语句基本语法" class="headerlink" title="2.1 while 语句基本语法"></a>2.1 <code>while</code> 语句基本语法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">初始条件设置 —— 通常是重复执行的 计数器</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> 条件(判断 计数器 是否达到 目标次数):</span><br><span class="line">    条件满足时，做的事情<span class="number">1</span></span><br><span class="line">    条件满足时，做的事情<span class="number">2</span></span><br><span class="line">    条件满足时，做的事情<span class="number">3</span></span><br><span class="line">    ...(省略)...</span><br><span class="line">    </span><br><span class="line">    处理条件(计数器 + <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：</p>
+<ul>
+<li><code>while</code> 语句以及缩进部分是一个 <strong>完整的代码块</strong></li>
+</ul>
+<h4 id="第一个-while-循环"><a href="#第一个-while-循环" class="headerlink" title="第一个 while 循环"></a>第一个 while 循环</h4><p><strong>需求</strong></p>
+<ul>
+<li>打印 5 遍 Hello Python</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 1. 定义重复次数计数器</span><br><span class="line">i = 1</span><br><span class="line"></span><br><span class="line"># 2. 使用 while 判断条件</span><br><span class="line">while i &lt;= 5:</span><br><span class="line">    # 要重复执行的代码</span><br><span class="line">    print(&quot;Hello Python&quot;)</span><br><span class="line"></span><br><span class="line">    # 处理计数器 i</span><br><span class="line">    i = i + 1</span><br><span class="line"></span><br><span class="line">print(&quot;循环结束后的 i = %d&quot; % i)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：循环结束后，之前定义的计数器条件的数值是依旧存在的</p>
+</blockquote>
+<h4 id="死循环"><a href="#死循环" class="headerlink" title="死循环"></a>死循环</h4><blockquote>
+<p>由于程序员的原因，<strong>忘记</strong> 在循环内部 <strong>修改循环的判断条件</strong>，导致循环持续执行，程序无法终止！</p>
+</blockquote>
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><ul>
+<li>在 Python 中，使用 <code>=</code> 可以给变量赋值</li>
+<li>在算术运算时，为了简化代码的编写，<code>Python</code> 还提供了一系列的 与 <strong>算术运算符</strong> 对应的 <strong>赋值运算符</strong></li>
+<li>注意：<strong>赋值运算符中间不能使用空格</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>简单的赋值运算符</td>
+<td>c = a + b 将 a + b 的运算结果赋值为 c</td>
+</tr>
+<tr>
+<td>+=</td>
+<td>加法赋值运算符</td>
+<td>c += a 等效于 c = c + a</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>减法赋值运算符</td>
+<td>c -= a 等效于 c = c - a</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>乘法赋值运算符</td>
+<td>c <em>= a 等效于 c = c </em> a</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>除法赋值运算符</td>
+<td>c /= a 等效于 c = c / a</td>
+</tr>
+<tr>
+<td>//=</td>
+<td>取整除赋值运算符</td>
+<td>c //= a 等效于 c = c // a</td>
+</tr>
+<tr>
+<td>%=</td>
+<td>取 <strong>模</strong> (余数)赋值运算符</td>
+<td>c %= a 等效于 c = c % a</td>
+</tr>
+<tr>
+<td>**=</td>
+<td>幂赋值运算符</td>
+<td>c<strong> </strong>= a 等效于 c = c <strong> </strong> a</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-3-Python-中的计数方法"><a href="#2-3-Python-中的计数方法" class="headerlink" title="2.3 Python 中的计数方法"></a>2.3 Python 中的计数方法</h3><p>常见的计数方法有两种，可以分别称为：</p>
+<ul>
+<li><strong>自然计数法</strong>（从 <code>1</code> 开始）—— 更符合人类的习惯</li>
+<li><strong>程序计数法</strong>（从 <code>0</code> 开始）—— 几乎所有的程序语言都选择从 0 开始计数</li>
+</ul>
+<p>因此，大家在编写程序时，应该尽量养成习惯：<strong>除非需求的特殊要求，否则 循环 的计数都从 0 开始</strong></p>
+<h3 id="循环计算"><a href="#循环计算" class="headerlink" title="循环计算"></a>循环计算</h3><blockquote>
+<p>在程序开发中，通常会遇到 <strong>利用循环</strong> <strong>重复计算</strong> 的需求</p>
+</blockquote>
+<p>遇到这种需求，可以：</p>
+<ol>
+<li>在 <code>while</code> 上方定义一个变量，用于 <strong>存放最终计算结果</strong></li>
+<li>在循环体内部，每次循环都用 <strong>最新的计算结果</strong>，<strong>更新</strong> 之前定义的变量</li>
+</ol>
+<p><strong>需求</strong></p>
+<ul>
+<li>计算 0 ~ 100 之间所有数字的累计求和结果</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 计算 0 ~ 100 之间所有数字的累计求和结果</span></span><br><span class="line"><span class="comment"># 0. 定义最终结果的变量</span></span><br><span class="line">result = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 定义一个整数的变量记录循环的次数</span></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 开始循环</span></span><br><span class="line"><span class="keyword">while</span> i &lt;= <span class="number">100</span>:</span><br><span class="line">    print(i)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 每一次循环，都让 result 这个变量和 i 这个计数器相加</span></span><br><span class="line">    result += i</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 处理计数器</span></span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"0~100之间的数字求和结果 = %d"</span> % result)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2020/01/07/Python-15/">Python-15</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
+        <p><span>发布时间:</span>2020-01-07, 17:52:46</p>
+        <p><span>最后更新:</span>2020-01-07, 17:54:58</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2020/01/07/Python-15/" title="Python-15">http://yoursite.com/2020/01/07/Python-15/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2020/01/07/Python-15/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2020/01/07/Oracle-11/">
+                    Oracle-11
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/12/30/Oracle-10/">
+                    Oracle-10
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#随机数的处理"><span class="toc-number">1.</span> <span class="toc-text">随机数的处理</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#循环"><span class="toc-number"></span> <span class="toc-text">循环</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目标"><span class="toc-number"></span> <span class="toc-text">目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#01-程序的三大流程"><span class="toc-number"></span> <span class="toc-text">01. 程序的三大流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#02-while-循环基本使用"><span class="toc-number"></span> <span class="toc-text">02. while 循环基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-while-语句基本语法"><span class="toc-number">1.</span> <span class="toc-text">2.1 while 语句基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一个-while-循环"><span class="toc-number">1.1.</span> <span class="toc-text">第一个 while 循环</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#死循环"><span class="toc-number">1.2.</span> <span class="toc-text">死循环</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#赋值运算符"><span class="toc-number">2.</span> <span class="toc-text">赋值运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Python-中的计数方法"><span class="toc-number">3.</span> <span class="toc-text">2.3 Python 中的计数方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#循环计算"><span class="toc-number">4.</span> <span class="toc-text">循环计算</span></a></li></ol>
+        
+    </li></ol></li></div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Python-15　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2020/01/07/Oracle-11/" title="上一篇: Oracle-11">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/12/30/Oracle-10/" title="下一篇: Oracle-10">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/01/07/Oracle-12/">Oracle-12</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/07/Oracle-11/">Oracle-11</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/07/Python-15/">Python-15</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Oracle-10/">Oracle-10</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Oracle-09/">Oracle-09</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Python-14/">Python-14</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Python-13/">Python-13</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/28/Oracle-08/">Oracle-08</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/28/Python-12/">Python-12</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/26/Oracle-07/">Oracle-07</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/26/Oracle-06/">Oracle-06</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/26/Python-11/">Python-11</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/26/Python-10/">Python-10</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Oracle-05/">Oracle-05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Python-09/">Python-09</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Python-08/">Python-08</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Oracle-04/">Oracle-04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Oracle-03/">Oracle-03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Python-07/">Python-07</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Python-06/">Python-06</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/17/Oracle-02/">Oracle-02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/17/Python-05/">Python-05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/17/Python-04/">Python-04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/16/Oracle-01/">Oracle-01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/16/Python-03/">Python-03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/16/Python-02/">Python-02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/15/Python-01/">Python-01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/15/Python-Linux-12/">Python-Linux-12</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/14/Python-Linux-11/">Python-Linux-11</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/02/Python-Linux-10/">Python-Linux-10</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/02/Python-Linux-09/">Python-Linux-09</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/31/Python-Linux-08/">Python-Linux-08</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/31/Python-Linux-07/">Python-Linux-07</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/29/Python-Linux-06/">Python-Linux-06</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/29/Python-Linux-05/">Python-Linux-05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/27/Python-Linux-04/">Python-Linux-04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/27/Python-Linux-03/">Python-Linux-03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/24/Python-Linux-02/">Python_Linux-02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/24/Python-Linux-01/">Python_Linux-01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/软件测试——测试用例拓展/">软件测试——测试用例拓展</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/软件测试——测试用例总结02/">软件测试——测试用例总结02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/软件测试——测试用例总结01/">软件测试——测试用例总结01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/软件测试——测试用例05/">软件测试——测试用例05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/软件测试——测试用例04/">软件测试——测试用例04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/软件测试——测试用例03/">软件测试——测试用例03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/软件测试——测试用例02/">软件测试——测试用例02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/软件测试——测试用例01/">软件测试——测试用例01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/软件测试——测试理论05/">软件测试——测试理论05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/14/软件测试——测试理论04/">软件测试——测试理论04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/14/软件测试——测试理论03/">软件测试——测试理论03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/软件测试——测试理论02/">软件测试——测试理论02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/软件测试——测试理论01/">软件测试——测试理论01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/软件测试——测试基础02-1/">软件测试——测试基础02-1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/软件测试——测试基础01-2/">软件测试——测试基础01-2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/软件测试——测试基础01-1/">软件测试——测试基础01_1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5的FileReader/">HTML5的FileReader</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5地理定位接口/">HTML5地理定位接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5的拖拽/">HTML5的拖拽</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/03/CSS复习内容01/">CSS复习内容01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/23/es6学习笔记2/">es6学习笔记2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/22/angular精讲5/">angular精讲5</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/CSS3学习笔记2/">CSS3学习笔记2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/angular精讲4/">angular精讲4</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/20/CSS3学习笔记/">CSS3学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/20/angular精讲3/">angular精讲3</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/es6学习笔记/">es6学习笔记01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/angular精讲2/">angular精讲2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/angular精讲1/">angular精讲1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/javascript基础-02/">javascript基础_02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/angular路由/">angular路由</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/javascript基础01-01/">javascript基础01_01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/11/angular服务的依赖注入/">angular服务的依赖注入</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/10/angular-指令简述/">angular 指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/Angular-Component-databinding/">Angular Component$databinding</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/08/survey.js/">survey.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/angular新建组件方法/">angular新建组件方法</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2020 yuao
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

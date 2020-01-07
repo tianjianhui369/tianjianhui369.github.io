@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="yuao">
+
+
+
+<meta name="description" content="查询练习题">
+<meta name="keywords" content="Oracle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle-12">
+<meta property="og:url" content="http://yoursite.com/2020/01/07/Oracle-12/index.html">
+<meta property="og:site_name" content="yuaoblog">
+<meta property="og:description" content="查询练习题">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-01-07T09:58:16.096Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Oracle-12">
+<meta name="twitter:description" content="查询练习题">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="yuaoblog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&fm=27&gp=0.jpg">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Oracle-12 | yuaoblog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: false
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&amp;fm=27&amp;gp=0.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">yuao</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Survey-js/">Survey.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试理论/">测试理论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试用例/">测试用例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件测试简介/">软件测试简介</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">yuao</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&amp;fm=27&amp;gp=0.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">yuao</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-Oracle-12" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/01/07/Oracle-12/" class="article-date">
+      <time datetime="2020-01-07T09:57:29.000Z" itemprop="datePublished">2020-01-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Oracle-12
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Oracle/">Oracle</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="查询练习题"><a href="#查询练习题" class="headerlink" title="查询练习题"></a>查询练习题</h2><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">1、查询学号是&apos;007&apos;的学生的身份证号</span><br><span class="line">select * from students where studentNo=&apos;007&apos;</span><br><span class="line">2、查询&apos;1班&apos;以外的学生信息</span><br><span class="line">select * from students where class!=&apos;1班&apos;</span><br><span class="line">3、查询年龄大于20的学生的姓名和性别</span><br><span class="line">select studentNo,sex from students where age&gt;20</span><br><span class="line">1、查询河南或河北的学生</span><br><span class="line">select * from students where hometown=&apos;河南&apos; or hometown=&apos;河北&apos;</span><br><span class="line">2、查询&apos;1班&apos;的&apos;上海&apos;的学生</span><br><span class="line">select * from students where class=&apos;1班&apos; and hometown=&apos;上海&apos;</span><br><span class="line">3、查询非20岁的学生</span><br><span class="line">select * from students where not age=20</span><br><span class="line">1、查询姓名为两个字的学生</span><br><span class="line">select * from students where name like &apos;__&apos;</span><br><span class="line">2、查询姓百且年龄大于20的学生</span><br><span class="line">select * from students where name like &apos;百%&apos; and age&gt;20</span><br><span class="line">3、查询学号以1结尾的学生</span><br><span class="line">select * from students where studentNo like &apos;%1&apos;</span><br><span class="line">1、查询年龄在18或19或22的女生</span><br><span class="line">select * from students where age between 18 and 22</span><br><span class="line">2、查询年龄在20到25以外的学生</span><br><span class="line">select * from students where not age between 20 and 25</span><br><span class="line">1、查询所有学生信息，按班级从小到大排序，班级相同时，再按学号再按学号从小到大排序</span><br><span class="line">select * from students order by class,studentNo</span><br><span class="line">1、查询所有学生的最大年龄、最小年龄、平均年龄</span><br><span class="line">select max(age),min(age),avg(age) from students</span><br><span class="line">2、一班共有多少个学生</span><br><span class="line">select count(*) from students where class=&apos;1班&apos;</span><br><span class="line">3、查询3班年龄小于18岁的同学有几个</span><br><span class="line">select count(*) from students where age&lt;18 </span><br><span class="line">查询各个班级学生的平均年龄、最大年龄、最小年龄</span><br><span class="line">select class,max(age),min(age),avg(age) from students group by class</span><br><span class="line">查询1班除外其他班级学生的平均年龄、最大年龄、最小年龄</span><br><span class="line">select class,max(age),min(age),avg(age) from students group by class having class!=&apos;1班&apos;</span><br><span class="line">查询第4到第6行学生信息</span><br><span class="line">select * from students limit 3,3</span><br><span class="line">每页显示5条数据，显示每一页的数据</span><br><span class="line">select * from students limit 0,5</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">查询练习题</span><br><span class="line">1、查询学生&quot;百里守约&quot;的基本信息</span><br><span class="line">select * from students where name=&apos;百里守约&apos;</span><br><span class="line">2、查询学生&quot;百里守约&quot;或”百里玄策”的基本信息</span><br><span class="line">select * from students where name=&apos;百里守约&apos; or name=&apos;百里玄策&apos;</span><br><span class="line">3、查询姓&quot;张&quot;学生的姓名，年龄，班级</span><br><span class="line">select name,age,class from students where name like &apos;张%&apos;</span><br><span class="line">4、查询姓名中含有&quot;约&quot;字的学生的基本信息</span><br><span class="line">select * from students where name like &apos;%约%&apos;</span><br><span class="line">5、查询姓名长度为三个字，姓“孙”的学生的学号，姓名，年龄，班级，身份证号</span><br><span class="line">select studentNo,name,age,class,card from students where name like &apos;___&apos;</span><br><span class="line">6、查询姓&quot;百&quot;或者姓”孙”的学生的基本信息</span><br><span class="line">select * from students where name like &apos;百%&apos; or name like &apos;孙%&apos;</span><br><span class="line">7、查询姓&quot;百&quot;并且家乡是&quot;山西&quot;的学生信息</span><br><span class="line">select * from students where name like &apos;百%&apos; and hometown=&apos;山西&apos;</span><br><span class="line">8、查询家乡是&quot;北京&quot;、”新疆”、”山东”或者&quot;上海&quot;的学生的信息</span><br><span class="line">select * from students where hometown in(&apos;北京&apos;,&apos;新疆&apos;,&apos;山东&apos;,&apos;上海&apos;)</span><br><span class="line">9、查询姓&quot;孙&quot;，但是家乡不是&quot;河北&quot;的学生信息</span><br><span class="line">select * from students where name like &apos;孙%&apos; and hometown!=&apos;河北&apos;</span><br><span class="line">10、查询家乡不是&quot;北京&quot;、&quot;新疆&quot;、&quot;山东&quot;、&quot;上海&quot;的学生的信息</span><br><span class="line">select * from students where hometown not in(&apos;北京&apos;,&apos;新疆&apos;,&apos;山东&apos;,&apos;上海&apos;)</span><br><span class="line">11、查询全部学生信息，并按照“性别”排序</span><br><span class="line">select * from students order by sex</span><br><span class="line">12、查询现有学生都来自于哪些不同的省份</span><br><span class="line">select hometown from students group by hometown</span><br><span class="line">13、查询所有男生，并按年龄升序排序</span><br><span class="line">select * from students where sex=&apos;男&apos; order by age</span><br><span class="line">14、统计共有多少个学生</span><br><span class="line">select count(*) from students</span><br><span class="line">15、统计年龄大于20岁的学生有多少个</span><br><span class="line">select count(*) from students where age&gt;20</span><br><span class="line">16、统计男生的平均年龄</span><br><span class="line">select avg(age) from students where sex=&apos;男&apos;</span><br><span class="line">17、查询1班学生中的最大年龄是多少</span><br><span class="line">select max(age) from students where class=&apos;1班&apos;</span><br><span class="line">18、统计2班男女生各有多少人</span><br><span class="line">select class,count(*) from students group by class</span><br><span class="line">19、统计每个班级中每种性别的学生人数，并按照班级升序排序</span><br><span class="line">select class,sex,count(*) from students group by class,sex order by class</span><br><span class="line">20、查询年龄最小的学生的全部信息</span><br><span class="line">select * from students order by age limit 1</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2020/01/07/Oracle-12/">Oracle-12</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
+        <p><span>发布时间:</span>2020-01-07, 17:57:29</p>
+        <p><span>最后更新:</span>2020-01-07, 17:58:16</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2020/01/07/Oracle-12/" title="Oracle-12">http://yoursite.com/2020/01/07/Oracle-12/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2020/01/07/Oracle-12/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2020/01/07/Oracle-11/">
+                    Oracle-11
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#查询练习题"><span class="toc-number">1.</span> <span class="toc-text">查询练习题</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Oracle-12　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2020/01/07/Oracle-11/" title="下一篇: Oracle-11">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/01/07/Oracle-12/">Oracle-12</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/07/Oracle-11/">Oracle-11</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/07/Python-15/">Python-15</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Oracle-10/">Oracle-10</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Oracle-09/">Oracle-09</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Python-14/">Python-14</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Python-13/">Python-13</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/28/Oracle-08/">Oracle-08</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/28/Python-12/">Python-12</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/26/Oracle-07/">Oracle-07</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/26/Oracle-06/">Oracle-06</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/26/Python-11/">Python-11</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/26/Python-10/">Python-10</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Oracle-05/">Oracle-05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Python-09/">Python-09</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Python-08/">Python-08</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Oracle-04/">Oracle-04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Oracle-03/">Oracle-03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Python-07/">Python-07</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Python-06/">Python-06</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/17/Oracle-02/">Oracle-02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/17/Python-05/">Python-05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/17/Python-04/">Python-04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/16/Oracle-01/">Oracle-01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/16/Python-03/">Python-03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/16/Python-02/">Python-02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/15/Python-01/">Python-01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/15/Python-Linux-12/">Python-Linux-12</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/14/Python-Linux-11/">Python-Linux-11</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/02/Python-Linux-10/">Python-Linux-10</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/02/Python-Linux-09/">Python-Linux-09</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/31/Python-Linux-08/">Python-Linux-08</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/31/Python-Linux-07/">Python-Linux-07</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/29/Python-Linux-06/">Python-Linux-06</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/29/Python-Linux-05/">Python-Linux-05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/27/Python-Linux-04/">Python-Linux-04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/27/Python-Linux-03/">Python-Linux-03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/24/Python-Linux-02/">Python_Linux-02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/24/Python-Linux-01/">Python_Linux-01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/软件测试——测试用例拓展/">软件测试——测试用例拓展</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/软件测试——测试用例总结02/">软件测试——测试用例总结02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/软件测试——测试用例总结01/">软件测试——测试用例总结01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/软件测试——测试用例05/">软件测试——测试用例05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/软件测试——测试用例04/">软件测试——测试用例04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/软件测试——测试用例03/">软件测试——测试用例03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/软件测试——测试用例02/">软件测试——测试用例02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/软件测试——测试用例01/">软件测试——测试用例01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/软件测试——测试理论05/">软件测试——测试理论05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/14/软件测试——测试理论04/">软件测试——测试理论04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/14/软件测试——测试理论03/">软件测试——测试理论03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/软件测试——测试理论02/">软件测试——测试理论02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/软件测试——测试理论01/">软件测试——测试理论01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/软件测试——测试基础02-1/">软件测试——测试基础02-1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/软件测试——测试基础01-2/">软件测试——测试基础01-2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/软件测试——测试基础01-1/">软件测试——测试基础01_1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5的FileReader/">HTML5的FileReader</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5地理定位接口/">HTML5地理定位接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5的拖拽/">HTML5的拖拽</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/03/CSS复习内容01/">CSS复习内容01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/23/es6学习笔记2/">es6学习笔记2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/22/angular精讲5/">angular精讲5</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/CSS3学习笔记2/">CSS3学习笔记2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/angular精讲4/">angular精讲4</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/20/CSS3学习笔记/">CSS3学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/20/angular精讲3/">angular精讲3</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/es6学习笔记/">es6学习笔记01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/angular精讲2/">angular精讲2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/angular精讲1/">angular精讲1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/javascript基础-02/">javascript基础_02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/angular路由/">angular路由</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/javascript基础01-01/">javascript基础01_01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/11/angular服务的依赖注入/">angular服务的依赖注入</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/10/angular-指令简述/">angular 指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/Angular-Component-databinding/">Angular Component$databinding</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/08/survey.js/">survey.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/angular新建组件方法/">angular新建组件方法</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2020 yuao
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
