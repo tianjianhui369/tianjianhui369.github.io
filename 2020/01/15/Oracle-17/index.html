@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="yuao">
+
+
+
+<meta name="description" content="存储过程 视图 事物">
+<meta name="keywords" content="Oracle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle-17">
+<meta property="og:url" content="http://yoursite.com/2020/01/15/Oracle-17/index.html">
+<meta property="og:site_name" content="yuaoblog">
+<meta property="og:description" content="存储过程 视图 事物">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-01-15T10:08:27.047Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Oracle-17">
+<meta name="twitter:description" content="存储过程 视图 事物">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="yuaoblog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&fm=27&gp=0.jpg">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Oracle-17 | yuaoblog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: false
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&amp;fm=27&amp;gp=0.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">yuao</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Survey-js/">Survey.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试理论/">测试理论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试用例/">测试用例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件测试简介/">软件测试简介</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">yuao</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&amp;fm=27&amp;gp=0.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">yuao</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-Oracle-17" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/01/15/Oracle-17/" class="article-date">
+      <time datetime="2020-01-15T10:07:35.000Z" itemprop="datePublished">2020-01-15</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Oracle-17
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Oracle/">Oracle</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<ul>
+<li>存储过程</li>
+<li>视图</li>
+<li>事物</li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<h1 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h1><p>存储过程，也翻译为存储程序，是一条或者多条SQL语句的集合</p>
+<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><ul>
+<li>语法如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">delimiter //</span><br><span class="line">create procedure 存储过程名称(参数列表)</span><br><span class="line">begin</span><br><span class="line">sql语句</span><br><span class="line">end</span><br><span class="line">//</span><br><span class="line">delimiter ;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>说明：delimiter用于设置分割符，默认为分号</li>
+<li>在“sql语句”部分编写的语句需要以分号结尾，此时回车会直接执行，所以要创建存储过程前需要指定其它符号作为分割符，此处使用//，也可以使用其它字符</li>
+</ul>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
+<li>要求：创建查询过程，查询学生信息</li>
+<li>step1：设置分割符</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delimiter //</span><br></pre></td></tr></table></figure>
+<ul>
+<li>step2：创建存储过程</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create procedure proc_stu()</span><br><span class="line">begin</span><br><span class="line">select * from students;</span><br><span class="line">end</span><br><span class="line">//</span><br></pre></td></tr></table></figure>
+<ul>
+<li>step3：还原分割符</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delimiter ;</span><br></pre></td></tr></table></figure>
+<h3 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h3><ul>
+<li>语法如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">call 存储过程(参数列表);</span><br><span class="line"></span><br><span class="line">调用存储过程proc_stu</span><br><span class="line">call proc_stu();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>存储过程和函数都是为了可重复的执行操作数据库的 sql 语句的集合.</li>
+<li>存储过程和函数都是一次编译,就会被缓存起来,下次使用就直接命中缓存中已经编译好的 sql, 不需要重复编译</li>
+<li>减少网络交互,减少网络访问流量</li>
+</ul>
+<h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><ul>
+<li>对于复杂的查询，在多个地方被使用，如果需求发生了改变，需要更改sql语句，则需要在多个地方进行修改，维护起来非常麻烦</li>
+<li>解决：定义视图</li>
+<li>视图本质就是对查询的封装</li>
+<li>定义视图，建议以v_开头</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create view 视图名称 as select语句;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>例：创建视图，查询学生对应的成绩信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create view v_stu_score_course as </span><br><span class="line">select</span><br><span class="line">    stu.*,cs.courseNo,cs.name courseName,sc.score</span><br><span class="line">from</span><br><span class="line">    students stu</span><br><span class="line">inner join scores sc on stu.studentNo = sc.studentNo</span><br><span class="line">inner join courses cs on cs.courseNo = sc.courseNo</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看视图：查看表会将所有的视图也列出来</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show tables;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>删除视图</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">drop view 视图名称;</span><br><span class="line">例：</span><br><span class="line">drop view v_stu_score_course;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用：视图的用途就是查询</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from v_stu_score_course;</span><br></pre></td></tr></table></figure>
+<h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><h4 id="为什么要有事务"><a href="#为什么要有事务" class="headerlink" title="为什么要有事务"></a>为什么要有事务</h4><ul>
+<li>事务广泛的运用于订单系统、银行系统等多种场景</li>
+<li>例如：A用户和B用户是银行的储户，现在A要给B转账500元，那么需要做以下几件事：<ul>
+<li><ol>
+<li>检查A的账户余额&gt;500元；</li>
+<li>A 账户中扣除500元;</li>
+<li>B 账户中增加500元;</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>正常的流程走下来，A账户扣了500，B账户加了500，皆大欢喜。那如果A账户扣了钱之后，系统出故障了呢？A白白损失了500，而B也没有收到本该属于他的500。以上的案例中，隐藏着一个前提条件：A扣钱和B加钱，要么同时成功，要么同时失败。事务的需求就在于此</li>
+<li>所谓事务,它是一个操作序列，这些操作要么都执行，要么都不执行，它是一个不可分割的工作单位。例如，银行转帐工作：从一个帐号扣款并使另一个帐号增款，这两个操作要么都执行，要么都不执行。所以，应该把他们看成一个事务。事务是数据库维护数据一致性的单位，在每个事务结束时，都能保持数据一致性</li>
+</ul>
+<h4 id="事务命令"><a href="#事务命令" class="headerlink" title="事务命令"></a>事务命令</h4><ul>
+<li>要求：表的引擎类型必须是innodb类型才可以使用事务，这是mysql表的默认引擎</li>
+<li>查看表的创建语句，可以看到engine=innodb</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show create table students;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改数据的命令会触发事务，包括insert、update、delete</li>
+<li>开启事务，命令如下：<ul>
+<li>开启事务后执行修改命令，变更会维护到本地缓存中，而不维护到物理表中</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">begin;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>提交事务，命令如下<ul>
+<li>将缓存中的数据变更维护到物理表中</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">commit;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>回滚事务，命令如下：<ul>
+<li>放弃缓存中变更的数据</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rollback;</span><br></pre></td></tr></table></figure>
+<h2 id="课程笔记"><a href="#课程笔记" class="headerlink" title="课程笔记"></a>课程笔记</h2><h3 id="命令行客户端的使用"><a href="#命令行客户端的使用" class="headerlink" title="命令行客户端的使用"></a>命令行客户端的使用</h3><pre><code>数据库操作
+
+    -- 查看所有数据库
+    show databases;
+    -- 使用数据库
+    use 数据库名;
+    -- 查看当前使用的数据库
+    select database();
+    -- 创建数据库
+    create database ceshi charset=utf8;
+    -- 删除数据库
+    drop database ceshi;
+
+数据表
+
+    -- 查看当前数据库中所有表
+    show tables;
+    -- 查看表结构
+    desc 表名;
+    --查看表的创建语句
+    show create table students;
+
+备份
+
+    1、以管理员身份运行cmd程序
+
+    2、进入到mysql安装目录下的bin目录
+    cd C:\Program Files (x86)\MySQL\MySQL Server 5.1\bin
+
+    3、备份某个数据库到某个文件中
+    mysqldump –uroot –p tt &gt; ceshi.sql
+    输入mysql的密码
+
+恢复
+
+    1、以管理员身份运行cmd程序
+
+    2、进入到mysql安装目录下的bin目录
+
+    3、先创建新的数据库 ceshi_back
+
+    4、把前面备份的文件恢复到ceshi_back数据库中
+    mysql -uroot –p ceshi_back &lt; ceshi.sql
+    输入mysql的密码
+</code></pre><h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><pre><code>-- 拼接字符串
+select concat(12,34,&apos;ab&apos;);
+select * from students
+select name,sex,hometown,concat(name,&apos;是&apos;,hometown,&apos;的&apos;,sex,&apos;生&apos;) as des from students
+
+-- 包含字符个数
+select length(&apos;abc&apos;);
+
+-- 截取字符串
+select left(&apos;abc&apos;,1)
+select left(name,1) from students; 
+select substring(&apos;abc123&apos;,2,3); -- pos 指的位置时从1开始
+
+-- 去除空格
+select ltrim(&apos;  bar   &apos;),rtrim(&apos;  bar   &apos;),rtrim(ltrim(&apos;  bar   &apos;));
+
+-- 大小写转换
+select lower(&apos;aBcD&apos;),upper(&apos;aBcD&apos;);
+
+-- 求四舍五入值round(n,d)，n表示原数，d表示小数位置，默认为0
+select round(1.6,1);
+
+-- 求x的y次幂
+select pow(2,3);
+
+-- 获取圆周率PI()
+select round(PI(),10)
+
+-- 随机数rand()，值为0-1.0的浮点数
+select rand();
+-- 随机取表中的一条
+select * from students order by rand() limit 1
+
+-- 日期时间函数
+select current_date(),current_time(),now();
+select date_format(now(),&apos;%Y-%m-%d/%h/%i/%s&apos;);
+
+-- 流程控制  case语法
+select 
+case 3 
+when 1 then &apos;one&apos;
+when 2 then &apos;two&apos; 
+else &apos;zero&apos; 
+end as result;
+
+-- 姓 美女 帅哥
+
+select left(name,1) ,sex,
+case sex 
+when &apos;男&apos; then concat(left(name,1),&apos;帅哥&apos;)
+when &apos;女&apos; then concat(left(name,1),&apos;美女&apos;)
+else &apos;保密&apos;
+end as res
+from students
+
+-- 自定义函数
+
+1、在navicat查询中，执行下面sql语句，可以在navicat中的数据库下面的函数中找到创建的自定义函数
+
+    create function my_trim(aaa varchar(100)) returns varchar(100)
+    begin
+    return rtrim(ltrim(aaa));
+    end
+
+2、使用自定义函数
+
+    select my_trim(&apos;   name    &apos;)
+</code></pre><h3 id="存储过程-1"><a href="#存储过程-1" class="headerlink" title="存储过程"></a>存储过程</h3><pre><code>1、在navicat查询中，执行下面sql语句，可以在navicat中的数据库下面的函数中找到创建的存储过程
+
+    create procedure proc_stu()
+    begin
+    select * from students;
+    end
+
+2、使用存储过程
+
+    call proc_stu();
+</code></pre><h3 id="视图-1"><a href="#视图-1" class="headerlink" title="视图"></a>视图</h3><pre><code>-- 创建视图
+
+    -- 视图可以隐藏真正的表结构，对于比较重要的数据（如银行），只让别人访问视图，没有权限使用真正的表
+
+    create view v_stu_score_course as
+    select stu.name,stu.class,sc.score,cs.name as a from students stu
+    INNER JOIN scores sc on stu.studentNo=sc.studentNo
+    INNER JOIN courses cs on cs.courseNo=sc.courseNo
+
+-- 使用视图
+
+    select * from v_stu_score_course
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2020/01/15/Oracle-17/">Oracle-17</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
+        <p><span>发布时间:</span>2020-01-15, 18:07:35</p>
+        <p><span>最后更新:</span>2020-01-15, 18:08:27</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2020/01/15/Oracle-17/" title="Oracle-17">http://yoursite.com/2020/01/15/Oracle-17/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2020/01/15/Oracle-17/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2020/01/15/Python-20/">
+                    Python-20
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#存储过程"><span class="toc-number">1.</span> <span class="toc-text">存储过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建"><span class="toc-number">1.0.1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-number">1.0.2.</span> <span class="toc-text">示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调用"><span class="toc-number">1.0.3.</span> <span class="toc-text">调用</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#视图"><span class="toc-number">2.</span> <span class="toc-text">视图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#事务"><span class="toc-number">3.</span> <span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#为什么要有事务"><span class="toc-number">3.0.0.1.</span> <span class="toc-text">为什么要有事务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事务命令"><span class="toc-number">3.0.0.2.</span> <span class="toc-text">事务命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#课程笔记"><span class="toc-number">3.1.</span> <span class="toc-text">课程笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#命令行客户端的使用"><span class="toc-number">3.1.1.</span> <span class="toc-text">命令行客户端的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数"><span class="toc-number">3.1.2.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存储过程-1"><span class="toc-number">3.1.3.</span> <span class="toc-text">存储过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视图-1"><span class="toc-number">3.1.4.</span> <span class="toc-text">视图</span></a></li></ol></li>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Oracle-17　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2020/01/15/Python-20/" title="下一篇: Python-20">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/01/15/Oracle-17/">Oracle-17</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/15/Python-20/">Python-20</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/15/Oracle-16/">Oracle-16</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/15/Python-19/">Python-19</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/11/Oracle-15/">Oracle-15</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/11/Python-18/">Python-18</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/09/Oracle-14/">Oracle-14</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/09/Python-17/">Python-17</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/09/Oracle-13/">Oracle-13</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/09/Python-16/">Python-16</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/07/Oracle-12/">Oracle-12</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/07/Oracle-11/">Oracle-11</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/07/Python-15/">Python-15</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Oracle-10/">Oracle-10</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Oracle-09/">Oracle-09</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Python-14/">Python-14</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Python-13/">Python-13</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/28/Oracle-08/">Oracle-08</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/28/Python-12/">Python-12</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/26/Oracle-07/">Oracle-07</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/26/Oracle-06/">Oracle-06</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/26/Python-11/">Python-11</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/26/Python-10/">Python-10</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Oracle-05/">Oracle-05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Python-09/">Python-09</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Python-08/">Python-08</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Oracle-04/">Oracle-04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Oracle-03/">Oracle-03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Python-07/">Python-07</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Python-06/">Python-06</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/17/Oracle-02/">Oracle-02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/17/Python-05/">Python-05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/17/Python-04/">Python-04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/16/Oracle-01/">Oracle-01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/16/Python-03/">Python-03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/16/Python-02/">Python-02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/15/Python-01/">Python-01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/15/Python-Linux-12/">Python-Linux-12</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/14/Python-Linux-11/">Python-Linux-11</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/02/Python-Linux-10/">Python-Linux-10</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/02/Python-Linux-09/">Python-Linux-09</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/31/Python-Linux-08/">Python-Linux-08</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/31/Python-Linux-07/">Python-Linux-07</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/29/Python-Linux-06/">Python-Linux-06</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/29/Python-Linux-05/">Python-Linux-05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/27/Python-Linux-04/">Python-Linux-04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/27/Python-Linux-03/">Python-Linux-03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/24/Python-Linux-02/">Python_Linux-02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/24/Python-Linux-01/">Python_Linux-01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/软件测试——测试用例拓展/">软件测试——测试用例拓展</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/软件测试——测试用例总结02/">软件测试——测试用例总结02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/软件测试——测试用例总结01/">软件测试——测试用例总结01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/软件测试——测试用例05/">软件测试——测试用例05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/软件测试——测试用例04/">软件测试——测试用例04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/软件测试——测试用例03/">软件测试——测试用例03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/软件测试——测试用例02/">软件测试——测试用例02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/软件测试——测试用例01/">软件测试——测试用例01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/软件测试——测试理论05/">软件测试——测试理论05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/14/软件测试——测试理论04/">软件测试——测试理论04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/14/软件测试——测试理论03/">软件测试——测试理论03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/软件测试——测试理论02/">软件测试——测试理论02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/软件测试——测试理论01/">软件测试——测试理论01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/软件测试——测试基础02-1/">软件测试——测试基础02-1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/软件测试——测试基础01-2/">软件测试——测试基础01-2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/软件测试——测试基础01-1/">软件测试——测试基础01_1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5的FileReader/">HTML5的FileReader</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5地理定位接口/">HTML5地理定位接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5的拖拽/">HTML5的拖拽</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/03/CSS复习内容01/">CSS复习内容01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/23/es6学习笔记2/">es6学习笔记2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/22/angular精讲5/">angular精讲5</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/CSS3学习笔记2/">CSS3学习笔记2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/angular精讲4/">angular精讲4</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/20/CSS3学习笔记/">CSS3学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/20/angular精讲3/">angular精讲3</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/es6学习笔记/">es6学习笔记01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/angular精讲2/">angular精讲2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/angular精讲1/">angular精讲1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/javascript基础-02/">javascript基础_02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/angular路由/">angular路由</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/javascript基础01-01/">javascript基础01_01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/11/angular服务的依赖注入/">angular服务的依赖注入</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/10/angular-指令简述/">angular 指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/Angular-Component-databinding/">Angular Component$databinding</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/08/survey.js/">survey.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/angular新建组件方法/">angular新建组件方法</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2020 yuao
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
