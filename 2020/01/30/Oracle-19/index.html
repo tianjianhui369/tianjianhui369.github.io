@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="yuao">
+
+
+
+<meta name="description" content="课程笔记 多表练习题答案">
+<meta name="keywords" content="Oracle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle-19">
+<meta property="og:url" content="http://yoursite.com/2020/01/30/Oracle-19/index.html">
+<meta property="og:site_name" content="yuaoblog">
+<meta property="og:description" content="课程笔记 多表练习题答案">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-01-30T11:16:12.361Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Oracle-19">
+<meta name="twitter:description" content="课程笔记 多表练习题答案">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="yuaoblog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&fm=27&gp=0.jpg">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Oracle-19 | yuaoblog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: false
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&amp;fm=27&amp;gp=0.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">yuao</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false">
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Survey-js/">Survey.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试理论/">测试理论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试用例/">测试用例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件测试简介/">软件测试简介</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">yuao</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2968502934,2052734237&amp;fm=27&amp;gp=0.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">yuao</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-Oracle-19" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/01/30/Oracle-19/" class="article-date">
+      <time datetime="2020-01-30T11:14:47.000Z" itemprop="datePublished">2020-01-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Oracle-19
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Oracle/">Oracle</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<ul>
+<li>课程笔记</li>
+<li>多表练习题答案</li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<h1 id="课程笔记"><a href="#课程笔记" class="headerlink" title="课程笔记"></a>课程笔记</h1><h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><pre><code>提交
+
+    两个命令行客户端 左边客户端 右边客户端
+
+    1、左边客户端：查询学生信息
+    select * from students;
+
+    2、右边客户端：开启事务，插入数据
+    begin;
+    insert into students(studentNo,name) values (&apos;013&apos;,&apos;abc&apos;);
+
+    3、右边客户端：查询数据，此时有新增的数据
+    select * from students;
+
+    4、左边客户端：查询数据，发现并没有新增的数据
+    select * from students;
+
+    5、右边客户端：完成提交
+    commit;
+
+    6、左边客户端：查询，发现有新增的数据
+    select * from students;
+
+回滚
+
+    两个命令行客户端 左边客户端 右边客户端
+
+    1、左边客户端：查询学生信息
+    select * from students;
+
+    2、右边客户端：开启事务，插入数据
+    begin;
+    insert into students(studentNo,name) values (&apos;014&apos;,&apos;aaa&apos;);
+
+    3、右边客户端：查询数据，此时有新增的数据
+    select * from students;
+
+    4、左边客户端：查询数据，发现并没有新增的数据
+    select * from students;
+
+    5、右边客户端：回滚
+    rollback;
+
+    6、左边客户端：查询，发现没有新增的数据
+    select * from students;
+
+    7、右边客户端：查询，发现没有新增的数据
+    select * from students;
+</code></pre><h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><pre><code>创建测试表testindex
+
+    create table test_index(title varchar(10));
+
+创建存储过程，在navicat查询中，执行下面sql语句
+
+    begin
+    declare i int default 0;
+    while i&lt;100000 do
+    insert into test_index(title) values(concat(&apos;test&apos;,i));
+    set i=i+1;
+    end while;
+    end 
+
+调用存储过程，向表中添加数据
+
+    call proc_test()
+
+
+开启运行时间监测：
+set profiling=1;
+查找第1万条数据test10000
+select * from test_index where title=&apos;test10000&apos;;
+查看执行的时间：
+show profiles;
+为表title_index的title列创建索引：
+create index title_index on test_index(title(10));
+执行查询语句：
+select * from test_index where title=&apos;test10000&apos;;
+再次查看执行的时间
+show profiles;
+
+-- 分析查询
+
+explain
+select * from test_index where title=&apos;test10000&apos;
+</code></pre><h2 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h2><pre><code>从表添加、修改数据时，受主表的约束
+主表删除数据时，如果已经被从表依赖了，不能删除
+
+-- 创建表时，对于主键和unique字段，自动创建索引
+create table create_index(
+id int primary key,
+name varchar(10) unique,
+age int,
+key (age)
+);
+</code></pre><h1 id="mysql操作日志"><a href="#mysql操作日志" class="headerlink" title="mysql操作日志"></a>mysql操作日志</h1><pre><code>general-log：能记录mysql所有的操作日志（包括增删改查）,不过他会耗费数据库5%-10%的性能,所以一般没特别需要时不打开此功能,一般在查找问题时才打开,完成后及时关闭
+
+1、客户端连接mysql
+2、查询日志是否开启：show variables like &apos;general%&apos;;
+3、打开日志：set global general_log=1
+4、不需要使用日志时关闭日志：set global general_log=0
+5、打开对应目录下的日志文件，操作mysql后，观察文件变化
+    centos中查看文件自动刷新：tail -f 文件名
+</code></pre><h1 id="浏览器、网站程序、数据库之间的关系"><a href="#浏览器、网站程序、数据库之间的关系" class="headerlink" title="浏览器、网站程序、数据库之间的关系"></a>浏览器、网站程序、数据库之间的关系</h1><pre><code>1、拷贝test.php到centos中
+2、把test.php移动到目录/data/server/nginx/html/iwebshop
+    su
+    cd Desktop
+    mv test.php /data/server/nginx/html/iwebshop
+    -- 开启nginx服务
+    cd /data/server/php/sbin
+    ./php-fpm
+    -- 开启php服务
+    cd /data/server/nginx/sbin
+    ./nginx
+3、打开浏览器，访问 http://iwebshop.itcast.com/test.php
+4、修改test.php
+    cd /data/server/nginx/html/iwebshop
+    gedit test.php
+    把&quot;没有搜索到结果:&quot;引号里面的内容改一下，保存
+5、打开浏览器，访问 http://iwebshop.itcast.com/test.php
+</code></pre><h1 id="商城网站涉及的sql语句"><a href="#商城网站涉及的sql语句" class="headerlink" title="商城网站涉及的sql语句"></a>商城网站涉及的sql语句</h1><pre><code>1、注册
+
+2、登录
+
+3、商品展示
+
+4、商品购买
+</code></pre><h1 id="iwebshop商城中的数据库"><a href="#iwebshop商城中的数据库" class="headerlink" title="iwebshop商城中的数据库"></a>iwebshop商城中的数据库</h1><pre><code>1、备份数据库
+
+    测试之前，先备份iwebshop数据库，可以比对测试前后的数据，还可以在误操作时恢复数据库
+
+    备份
+
+        mysqldump -u root iwebshop&gt;iwebshop.sql
+
+    创建新数据库
+
+        1、客户端连接mysql
+        2、create database iwebshop_back charset=&apos;utf8&apos;;
+
+    把数据导入到新数据库
+
+        mysql -u root iwebshop_back&lt;iwebshop.sql
+
+2、iwebshop中的sql语句
+
+    1、注册
+        查询iwebshop_user用户表，判断用户名是否存在
+        插入iwebshop_user用户表和iwebshop_member个人信息表，iwebshop_member表中balance是账户余额
+
+    2、登录
+        查询iwebshop_user用户表
+
+    3、商品展示
+        查询iwebshop_goods商品表
+
+    4、商品购买
+        下单：插入iwebshop_order订单表，插入订单详情表iwebshop_order_goods
+        支付：更新iwebshop_member表的余额，更新iwebshop_goods的库存，更新iwebshop_order的状态
+</code></pre><h1 id="多表练习题答案"><a href="#多表练习题答案" class="headerlink" title="多表练习题答案"></a>多表练习题答案</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br></pre></td><td class="code"><pre><span class="line">-- 1、返回拥有员工的部门名、部门号。</span><br><span class="line">-- 错误</span><br><span class="line">-- 需要员工信息和部门信息，连接emp和dept</span><br><span class="line">-- select ename,emp.deptno,dname from emp,dept </span><br><span class="line">-- where emp.deptno=dept.deptno</span><br><span class="line"></span><br><span class="line">-- 要部门名和部门号，</span><br><span class="line">-- 拥有员工，在员工表中，有人使用这个部门号</span><br><span class="line">-- select * from dept where deptno in(select DISTINCT deptno from emp )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-- </span><br><span class="line">-- 2、工资水平多于‘鲁班七号’的员工信息。</span><br><span class="line">-- 要员工信息，查员工表</span><br><span class="line">-- 条件，工资多余鲁班七号</span><br><span class="line">-- 查询鲁班七号的工资</span><br><span class="line">-- select * from emp where sal&gt;(select sal from emp where ename=&apos;鲁班七号&apos;)</span><br><span class="line"></span><br><span class="line">--     </span><br><span class="line">-- 3、返回员工和所属上级的姓名。</span><br><span class="line">-- select e.ename eename,e.job ejob,m.ename mename,m.job mjob,m.mgr mmgr from emp e,emp m</span><br><span class="line">-- where e.mgr=m.empno</span><br><span class="line">-- 一个表中有自己的id，和上级的id，使用自关联</span><br><span class="line">select ee.ename eename ,ee.job eejob,mm.ename mmname,mm.job mmjob,pp.ename ppname,pp.job ppjob</span><br><span class="line">from emp ee ,emp mm,emp pp</span><br><span class="line">where ee.mgr=mm.empno and mm.mgr=pp.empno</span><br><span class="line">and (mm.job=&apos;经理&apos; or pp.job=&apos;经理&apos;)</span><br><span class="line">--      </span><br><span class="line">-- 4、返回雇员的雇佣日期早于其上级雇佣日期的员工及其上级姓名。</span><br><span class="line">-- select e.ename ename,e.job ejob,e.HIREDATE,m.ename mename,m.job mjob,m.HIREDATE</span><br><span class="line">--  from emp e,emp m where e.mgr=m.EMPNO and e.HIREDATE&lt;m.HIREDATE</span><br><span class="line">-- where e.mgr=m.empno</span><br><span class="line">-- </span><br><span class="line">-- 5、返回员工姓名及其所在的部门名称。</span><br><span class="line"></span><br><span class="line">-- select ename,emp.deptno,dname from emp,dept </span><br><span class="line">-- WHERE emp.deptno=dept.deptno</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-- </span><br><span class="line">-- 6、返回从事&apos;职员&apos;工作的员工姓名和所在部门名称。</span><br><span class="line">-- 查询员工和部门的信息，连接emp和dept</span><br><span class="line">-- 过滤职员</span><br><span class="line"></span><br><span class="line">-- select ename,emp.deptno,dname,job from emp,dept </span><br><span class="line">-- WHERE emp.deptno=dept.deptno and job=&apos;职员&apos;</span><br><span class="line">-- </span><br><span class="line">-- </span><br><span class="line">-- 7、返回部门号,部门名称及其本部门的最低工资。</span><br><span class="line">--  查询员工和部门的信息，连接emp和dept</span><br><span class="line">-- 各部门的最低工资，按照部门进行分组，分组后求最低工资</span><br><span class="line">-- select dept.DEPTNO,dept.DNAME,min(sal) from emp,dept </span><br><span class="line">-- WHERE emp.deptno=dept.deptno</span><br><span class="line">-- group by dept.deptno</span><br><span class="line">-- </span><br><span class="line">-- 8、返回销售部所有员工的姓名。</span><br><span class="line">-- 销售部所有员工，连接dept,emp</span><br><span class="line">-- select * from emp,dept </span><br><span class="line">-- WHERE emp.deptno=dept.deptno</span><br><span class="line">-- and dept.dname=&apos;销售&apos;</span><br><span class="line">-- </span><br><span class="line">-- </span><br><span class="line">-- 9、返回工资水平多于平均工资的员工。</span><br><span class="line">-- 查询emp</span><br><span class="line">-- 条件:工资水平多于平均工资</span><br><span class="line">-- 查询平均工资</span><br><span class="line">-- select avg(sal) from emp</span><br><span class="line">-- select * from emp where sal&gt;(select avg(sal) from emp)</span><br><span class="line">-- </span><br><span class="line">-- </span><br><span class="line">-- 10、返回与‘大乔’从事相同工作的员工，不包含自己</span><br><span class="line">-- 查询emp</span><br><span class="line">-- 条件：与‘大乔’从事相同工作,</span><br><span class="line">-- select job from emp where ename=&apos;大乔&apos;</span><br><span class="line">-- 不包含自己</span><br><span class="line">-- select * from emp where job=(select job from emp where ename=&apos;大乔&apos;)</span><br><span class="line">-- and ename!=&apos;大乔&apos;</span><br><span class="line">-- </span><br><span class="line">-- </span><br><span class="line">-- 11、返回与销售部门员工工资水平相同的员工姓名与工资。</span><br><span class="line">-- 销售部的员工，连接emp，dept</span><br><span class="line">-- select * from emp ,dept</span><br><span class="line">-- 条件：与销售部门员工工资水平相同</span><br><span class="line">-- 查询销售部所有人的工资</span><br><span class="line">-- select sal from emp ,dept where emp.deptno=dept.deptno and dname=&apos;销售&apos;</span><br><span class="line"></span><br><span class="line">-- select * from emp ,dept where emp.deptno=dept.deptno</span><br><span class="line">-- and sal in (select sal from emp ,dept where emp.deptno=dept.deptno and dname=&apos;销售&apos;)</span><br><span class="line">-- </span><br><span class="line">-- </span><br><span class="line">-- 12、返回工资高于销售部门所有员工工资水平的员工信息。</span><br><span class="line"></span><br><span class="line">-- 高于销售部门所有，工资大于销售部所有人的工资</span><br><span class="line">-- select * from emp ,dept where emp.deptno=dept.deptno</span><br><span class="line">-- and sal &gt;all (select sal from emp ,dept where emp.deptno=dept.deptno and dname=&apos;销售&apos;)</span><br><span class="line"></span><br><span class="line">-- </span><br><span class="line">-- </span><br><span class="line">-- 13、返回部门号、部门名、部门所在位置及其每个部门的员工总数。  </span><br><span class="line">-- 连接emp，dept</span><br><span class="line">-- select * from emp,dept where emp.deptno=dept.deptno  </span><br><span class="line">-- 每个部门的员工总数：统计，聚合函数，每个部门，需要分组</span><br><span class="line">-- select *,count(*) from emp,dept where emp.deptno=dept.deptno</span><br><span class="line">-- group by dept.DEPTNO</span><br><span class="line">-- </span><br><span class="line">-- </span><br><span class="line">-- 14、返回员工的姓名、所在部门名及其工资。</span><br><span class="line">-- 连接emp,dept</span><br><span class="line">-- select * from emp,dept where emp.deptno=dept.deptno</span><br><span class="line"></span><br><span class="line">-- </span><br><span class="line">-- </span><br><span class="line">-- 15、返回员工的详细信息。(包括部门名和工资级别)</span><br><span class="line">-- 连接emp,dept,salgrade</span><br><span class="line">-- 员工工资级别获取：员工的工资 在某个级别的最低工资和最高范围内</span><br><span class="line"></span><br><span class="line">-- select * from emp,dept,salgrade s</span><br><span class="line">-- where emp.deptno=dept.deptno</span><br><span class="line">-- and emp.sal between s.losal and  s.hisal</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-- </span><br><span class="line">-- </span><br><span class="line">-- 16、返回员工工作及其从事此工作的最低工资。</span><br><span class="line">-- </span><br><span class="line">-- 员工工作及工资,查询员工表</span><br><span class="line">-- select * from emp</span><br><span class="line">-- 此工作的最低工资，按照工作分组</span><br><span class="line">-- select job,min(sal) from emp group by job</span><br><span class="line"></span><br><span class="line">-- 返回员工名称，员工工作及其从事此工作的最低工资</span><br><span class="line">-- 获取每个工作中的最低工资，结果1</span><br><span class="line">-- 需要关联员工表和结果1</span><br><span class="line"></span><br><span class="line">-- select ename,emp.job,sal 自己的工资,t.msal 当前工作的最低工资</span><br><span class="line">-- from emp ,(select job,min(sal) msal from emp group by job) t</span><br><span class="line">-- where emp.job=t.job</span><br><span class="line">-- </span><br><span class="line">-- </span><br><span class="line">-- 17、返回每个部门中经理的最低工资。</span><br><span class="line">-- 分组后，取到的时这个组中的一条数据，通常是按照主键排序后的第一条</span><br><span class="line">-- 分组前，先对数据按照最低工资进行排序</span><br><span class="line">-- select * from emp order by sal</span><br><span class="line"></span><br><span class="line">-- 按照什么分组，取每组最新的数据</span><br><span class="line">-- select count(*),t.ename,min(t.sal) from </span><br><span class="line">-- (select * from emp order by sal) t </span><br><span class="line">--  where t.job=&apos;经理&apos; group by t.deptno</span><br><span class="line"></span><br><span class="line">-- </span><br><span class="line">-- </span><br><span class="line">-- 18、计算出员工的年薪，并且以年薪排序。</span><br><span class="line">-- select ifnull(null,2) 如果前面一个值为null，取后面的值，如果不为null，取自己的值</span><br><span class="line">-- select sal*12 ysal,comm,sal*12+ifnull(comm,0)  from emp order by ysal;</span><br><span class="line">-- </span><br><span class="line">-- </span><br><span class="line">-- 19、返回工资处于第四级别的员工的姓名。</span><br><span class="line">-- </span><br><span class="line">-- 连接emp,salgrade</span><br><span class="line">-- select * from emp,salgrade</span><br><span class="line">-- where sal between losal and hisal </span><br><span class="line">-- and grade=&apos;4&apos;</span><br><span class="line">-- </span><br><span class="line">-- </span><br><span class="line">-- 20、返回工资为二等级的职员名字、部门所在地、二等级员工工资的最低工资和最高工资</span><br><span class="line">-- 连接emp,salgrade ，dept</span><br><span class="line">-- select * from emp,salgrade,dept</span><br><span class="line">-- where sal between losal and hisal </span><br><span class="line">-- and emp.deptno=dept.deptno</span><br><span class="line">-- and grade=2</span><br><span class="line">-- </span><br><span class="line">-- </span><br><span class="line">-- 21、工资等级多于‘王昭君’的员工信息。</span><br><span class="line">-- 连接emp,salgrade</span><br><span class="line">-- 获取王昭君的等级</span><br><span class="line">-- select grade from emp,salgrade</span><br><span class="line">-- where sal between losal and hisal </span><br><span class="line">-- and ename=&apos;王昭君&apos;</span><br><span class="line">-- 连接emp,salgrade,获取所有员工的信息和等级</span><br><span class="line">select * from emp,salgrade</span><br><span class="line">where sal between losal and hisal </span><br><span class="line">-- 等级多于‘王昭君’</span><br><span class="line">and GRADE &gt;(select grade from emp,salgrade</span><br><span class="line">where sal between losal and hisal </span><br><span class="line">and ename=&apos;王昭君&apos;) </span><br><span class="line"></span><br><span class="line">select from WHERE GROUP BY order BY limit</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2020/01/30/Oracle-19/">Oracle-19</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
+        <p><span>发布时间:</span>2020-01-30, 19:14:47</p>
+        <p><span>最后更新:</span>2020-01-30, 19:16:12</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2020/01/30/Oracle-19/" title="Oracle-19">http://yoursite.com/2020/01/30/Oracle-19/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2020/01/30/Oracle-19/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2020/01/30/Oracle-18/">
+                    Oracle-18
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#课程笔记"><span class="toc-number">1.</span> <span class="toc-text">课程笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#事务"><span class="toc-number">1.1.</span> <span class="toc-text">事务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引"><span class="toc-number">1.2.</span> <span class="toc-text">索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#外键"><span class="toc-number">1.3.</span> <span class="toc-text">外键</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql操作日志"><span class="toc-number">2.</span> <span class="toc-text">mysql操作日志</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#浏览器、网站程序、数据库之间的关系"><span class="toc-number">3.</span> <span class="toc-text">浏览器、网站程序、数据库之间的关系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#商城网站涉及的sql语句"><span class="toc-number">4.</span> <span class="toc-text">商城网站涉及的sql语句</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#iwebshop商城中的数据库"><span class="toc-number">5.</span> <span class="toc-text">iwebshop商城中的数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多表练习题答案"><span class="toc-number">6.</span> <span class="toc-text">多表练习题答案</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Oracle-19　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2020/01/30/Oracle-18/" title="下一篇: Oracle-18">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/01/30/Oracle-19/">Oracle-19</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/30/Oracle-18/">Oracle-18</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/30/Python-22/">Python-22</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/30/Python-21/">Python-21</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/15/Oracle-17/">Oracle-17</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/15/Python-20/">Python-20</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/15/Oracle-16/">Oracle-16</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/15/Python-19/">Python-19</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/11/Oracle-15/">Oracle-15</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/11/Python-18/">Python-18</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/09/Oracle-14/">Oracle-14</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/09/Python-17/">Python-17</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/09/Oracle-13/">Oracle-13</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/09/Python-16/">Python-16</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/07/Oracle-12/">Oracle-12</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/07/Oracle-11/">Oracle-11</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/07/Python-15/">Python-15</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Oracle-10/">Oracle-10</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Oracle-09/">Oracle-09</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Python-14/">Python-14</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Python-13/">Python-13</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/28/Oracle-08/">Oracle-08</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/28/Python-12/">Python-12</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/26/Oracle-07/">Oracle-07</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/26/Oracle-06/">Oracle-06</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/26/Python-11/">Python-11</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/26/Python-10/">Python-10</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Oracle-05/">Oracle-05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Python-09/">Python-09</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Python-08/">Python-08</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Oracle-04/">Oracle-04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Oracle-03/">Oracle-03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Python-07/">Python-07</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/19/Python-06/">Python-06</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/17/Oracle-02/">Oracle-02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/17/Python-05/">Python-05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/17/Python-04/">Python-04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/16/Oracle-01/">Oracle-01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/16/Python-03/">Python-03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/16/Python-02/">Python-02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/15/Python-01/">Python-01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/15/Python-Linux-12/">Python-Linux-12</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/14/Python-Linux-11/">Python-Linux-11</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/02/Python-Linux-10/">Python-Linux-10</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/02/Python-Linux-09/">Python-Linux-09</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/31/Python-Linux-08/">Python-Linux-08</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/31/Python-Linux-07/">Python-Linux-07</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/29/Python-Linux-06/">Python-Linux-06</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/29/Python-Linux-05/">Python-Linux-05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/27/Python-Linux-04/">Python-Linux-04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/27/Python-Linux-03/">Python-Linux-03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/24/Python-Linux-02/">Python_Linux-02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/24/Python-Linux-01/">Python_Linux-01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/软件测试——测试用例拓展/">软件测试——测试用例拓展</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/软件测试——测试用例总结02/">软件测试——测试用例总结02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/软件测试——测试用例总结01/">软件测试——测试用例总结01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/软件测试——测试用例05/">软件测试——测试用例05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/软件测试——测试用例04/">软件测试——测试用例04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/软件测试——测试用例03/">软件测试——测试用例03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/16/软件测试——测试用例02/">软件测试——测试用例02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/软件测试——测试用例01/">软件测试——测试用例01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/15/软件测试——测试理论05/">软件测试——测试理论05</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/14/软件测试——测试理论04/">软件测试——测试理论04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/14/软件测试——测试理论03/">软件测试——测试理论03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/软件测试——测试理论02/">软件测试——测试理论02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/13/软件测试——测试理论01/">软件测试——测试理论01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/软件测试——测试基础02-1/">软件测试——测试基础02-1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/软件测试——测试基础01-2/">软件测试——测试基础01-2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/软件测试——测试基础01-1/">软件测试——测试基础01_1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5的FileReader/">HTML5的FileReader</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5地理定位接口/">HTML5地理定位接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/HTML5的拖拽/">HTML5的拖拽</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/03/CSS复习内容01/">CSS复习内容01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/23/es6学习笔记2/">es6学习笔记2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/22/angular精讲5/">angular精讲5</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/CSS3学习笔记2/">CSS3学习笔记2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/21/angular精讲4/">angular精讲4</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/20/CSS3学习笔记/">CSS3学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/20/angular精讲3/">angular精讲3</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/es6学习笔记/">es6学习笔记01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/angular精讲2/">angular精讲2</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/angular精讲1/">angular精讲1</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/javascript基础-02/">javascript基础_02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/angular路由/">angular路由</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/javascript基础01-01/">javascript基础01_01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/11/angular服务的依赖注入/">angular服务的依赖注入</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/10/angular-指令简述/">angular 指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/Angular-Component-databinding/">Angular Component$databinding</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/08/survey.js/">survey.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/angular新建组件方法/">angular新建组件方法</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2020 yuao
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
