@@ -15,18 +15,21 @@
 
 
 
-<meta name="description" content="软件测试基础——软件测试简介 软件测试行业基本介绍、软件测试基本介绍、测试对象介绍、测试级别、系统测试分类、常见的系统测试方法、软件质量、软件测试流程、软件架构、浏览器基本介绍、常见的图片类型">
-<meta name="keywords" content="软件测试简介">
+<meta name="description" content="函数的参数进阶 函数的递归">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="软件测试——测试基础02-1">
-<meta property="og:url" content="http://yoursite.com/2019/08/11/软件测试——测试基础02-1/index.html">
+<meta property="og:title" content="Python-25">
+<meta property="og:url" content="http://yoursite.com/2020/02/08/Python-25/index.html">
 <meta property="og:site_name" content="yuaoblog">
-<meta property="og:description" content="软件测试基础——软件测试简介 软件测试行业基本介绍、软件测试基本介绍、测试对象介绍、测试级别、系统测试分类、常见的系统测试方法、软件质量、软件测试流程、软件架构、浏览器基本介绍、常见的图片类型">
+<meta property="og:description" content="函数的参数进阶 函数的递归">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-11T08:01:08.083Z">
+<meta property="og:image" content="d:/黑科技软件下载/zw_tets_java-10322540-Python入门教程完整版（懂中文就能学会）资料/tets_java-10322540-Python入门教程完整版（懂中文就能学会）资料/Python入门教程完整版（懂中文就能学会）资料/02%20Python%20基础资料/课程讲义/day07_markdown/day07/media/14993074876434/002_递归调用示意图I.png">
+<meta property="og:image" content="d:/黑科技软件下载/zw_tets_java-10322540-Python入门教程完整版（懂中文就能学会）资料/tets_java-10322540-Python入门教程完整版（懂中文就能学会）资料/Python入门教程完整版（懂中文就能学会）资料/02%20Python%20基础资料/课程讲义/day07_markdown/day07/media/14993074876434/002_递归调用示意图.png">
+<meta property="og:updated_time" content="2020-02-08T09:02:23.482Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="软件测试——测试基础02-1">
-<meta name="twitter:description" content="软件测试基础——软件测试简介 软件测试行业基本介绍、软件测试基本介绍、测试对象介绍、测试级别、系统测试分类、常见的系统测试方法、软件质量、软件测试流程、软件架构、浏览器基本介绍、常见的图片类型">
+<meta name="twitter:title" content="Python-25">
+<meta name="twitter:description" content="函数的参数进阶 函数的递归">
+<meta name="twitter:image" content="d:/黑科技软件下载/zw_tets_java-10322540-Python入门教程完整版（懂中文就能学会）资料/tets_java-10322540-Python入门教程完整版（懂中文就能学会）资料/Python入门教程完整版（懂中文就能学会）资料/02%20Python%20基础资料/课程讲义/day07_markdown/day07/media/14993074876434/002_递归调用示意图I.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +61,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>软件测试——测试基础02-1 | yuaoblog</title>
+<title>Python-25 | yuaoblog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -265,11 +268,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-软件测试——测试基础02-1" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Python-25" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/08/11/软件测试——测试基础02-1/" class="article-date">
-      <time datetime="2019-08-11T07:39:43.000Z" itemprop="datePublished">2019-08-11</time>
+      <a href="/2020/02/08/Python-25/" class="article-date">
+      <time datetime="2020-02-08T09:01:24.000Z" itemprop="datePublished">2020-02-08</time>
 </a>
 
 
@@ -284,7 +287,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      软件测试——测试基础02-1
+      Python-25
     </h1>
   
 
@@ -295,7 +298,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件测试简介/">软件测试简介</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -305,219 +308,110 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="软件测试基础——软件测试简介"><a href="#软件测试基础——软件测试简介" class="headerlink" title="软件测试基础——软件测试简介"></a>软件测试基础——软件测试简介</h1><blockquote>
-<p>软件测试行业基本介绍、软件测试基本介绍、测试对象介绍、测试级别、系统测试分类、常见的系统测试方法、软件质量、软件测试流程、软件架构、浏览器基本介绍、常见的图片类型</p>
+        <blockquote>
+<ul>
+<li>函数的参数进阶</li>
+<li>函数的递归</li>
+</ul>
 </blockquote>
 <a id="more"></a>
-<h2 id="软件测试行业基本介绍"><a href="#软件测试行业基本介绍" class="headerlink" title="软件测试行业基本介绍"></a>软件测试行业基本介绍</h2><p>一、为什么需要软件测试</p>
+<h2 id="函数的参数进阶"><a href="#函数的参数进阶" class="headerlink" title="函数的参数进阶"></a>函数的参数进阶</h2><h3 id="缺省参数"><a href="#缺省参数" class="headerlink" title="缺省参数"></a>缺省参数</h3><ul>
+<li>定义函数时，可以给 <strong>某个参数</strong> 指定一个<strong>默认值</strong>，具有默认值的参数就叫做 <strong>缺省参数</strong></li>
+<li>调用函数时，如果没有传入 <strong>缺省参数</strong> 的值，则在函数内部使用定义函数时指定的 <strong>参数默认值</strong></li>
+<li>函数的缺省参数，<strong>将常见的值设置为参数的缺省值</strong>，从而 <strong>简化函数的调用</strong></li>
+<li>例如：对列表排序的方法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">gl_num_list = [<span class="number">6</span>, <span class="number">3</span>, <span class="number">9</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认就是升序排序，因为这种应用需求更多</span></span><br><span class="line">gl_num_list.sort()</span><br><span class="line">print(gl_num_list)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 只有当需要降序排序时，才需要传递 `reverse` 参数</span></span><br><span class="line">gl_num_list.sort(reverse=<span class="literal">True</span>)</span><br><span class="line">print(gl_num_list)</span><br></pre></td></tr></table></figure>
+<h4 id="指定函数的缺省参数"><a href="#指定函数的缺省参数" class="headerlink" title="指定函数的缺省参数"></a>指定函数的缺省参数</h4><ul>
+<li>在参数后使用赋值语句，可以指定参数的缺省值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_info</span><span class="params">(name, gender=True)</span>:</span></span><br><span class="line"></span><br><span class="line">    gender_text = <span class="string">"男生"</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> gender:</span><br><span class="line">        gender_text = <span class="string">"女生"</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">"%s 是 %s"</span> % (name, gender_text))</span><br></pre></td></tr></table></figure>
+<p><strong>提示</strong></p>
 <ol>
-<li><p>一款软件从无到有会经历很多的开发阶段由不同的人来参与开发，所以最终产出的软件功能可能会存在问题。因此为了保证软件的功能是可用的，我们必须要进行测试。</p>
-</li>
-<li><p>当前的软件件行业已经不在是功能为王了，用户不仅仅只盯着软件的功能是否满足需求，还会对软件是否容易上手，执行效率是否OK …..等一系列其它体验都有了更高的要求，所以这也需要我们对软件进行大量的测试。</p>
-</li>
+<li>缺省参数，需要使用 <strong>最常见的值</strong> 作为默认值！</li>
+<li>如果一个参数的值 <strong>不能确定</strong>，则不应该设置默认值，具体的数值在调用函数时，由外界传递！</li>
 </ol>
-<p>二、为什么选择软件测试</p>
+<h4 id="缺省参数的注意事项"><a href="#缺省参数的注意事项" class="headerlink" title="缺省参数的注意事项"></a>缺省参数的注意事项</h4><h5 id="1-缺省参数的定义位置"><a href="#1-缺省参数的定义位置" class="headerlink" title="1) 缺省参数的定义位置"></a>1) 缺省参数的定义位置</h5><ul>
+<li><strong>必须保证</strong> <strong>带有默认值的缺省参数</strong> <strong>在参数列表末尾</strong></li>
+<li>所以，以下定义是错误的！</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_info</span><span class="params">(name, gender=True, title)</span>:</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-调用带有多个缺省参数的函数"><a href="#2-调用带有多个缺省参数的函数" class="headerlink" title="2) 调用带有多个缺省参数的函数"></a>2) 调用带有多个缺省参数的函数</h5><ul>
+<li>在 <strong>调用函数时</strong>，如果有 <strong>多个缺省参数</strong>，<strong>需要指定参数名</strong>，这样解释器才能够知道参数的对应关系！</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_info</span><span class="params">(name, title=<span class="string">""</span>, gender=True)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :param title: 职位</span></span><br><span class="line"><span class="string">    :param name: 班上同学的姓名</span></span><br><span class="line"><span class="string">    :param gender: True 男生 False 女生</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    gender_text = <span class="string">"男生"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> gender:</span><br><span class="line">        gender_text = <span class="string">"女生"</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">"%s%s 是 %s"</span> % (title, name, gender_text))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 提示：在指定缺省参数的默认值时，应该使用最常见的值作为默认值！</span></span><br><span class="line">print_info(<span class="string">"小明"</span>)</span><br><span class="line">print_info(<span class="string">"老王"</span>, title=<span class="string">"班长"</span>)</span><br><span class="line">print_info(<span class="string">"小美"</span>, gender=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="多值参数（知道）"><a href="#多值参数（知道）" class="headerlink" title="多值参数（知道）"></a>多值参数（知道）</h3><h4 id="定义支持多值参数的函数"><a href="#定义支持多值参数的函数" class="headerlink" title="定义支持多值参数的函数"></a>定义支持多值参数的函数</h4><ul>
+<li>有时可能需要 <strong>一个函数</strong> 能够处理的参数 <strong>个数</strong> 是不确定的，这个时候，就可以使用 <strong>多值参数</strong></li>
+<li><code>python</code> 中有 <strong>两种</strong> 多值参数：<ul>
+<li>参数名前增加 <strong>一个</strong> <code>*</code> 可以接收 <strong>元组</strong></li>
+<li>参数名前增加 <strong>两个</strong> <code>*</code> 可以接收 <strong>字典</strong></li>
+</ul>
+</li>
+<li><p>一般在给多值参数命名时，<strong>习惯</strong>使用以下两个名字</p>
+<ul>
+<li><code>*args</code> —— 存放 <strong>元组</strong> 参数，前面有一个 <code>*</code></li>
+<li><code>**kwargs</code> —— 存放 <strong>字典</strong> 参数，前面有两个 <code>*</code></li>
+</ul>
+</li>
+<li><p><code>args</code> 是 <code>arguments</code> 的缩写，有变量的含义</p>
+</li>
+<li><code>kw</code> 是 <code>keyword</code> 的缩写，<code>kwargs</code> 可以记忆 <strong>键值对参数</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">demo</span><span class="params">(num, *args, **kwargs)</span>:</span></span><br><span class="line"></span><br><span class="line">    print(num)</span><br><span class="line">    print(args)</span><br><span class="line">    print(kwargs)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">demo(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, name=<span class="string">"小明"</span>, age=<span class="number">18</span>, gender=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>提示：<strong>多值参数</strong> 的应用会经常出现在网络上一些大牛开发的框架中，知道多值参数，<strong>有利于我们能够读懂大牛的代码</strong></p>
+</blockquote>
+<h4 id="多值参数案例-——-计算任意多个数字的和"><a href="#多值参数案例-——-计算任意多个数字的和" class="headerlink" title="多值参数案例 —— 计算任意多个数字的和"></a>多值参数案例 —— 计算任意多个数字的和</h4><p><strong>需求</strong></p>
 <ol>
-<li><p>国内的软件行业对于专业的软件测试人员需求是慢慢变大。</p>
-</li>
-<li><p>有些人喜欢创造世界所以他们做了开发，而我们就是希望这个世界变得更加美好所以做了测试。</p>
-</li>
+<li>定义一个函数 <code>sum_numbers</code>，可以接收的 <strong>任意多个整数</strong></li>
+<li>功能要求：将传递的 <strong>所有数字累加</strong> 并且返回累加结果</li>
 </ol>
-<p>三、为什么不让开发自已做测试</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_numbers</span><span class="params">(*args)</span>:</span></span><br><span class="line"></span><br><span class="line">    num = <span class="number">0</span></span><br><span class="line">    <span class="comment"># 遍历 args 元组顺序求和</span></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> args:</span><br><span class="line">        num += n</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> num</span><br><span class="line"></span><br><span class="line">print(sum_numbers(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="元组和字典的拆包（知道）"><a href="#元组和字典的拆包（知道）" class="headerlink" title="元组和字典的拆包（知道）"></a>元组和字典的拆包（知道）</h4><ul>
+<li>在调用带有多值参数的函数时，如果希望：<ul>
+<li>将一个 <strong>元组变量</strong>，直接传递给 <code>args</code></li>
+<li>将一个 <strong>字典变量</strong>，直接传递给 <code>kwargs</code></li>
+</ul>
+</li>
+<li>就可以使用 <strong>拆包</strong>，简化参数的传递，<strong>拆包</strong> 的方式是：<ul>
+<li>在 <strong>元组变量前</strong>，增加 <strong>一个</strong> <code>*</code></li>
+<li>在 <strong>字典变量前</strong>，增加 <strong>两个</strong> <code>*</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">demo</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line"></span><br><span class="line">    print(args)</span><br><span class="line">    print(kwargs)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 需要将一个元组变量/字典变量传递给函数对应的参数</span></span><br><span class="line">gl_nums = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">gl_xiaoming = &#123;<span class="string">"name"</span>: <span class="string">"小明"</span>, <span class="string">"age"</span>: <span class="number">18</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 会把 num_tuple 和 xiaoming 作为元组传递个 args</span></span><br><span class="line"><span class="comment"># demo(gl_nums, gl_xiaoming)</span></span><br><span class="line">demo(*gl_nums, **gl_xiaoming)</span><br></pre></td></tr></table></figure>
+<h2 id="函数的递归"><a href="#函数的递归" class="headerlink" title="函数的递归"></a>函数的递归</h2><blockquote>
+<p>函数调用自身的 <strong>编程技巧</strong> 称为递归</p>
+</blockquote>
+<h3 id="递归函数的特点"><a href="#递归函数的特点" class="headerlink" title="递归函数的特点"></a>递归函数的特点</h3><p><strong>特点</strong></p>
+<ul>
+<li><strong>一个函数</strong> <strong>内部</strong> <strong>调用自己</strong><ul>
+<li>函数内部可以调用其他函数，当然在函数内部也可以调用自己</li>
+</ul>
+</li>
+</ul>
+<p><strong>代码特点</strong></p>
 <ol>
-<li><p>当前行业有许多的测试从业人员本身之前都是开发岗。</p>
-</li>
-<li><p>专业度：软件测试和软件开发分别属于软件行业当中二个不同的技术方向。所以让专人做专事对于质量更加有保证。</p>
-</li>
-<li><p>思维定式：在软件的开发周期中 对于程序员来说他们大多数的时间都是在思考如何实现具体的软件功能，而不会去从用户的角度考虑如何去”奇葩“的使用这些功能。</p>
-</li>
-<li><p>测试力度： 相对于开发来说，产器就相当于是他们的“孩子”。所以“下手”就不会那么狠。</p>
+<li>函数内部的 <strong>代码</strong> 是相同的，只是针对 <strong>参数</strong> 不同，<strong>处理的结果不同</strong></li>
+<li>当 <strong>参数满足一个条件</strong> 时，函数不再执行<ul>
+<li><strong>这个非常重要</strong>，通常被称为递归的出口，否则 <strong>会出现死循环</strong>！</li>
+</ul>
 </li>
 </ol>
-<h2 id="软件测试基本介绍"><a href="#软件测试基本介绍" class="headerlink" title="软件测试基本介绍"></a>软件测试基本介绍</h2><p>一、软件测试定义</p>
-<p>通过手工或者工具对 “被测对象”进行测试操作，从而验证实际结与预期结果之间是否存在差异。</p>
-<p>二、软件测试的作用</p>
+<p>示例代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_numbers</span><span class="params">(num)</span>:</span></span><br><span class="line"></span><br><span class="line">    print(num)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 递归的出口很重要，否则会出现死循环</span></span><br><span class="line">    <span class="keyword">if</span> num == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    sum_numbers(num - <span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">sum_numbers(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="D:/黑科技软件下载/zw_tets_java-10322540-Python入门教程完整版（懂中文就能学会）资料/tets_java-10322540-Python入门教程完整版（懂中文就能学会）资料/Python入门教程完整版（懂中文就能学会）资料/02 Python 基础资料/课程讲义/day07_markdown/day07/media/14993074876434/002_递归调用示意图I.png" alt="002_递归调用示意图I"></p>
+<h3 id="递归案例-——-计算数字累加"><a href="#递归案例-——-计算数字累加" class="headerlink" title="递归案例 —— 计算数字累加"></a>递归案例 —— 计算数字累加</h3><p><strong>需求</strong></p>
 <ol>
-<li><p>通过测试工作可以发现并修复软件当中存在的缺陷，从而提高用户对产品的使用信心。</p>
-</li>
-<li><p>测试可以记录软件运行过程中产生的一些数据，从而为决策提供数据支持。</p>
-</li>
-<li><p>测试可以降低同类型产品开发遇到问题的风险。</p>
-</li>
+<li>定义一个函数 <code>sum_numbers</code></li>
+<li>能够接收一个 <code>num</code> 的整数参数</li>
+<li>计算 1 + 2 + … num 的结果</li>
 </ol>
-<p>三、测试原则：</p>
-<p>所谓的测试原则指的就是我们在执行测试工作时必须要遵守的一些规则。</p>
-<ol>
-<li><p>测试证明软件存在缺陷：无论执行什么样的测试操作都保能证明当前软件是有缺陷的。</p>
-</li>
-<li><p>不能执行穷尽测试：有些功能是没有办法将所有的测试情况都逻列出来，所以任何的测试操作都有结束的时间。</p>
-</li>
-<li><p>缺陷存在群集现象：对于软件功能说，核心功能占20%，非核心是80%。在实际工作中我们会集中测试20%的核心功能，所以这个部分发现缺陷的几率就会高于80%。因此我们我们就会遇到缺陷都集中在 20% 功能模块里的现象。</p>
-</li>
-<li><p>某些测试需要依赖特殊的环境</p>
-</li>
-<li>测试应尽早介入：为了更多的发现和更好的解决软件中的缺陷，我们追求测试工作尽早的开展。</li>
-<li><p>杀虫剂现象：同样的一个测试用例不能重的执行多次，因为软件会对它产生免疫。</p>
-</li>
-<li><p>不存在缺陷谬论：任何软件不可能是完美的。</p>
-</li>
-</ol>
-<h2 id="测试对象介绍"><a href="#测试对象介绍" class="headerlink" title="测试对象介绍"></a>测试对象介绍</h2><p>对于当前的测试行业来说我们最经常测试的主体就是 软件( 主体功能 )，但是需要我们明白是一个软件也不仅仅只有功能需要测试。我们可以将软件分为三个部分组成：功能集合+使用说明书 + 配置数据。</p>
-<p>对于一款软件来说从无到有需要不同的过程，我们可以将这个过程分为不同阶段，然后每个阶段都会相应有测试对象</p>
-<ol>
-<li><p>需求分析阶段：各种需求规格说明书。</p>
-</li>
-<li><p>软件架构设计：API接口文档( 接口测试 )</p>
-</li>
-<li><p>编码实现阶段：源代码（ 白盒测试、单元测试 ）</p>
-</li>
-<li><p>系统功能使用：软件功能主体（ 当前行业做的最多的一种测试 ）</p>
-</li>
-</ol>
-<h2 id="测试级别"><a href="#测试级别" class="headerlink" title="测试级别"></a>测试级别</h2><p>软件的开发都会依据相应的<strong>开发模型</strong>，则测试级别指的就在这个模型当中我们人为定义的开发步骤。其中对于测试来说我们最常见的一种级别分类如下：</p>
-<ol>
-<li><p>单元测试[ UT unit test ]：在软件测试中单元指的就是组成软件最小的底层代码结构，一般就是类、函数、组件（ 当下的软件测试行业，不会刻意要求测试人员对源代码进行测试 ）。</p>
-</li>
-<li><p>集成测试( IT system ingertaion test ):将多个单元模块组合在一起，然后验证它们之间沟通的“桥梁”是否能正常工作( 接口测试 )</p>
-</li>
-<li><p>系统测试( ST system test ):这是当前行业做的最多的一种测试。由测试人员充当用户然后对软件的功能主体进行测试。</p>
-</li>
-<li><p>验收测试:</p>
-</li>
-</ol>
-<p>(1)     α测试 —- 内测</p>
-<p>(2)     β测试 —–公测</p>
-<p>(3)     UAT( user acceptance test )测试—- 由客户派出对于业务非常精通的人员来使用该软件，从而对功能进行测试。</p>
-<p>(4)     验收测试的核心就是让用户为当前软件 “买单”</p>
-<h2 id="系统测试分类"><a href="#系统测试分类" class="headerlink" title="系统测试分类"></a>系统测试分类</h2><ol>
-<li><p>功能测试：验证当前的软件主体功能是否可用。</p>
-</li>
-<li><p>兼容性测试：验证当前软件在不同的环境下是否还可以使用。</p>
-</li>
-<li><p>安全测试：验证软件是否只是能授权用户提供功能使用。</p>
-</li>
-<li><p>性能测试：相对于当前软件消耗的资源 它的产出能力。</p>
-</li>
-</ol>
-<h2 id="常见的系统测试方法"><a href="#常见的系统测试方法" class="headerlink" title="常见的系统测试方法"></a>常见的系统测试方法</h2><p>一、按测试对象进行分类</p>
-<ol>
-<li><p>白盒测试：这种测试的主体就是软件的底层代码，不会在意外在的界面是否OK ，只要求底层功能实现，同时逻辑正确。</p>
-</li>
-<li><p>黑盒测试：这种测试就是指测试软件外在主体功能是否可用。</p>
-</li>
-<li><p>灰盒测试：介于二者之间（ 接口测试 ）</p>
-</li>
-<li><p>上述三种方法当中的 “盒” 指的就是被测对象。</p>
-</li>
-</ol>
-<p>二、按测试对象是否执行分类</p>
-<ol>
-<li><p>静态测试：指的就是测试不执行。</p>
-</li>
-<li><p>动态测试：将软件运行在真实的使用环境中进行测试。</p>
-</li>
-</ol>
-<p>三、按测试手段进行分类</p>
-<ol>
-<li><p>手工测试：由测试人员手动的对被测对象进行验证，优点就是可以灵活的改变测试操作及环境。</p>
-</li>
-<li><p>自动化测试：所谓自动化主要有二种形，一种是自已写测试脚本，另外一种就是通过第三方的工具对被测对象进行测试。优点就是可以高效率的去执行一些人工无法实现的操作。</p>
-</li>
-</ol>
-<h2 id="软件质量"><a href="#软件质量" class="headerlink" title="软件质量"></a>软件质量</h2><p>描述当前软件是否好用，在当前的软件行业里我们所采用的一套标准是基于 ISO 组织制定的。需要我们记忆的就是软件质量的六大特性：</p>
-<ol>
-<li><p>功能性：软件需要满足用户显式或者稳式的功能。</p>
-</li>
-<li><p>易用性：软件易于学习 和上手使用。</p>
-</li>
-<li><p>可靠性：指的就是软件必须实现需求当中指明的具体功能。</p>
-</li>
-<li><p>效率性：类似于软件的性能。</p>
-</li>
-<li><p>可维护性：要求软件具有将某个功能修复之后继续使用的能力。</p>
-</li>
-<li><p>可移植性：当前软件可以从一个平台移植到另一个平台上去使用的能力。</p>
-</li>
-</ol>
-<p>【 功能靠用，效率可“以” 】</p>
-<h2 id="软件测试流程"><a href="#软件测试流程" class="headerlink" title="软件测试流程"></a>软件测试流程</h2><ol>
-<li>需求分析</li>
-</ol>
-<p>(1) 当前阶段的核心目的就是梳理清楚我们需要设计的点是什么。</p>
-<p>(2) 需求的来源：需求规格说明书、API文档、竟品分析、个人经验</p>
-<ol start="2">
-<li>设计用例：</li>
-</ol>
-<p>(1) 用例就是用户为了测试软件的某个功能而执行的操作过程。</p>
-<p>(2) 设计用例是有方法的（ 等价类、边界值、判定表…… ）</p>
-<ol start="3">
-<li><p>评审用例:对当前的用例进行添加或者删除。</p>
-</li>
-<li><p>配置环境</p>
-</li>
-</ol>
-<p>(1) 环境：指的就是当前被测对象运行所需要的执行环境，做为测试人员需要具备配环境的能力。【 一般情况下都会使用一键安装的集成环境 】</p>
-<p>(2) 环境分类：操作系统 +  服务器软件 +  数据库  +  软件底层代码的执行环境。</p>
-<ol start="5">
-<li>执行用例</li>
-</ol>
-<p>(1) 一般在执行用例之前我们会做一个冒烟测试。这种测试的核心就是快速的对当前软件的核心功能或者主体执行流程进行验证。如果冒烟测试阶段有问题，则可以将此版本回退给开发。</p>
-<p>(2) 如果冒烟测试通过那么才会开展示全面的测试。</p>
-<ol start="6">
-<li>回归测试及缺陷跟踪</li>
-</ol>
-<p>(1) 回归测试指的就是当我们将某个缺陷提交给开发之后，由它们进行修复，修复完成之后需要测试认员再次对其进行测试【回归测试】</p>
-<p>(2) 缺陷跟踪：指的就是当测试人员发现某个缺陷之后需要一直对其进行状态的跟踪。</p>
-<ol start="7">
-<li>输出测试报告</li>
-</ol>
-<p>将当前的测试过程中产生的数据进行可视化的输出。方便其它人去查看。</p>
-<ol start="8">
-<li>测试结束</li>
-</ol>
-<p>当将整个测试过程中产生的一些文档进行整理归档，方便后续版本使用。</p>
-<h2 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h2><p>所谓的软件架构我们可以理解为是用来指导我们软件开发的一种思想。目前来说最常见的二种架构模式就是 B/S  C/S</p>
-<p>B—browser 浏览器</p>
-<p>C—clent 客户端</p>
-<p>S—server 服务端</p>
-<p>一、二种架构的比较</p>
-<ol>
-<li><p>标准：相对于 CS 架构来说 BS架构的二端都是在使用现成的成熟产品。所以BS会显示的标准一些。</p>
-</li>
-<li><p>效率：相对于BS架构来说 CS中的客户端可以分担一些数据的处理，因此执行效率会高一些。</p>
-</li>
-<li><p>安全：B S架构当中的数据传输都是以 HTTP协议进行的输出，而 HTTP协议又是明文输出。可以被抓包，所以相对于 CS 架构来说 BS 就显得不那么安全【相对的】</p>
-</li>
-<li><p>升级：BS架构只需要在服务器端将数据进地更新，前台只需要刷新页面就可以完成升级，而CS架构当中必须要将二端都进行更新。</p>
-</li>
-<li><p>开发成本：相对于 BS架构来说 CS当中的客户端需要自已开发，所以相对于来说成本会高一些。</p>
-</li>
-</ol>
-<h2 id="浏览器基本介绍"><a href="#浏览器基本介绍" class="headerlink" title="浏览器基本介绍"></a>浏览器基本介绍</h2><p>一、浏览器是什么</p>
-<p>浏览器本质就是一款软件，安装在操作系统之上。一般给用户提供浏览网页的服务。目前来说我们会人为的将所有浏览器总结出一个所谓的五大生产厂商。【 对于浏览器来说最核心技术就是内核 】</p>
-<p>二、五大浏览器生产厂商</p>
-<ol>
-<li><p>IE( 微软 )—–trident </p>
-</li>
-<li><p>Chrome ( 谷歌 )—-blink</p>
-</li>
-<li><p>Firefox( 火狐 )—–gecko</p>
-</li>
-<li><p>Safari( 苹果 )—–webkit</p>
-</li>
-<li><p>Opera( 欧朋 )—-presto【 现在已经放弃自已东西完全向 chrome 】</p>
-</li>
-</ol>
-<h2 id="常见的图片类型"><a href="#常见的图片类型" class="headerlink" title="常见的图片类型"></a>常见的图片类型</h2><ol>
-<li><p>Jpg(jpeg) :这是一种可以高度保留图片色彩信息的格式。</p>
-</li>
-<li><p>Png：该类型的图片可以实现透明。</p>
-</li>
-<li><p>Gif：图片所占体积小，可以实现动图</p>
-</li>
-<li><p>Psd：它是一种分层的图片。</p>
-</li>
-</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_numbers</span><span class="params">(num)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> num == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 假设 sum_numbers 能够完成 num - 1 的累加</span></span><br><span class="line">    temp = sum_numbers(num - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 函数内部的核心算法就是 两个数字的相加</span></span><br><span class="line">    <span class="keyword">return</span> num + temp</span><br><span class="line"></span><br><span class="line">print(sum_numbers(<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+<p><img src="D:/黑科技软件下载/zw_tets_java-10322540-Python入门教程完整版（懂中文就能学会）资料/tets_java-10322540-Python入门教程完整版（懂中文就能学会）资料/Python入门教程完整版（懂中文就能学会）资料/02 Python 基础资料/课程讲义/day07_markdown/day07/media/14993074876434/002_递归调用示意图.png" alt="002_递归调用示意图"></p>
+<blockquote>
+<p>提示：递归是一个 <strong>编程技巧</strong>，初次接触递归会感觉有些吃力！在处理 <strong>不确定的循环条件时</strong>，格外的有用，例如：<strong>遍历整个文件目录的结构</strong></p>
+</blockquote>
 
       
     </div>
@@ -526,13 +420,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/08/11/软件测试——测试基础02-1/">软件测试——测试基础02-1</a></p>
+        <p><span>本文标题:</span><a href="/2020/02/08/Python-25/">Python-25</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">yuao</a></p>
-        <p><span>发布时间:</span>2019-08-11, 15:39:43</p>
-        <p><span>最后更新:</span>2019-08-11, 16:01:08</p>
+        <p><span>发布时间:</span>2020-02-08, 17:01:24</p>
+        <p><span>最后更新:</span>2020-02-08, 17:02:23</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/08/11/软件测试——测试基础02-1/" title="软件测试——测试基础02-1">http://yoursite.com/2019/08/11/软件测试——测试基础02-1/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/08/11/软件测试——测试基础02-1/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/02/08/Python-25/" title="Python-25">http://yoursite.com/2020/02/08/Python-25/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2020/02/08/Python-25/　　作者: yuao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -545,15 +439,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/08/13/软件测试——测试理论01/">
-                    软件测试——测试理论01
+                <a href="/2020/02/08/Python-26/">
+                    Python-26
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/08/11/软件测试——测试基础01-2/">
-                    软件测试——测试基础01-2
+                <a href="/2020/02/03/Python-24/">
+                    Python-24
                 </a>
             </div>
         
@@ -565,7 +459,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#软件测试基础——软件测试简介"><span class="toc-number">1.</span> <span class="toc-text">软件测试基础——软件测试简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#软件测试行业基本介绍"><span class="toc-number">1.1.</span> <span class="toc-text">软件测试行业基本介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件测试基本介绍"><span class="toc-number">1.2.</span> <span class="toc-text">软件测试基本介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试对象介绍"><span class="toc-number">1.3.</span> <span class="toc-text">测试对象介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试级别"><span class="toc-number">1.4.</span> <span class="toc-text">测试级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#系统测试分类"><span class="toc-number">1.5.</span> <span class="toc-text">系统测试分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见的系统测试方法"><span class="toc-number">1.6.</span> <span class="toc-text">常见的系统测试方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件质量"><span class="toc-number">1.7.</span> <span class="toc-text">软件质量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件测试流程"><span class="toc-number">1.8.</span> <span class="toc-text">软件测试流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件架构"><span class="toc-number">1.9.</span> <span class="toc-text">软件架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器基本介绍"><span class="toc-number">1.10.</span> <span class="toc-text">浏览器基本介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见的图片类型"><span class="toc-number">1.11.</span> <span class="toc-text">常见的图片类型</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#函数的参数进阶"><span class="toc-number">1.</span> <span class="toc-text">函数的参数进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#缺省参数"><span class="toc-number">1.1.</span> <span class="toc-text">缺省参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#指定函数的缺省参数"><span class="toc-number">1.1.1.</span> <span class="toc-text">指定函数的缺省参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺省参数的注意事项"><span class="toc-number">1.1.2.</span> <span class="toc-text">缺省参数的注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-缺省参数的定义位置"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">1) 缺省参数的定义位置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-调用带有多个缺省参数的函数"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">2) 调用带有多个缺省参数的函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多值参数（知道）"><span class="toc-number">1.2.</span> <span class="toc-text">多值参数（知道）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#定义支持多值参数的函数"><span class="toc-number">1.2.1.</span> <span class="toc-text">定义支持多值参数的函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多值参数案例-——-计算任意多个数字的和"><span class="toc-number">1.2.2.</span> <span class="toc-text">多值参数案例 —— 计算任意多个数字的和</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#元组和字典的拆包（知道）"><span class="toc-number">1.2.3.</span> <span class="toc-text">元组和字典的拆包（知道）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数的递归"><span class="toc-number">2.</span> <span class="toc-text">函数的递归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#递归函数的特点"><span class="toc-number">2.1.</span> <span class="toc-text">递归函数的特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#递归案例-——-计算数字累加"><span class="toc-number">2.2.</span> <span class="toc-text">递归案例 —— 计算数字累加</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -601,7 +495,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"软件测试——测试基础02-1　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Python-25　| yuaoblog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -621,7 +515,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/08/13/软件测试——测试理论01/" title="上一篇: 软件测试——测试理论01">
+            <a href="/2020/02/08/Python-26/" title="上一篇: Python-26">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -629,7 +523,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/08/11/软件测试——测试基础01-2/" title="下一篇: 软件测试——测试基础01-2">
+            <a href="/2020/02/03/Python-24/" title="下一篇: Python-24">
                 <i class="fa fa-angle-right"></i>
             </a>
         
